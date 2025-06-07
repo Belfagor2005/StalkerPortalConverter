@@ -363,7 +363,7 @@ class StalkerPortalConverter(Screen):
 		total_lines = len(lines)
 
 		# Pre-compile patterns for better performance
-		portal_pattern = compile(r'portal|panel', IGNORECASE)
+		portal_pattern = compile(r'portal|panel|real|servidor', IGNORECASE)
 		mac_pattern = compile(r'mac', IGNORECASE)
 
 		while index < total_lines:
