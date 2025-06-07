@@ -4,7 +4,7 @@
 
 <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true" width="600"/> 
 
-<img src="[https://github.com/Belfagor2005/ScreenGrabber/blob/main/screen/screen.png](https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/screen.png)?raw=true" width="600"/>
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/screen.png](https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/screen.png)?raw=true" width="600"/>
 ---
 
 This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addresses from a `playlist.txt` file into usable M3U playlists.
