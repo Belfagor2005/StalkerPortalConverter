@@ -4,7 +4,7 @@ StalkerPortalConverter on enigma2
 
 <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true">  
 
-<img src="https://github.com/Belfagor2005/ScreenGrabber/blob/main/screen/screen.png?raw=true"> 
+<img src="[https://github.com/Belfagor2005/ScreenGrabber/blob/main/screen/screen.png?raw=true](https://raw.githubusercontent.com/Belfagor2005/StalkerPortalConverter/refs/heads/main/screen/screen.png)"> 
 
 Sure! Here's a clean, GitHub-friendly **README helper** in English with relevant **icons (emojis)** for better visual clarity:
 
