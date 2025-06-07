@@ -190,9 +190,9 @@ class StalkerPortalConverter(Screen):
 			<widget name="key_yellow" font="Regular;28" position="580,650" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
 			<ePixmap position="810,650" pixmap="skin_default/buttons/blue.png" size="30,30" alphatest="blend" zPosition="2" />
 			<widget name="key_blue" font="Regular;28" position="850,650" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
-			<eLabel name="" position="1067,645" size="52,52" backgroundColor="#00ffff" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="OK" />
-			<eLabel name="" position="1130,645" size="52,52" backgroundColor="#00ffff" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="INFO" />
-			<eLabel name="" position="1200,645" size="52,52" backgroundColor="#00ffff" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="EXIT" />
+			<eLabel name="" position="1067,645" size="52,52" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="OK" />
+			<eLabel name="" position="1130,645" size="52,52" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="INFO" />
+			<eLabel name="" position="1200,645" size="52,52" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="EXIT" />
 		</screen>"""
 
 	def __init__(self, session):
