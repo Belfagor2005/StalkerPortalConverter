@@ -1,16 +1,9 @@
-StalkerPortalConverter on enigma2
+## 📺 Stalker Portal Playlist Converter
   
 ![](https://komarev.com/ghpvc/?username=Belfagor2005)
 
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true">  
-
-<img src="[https://github.com/Belfagor2005/ScreenGrabber/blob/main/screen/screen.png?raw=true](https://raw.githubusercontent.com/Belfagor2005/StalkerPortalConverter/refs/heads/main/screen/screen.png)"> 
-
-Sure! Here's a clean, GitHub-friendly **README helper** in English with relevant **icons (emojis)** for better visual clarity:
-
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true" width="600"/> <img src="https://github.com/Belfagor2005/ScreenGrabber/blob/main/screen/screen.png?raw=true" width="600"/>
 ---
-
-## 📺 Stalker Portal Playlist Converter
 
 This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addresses from a `playlist.txt` file into usable M3U playlists.
 
