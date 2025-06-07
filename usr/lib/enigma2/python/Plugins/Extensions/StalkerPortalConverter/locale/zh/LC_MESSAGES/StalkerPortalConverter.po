@@ -1,0 +1,443 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: StalkerPortalConverter\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-07 01:32+0200\n"
+"PO-Revision-Date: 2025-06-07 01:32+0200\n"
+"Last-Translator: 沙鸥_lexlong2007 <lexlong2007@gmail.com>\n"
+"Language-Team: Persian Professionals <persianpros@yahoo.com>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-SearchPath-0: plugin.py\n"
+
+#: plugin.py:203
+msgid "Stalker Portal to M3U Converter"
+msgstr ""
+
+#: plugin.py:204
+msgid "Portal URL:"
+msgstr ""
+
+#: plugin.py:206
+msgid "MAC Address:"
+msgstr ""
+
+#: plugin.py:208
+msgid "Output File:"
+msgstr ""
+
+#: plugin.py:210
+msgid "Valid Portals from Selected File:"
+msgstr ""
+
+#: plugin.py:212
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr ""
+
+#: plugin.py:213
+msgid "Clear"
+msgstr ""
+
+#: plugin.py:214
+msgid "Convert"
+msgstr ""
+
+#: plugin.py:215
+msgid "Select File"
+msgstr ""
+
+#: plugin.py:216
+msgid "Edit"
+msgstr ""
+
+#: plugin.py:266
+msgid "Edit Portal URL"
+msgstr ""
+
+#: plugin.py:267
+msgid "Edit MAC Address"
+msgstr ""
+
+#: plugin.py:268
+msgid "Change Output Directory"
+msgstr ""
+
+#: plugin.py:269
+#, fuzzy
+#| msgid "Image format"
+msgid "Information"
+msgstr "图像格式"
+
+#: plugin.py:286
+msgid "Enter Portal URL (e.g., http://example.com/c/ or http://example.com:8088/c/)"
+msgstr ""
+
+#: plugin.py:299
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr ""
+
+#: plugin.py:315
+#, fuzzy
+#| msgid "Delete failed: "
+msgid "Selected: "
+msgstr "删除失败:"
+
+#: plugin.py:345
+msgid "Loaded {} valid portals from {}"
+msgstr ""
+
+#: plugin.py:347
+msgid "No valid portals found in file"
+msgstr ""
+
+#: plugin.py:350 plugin.py:709
+msgid "Error: "
+msgstr ""
+
+#: plugin.py:372
+msgid "Scanning file... {}%"
+msgstr ""
+
+#: plugin.py:431
+msgid "Error accessing configuration values"
+msgstr ""
+
+#: plugin.py:432
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr ""
+
+#: plugin.py:438
+msgid "Please enter portal URL and MAC address"
+msgstr ""
+
+#: plugin.py:442
+msgid "Error: Invalid portal URL"
+msgstr ""
+
+#: plugin.py:443
+msgid "Invalid portal URL format"
+msgstr ""
+
+#: plugin.py:447
+msgid "Error: Invalid MAC address"
+msgstr ""
+
+#: plugin.py:448
+msgid "Invalid MAC address format"
+msgstr ""
+
+#: plugin.py:457
+msgid "Cannot create directory: "
+msgstr ""
+
+#: plugin.py:463
+msgid "Starting conversion process..."
+msgstr ""
+
+#: plugin.py:471
+msgid "Not enough free space in output directory!"
+msgstr ""
+
+#: plugin.py:477
+msgid "Step 1/3: Connecting to portal..."
+msgstr ""
+
+#: plugin.py:481
+msgid "Failed to retrieve channel list"
+msgstr ""
+
+#: plugin.py:484
+msgid "Could not retrieve channel list from portal. Check URL and MAC."
+msgstr ""
+
+#: plugin.py:490
+#, fuzzy
+#| msgid "Error loading gallery: "
+msgid "Creating playlist file..."
+msgstr "加载图库时出错："
+
+#: plugin.py:508
+msgid "M3U created with {} channels"
+msgstr ""
+
+#: plugin.py:511
+msgid ""
+"M3U playlist successfully created with {} channels:\n"
+"{}"
+msgstr ""
+
+#: plugin.py:515
+#, fuzzy
+#| msgid "Error loading gallery: "
+msgid "Error creating playlist: "
+msgstr "加载图库时出错："
+
+#: plugin.py:520
+#, fuzzy
+#| msgid "Unknown error:"
+msgid "Conversion error: "
+msgstr "Errore Sconosciuto:"
+
+#: plugin.py:561
+msgid "Step 1/3: Handshake..."
+msgstr ""
+
+#: plugin.py:566
+msgid "Token not found!"
+msgstr ""
+
+#: plugin.py:571
+msgid "Step 2/3: Authentication..."
+msgstr ""
+
+#: plugin.py:577
+msgid "Step 3/3: Getting channels..."
+msgstr ""
+
+#: plugin.py:585
+msgid "No channels found in response"
+msgstr ""
+
+#: plugin.py:589
+msgid "Preparing {} channels..."
+msgstr ""
+
+#: plugin.py:685
+msgid "Processed {}/{} channels ({:.1f}/s)"
+msgstr ""
+
+#: plugin.py:703
+msgid "Processed {} of {} channels in {:.1f}s ({:.1f}/s)"
+msgstr ""
+
+#: plugin.py:722
+msgid "Using fallback channel mode"
+msgstr ""
+
+#: plugin.py:785
+msgid "Processed {}/{} channels"
+msgstr ""
+
+#: plugin.py:829
+#, fuzzy
+#| msgid "Error loading gallery: "
+msgid "Error accessing directory: "
+msgstr "加载图库时出错："
+
+#: plugin.py:833
+msgid "No files or directories found in: "
+msgstr ""
+
+#: plugin.py:839
+#, fuzzy
+#| msgid "Delete failed: "
+msgid "Select in: {}"
+msgstr "删除失败:"
+
+#: plugin.py:856
+msgid "Loaded playlist: "
+msgstr ""
+
+#: plugin.py:859
+msgid "File not found: "
+msgstr ""
+
+#: plugin.py:891
+msgid "Fields cleared"
+msgstr ""
+
+#: plugin.py:901
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Error during capture:\n"
+#~ msgid "Error during channel retrieval: "
+#~ msgstr "解压缩固件时出错:\n"
+
+#, fuzzy
+#~| msgid "Error during capture:\n"
+#~ msgid "Error retrieving channels: "
+#~ msgstr "解压缩固件时出错:\n"
+
+#~ msgid "Hard Disk"
+#~ msgstr "硬盘"
+
+#~ msgid "USB Drive"
+#~ msgstr "U盘"
+
+#~ msgid "Network mount"
+#~ msgstr "网络挂载"
+
+#~ msgid "Temporary"
+#~ msgstr "临时"
+
+#~ msgid "Default Resolution"
+#~ msgstr "默认分辨率"
+
+#~ msgid "JPEG 100%"
+#~ msgstr "JPEG 100%"
+
+#~ msgid "JPEG 90%"
+#~ msgstr "JPEG 90%"
+
+#~ msgid "JPEG 80%"
+#~ msgstr "JPEG 80%"
+
+#~ msgid "JPEG 60%"
+#~ msgstr "JPEG 60%"
+
+#~ msgid "PNG"
+#~ msgstr "PNG"
+
+#~ msgid "BMP"
+#~ msgstr "BMP"
+
+#~ msgid "OSD Only"
+#~ msgstr "仅OSD菜单"
+
+#~ msgid "Video Only"
+#~ msgstr "仅视频"
+
+#~ msgid "OSD + Video"
+#~ msgstr "OSD +视频"
+
+#~ msgid "no message"
+#~ msgstr "无消息"
+
+#~ msgid "no timeout"
+#~ msgstr "未超时"
+
+#~ msgid "Screenshot saved successfully!"
+#~ msgstr "屏幕截图已成功保存！"
+
+#~ msgid "Press OK to save - EXIT to cancel"
+#~ msgstr "按“确定”保存-按“退出”取消"
+
+#~ msgid "Are you sure you want to delete this screenshot?"
+#~ msgstr "确定要删除这个?"
+
+#~ msgid "Settings"
+#~ msgstr "设置"
+
+#~ msgid "Enable plugin"
+#~ msgstr "启用插件"
+
+#~ msgid "Resolution"
+#~ msgstr "分辨率"
+
+#~ msgid "Fix aspect ratio (adds -n to force no stretching)"
+#~ msgstr "修复纵横比（添加-n以强制不拉伸）"
+
+#~ msgid "Always output 4:3 image (adds letterbox if source is 16:9)"
+#~ msgstr "始终输出4: 3图像（如果来源为16: 9 ，则添加信箱）"
+
+#~ msgid "Use bicubic resize (slower, but smoother image)"
+#~ msgstr "使用双立方调整大小（较慢，但更平滑的图像）"
+
+#~ msgid "Freeze frame preview"
+#~ msgstr "冻结帧预览"
+
+#~ msgid "Always save screenshots"
+#~ msgstr "始终保存屏幕截图"
+
+#~ msgid "Save path (requires restart)"
+#~ msgstr "保存路径（需要重新启动）"
+
+#~ msgid "Select screenshot button"
+#~ msgstr "选择屏幕截图按钮"
+
+#~ msgid "Unknown"
+#~ msgstr "未知"
+
+#~ msgid "Long press required for"
+#~ msgstr "需要长时间按压"
+
+#~ msgid " long ' can be used."
+#~ msgstr " long ' 可以使用"
+
+#~ msgid "Press type for "
+#~ msgstr "按类型为"
+
+#~ msgid " ' button instead of ' "
+#~ msgstr "'按钮而不是'"
+
+#~ msgid " long:"
+#~ msgstr "长按:"
+
+#~ msgid "Message timeout (seconds)"
+#~ msgstr "消息超时（秒）"
+
+#~ msgid "Advanced Screenshot"
+#~ msgstr "高级屏幕截图"
+
+#~ msgid "Professional screenshot tool"
+#~ msgstr "专业屏幕截图工具"
+
+#~ msgid "Advanced Screenshot Gallery"
+#~ msgstr "高级截图库"
+
+#~ msgid "View captured screenshots"
+#~ msgstr "查看截取的屏幕截图"
+
+#~ msgid "Button behavior warning"
+#~ msgstr "Avviso sul comportamento del pulsante"
+
+#~ msgid "Delete"
+#~ msgstr "Elimina"
+
+#~ msgid "Preview"
+#~ msgstr "Anteprima"
+
+#~ msgid "Capture Method"
+#~ msgstr "Modalità di cattura"
+
+#~ msgid "Save path"
+#~ msgstr "Salva percorso"
+
+#~ msgid "JPEG quality"
+#~ msgstr "Qualità JPEG"
+
+#~ msgid "Capture mode"
+#~ msgstr "Modalità di cattura"
+
+#~ msgid "Hotkey button"
+#~ msgstr "Pulsante di scelta rapida"
+
+#~ msgid "Press type (short press action for {} button)"
+#~ msgstr "Tipo di pressione (pressione breve per il pulsante {})"
+
+#~ msgid "Capture Delay"
+#~ msgstr "Delay per la cattura"
+
+#~ msgid "Acquisition error"
+#~ msgstr "Errore di acquisizione"
+
+#~ msgid "Timeout: The command took too long"
+#~ msgstr "Timeout: il comando ha impiegato troppo tempo"
+
+#~ msgid "Missing component: grab not installed"
+#~ msgstr "Componente mancante: grab non installato"
+
+#~ msgid "Insufficient permissions to save screenshot"
+#~ msgstr "Autorizzazioni insufficienti per salvare lo screenshot"
+
+#~ msgid "Always save"
+#~ msgstr "Salva sempre"
+
+#~ msgid "Picture Size"
+#~ msgstr "Formato immagine(larghezza)"
+
+#~ msgid "Special button"
+#~ msgstr "Pulsante speciale"
+
+#~ msgid "Button mode"
+#~ msgstr "Modalità pulsante"
+
+#~ msgid "Grabbing Screenshot failed !!!"
+#~ msgstr "Screenshot fallito !!!"

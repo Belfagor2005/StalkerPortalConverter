@@ -1,0 +1,8 @@
+Package: enigma2-plugin-extensions-stalkerportalconverter
+Version: 1.0
+Section: misc
+Priority: optional
+Architecture: all
+Maintainer: lululla
+Description: StalkerPortal Converter to m3u files
+Source: enigma2-plugin-extensions-stalkerportalconverter

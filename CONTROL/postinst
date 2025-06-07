@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "****************************************"
+echo "*  Enjoy our plugin                    *"
+echo "****************************************"
+echo " Remember Restarting Enigma2 to load..."
+exit 0
