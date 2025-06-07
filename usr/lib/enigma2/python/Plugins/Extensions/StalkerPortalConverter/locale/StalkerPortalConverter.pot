@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 01:27+0200\n"
+"POT-Creation-Date: 2025-06-07 13:30+0200\n"
 "PO-Revision-Date: 2024-08-31 20:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
@@ -16,228 +16,229 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
-#: plugin.py:203
-msgid "Stalker Portal to M3U Converter"
+#: plugin.py:206
+#, python-format
+msgid "Stalker Portal to M3U Converter v.%s"
 msgstr ""
 
-#: plugin.py:204
+#: plugin.py:207
 msgid "Portal URL:"
 msgstr ""
 
-#: plugin.py:206
+#: plugin.py:209
 msgid "MAC Address:"
 msgstr ""
 
-#: plugin.py:208
+#: plugin.py:211
 msgid "Output File:"
 msgstr ""
 
-#: plugin.py:210
+#: plugin.py:213
 msgid "Valid Portals from Selected File:"
 msgstr ""
 
-#: plugin.py:212
+#: plugin.py:215
 msgid "Ready - Select a file or enter URL/MAC"
 msgstr ""
 
-#: plugin.py:213
+#: plugin.py:216
 msgid "Clear"
 msgstr ""
 
-#: plugin.py:214
+#: plugin.py:217
 msgid "Convert"
 msgstr ""
 
-#: plugin.py:215
+#: plugin.py:218
 msgid "Select File"
 msgstr ""
 
-#: plugin.py:216
+#: plugin.py:219
 msgid "Edit"
 msgstr ""
 
-#: plugin.py:266
+#: plugin.py:271
 msgid "Edit Portal URL"
 msgstr ""
 
-#: plugin.py:267
+#: plugin.py:272
 msgid "Edit MAC Address"
 msgstr ""
 
-#: plugin.py:268
+#: plugin.py:273
 msgid "Change Output Directory"
 msgstr ""
 
-#: plugin.py:269
+#: plugin.py:274
 msgid "Information"
 msgstr ""
 
-#: plugin.py:286
+#: plugin.py:291
 msgid "Enter Portal URL (e.g., http://example.com/c/ or http://example.com:8088/c/)"
 msgstr ""
 
-#: plugin.py:299
+#: plugin.py:304
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
 msgstr ""
 
-#: plugin.py:315
+#: plugin.py:320
 msgid "Selected: "
 msgstr ""
 
-#: plugin.py:345
+#: plugin.py:350
 msgid "Loaded {} valid portals from {}"
 msgstr ""
 
-#: plugin.py:347
+#: plugin.py:352
 msgid "No valid portals found in file"
 msgstr ""
 
-#: plugin.py:350 plugin.py:709
+#: plugin.py:355 plugin.py:714
 msgid "Error: "
 msgstr ""
 
-#: plugin.py:372
+#: plugin.py:377
 msgid "Scanning file... {}%"
 msgstr ""
 
-#: plugin.py:431
+#: plugin.py:436
 msgid "Error accessing configuration values"
 msgstr ""
 
-#: plugin.py:432
+#: plugin.py:437
 msgid "Failed to read portal or MAC configuration:\n"
 msgstr ""
 
-#: plugin.py:438
+#: plugin.py:443
 msgid "Please enter portal URL and MAC address"
 msgstr ""
 
-#: plugin.py:442
+#: plugin.py:447
 msgid "Error: Invalid portal URL"
 msgstr ""
 
-#: plugin.py:443
+#: plugin.py:448
 msgid "Invalid portal URL format"
 msgstr ""
 
-#: plugin.py:447
+#: plugin.py:452
 msgid "Error: Invalid MAC address"
 msgstr ""
 
-#: plugin.py:448
+#: plugin.py:453
 msgid "Invalid MAC address format"
 msgstr ""
 
-#: plugin.py:457
+#: plugin.py:462
 msgid "Cannot create directory: "
 msgstr ""
 
-#: plugin.py:463
+#: plugin.py:468
 msgid "Starting conversion process..."
 msgstr ""
 
-#: plugin.py:471
+#: plugin.py:476
 msgid "Not enough free space in output directory!"
 msgstr ""
 
-#: plugin.py:477
+#: plugin.py:482
 msgid "Step 1/3: Connecting to portal..."
 msgstr ""
 
-#: plugin.py:481
+#: plugin.py:486
 msgid "Failed to retrieve channel list"
 msgstr ""
 
-#: plugin.py:484
+#: plugin.py:489
 msgid "Could not retrieve channel list from portal. Check URL and MAC."
 msgstr ""
 
-#: plugin.py:490
+#: plugin.py:495
 msgid "Creating playlist file..."
 msgstr ""
 
-#: plugin.py:508
+#: plugin.py:513
 msgid "M3U created with {} channels"
 msgstr ""
 
-#: plugin.py:511
+#: plugin.py:516
 msgid ""
 "M3U playlist successfully created with {} channels:\n"
 "{}"
 msgstr ""
 
-#: plugin.py:515
+#: plugin.py:520
 msgid "Error creating playlist: "
 msgstr ""
 
-#: plugin.py:520
+#: plugin.py:525
 msgid "Conversion error: "
 msgstr ""
 
-#: plugin.py:561
+#: plugin.py:566
 msgid "Step 1/3: Handshake..."
 msgstr ""
 
-#: plugin.py:566
+#: plugin.py:571
 msgid "Token not found!"
 msgstr ""
 
-#: plugin.py:571
+#: plugin.py:576
 msgid "Step 2/3: Authentication..."
 msgstr ""
 
-#: plugin.py:577
+#: plugin.py:582
 msgid "Step 3/3: Getting channels..."
 msgstr ""
 
-#: plugin.py:585
+#: plugin.py:590
 msgid "No channels found in response"
 msgstr ""
 
-#: plugin.py:589
+#: plugin.py:594
 msgid "Preparing {} channels..."
 msgstr ""
 
-#: plugin.py:685
+#: plugin.py:690
 msgid "Processed {}/{} channels ({:.1f}/s)"
 msgstr ""
 
-#: plugin.py:703
+#: plugin.py:708
 msgid "Processed {} of {} channels in {:.1f}s ({:.1f}/s)"
 msgstr ""
 
-#: plugin.py:722
+#: plugin.py:727
 msgid "Using fallback channel mode"
 msgstr ""
 
-#: plugin.py:785
+#: plugin.py:790
 msgid "Processed {}/{} channels"
 msgstr ""
 
-#: plugin.py:829
+#: plugin.py:834
 msgid "Error accessing directory: "
 msgstr ""
 
-#: plugin.py:833
+#: plugin.py:838
 msgid "No files or directories found in: "
 msgstr ""
 
-#: plugin.py:839
+#: plugin.py:844
 msgid "Select in: {}"
 msgstr ""
 
-#: plugin.py:856
+#: plugin.py:861
 msgid "Loaded playlist: "
 msgstr ""
 
-#: plugin.py:859
+#: plugin.py:864
 msgid "File not found: "
 msgstr ""
 
-#: plugin.py:891
+#: plugin.py:896
 msgid "Fields cleared"
 msgstr ""
 
-#: plugin.py:901
+#: plugin.py:906
 msgid "Convert Stalker Portal to M3U playlist with actual channels"
 msgstr ""

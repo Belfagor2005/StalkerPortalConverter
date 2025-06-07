@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 01:27+0200\n"
-"PO-Revision-Date: 2025-06-07 01:31+0200\n"
+"POT-Creation-Date: 2025-06-07 13:30+0200\n"
+"PO-Revision-Date: 2025-06-07 13:30+0200\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: it\n"
@@ -16,190 +16,157 @@ msgstr ""
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ⁨plugin - Copia (2).py⁩:195 ⁨plugin - Copia.py⁩:195 ⁨plugin OK.py⁩:220
-#: plugin.py:203
-msgid "Stalker Portal to M3U Converter"
+#: plugin.py:206
+#, python-format
+msgid "Stalker Portal to M3U Converter v.%s"
 msgstr ""
 
-#: ⁨plugin - Copia (2).py⁩:196 ⁨plugin - Copia.py⁩:196 ⁨plugin OK.py⁩:221
-#: plugin.py:204
+#: plugin.py:207
 msgid "Portal URL:"
 msgstr "URL del portale:"
 
-#: ⁨plugin - Copia (2).py⁩:198 ⁨plugin - Copia.py⁩:198 ⁨plugin OK.py⁩:223
-#: plugin.py:206
+#: plugin.py:209
 msgid "MAC Address:"
 msgstr "Indirizzo MAC:"
 
-#: ⁨plugin - Copia (2).py⁩:200 ⁨plugin - Copia.py⁩:200 ⁨plugin OK.py⁩:225
-#: plugin.py:208
+#: plugin.py:211
 msgid "Output File:"
 msgstr "File di output:"
 
-#: ⁨plugin - Copia (2).py⁩:202 ⁨plugin - Copia.py⁩:202 ⁨plugin OK.py⁩:227
-#: plugin.py:210
+#: plugin.py:213
 msgid "Valid Portals from Selected File:"
 msgstr "Portali validi dal file selezionato:"
 
-#: ⁨plugin - Copia (2).py⁩:204 ⁨plugin - Copia.py⁩:204 ⁨plugin OK.py⁩:229
-#: plugin.py:212
+#: plugin.py:215
 msgid "Ready - Select a file or enter URL/MAC"
 msgstr "Pronto - Seleziona un file o inserisci URL/MAC"
 
-#: ⁨plugin - Copia (2).py⁩:211 ⁨plugin - Copia.py⁩:211 ⁨plugin OK.py⁩:236
-#: plugin.py:213
+#: plugin.py:216
 msgid "Clear"
 msgstr "Pulire"
 
-#: ⁨plugin - Copia (2).py⁩:212 ⁨plugin - Copia.py⁩:212 ⁨plugin OK.py⁩:237
-#: plugin.py:214
+#: plugin.py:217
 msgid "Convert"
 msgstr "Converti"
 
-#: ⁨plugin - Copia (2).py⁩:213 ⁨plugin - Copia.py⁩:213 ⁨plugin OK.py⁩:238
-#: plugin.py:215
+#: plugin.py:218
 msgid "Select File"
 msgstr "Seleziona file"
 
-#: ⁨plugin - Copia (2).py⁩:214 ⁨plugin - Copia.py⁩:214 ⁨plugin OK.py⁩:239
-#: plugin.py:216
+#: plugin.py:219
 msgid "Edit"
 msgstr "Modifica"
 
-#: ⁨plugin - Copia (2).py⁩:287 ⁨plugin - Copia.py⁩:287 ⁨plugin OK.py⁩:303
-#: plugin.py:266
+#: plugin.py:271
 msgid "Edit Portal URL"
 msgstr "Modifica URL del portale"
 
-#: ⁨plugin - Copia (2).py⁩:288 ⁨plugin - Copia.py⁩:288 ⁨plugin OK.py⁩:304
-#: plugin.py:267
+#: plugin.py:272
 msgid "Edit MAC Address"
 msgstr "Modifica Indirizzo MAC"
 
-#: ⁨plugin - Copia (2).py⁩:289 ⁨plugin - Copia.py⁩:289 ⁨plugin OK.py⁩:305
-#: plugin.py:268
+#: plugin.py:273
 msgid "Change Output Directory"
 msgstr "Cambia directory di output"
 
-#: ⁨plugin - Copia (2).py⁩:290 ⁨plugin - Copia.py⁩:290 ⁨plugin OK.py⁩:306
-#: plugin.py:269
+#: plugin.py:274
 msgid "Information"
 msgstr "Informazioni"
 
-#: ⁨plugin - Copia (2).py⁩:307 ⁨plugin - Copia.py⁩:307 ⁨plugin OK.py⁩:323
-#: plugin.py:286
+#: plugin.py:291
 msgid ""
 "Enter Portal URL (e.g., http://example.com/c/ or http://example.com:8088/c/)"
 msgstr ""
 "Inserisci l'URL del portale (ad esempio, http://example.com/c/ o http://"
 "example.com:8088/c/)"
 
-#: ⁨plugin - Copia (2).py⁩:320 ⁨plugin - Copia.py⁩:320 ⁨plugin OK.py⁩:336
-#: plugin.py:299
+#: plugin.py:304
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
 msgstr "Inserisci l'indirizzo MAC (ad esempio, 00:1A:79:XX:XX:XX)"
 
-#: ⁨plugin - Copia (2).py⁩:336 ⁨plugin - Copia.py⁩:336 ⁨plugin OK.py⁩:352
-#: plugin.py:315
+#: plugin.py:320
 msgid "Selected: "
 msgstr "Seleziona: "
 
-#: ⁨plugin - Copia (2).py⁩:366 ⁨plugin - Copia.py⁩:366 ⁨plugin OK.py⁩:382
-#: plugin.py:345
+#: plugin.py:350
 msgid "Loaded {} valid portals from {}"
 msgstr "Caricati {} portali validi da {}"
 
-#: ⁨plugin - Copia (2).py⁩:368 ⁨plugin - Copia.py⁩:368 ⁨plugin OK.py⁩:384
-#: plugin.py:347
+#: plugin.py:352
 msgid "No valid portals found in file"
 msgstr "Nessun portale valido trovato nel file"
 
-#: ⁨plugin - Copia (2).py⁩:371 ⁨plugin - Copia.py⁩:371 ⁨plugin OK.py⁩:387
-#: ⁨plugin OK.py⁩:746 plugin.py:350 plugin.py:709
+#: plugin.py:355 plugin.py:714
 msgid "Error: "
 msgstr "Errore: "
 
-#: ⁨plugin - Copia (2).py⁩:393 ⁨plugin - Copia.py⁩:393 ⁨plugin OK.py⁩:409
-#: plugin.py:372
+#: plugin.py:377
 msgid "Scanning file... {}%"
 msgstr "Scansione del file... {}%"
 
-#: ⁨plugin - Copia (2).py⁩:452 ⁨plugin - Copia.py⁩:453 ⁨plugin OK.py⁩:468
-#: plugin.py:431
+#: plugin.py:436
 msgid "Error accessing configuration values"
 msgstr "Errore durante l'accesso ai valori di configurazione"
 
-#: ⁨plugin - Copia (2).py⁩:453 ⁨plugin - Copia.py⁩:454 ⁨plugin OK.py⁩:469
-#: plugin.py:432
+#: plugin.py:437
 msgid "Failed to read portal or MAC configuration:\n"
 msgstr "Impossibile leggere il portale o la configurazione MAC:\n"
 
-#: ⁨plugin - Copia (2).py⁩:459 ⁨plugin - Copia.py⁩:460 ⁨plugin OK.py⁩:475
-#: plugin.py:438
+#: plugin.py:443
 msgid "Please enter portal URL and MAC address"
 msgstr "Inserisci l'URL del portale e l'indirizzo MAC"
 
-#: ⁨plugin - Copia (2).py⁩:463 ⁨plugin - Copia.py⁩:464 ⁨plugin OK.py⁩:479
-#: plugin.py:442
+#: plugin.py:447
 msgid "Error: Invalid portal URL"
 msgstr "Errore: URL del portale non valido"
 
-#: ⁨plugin - Copia (2).py⁩:464 ⁨plugin - Copia.py⁩:465 ⁨plugin OK.py⁩:480
-#: plugin.py:443
+#: plugin.py:448
 msgid "Invalid portal URL format"
 msgstr "Formato URL del portale non valido"
 
-#: ⁨plugin - Copia (2).py⁩:468 ⁨plugin - Copia.py⁩:469 ⁨plugin OK.py⁩:484
-#: plugin.py:447
+#: plugin.py:452
 msgid "Error: Invalid MAC address"
 msgstr "Errore: indirizzo MAC non valido"
 
-#: ⁨plugin - Copia (2).py⁩:469 ⁨plugin - Copia.py⁩:470 ⁨plugin OK.py⁩:485
-#: plugin.py:448
+#: plugin.py:453
 msgid "Invalid MAC address format"
 msgstr "Formato indirizzo MAC non valido"
 
-#: ⁨plugin - Copia (2).py⁩:478 ⁨plugin - Copia.py⁩:479 ⁨plugin OK.py⁩:494
-#: plugin.py:457
+#: plugin.py:462
 msgid "Cannot create directory: "
 msgstr "Impossibile creare la directory: "
 
-#: ⁨plugin - Copia (2).py⁩:484 ⁨plugin OK.py⁩:500 plugin.py:463
+#: plugin.py:468
 msgid "Starting conversion process..."
 msgstr "Avvio del processo di conversione..."
 
-#: ⁨plugin - Copia (2).py⁩:492 ⁨plugin - Copia.py⁩:534 ⁨plugin OK.py⁩:508
-#: plugin.py:471
+#: plugin.py:476
 msgid "Not enough free space in output directory!"
 msgstr "Spazio libero insufficiente nella directory di output!"
 
-#: ⁨plugin - Copia (2).py⁩:498 ⁨plugin OK.py⁩:514 plugin.py:477
+#: plugin.py:482
 msgid "Step 1/3: Connecting to portal..."
 msgstr "Fase 1/3: Connessione al portale..."
 
-#: ⁨plugin - Copia (2).py⁩:502 ⁨plugin - Copia.py⁩:496 ⁨plugin OK.py⁩:518
-#: plugin.py:481
+#: plugin.py:486
 msgid "Failed to retrieve channel list"
 msgstr "Impossibile recuperare l'elenco dei canali"
 
-#: ⁨plugin - Copia (2).py⁩:505 ⁨plugin - Copia.py⁩:499 ⁨plugin OK.py⁩:521
-#: plugin.py:484
+#: plugin.py:489
 msgid "Could not retrieve channel list from portal. Check URL and MAC."
 msgstr ""
 "Impossibile recuperare l'elenco dei canali dal portale. Controllare URL e "
 "MAC."
 
-#: ⁨plugin - Copia (2).py⁩:511 ⁨plugin OK.py⁩:527 plugin.py:490
+#: plugin.py:495
 msgid "Creating playlist file..."
 msgstr "Creazione del file della playlist..."
 
-#: ⁨plugin - Copia (2).py⁩:529 ⁨plugin - Copia.py⁩:522 ⁨plugin OK.py⁩:545
-#: plugin.py:508
+#: plugin.py:513
 msgid "M3U created with {} channels"
 msgstr "M3U creato con {} canali"
 
-#: ⁨plugin - Copia (2).py⁩:532 ⁨plugin - Copia.py⁩:525 ⁨plugin OK.py⁩:548
-#: plugin.py:511
+#: plugin.py:516
 msgid ""
 "M3U playlist successfully created with {} channels:\n"
 "{}"
@@ -207,138 +174,117 @@ msgstr ""
 "Playlist M3U creata correttamente con {} canali:\n"
 "{}"
 
-#: ⁨plugin - Copia (2).py⁩:536 ⁨plugin - Copia.py⁩:529 ⁨plugin OK.py⁩:552
-#: plugin.py:515
+#: plugin.py:520
 msgid "Error creating playlist: "
 msgstr "Errore durante la creazione della playlist: "
 
-#: ⁨plugin - Copia (2).py⁩:541 ⁨plugin OK.py⁩:557 plugin.py:520
+#: plugin.py:525
 msgid "Conversion error: "
 msgstr "Errore di conversione: "
 
-#: ⁨plugin - Copia (2).py⁩:580 ⁨plugin - Copia.py⁩:561
-msgid "Step 1/3: Handshake - Requesting token..."
-msgstr "Fase 1/3: Handshake - Richiesta token..."
-
-#: ⁨plugin - Copia (2).py⁩:596 ⁨plugin - Copia.py⁩:577
-msgid "Token not found in handshake response!"
-msgstr "Token non trovato nella risposta di handshake!"
-
-#: ⁨plugin - Copia (2).py⁩:604 ⁨plugin - Copia.py⁩:585 ⁨plugin OK.py⁩:608
-#: plugin.py:571
-msgid "Step 2/3: Authentication..."
-msgstr "Fase 2/3: Autenticazione..."
-
-#: ⁨plugin - Copia (2).py⁩:618 ⁨plugin - Copia.py⁩:599
-msgid "Step 3/3: Retrieving channel list..."
-msgstr "Fase 3/3: Recupero dell'elenco dei canali..."
-
-#: ⁨plugin - Copia (2).py⁩:631 ⁨plugin - Copia.py⁩:612 ⁨plugin OK.py⁩:622
-#: plugin.py:585
-msgid "No channels found in response"
-msgstr "Nessun canale trovato in risposta"
-
-#: ⁨plugin - Copia (2).py⁩:634 ⁨plugin - Copia.py⁩:615
-msgid "Processing {} channels..."
-msgstr "Elaborazione: %s canali..."
-
-#: ⁨plugin - Copia (2).py⁩:697 ⁨plugin - Copia.py⁩:678 ⁨plugin OK.py⁩:822
-#: plugin.py:785
-msgid "Processed {}/{} channels"
-msgstr "Canali {}/{} elaborati"
-
-#: ⁨plugin - Copia (2).py⁩:703 ⁨plugin - Copia.py⁩:684
-msgid "Successfully processed {}/{} channels"
-msgstr "Canali {}/{} elaborati con successo"
-
-#: ⁨plugin - Copia (2).py⁩:708 ⁨plugin - Copia.py⁩:689
-msgid "Error retrieving channels: "
-msgstr "Errore durante il recupero dei canali: "
-
-#: ⁨plugin - Copia (2).py⁩:740 ⁨plugin - Copia.py⁩:721 ⁨plugin OK.py⁩:953
-#: plugin.py:829
-msgid "Error accessing directory: "
-msgstr "Errore durante l'accesso alla directory: "
-
-#: ⁨plugin - Copia (2).py⁩:744 ⁨plugin - Copia.py⁩:725 ⁨plugin OK.py⁩:957
-msgid "No playlist files found in: "
-msgstr "Nessun file di playlist trovato in: "
-
-#: ⁨plugin - Copia (2).py⁩:750 ⁨plugin - Copia.py⁩:731 ⁨plugin OK.py⁩:963
-msgid "Select playlist file in: {}"
-msgstr "Seleziona il file della playlist in: {}"
-
-#: ⁨plugin - Copia (2).py⁩:765 ⁨plugin - Copia.py⁩:746 ⁨plugin OK.py⁩:977
-#: plugin.py:856
-msgid "Loaded playlist: "
-msgstr "Playlist caricata: "
-
-#: ⁨plugin - Copia (2).py⁩:767 ⁨plugin - Copia.py⁩:748 ⁨plugin OK.py⁩:979
-#: plugin.py:859
-msgid "File not found: "
-msgstr "File non trovato: "
-
-#: ⁨plugin - Copia (2).py⁩:799 ⁨plugin - Copia.py⁩:780 ⁨plugin OK.py⁩:1011
-#: plugin.py:891
-msgid "Fields cleared"
-msgstr "Campi cancellati"
-
-#: ⁨plugin - Copia (2).py⁩:809 ⁨plugin - Copia.py⁩:790 ⁨plugin OK.py⁩:1021
-#: plugin.py:901
-msgid "Convert Stalker Portal to M3U playlist with actual channels"
-msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
-
-#: ⁨plugin - Copia.py⁩:459
-msgid "Error: Portal and MAC are required"
-msgstr "Errore: sono richiesti il ​​portale e il MAC"
-
-#: ⁨plugin - Copia.py⁩:485
-msgid "Connecting to portal..."
-msgstr "Connessione al portale..."
-
-#: ⁨plugin - Copia.py⁩:491
-msgid "Error during channel retrieval: "
-msgstr "Errore durante il recupero del canale: "
-
-#: ⁨plugin - Copia.py⁩:492
-msgid "Failed to retrieve channel list:\n"
-msgstr "Impossibile recuperare l'elenco dei canali:\n"
-
-#: ⁨plugin OK.py⁩:598 plugin.py:561
+#: plugin.py:566
 msgid "Step 1/3: Handshake..."
 msgstr "Fase 1/3: Handshake..."
 
-#: ⁨plugin OK.py⁩:603 plugin.py:566
+#: plugin.py:571
 msgid "Token not found!"
 msgstr "Token non trovato!"
 
-#: ⁨plugin OK.py⁩:614 plugin.py:577
+#: plugin.py:576
+msgid "Step 2/3: Authentication..."
+msgstr "Fase 2/3: Autenticazione..."
+
+#: plugin.py:582
 msgid "Step 3/3: Getting channels..."
 msgstr "Fase 3/3: Recupero dell'elenco dei canali…"
 
-#: ⁨plugin OK.py⁩:626 plugin.py:589
+#: plugin.py:590
+msgid "No channels found in response"
+msgstr "Nessun canale trovato in risposta"
+
+#: plugin.py:594
 msgid "Preparing {} channels..."
 msgstr "Elaborazione %s canali..."
 
-#: ⁨plugin OK.py⁩:722 plugin.py:685
+#: plugin.py:690
 msgid "Processed {}/{} channels ({:.1f}/s)"
 msgstr "Canali elaborati {}/{} ({:.1f}/s)"
 
-#: ⁨plugin OK.py⁩:740 plugin.py:703
+#: plugin.py:708
 msgid "Processed {} of {} channels in {:.1f}s ({:.1f}/s)"
 msgstr "Processo {} di {} canali in {:.1f}x ({:.1f}/s)"
 
-#: ⁨plugin OK.py⁩:759 plugin.py:722
+#: plugin.py:727
 msgid "Using fallback channel mode"
 msgstr "Utilizzo della modalità canale di fallback"
 
-#: plugin.py:833
+#: plugin.py:790
+msgid "Processed {}/{} channels"
+msgstr "Canali {}/{} elaborati"
+
+#: plugin.py:834
+msgid "Error accessing directory: "
+msgstr "Errore durante l'accesso alla directory: "
+
+#: plugin.py:838
 msgid "No files or directories found in: "
 msgstr "Nessun file di playlist trovato in: "
 
-#: plugin.py:839
+#: plugin.py:844
 msgid "Select in: {}"
 msgstr "Seleziona in: {}"
+
+#: plugin.py:861
+msgid "Loaded playlist: "
+msgstr "Playlist caricata: "
+
+#: plugin.py:864
+msgid "File not found: "
+msgstr "File non trovato: "
+
+#: plugin.py:896
+msgid "Fields cleared"
+msgstr "Campi cancellati"
+
+#: plugin.py:906
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
+
+#~ msgid "Step 1/3: Handshake - Requesting token..."
+#~ msgstr "Fase 1/3: Handshake - Richiesta token..."
+
+#~ msgid "Token not found in handshake response!"
+#~ msgstr "Token non trovato nella risposta di handshake!"
+
+#~ msgid "Step 3/3: Retrieving channel list..."
+#~ msgstr "Fase 3/3: Recupero dell'elenco dei canali..."
+
+#~ msgid "Processing {} channels..."
+#~ msgstr "Elaborazione: %s canali..."
+
+#~ msgid "Successfully processed {}/{} channels"
+#~ msgstr "Canali {}/{} elaborati con successo"
+
+#~ msgid "Error retrieving channels: "
+#~ msgstr "Errore durante il recupero dei canali: "
+
+#~ msgid "No playlist files found in: "
+#~ msgstr "Nessun file di playlist trovato in: "
+
+#~ msgid "Select playlist file in: {}"
+#~ msgstr "Seleziona il file della playlist in: {}"
+
+#~ msgid "Error: Portal and MAC are required"
+#~ msgstr "Errore: sono richiesti il ​​portale e il MAC"
+
+#~ msgid "Connecting to portal..."
+#~ msgstr "Connessione al portale..."
+
+#~ msgid "Error during channel retrieval: "
+#~ msgstr "Errore durante il recupero del canale: "
+
+#~ msgid "Failed to retrieve channel list:\n"
+#~ msgstr "Impossibile recuperare l'elenco dei canali:\n"
 
 #~ msgid "Downloading channel list..."
 #~ msgstr "Scaricamento dell'elenco dei canali..."
