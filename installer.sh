@@ -98,9 +98,9 @@ else
    echo ""
 fi
 
-if [ $OSTYPE != "DreamOs" ]; then
-	opkg update && opkg --force-reinstall --force-overwrite install ffmpeg gstplayer exteplayer3 enigma2-plugin-systemplugins-serviceapp python3-youtube-dl
-fi
+# if [ $OSTYPE != "DreamOs" ]; then
+	# opkg update && opkg --force-reinstall --force-overwrite install ffmpeg gstplayer exteplayer3 enigma2-plugin-systemplugins-serviceapp python3-youtube-dl
+# fi
 sleep 2
 
 wget --no-check-certificate 'https://github.com/Belfagor2005/StalkerPortalConverter/archive/refs/heads/main.tar.gz'
