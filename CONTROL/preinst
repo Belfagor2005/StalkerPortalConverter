@@ -5,7 +5,5 @@ if [ -d /usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter ]
     rm -rf /usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter > /dev/null 2>&1
 echo "An older version was found and removed"
 echo "Proceeding to installation..."
-else
-echo "Proceeding to installation..."
 fi
 exit 0
