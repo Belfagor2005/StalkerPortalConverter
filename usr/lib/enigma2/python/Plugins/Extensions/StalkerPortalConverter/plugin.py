@@ -24,8 +24,16 @@ __author__ = "Lululla"
 import queue
 import threading
 import time
-from os import listdir, makedirs, statvfs
-from os.path import basename, dirname, exists, isdir, isfile, join
+from os import listdir, makedirs, statvfs, remove
+from os.path import (
+	basename,
+	dirname,
+	exists,
+	isdir,
+	isfile,
+	join,
+	getsize
+)
 from re import IGNORECASE, compile, search
 from urllib.parse import urlencode, urlparse
 
@@ -41,15 +49,15 @@ from Components.config import config, ConfigDirectory, ConfigSubsection, ConfigT
 from Plugins.Plugin import PluginDescriptor
 
 from Screens.ChoiceBox import ChoiceBox
-from Screens.InputBox import InputBox
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
+from Screens.VirtualKeyBoard import VirtualKeyBoard
 
 from Tools.Directories import defaultRecordingLocation
 
 from . import _
 
-currversion = '1.0'
+currversion = '1.1'
 
 """Use mode:
 playlist.txt with case sensitive
@@ -233,6 +241,7 @@ class StalkerPortalConverter(Screen):
 				"down": self.keyDown,
 				"left": self.keyLeft,
 				"right": self.keyRight,
+				# "showVK": self.edit_settings,
 			}, -1
 		)
 
@@ -271,39 +280,42 @@ class StalkerPortalConverter(Screen):
 			(_("Edit Portal URL"), self.edit_portal),
 			(_("Edit MAC Address"), self.edit_mac),
 			(_("Change Output Directory"), self.select_output_dir),
+			(_("Delete Playlist File"), self.delete_playlist),
 			(_("Information"), self.show_info)
 		]
 		self.session.openWithCallback(self.menu_callback, MenuDialog, menu)
 
-	def menu_callback(self, result):
-		if result:
-			result[1]()
-
 	def edit_portal(self):
 		def portal_callback(portal):
-			if portal:
+			if portal:  # Controlla se il testo non è vuoto
 				config.plugins.stalkerportal.portal_url.value = portal
 				self["portal_input"].setText(portal)
 				self["file_input"].setText(self.get_output_filename())
+
 		self.session.openWithCallback(
 			portal_callback,
-			InputBox,
-			title=_("Enter Portal URL (e.g., http://example.com/c/ or http://example.com:8088/c/)"),
+			VirtualKeyBoard,
+			title=_("Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"),
 			text=config.plugins.stalkerportal.portal_url.value
 		)
 
 	def edit_mac(self):
 		def mac_callback(mac):
-			if mac:
+			if mac:  # Controlla se il testo non è vuoto
 				config.plugins.stalkerportal.mac_address.value = mac
 				self["mac_input"].setText(mac)
 				self["file_input"].setText(self.get_output_filename())
+
 		self.session.openWithCallback(
 			mac_callback,
-			InputBox,
+			VirtualKeyBoard,
 			title=_("Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"),
 			text=config.plugins.stalkerportal.mac_address.value
 		)
+
+	def menu_callback(self, result):
+		if result:
+			result[1]()
 
 	def select_portal(self):
 		"""Select a portal from the list"""
@@ -809,26 +821,26 @@ class StalkerPortalConverter(Screen):
 			if not exists(path):
 				path = defaultMoviePath()
 
-		# Normalize path format
 		path = path.rstrip('/') or '/'
 
-		# Add parent directory entry
 		files = []
 		parent_dir = dirname(path)
 		if parent_dir and parent_dir != path:  # Prevent root loop
 			files.append(("[DIR] ..", parent_dir))
 
-		# List all directories and playlist files
 		try:
-			for f in sorted(listdir(path)):
-				full_path = join(path, f)
+			dir_contents = sorted(listdir(path))
 
-				if isdir(full_path):
-					# Add directory entry
-					files.append(("[DIR] " + f, full_path))
-				elif isfile(full_path) and f.lower().endswith(('.txt', '.list')):
-					# Add playlist file
-					files.append((f, full_path))
+			dirs = [f for f in dir_contents if isdir(join(path, f))]
+			file_list = [f for f in dir_contents if isfile(join(path, f)) and f.lower().endswith(('.txt', '.list'))]
+
+			for d in sorted(dirs):
+				full_path = join(path, d)
+				files.append(("[DIR] " + d, full_path))
+
+			for f in sorted(file_list):
+				full_path = join(path, f)
+				files.append((f, full_path))
 
 		except Exception as e:
 			self["status"].setText(_("Error accessing directory: ") + str(e))
@@ -837,6 +849,8 @@ class StalkerPortalConverter(Screen):
 		if not files:
 			self["status"].setText(_("No files or directories found in: ") + path)
 			return
+
+		files.insert(0, (_("<< Back to main menu"), None))
 
 		self.session.openWithCallback(
 			self.file_selected,
@@ -850,11 +864,12 @@ class StalkerPortalConverter(Screen):
 		if not choice:
 			return
 
-		# Directory selected (marked with [DIR])
+		if choice[1] is None:
+			return
+
 		if choice[0].startswith("[DIR]"):
 			self.browse_directory(choice[1])
 
-		# Playlist file selected
 		elif exists(choice[1]):
 			self.playlist_file = choice[1]
 			self.load_playlist(choice[1])
@@ -862,6 +877,106 @@ class StalkerPortalConverter(Screen):
 
 		else:
 			self["status"].setText(_("File not found: ") + choice[1])
+
+	def delete_playlist(self, path=None):
+		"""Browse files and directories to select for deletion"""
+		if path is None:
+			path = config.plugins.stalkerportal.output_dir.value
+			if not exists(path):
+				path = defaultMoviePath()
+
+		path = path.rstrip('/') or '/'
+
+		files = []
+		parent_dir = dirname(path)
+		if parent_dir and parent_dir != path:  # Prevent root loop
+			files.append(("[DIR] ..", parent_dir))
+
+		try:
+			dir_contents = sorted(listdir(path))
+
+			dirs = [f for f in dir_contents if isdir(join(path, f))]
+			file_list = [f for f in dir_contents if isfile(join(path, f)) and f.lower().endswith(('.m3u', '.txt', '.list'))]
+
+			for d in sorted(dirs):
+				full_path = join(path, d)
+				files.append(("[DIR] " + d, full_path))
+
+			for f in sorted(file_list):
+				full_path = join(path, f)
+				try:
+					size = self.format_size(getsize(full_path))
+					files.append((f"{f} ({size})", full_path))
+				except Exception as e:
+					print(f"Error processing file {f}: {e}")
+					files.append((f, full_path))
+
+		except Exception as e:
+			self["status"].setText(_("Error accessing directory: ") + str(e))
+			return
+
+		if not files:
+			self["status"].setText(_("No files or directories found in: ") + path)
+			return
+
+		files.insert(0, (_("<< Back to main menu"), None))
+
+		self.session.openWithCallback(
+			self.playlist_selected_for_deletion,
+			ChoiceBox,
+			title=_("Select file to delete in: {}").format(path),
+			list=files
+		)
+
+	def playlist_selected_for_deletion(self, choice):
+		"""Handle file selection for deletion"""
+		if not choice:
+			return
+
+		if choice[1] is None:
+			return
+
+		if choice[0].startswith("[DIR]"):
+			self.delete_playlist(choice[1])
+			return
+
+		file_path = choice[1]
+		filename = basename(file_path)
+
+		message = _("Are you sure you want to delete:\n{}?").format(filename)
+		self.session.openWithCallback(
+			lambda result: self.confirm_delete(result, file_path),
+			MessageBox,
+			message,
+			MessageBox.TYPE_YESNO
+		)
+
+	def confirm_delete(self, result, file_path):
+		"""Actually delete the file if confirmed"""
+		if result:
+			try:
+				current_dir = dirname(file_path)
+
+				remove(file_path)
+				self["status"].setText(_("Deleted: ") + basename(file_path))
+
+				if hasattr(self, 'playlist_file') and self.playlist_file == file_path:
+					self.playlist_file = None
+					self["file_input"].setText("")
+
+				self.delete_playlist(current_dir)
+
+			except Exception as e:
+				self["status"].setText(_("Delete failed: ") + str(e))
+				self.delete_playlist(dirname(file_path))
+
+	def format_size(self, size_bytes):
+		"""Convert file size to human-readable format"""
+		for unit in ['B', 'KB', 'MB', 'GB']:
+			if size_bytes < 1024.0:
+				return f"{size_bytes:.1f} {unit}"
+			size_bytes /= 1024.0
+		return f"{size_bytes:.1f} GB"
 
 	def keyUp(self):
 		self["file_list"].up()
