@@ -29,16 +29,19 @@ This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addr
 | ℹ️ Info      | Show help and usage instructions            |
 ---
 
-### ⚙️ Settings Menu
-Use the Settings menu to configure the following options:
+## ⚙️ Settings Menu
 
-Option	Description
-🖥️ Edit Portal URL	Change the portal URL
-🖥️ Edit MAC Address	Modify the MAC address
-📁 Change Output Directory	Select a custom output directory
-🗑️ Delete Playlist File	Remove the existing playlist file
-ℹ️ Information	Show help and usage instructions
+Use the **Settings** menu to configure the following options:
 
+| Option                         | Description                       |
+| ------------------------------ | --------------------------------- |
+| 🖥️ **Edit Portal URL**        | Change the portal URL             |
+| 🖥️ **Edit MAC Address**       | Modify the MAC address            |
+| 📁 **Change Output Directory** | Select a custom output directory  |
+| 🗑️ **Delete Playlist File**   | Remove the existing playlist file |
+| ℹ️ **Information**             | Show help and usage instructions  |
+
+---
 
 ### 📄 Input Format (`playlist.txt`)
 
@@ -88,7 +91,9 @@ http://server2.com/c/ # Uses same MAC as server1
 * Standard `.m3u` files for each portal
 * Grouped and channelized for easy use
 
-📝 License
+---
+
+### 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
