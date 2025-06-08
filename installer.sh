@@ -2,8 +2,8 @@
 ## setup command=wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/StalkerPortalConverter/main/installer.sh -O - | /bin/sh
 
 ## Only This 2 lines to edit with new version ######
-version='1.2'
-changelog='\nSet Config - locale add'
+version='1.1'
+changelog='\nAdd Del Playlist\nAdd VirtualKeyboard'
 ##############################################################
 TMPPATH=/tmp/StalkerPortalConverter-main
 FILEPATH=/tmp/main.tar.gz
