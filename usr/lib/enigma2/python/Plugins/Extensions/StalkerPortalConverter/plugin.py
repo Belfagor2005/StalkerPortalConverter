@@ -24,7 +24,15 @@ __author__ = "Lululla"
 import queue
 import threading
 import time
-from os import listdir, makedirs, statvfs, remove
+from os import (
+	listdir,
+	makedirs,
+	statvfs,
+	remove,
+	access,
+	W_OK,
+	chmod
+)
 from os.path import (
 	basename,
 	dirname,
@@ -32,10 +40,12 @@ from os.path import (
 	isdir,
 	isfile,
 	join,
-	getsize
+	getsize,
+
 )
 from re import IGNORECASE, compile, search
 from urllib.parse import urlencode, urlparse
+from enigma import eTimer
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -53,11 +63,11 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 
-from Tools.Directories import defaultRecordingLocation
+from Tools.Directories import resolveFilename, SCOPE_MEDIA, defaultRecordingLocation
 
 from . import _
 
-currversion = '1.1'
+currversion = '1.2'
 
 """Use mode:
 playlist.txt with case sensitive
@@ -244,10 +254,17 @@ class StalkerPortalConverter(Screen):
 				# "showVK": self.edit_settings,
 			}, -1
 		)
+		self.update_path_timer = eTimer()
+		self.update_path_timer.callback.append(self.update_mounts)
+		self.update_path_timer.start(1000, True)
 
 	def get_output_filename(self):
+		"""Restituisce il percorso completo del file"""
+		base_dir = config.plugins.stalkerportal.output_dir.value
 		mac = config.plugins.stalkerportal.mac_address.value.replace(":", "_")
-		return f"{config.plugins.stalkerportal.output_dir.value}stalker_{mac}.m3u"
+		if not base_dir.endswith('/'):
+			base_dir += '/'
+		return f"{base_dir}stalker_{mac}.m3u"
 
 	def validate_and_add_entry(self, portal, mac):
 		"""Validate and add entry to the list if valid"""
@@ -286,8 +303,9 @@ class StalkerPortalConverter(Screen):
 		self.session.openWithCallback(self.menu_callback, MenuDialog, menu)
 
 	def edit_portal(self):
+
 		def portal_callback(portal):
-			if portal:  # Controlla se il testo non è vuoto
+			if portal:
 				config.plugins.stalkerportal.portal_url.value = portal
 				self["portal_input"].setText(portal)
 				self["file_input"].setText(self.get_output_filename())
@@ -300,8 +318,9 @@ class StalkerPortalConverter(Screen):
 		)
 
 	def edit_mac(self):
+
 		def mac_callback(mac):
-			if mac:  # Controlla se il testo non è vuoto
+			if mac:
 				config.plugins.stalkerportal.mac_address.value = mac
 				self["mac_input"].setText(mac)
 				self["file_input"].setText(self.get_output_filename())
@@ -342,7 +361,7 @@ class StalkerPortalConverter(Screen):
 
 			index = 0
 			while index < len(lines):
-				# Ottieni TUTTI i portal/MAC dal file
+				self["status"].setText(_("Get ALL portal/MAC from file"))
 				portals_macs, index = self.parse_playlist_entry(lines, index)
 
 				for portal, mac in portals_macs:
@@ -355,8 +374,8 @@ class StalkerPortalConverter(Screen):
 			display_list = [entry[0] for entry in self.portal_list]
 			self["file_list"].setList(display_list)
 
-			print("PORTAL LIST:", self.portal_list)
-			print("DISPLAY LIST:", display_list)
+			# print("PORTAL LIST:", self.portal_list)
+			# print("DISPLAY LIST:", display_list)
 
 			if valid_count > 0:
 				self["status"].setText(_("Loaded {} valid portals from {}").format(valid_count, basename(file_path)))
@@ -436,56 +455,56 @@ class StalkerPortalConverter(Screen):
 
 	def convert(self):
 		"""Convert to M3U file with actual channel list"""
-		if has_enough_free_space(config.plugins.stalkerportal.output_dir.value):
+		output_path = config.plugins.stalkerportal.output_dir.value
+		if not has_enough_free_space(output_path, min_bytes_required=100 * 1024 * 1024):
+			self["status"].setText(_("Not enough space on {}!").format(output_path))
+			return
+		try:
+			portal = config.plugins.stalkerportal.portal_url.value.strip()
+			mac = config.plugins.stalkerportal.mac_address.value.strip()
+			output_file = self.get_output_filename()
+			print("Portal URL:", portal)
+			print("MAC address:", mac)
+			print("Output file:", output_file)
+		except Exception as e:
+			self["status"].setText(_("Error accessing configuration values"))
+			self.session.open(MessageBox, _("Failed to read portal or MAC configuration:\n") + str(e), MessageBox.TYPE_ERROR)
+			return
+
+		# Validate inputs
+		if not portal or not mac:
+			self["status"].setText("Error: Portal and MAC are required")
+			self.session.open(MessageBox, _("Please enter portal URL and MAC address"), MessageBox.TYPE_ERROR)
+			return
+
+		if not self.validate_portal_url(portal):
+			self["status"].setText(_("Error: Invalid portal URL"))
+			self.session.open(MessageBox, _("Invalid portal URL format"), MessageBox.TYPE_ERROR)
+			return
+
+		if not self.validate_mac_address(mac):
+			self["status"].setText(_("Error: Invalid MAC address"))
+			self.session.open(MessageBox, _("Invalid MAC address format"), MessageBox.TYPE_ERROR)
+			return
+
+		# Create output directory
+		output_dir = dirname(output_file)
+		if not exists(output_dir):
 			try:
-				portal = config.plugins.stalkerportal.portal_url.value.strip()
-				mac = config.plugins.stalkerportal.mac_address.value.strip()
-				output_file = self.get_output_filename()
-				print("Portal URL:", portal)
-				print("MAC address:", mac)
-				print("Output file:", output_file)
+				makedirs(output_dir)
 			except Exception as e:
-				self["status"].setText(_("Error accessing configuration values"))
-				self.session.open(MessageBox, _("Failed to read portal or MAC configuration:\n") + str(e), MessageBox.TYPE_ERROR)
+				error = _("Cannot create directory: ") + str(e)
+				self["status"].setText(error)
+				self.session.open(MessageBox, error, MessageBox.TYPE_ERROR)
 				return
 
-			# Validate inputs
-			if not portal or not mac:
-				self["status"].setText("Error: Portal and MAC are required")
-				self.session.open(MessageBox, _("Please enter portal URL and MAC address"), MessageBox.TYPE_ERROR)
-				return
+		# Show initial status
+		self["status"].setText(_("Starting conversion process..."))
 
-			if not self.validate_portal_url(portal):
-				self["status"].setText(_("Error: Invalid portal URL"))
-				self.session.open(MessageBox, _("Invalid portal URL format"), MessageBox.TYPE_ERROR)
-				return
-
-			if not self.validate_mac_address(mac):
-				self["status"].setText(_("Error: Invalid MAC address"))
-				self.session.open(MessageBox, _("Invalid MAC address format"), MessageBox.TYPE_ERROR)
-				return
-
-			# Create output directory
-			output_dir = dirname(output_file)
-			if not exists(output_dir):
-				try:
-					makedirs(output_dir)
-				except Exception as e:
-					error = _("Cannot create directory: ") + str(e)
-					self["status"].setText(error)
-					self.session.open(MessageBox, error, MessageBox.TYPE_ERROR)
-					return
-
-			# Show initial status
-			self["status"].setText(_("Starting conversion process..."))
-
-			# Run in a background thread to avoid blocking the GUI
-			from threading import Thread
-			self.worker_thread = Thread(target=self.convert_thread, args=(portal, mac, output_file))
-			self.worker_thread.start()
-
-		else:
-			self["status"].setText(_("Not enough free space in output directory!"))
+		# Run in a background thread to avoid blocking the GUI
+		from threading import Thread
+		self.worker_thread = Thread(target=self.convert_thread, args=(portal, mac, output_file))
+		self.worker_thread.start()
 
 	def convert_thread(self, portal, mac, output_file):
 		"""Background thread for conversion process"""
@@ -621,6 +640,7 @@ class StalkerPortalConverter(Screen):
 				work_queue.put(channel)
 
 			# Worker function for parallel processing
+
 			def channel_worker():
 				"""Worker thread for processing channels"""
 				thread_session = requests.Session()
@@ -634,44 +654,70 @@ class StalkerPortalConverter(Screen):
 					except queue.Empty:
 						break
 
-					try:
-						cmd = channel.get("cmd", "").strip()
-						channel_id = channel.get("id", "")
-
-						# Build API URL
-						channel_params = {"type": "itv", "action": "create_link", "cmd": cmd}
-						channel_params.update(create_link_params)
-						api_url = f"{portal.rstrip('/')}/portal.php?{urlencode(channel_params)}"
-
-						# Get stream URL
+					for channel in channels_data:
 						try:
-							response = thread_session.get(api_url, headers=headers, timeout=5)
-							json_data = response.json()
-							stream_url = json_data.get("js", {}).get("cmd", "")
+							cmd = channel.get("cmd", "").strip()
+							channel_id = channel.get("id", "")
 
-							if stream_url.startswith('ffmpeg '):
-								stream_url = stream_url[7:]
+							# Extract the actual channel name from the group-title attribute
+							group_title = channel.get("group_name", "") or channel.get("category_name", "")
+							channel_name = channel.get("name", "")
 
-							if "localhost" in stream_url:
-								parsed_portal = urlparse(portal)
-								domain = parsed_portal.netloc
-								stream_url = stream_url.replace("localhost", domain)
-						except Exception:
-							stream_url = api_url
+							# If the name contains a comma, use the part after the comma as the display name
+							if ',' in channel_name:
+								display_name = channel_name.split(',', 1)[1].strip()
+							else:
+								display_name = channel_name
 
-						# Add result to queue
-						result_queue.put({
-							"id": str(channel_id),
-							"name": str(channel.get("name", "")),
-							"number": int(channel.get("number")) if isinstance(channel.get("number"), int) or (isinstance(channel.get("number"), str) and channel.get("number", "").isdigit()) else 0,
-							"group": str(channel.get("group_name", "")),
-							"logo": str(channel.get("logo", "")),
-							"url": stream_url
-						})
-					except Exception as e:
-						print(f"Worker error: {e}")
-					finally:
-						work_queue.task_done()
+							# cmd = channel.get("cmd", "").strip()
+							# channel_id = channel.get("id", "")
+
+							# Build API URL
+							channel_params = {"type": "itv", "action": "create_link", "cmd": cmd}
+							channel_params.update(create_link_params)
+							api_url = f"{portal.rstrip('/')}/portal.php?{urlencode(channel_params)}"
+
+							# Get stream URL
+							try:
+								response = thread_session.get(api_url, headers=headers, timeout=5)
+								json_data = response.json()
+								stream_url = json_data.get("js", {}).get("cmd", "")
+
+								if stream_url.startswith('ffmpeg '):
+									stream_url = stream_url[7:]
+
+								if "localhost" in stream_url:
+									parsed_portal = urlparse(portal)
+									domain = parsed_portal.netloc
+									stream_url = stream_url.replace("localhost", domain)
+							except Exception:
+								stream_url = api_url
+							"""
+							# # In channel_worker function inside get_channel_list:
+							# result_queue.put({
+								# "id": str(channel_id),
+								# "name": unquote(str(channel.get("name", ""))),  # Decode URL encoding
+								# "number": int(channel.get("number")) if isinstance(channel.get("number"), int) or (isinstance(channel.get("number"), str) and channel.get("number", "").isdigit()) else 0,
+								# "group": str(channel.get("group_name", "")),
+								# "logo": unquote(str(channel.get("logo", ""))),
+								# "url": stream_url
+							# })
+							"""
+
+							# Add result to queue
+							result_queue.put({
+								"id": str(channel_id),
+								"name": display_name,  # Use the display name after comma
+								"number": int(channel.get("number")) if channel.get("number") else 0,
+								"group": group_title,  # Use group_title for category
+								"logo": str(channel.get("logo", "")),
+								"url": stream_url
+							})
+
+						except Exception as e:
+							print(f"Worker error: {e}")
+						finally:
+							work_queue.task_done()
 
 			# Start worker threads
 			num_workers = min(10, total_channels)  # Max 10 workers
@@ -707,14 +753,11 @@ class StalkerPortalConverter(Screen):
 						break
 					continue
 
-			# Wait for any remaining tasks
 			work_queue.join()
 
-			# Collect any remaining results
 			while not result_queue.empty():
 				self.channels.append(result_queue.get_nowait())
 
-			# Final status
 			elapsed = time.time() - start_time
 			speed = len(self.channels) / elapsed if elapsed > 0 else 0
 			self.update_status(_("Processed {} of {} channels in {:.1f}s ({:.1f}/s)").format(
@@ -745,7 +788,6 @@ class StalkerPortalConverter(Screen):
 		total_channels = len(channels_data)
 		processed = 0
 
-		# Try to detect URL pattern from first channel
 		first_channel = channels_data[0] if channels_data else None
 		base_url = None
 
@@ -778,13 +820,10 @@ class StalkerPortalConverter(Screen):
 				name = channel.get("name", "")
 
 				if base_url:
-					# Use detected pattern
 					stream_url = f"{base_url}?mac={mac}&token={token}&stream={channel_id}"
 				else:
-					# Fallback to API URL
 					stream_url = f"{portal}/portal.php?type=itv&action=create_link&cmd={cmd}&mac={mac}&token={token}&JsHttpRequest=1-xml"
 
-				# Clean URL
 				if stream_url.startswith('ffmpeg '):
 					stream_url = stream_url[7:]
 
@@ -808,56 +847,82 @@ class StalkerPortalConverter(Screen):
 		return True
 
 	def select_output_dir(self):
-		"""Select playlist file"""
-		start_path = config.plugins.stalkerportal.output_dir.value
-		if not exists(start_path):
-			start_path = defaultMoviePath()
-		self.browse_directory(start_path)
+		"""Select output directory with multiboot support"""
+		devices = self.get_mounted_devices()
+		if not devices:
+			self["status"].setText(_("No writable devices found!"))
+			return
+
+		choices = []
+		for path, desc in devices:
+			try:
+				# Calcola spazio libero
+				stat = statvfs(path)
+				free_gb = (stat.f_bavail * stat.f_frsize) / (1024**3)
+				choices.append((f"{desc} ({free_gb:.1f} GB free)", path))
+			except:
+				choices.append((desc, path))
+
+		choices.append((_("<< Cancel"), None))
+		self.session.openWithCallback(
+			self.device_selected,
+			ChoiceBox,
+			title=_("Select storage device"),
+			list=choices
+		)
+
+	def device_selected(self, choice):
+		"""Device selection management"""
+		if choice and choice[1]:
+			config.plugins.stalkerportal.output_dir.value = choice[1]
+			self["file_input"].setText(self.get_output_filename())
+			self["status"].setText(_("Selected device: ") + choice[0])
+			self.browse_directory(choice[1])
 
 	def browse_directory(self, path=None):
 		"""Browse files and directories in selected directory"""
 		if path is None:
 			path = config.plugins.stalkerportal.output_dir.value
-			if not exists(path):
-				path = defaultMoviePath()
 
-		path = path.rstrip('/') or '/'
+		if not exists(path):
+			try:
+				makedirs(path, exist_ok=True)
+			except:
+				path = "/tmp"
 
 		files = []
 		parent_dir = dirname(path)
-		if parent_dir and parent_dir != path:  # Prevent root loop
+		if parent_dir and parent_dir != path and exists(parent_dir):
 			files.append(("[DIR] ..", parent_dir))
 
 		try:
-			dir_contents = sorted(listdir(path))
-
-			dirs = [f for f in dir_contents if isdir(join(path, f))]
-			file_list = [f for f in dir_contents if isfile(join(path, f)) and f.lower().endswith(('.txt', '.list'))]
-
-			for d in sorted(dirs):
-				full_path = join(path, d)
-				files.append(("[DIR] " + d, full_path))
-
-			for f in sorted(file_list):
-				full_path = join(path, f)
-				files.append((f, full_path))
+			for item in sorted(listdir(path)):
+				full_path = join(path, item)
+				if isdir(full_path):
+					files.append((f"[DIR] {item}", full_path))
+				elif item.lower().endswith(('.txt', '.list', '.m3u')):
+					# Mostra dimensione per i file
+					try:
+						size = getsize(full_path)
+						human_size = self.format_size(size)
+						files.append((f"{item} ({human_size})", full_path))
+					except:
+						files.append((item, full_path))
 
 		except Exception as e:
 			self["status"].setText(_("Error accessing directory: ") + str(e))
 			return
 
-		if not files:
+		if files:
+			files.insert(0, (_("<< Back to main menu"), None))
+			self.session.openWithCallback(
+				self.file_selected,
+				ChoiceBox,
+				title=_("Select in: {}").format(path),
+				list=files
+			)
+		else:
 			self["status"].setText(_("No files or directories found in: ") + path)
-			return
-
-		files.insert(0, (_("<< Back to main menu"), None))
-
-		self.session.openWithCallback(
-			self.file_selected,
-			ChoiceBox,
-			title=_("Select in: {}").format(path),
-			list=files
-		)
 
 	def file_selected(self, choice):
 		"""Handle directory or file selection"""
@@ -874,6 +939,8 @@ class StalkerPortalConverter(Screen):
 			self.playlist_file = choice[1]
 			self.load_playlist(choice[1])
 			self["status"].setText(_("Loaded playlist: ") + basename(choice[1]))
+			config.plugins.stalkerportal.output_dir.value = dirname(choice[1])
+			self["file_input"].setText(self.get_output_filename())
 
 		else:
 			self["status"].setText(_("File not found: ") + choice[1])
@@ -885,16 +952,14 @@ class StalkerPortalConverter(Screen):
 			if not exists(path):
 				path = defaultMoviePath()
 
-		path = path.rstrip('/') or '/'
-
 		files = []
+		path = path.rstrip('/') or '/'
 		parent_dir = dirname(path)
 		if parent_dir and parent_dir != path:  # Prevent root loop
 			files.append(("[DIR] ..", parent_dir))
 
 		try:
 			dir_contents = sorted(listdir(path))
-
 			dirs = [f for f in dir_contents if isdir(join(path, f))]
 			file_list = [f for f in dir_contents if isfile(join(path, f)) and f.lower().endswith(('.m3u', '.txt', '.list'))]
 
@@ -977,6 +1042,67 @@ class StalkerPortalConverter(Screen):
 				return f"{size_bytes:.1f} {unit}"
 			size_bytes /= 1024.0
 		return f"{size_bytes:.1f} GB"
+
+	def update_mounts(self):
+		"""Update the list of mounted devices"""
+		mounts = self.get_mounted_devices()
+		if mounts:
+			config.plugins.stalkerportal.output_dir.setValue(mounts[0][0])
+			config.plugins.stalkerportal.output_dir.save()
+		self.update_path()
+
+	def get_mounted_devices(self):
+		"""Recovers mounted devices with write permissions"""
+		from Components.Harddisk import harddiskmanager
+		devices = []
+		default_paths = [
+			(resolveFilename(SCOPE_MEDIA, 'hdd'), _("Hard Disk")),
+			(resolveFilename(SCOPE_MEDIA, 'usb'), _("USB Drive")),
+			("/tmp", _("Temporary Memory"))
+		]
+
+		for path, desc in default_paths:
+			if isdir(path) and access(path, W_OK):
+				devices.append((path, desc))
+		try:
+			for p in harddiskmanager.getMountedPartitions():
+				if p.mountpoint and access(p.mountpoint, W_OK) and p.mountpoint not in [d[0] for d in devices]:
+					devices.append((p.mountpoint, p.description or _("Disk")))
+			net_dir = resolveFilename(SCOPE_MEDIA, 'net')
+			if isdir(net_dir):
+				for d in listdir(net_dir):
+					net_path = join(net_dir, d)
+					if isdir(net_path) and access(net_path, W_OK):
+						devices.append((net_path, _("Network") + f" ({d})"))
+
+		except Exception as e:
+			print(f"Mount error: {str(e)}")
+
+		return sorted(devices, key=lambda x: x[0])
+
+	def update_path(self):
+		"""Update path with special handling for /tmp"""
+		try:
+			base_path = config.plugins.stalkerportal.output_dir.value
+
+			if not base_path or not isdir(base_path):
+				fallbacks = ["/media/hdd", "/media/usb", "/tmp"]
+				base_path = next((p for p in fallbacks if isdir(p)), "/tmp")
+
+			if base_path == "/tmp":
+				self.full_path = base_path
+			else:
+				self.full_path = join(base_path, "movie")
+				if not isdir(self.full_path):
+					makedirs(self.full_path, exist_ok=True)
+					chmod(self.full_path, 0o755)
+
+			if not isdir(self.full_path):
+				self.full_path = "/tmp"
+
+		except Exception as e:
+			self.full_path = "/tmp"
+			print(f"update_path error: {str(e)}")
 
 	def keyUp(self):
 		self["file_list"].up()
