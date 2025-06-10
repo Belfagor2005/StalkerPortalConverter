@@ -5,7 +5,7 @@ from __future__ import absolute_import, print_function
 #########################################################
 #                                                       #
 #  Stalker Portal Converter Plugin                      #
-#  Version: 1.0                                         #
+#  Version: 1.2                                         #
 #  Created by Lululla (https://github.com/Belfagor2005) #
 #  License: CC BY-NC-SA 4.0                             #
 #  https://creativecommons.org/licenses/by-nc-sa/4.0    #
@@ -45,7 +45,7 @@ from os.path import (
 )
 from re import IGNORECASE, compile, search
 from urllib.parse import urlencode, urlparse
-from enigma import eTimer
+# from enigma import eTimer
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -54,7 +54,7 @@ from requests.packages.urllib3.util.retry import Retry
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.MenuList import MenuList
-from Components.config import config, ConfigDirectory, ConfigSubsection, ConfigText
+from Components.config import config, ConfigSelection, ConfigSubsection, ConfigText
 
 from Plugins.Plugin import PluginDescriptor
 
@@ -107,12 +107,57 @@ def defaultMoviePath():
 	return result
 
 
+def get_mounted_devices():
+	"""Recovers mounted devices with write permissions"""
+	from Components.Harddisk import harddiskmanager
+
+	devices = [
+		(resolveFilename(SCOPE_MEDIA, "hdd"), _("Hard Disk")),
+		(resolveFilename(SCOPE_MEDIA, "usb"), _("USB Drive"))
+	]
+
+	devices.append(("/tmp/", _("Temporary Storage")))
+
+	try:
+		devices += [
+			(p.mountpoint, p.description or _("Disk"))
+			for p in harddiskmanager.getMountedPartitions()
+			if p.mountpoint and access(p.mountpoint, W_OK)
+		]
+
+		net_dir = resolveFilename(SCOPE_MEDIA, "net")
+		if isdir(net_dir):
+			devices += [(join(net_dir, d), _("Network")) for d in listdir(net_dir)]
+
+	except Exception as e:
+		print("ERROR Mount error: %s" % str(e))
+
+	unique_devices = {}
+	for p, d in devices:
+		path = p.rstrip("/") + "/"
+		if isdir(path):
+			unique_devices[path] = d
+
+	return list(unique_devices.items())
+
+
+def update_mounts():
+	"""Update the list of mounted devices and update config choices"""
+	mounts = get_mounted_devices()
+	if not mounts:
+		default_path = defaultMoviePath()
+		mounts = [(default_path, default_path)]
+	config.plugins.stalkerportal.output_dir.setChoices(mounts, default=mounts[0][0])
+	config.plugins.stalkerportal.output_dir.save()
+
+
 # Configuration setup
 config.plugins.stalkerportal = ConfigSubsection()
 default_dir = config.movielist.last_videodir.value if isdir(config.movielist.last_videodir.value) else defaultMoviePath()
+config.plugins.stalkerportal.output_dir = ConfigSelection(default=default_dir, choices=[])
 config.plugins.stalkerportal.portal_url = ConfigText(default="http://my.server.xyz:8080/c/", fixed_size=False)
-config.plugins.stalkerportal.mac_address = ConfigText(default="00:00:00:00:00:00 ", fixed_size=False)
-config.plugins.stalkerportal.output_dir = ConfigDirectory(default=default_dir)
+config.plugins.stalkerportal.mac_address = ConfigText(default="00:1A:79:00:00:00", fixed_size=False)
+update_mounts()
 
 
 def fetch_system_timezone():
@@ -232,7 +277,7 @@ class StalkerPortalConverter(Screen):
 		self["file_list"] = MenuList([])
 		self["status"] = Label(_("Ready - Select a file or enter URL/MAC"))
 		self["key_red"] = Label(_("Clear"))
-		self["key_green"] = Label(_("Convert"))
+		self["key_green"] = Label("")
 		self["key_yellow"] = Label(_("Select File"))
 		self["key_blue"] = Label(_("Edit"))
 
@@ -254,12 +299,9 @@ class StalkerPortalConverter(Screen):
 				# "showVK": self.edit_settings,
 			}, -1
 		)
-		self.update_path_timer = eTimer()
-		self.update_path_timer.callback.append(self.update_mounts)
-		self.update_path_timer.start(1000, True)
 
 	def get_output_filename(self):
-		"""Restituisce il percorso completo del file"""
+		"""Returns the full path of the file"""
 		base_dir = config.plugins.stalkerportal.output_dir.value
 		mac = config.plugins.stalkerportal.mac_address.value.replace(":", "_")
 		if not base_dir.endswith('/'):
@@ -541,6 +583,8 @@ class StalkerPortalConverter(Screen):
 						# Actual stream URL
 						f.write("{}\n\n".format(channel['url']))
 
+						self.update_status(_(f"Chanel Name: {channel['name']}"))
+
 				self.update_status(_("M3U created with {} channels").format(len(self.channels)))
 				self.session.open(
 					MessageBox,
@@ -565,7 +609,6 @@ class StalkerPortalConverter(Screen):
 	def _update_status_safe(self, text):
 		"""Update status in main thread"""
 		self["status"].setText(text)
-		print(text)
 
 	def get_channel_list(self, portal, mac):
 		"""Retrieve channel list with parallel processing"""
@@ -848,7 +891,7 @@ class StalkerPortalConverter(Screen):
 
 	def select_output_dir(self):
 		"""Select output directory with multiboot support"""
-		devices = self.get_mounted_devices()
+		devices = get_mounted_devices()
 		if not devices:
 			self["status"].setText(_("No writable devices found!"))
 			return
@@ -938,10 +981,11 @@ class StalkerPortalConverter(Screen):
 		elif exists(choice[1]):
 			self.playlist_file = choice[1]
 			self.load_playlist(choice[1])
-			self["status"].setText(_("Loaded playlist: ") + basename(choice[1]))
+			# self["status"].setText(_("Loaded playlist: ") + basename(choice[1]))
 			config.plugins.stalkerportal.output_dir.value = dirname(choice[1])
 			self["file_input"].setText(self.get_output_filename())
-
+			self["status"].setText(_("Loaded playlist: %s. Are you ready to convert? Press Green to proceed.") % basename(choice[1]))
+			self["key_green"].setText("Convert")
 		else:
 			self["status"].setText(_("File not found: ") + choice[1])
 
@@ -1043,43 +1087,6 @@ class StalkerPortalConverter(Screen):
 			size_bytes /= 1024.0
 		return f"{size_bytes:.1f} GB"
 
-	def update_mounts(self):
-		"""Update the list of mounted devices"""
-		mounts = self.get_mounted_devices()
-		if mounts:
-			config.plugins.stalkerportal.output_dir.setValue(mounts[0][0])
-			config.plugins.stalkerportal.output_dir.save()
-		self.update_path()
-
-	def get_mounted_devices(self):
-		"""Recovers mounted devices with write permissions"""
-		from Components.Harddisk import harddiskmanager
-		devices = []
-		default_paths = [
-			(resolveFilename(SCOPE_MEDIA, 'hdd'), _("Hard Disk")),
-			(resolveFilename(SCOPE_MEDIA, 'usb'), _("USB Drive")),
-			("/tmp", _("Temporary Memory"))
-		]
-
-		for path, desc in default_paths:
-			if isdir(path) and access(path, W_OK):
-				devices.append((path, desc))
-		try:
-			for p in harddiskmanager.getMountedPartitions():
-				if p.mountpoint and access(p.mountpoint, W_OK) and p.mountpoint not in [d[0] for d in devices]:
-					devices.append((p.mountpoint, p.description or _("Disk")))
-			net_dir = resolveFilename(SCOPE_MEDIA, 'net')
-			if isdir(net_dir):
-				for d in listdir(net_dir):
-					net_path = join(net_dir, d)
-					if isdir(net_path) and access(net_path, W_OK):
-						devices.append((net_path, _("Network") + f" ({d})"))
-
-		except Exception as e:
-			print(f"Mount error: {str(e)}")
-
-		return sorted(devices, key=lambda x: x[0])
-
 	def update_path(self):
 		"""Update path with special handling for /tmp"""
 		try:
@@ -1129,8 +1136,8 @@ class StalkerPortalConverter(Screen):
 
 	def clear_fields(self):
 		"""Clear input fields"""
-		config.plugins.stalkerportal.portal_url.value = "http://"
-		config.plugins.stalkerportal.mac_address.value = "00:1A:79:"
+		config.plugins.stalkerportal.portal_url.value = "http://my.server.xyz:8080/c/"
+		config.plugins.stalkerportal.mac_address.value = "00:1A:79:00:00:00"
 		self["portal_input"].setText(config.plugins.stalkerportal.portal_url.value)
 		self["mac_input"].setText(config.plugins.stalkerportal.mac_address.value)
 		self["file_input"].setText(self.get_output_filename())
