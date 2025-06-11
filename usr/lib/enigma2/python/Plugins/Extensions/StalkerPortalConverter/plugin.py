@@ -45,7 +45,7 @@ from os.path import (
 )
 from re import IGNORECASE, compile, search
 from urllib.parse import urlencode, urlparse
-# from enigma import eTimer
+from threading import Thread
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -197,14 +197,6 @@ def get_cpu_count():
 		return 1  # Fallback to single core
 
 
-def test_server_connection(portal):
-	try:
-		response = requests.get(portal, timeout=5)
-		return f"Server status: {response.status_code}"
-	except Exception as e:
-		return f"Connection failed: {str(e)}"
-
-
 class MenuDialog(Screen):
 	skin = """
 	<screen name="MenuDialog" position="center,center" size="600,400" title="Edit Settings">
@@ -266,6 +258,8 @@ class StalkerPortalConverter(Screen):
 		self.playlist_file = ""
 		self.channels = []
 
+		self.account_info_timer = None
+		self.account_info_timeout = 15
 		self["title"] = Label(_("Stalker Portal to M3U Converter v.%s") % currversion)
 		self["portal_label"] = Label(_("Portal URL:"))
 		self["portal_input"] = Label(config.plugins.stalkerportal.portal_url.value)
@@ -278,7 +272,7 @@ class StalkerPortalConverter(Screen):
 		self["status"] = Label(_("Ready - Select a file or enter URL/MAC"))
 		self["key_red"] = Label(_("Clear"))
 		self["key_green"] = Label("")
-		self["key_yellow"] = Label(_("Select File"))
+		self["key_yellow"] = Label(_("Select Playlist"))
 		self["key_blue"] = Label(_("Edit"))
 
 		self["actions"] = ActionMap(
@@ -289,7 +283,7 @@ class StalkerPortalConverter(Screen):
 				"info": self.show_info,
 				"red": self.clear_fields,
 				"green": self.convert,
-				"yellow": self.select_output_dir,
+				"yellow": self.select_playlist_file,
 				"blue": self.edit_settings,
 				"ok": self.select_portal,
 				"up": self.keyUp,
@@ -338,8 +332,9 @@ class StalkerPortalConverter(Screen):
 		menu = [
 			(_("Edit Portal URL"), self.edit_portal),
 			(_("Edit MAC Address"), self.edit_mac),
-			(_("Change Output Directory"), self.select_output_dir),
+			(_("Select Playlist File"), self.select_playlist_file),
 			(_("Delete Playlist File"), self.delete_playlist),
+			(_("Change Output Directory"), self.select_output_dir),
 			(_("Information"), self.show_info)
 		]
 		self.session.openWithCallback(self.menu_callback, MenuDialog, menu)
@@ -544,7 +539,6 @@ class StalkerPortalConverter(Screen):
 		self["status"].setText(_("Starting conversion process..."))
 
 		# Run in a background thread to avoid blocking the GUI
-		from threading import Thread
 		self.worker_thread = Thread(target=self.convert_thread, args=(portal, mac, output_file))
 		self.worker_thread.start()
 
@@ -644,6 +638,7 @@ class StalkerPortalConverter(Screen):
 			if not token_match:
 				self.update_status(_("Token not found!"))
 				return False
+
 			token = token_match.group(1)
 
 			# Step 2: Authentication
@@ -683,7 +678,6 @@ class StalkerPortalConverter(Screen):
 				work_queue.put(channel)
 
 			# Worker function for parallel processing
-
 			def channel_worker():
 				"""Worker thread for processing channels"""
 				thread_session = requests.Session()
@@ -712,9 +706,6 @@ class StalkerPortalConverter(Screen):
 							else:
 								display_name = channel_name
 
-							# cmd = channel.get("cmd", "").strip()
-							# channel_id = channel.get("id", "")
-
 							# Build API URL
 							channel_params = {"type": "itv", "action": "create_link", "cmd": cmd}
 							channel_params.update(create_link_params)
@@ -735,17 +726,6 @@ class StalkerPortalConverter(Screen):
 									stream_url = stream_url.replace("localhost", domain)
 							except Exception:
 								stream_url = api_url
-							"""
-							# # In channel_worker function inside get_channel_list:
-							# result_queue.put({
-								# "id": str(channel_id),
-								# "name": unquote(str(channel.get("name", ""))),  # Decode URL encoding
-								# "number": int(channel.get("number")) if isinstance(channel.get("number"), int) or (isinstance(channel.get("number"), str) and channel.get("number", "").isdigit()) else 0,
-								# "group": str(channel.get("group_name", "")),
-								# "logo": unquote(str(channel.get("logo", ""))),
-								# "url": stream_url
-							# })
-							"""
 
 							# Add result to queue
 							result_queue.put({
@@ -890,7 +870,7 @@ class StalkerPortalConverter(Screen):
 		return True
 
 	def select_output_dir(self):
-		"""Select output directory with multiboot support"""
+		"""Select output directory only - without file browsing"""
 		devices = get_mounted_devices()
 		if not devices:
 			self["status"].setText(_("No writable devices found!"))
@@ -915,15 +895,19 @@ class StalkerPortalConverter(Screen):
 		)
 
 	def device_selected(self, choice):
-		"""Device selection management"""
+		"""Device selection management - only set directory"""
 		if choice and choice[1]:
 			config.plugins.stalkerportal.output_dir.value = choice[1]
 			self["file_input"].setText(self.get_output_filename())
 			self["status"].setText(_("Selected device: ") + choice[0])
-			self.browse_directory(choice[1])
+			# Non aprire più il file browser qui
+
+	def select_playlist_file(self):
+		"""Select a playlist file - new function for yellow button"""
+		self.browse_directory(config.plugins.stalkerportal.output_dir.value)
 
 	def browse_directory(self, path=None):
-		"""Browse files and directories in selected directory"""
+		"""Browse files and directories to select a playlist file"""
 		if path is None:
 			path = config.plugins.stalkerportal.output_dir.value
 
@@ -944,7 +928,6 @@ class StalkerPortalConverter(Screen):
 				if isdir(full_path):
 					files.append((f"[DIR] {item}", full_path))
 				elif item.lower().endswith(('.txt', '.list', '.m3u')):
-					# Mostra dimensione per i file
 					try:
 						size = getsize(full_path)
 						human_size = self.format_size(size)
@@ -961,11 +944,11 @@ class StalkerPortalConverter(Screen):
 			self.session.openWithCallback(
 				self.file_selected,
 				ChoiceBox,
-				title=_("Select in: {}").format(path),
+				title=_("Select playlist file in: {}").format(path),
 				list=files
 			)
 		else:
-			self["status"].setText(_("No files or directories found in: ") + path)
+			self["status"].setText(_("No files found in: ") + path)
 
 	def file_selected(self, choice):
 		"""Handle directory or file selection"""
