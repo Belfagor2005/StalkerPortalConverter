@@ -11,11 +11,15 @@ This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addr
 
 ### 🚀 Features
 
-* 🧠 **Smart parsing**: Recognizes multiple formats of portal and MAC combinations
-* 📁 **Custom folder selection** for output
-* ⚡ **Very fast**: \~13,000 channels converted in about 1 minute
-* 💻 Output is easily viewable and usable on PC or media players
-* 🧾 Supports **multiple MACs per portal** and **shared MAC usage**
+* 🧠 **Smart parsing**: Recognizes multiple formats of portal and MAC combinations  
+* 📁 **Custom folder selection** for output  
+* ⚡ **Very fast**: ~13,000 channels converted in about 1 minute  
+* 💻 Output is easily viewable and usable on PC or media players  
+* 🧾 Supports **multiple MACs per portal** and **shared MAC usage**  
+* 🔐 **Account info extraction**: Retrieves credentials, subscription expiry, status, and connection limits from the server  
+* 🎞️ **TV bouquet conversion**: Convert playlists to Enigma2-compatible TV bouquet format  
+* ⬆️ **In-plugin updater**: Update the plugin directly from the user interface  
+
 
 ---
 ## 🎮 How to Use
@@ -23,7 +27,7 @@ This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addr
 | Button       | Action                                      |
 |--------------|---------------------------------------------|
 | 🔴 RED       | Clear Field                                 |
-| 🟢 GREEN     | Convert Stalker Portal list to M3U          |
+| 🟢 GREEN     | Convert Stalker Portal list to M3U/TV E2    |
 | 🟡 YELLOW    | Select Folder output and file playlist.txt  |
 | 🔵 BLUE      | Edit Config                                 |
 | ℹ️ Info      | Show help and usage instructions            |
