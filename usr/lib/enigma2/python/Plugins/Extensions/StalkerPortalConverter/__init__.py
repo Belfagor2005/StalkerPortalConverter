@@ -125,7 +125,6 @@ def b64decoder(s):
 
 
 def check_version(currversion, installer_url, AgentRequest):
-
 	"""Version control with advanced number format management"""
 	print("[Version Check] Starting...")
 	remote_version = "0.0"
@@ -248,12 +247,43 @@ def get_cpu_count():
 		return 1  # Fallback to single core
 
 
-def write_debug_line(label, value, filename):
-	try:
-		with open(filename, "a") as f:
-			f.write(label + ": " + str(value) + "\n")
-	except Exception:
-		pass
+def write_debug_line(label, value=None, filename="/tmp/stalker_convert.log"):
+    try:
+        with open(filename, "a") as f:
+            if value is not None:
+                f.write(label + ": " + str(value) + "\n")
+            else:
+                f.write(label + "\n")
+    except Exception:
+        pass
+
+
+# def cleanName(name):
+	# import unicodedata
+	# non_allowed_characters = "/.\\:*?<>|\""
+	# name = unicodedata.normalize("NFKD", name).encode("ASCII", "ignore").decode("ASCII")
+	# name = name.replace('\xc2\x86', '').replace('\xc2\x87', '')
+	# name = name.replace(' ', '-').replace("'", '').replace('&', 'e')
+	# name = name.replace('(', '').replace(')', '')
+	# name = name.strip()
+	# name = ''.join(['_' if c in non_allowed_characters or ord(c) < 32 else c for c in name])
+	# return name
+
+def cleanName(name):
+	import unicodedata
+	if not name:
+		return ""
+
+	name = unicodedata.normalize("NFKD", name).encode("ASCII", "ignore").decode("ASCII")
+	name = name.replace('\xc2\x86', '').replace('\xc2\x87', '')
+	name = name.replace('"', '').replace("'", '')
+	name = name.replace('(', '').replace(')', '')
+	name = name.replace('&', 'e').replace('*', 'x')
+	name = name.replace('[', '').replace(']', '')
+	name = name.replace('{', '(').replace('}', ')')
+	name = ' '.join(name.split())
+
+	return name.strip()
 
 
 def wgetsts():

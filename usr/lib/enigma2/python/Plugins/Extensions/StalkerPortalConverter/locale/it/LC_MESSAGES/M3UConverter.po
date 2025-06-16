@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 10:23+0200\n"
-"PO-Revision-Date: 2025-06-13 10:26+0200\n"
+"POT-Creation-Date: 2025-06-13 22:12+0200\n"
+"PO-Revision-Date: 2025-06-13 22:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: it\n"
@@ -36,242 +36,302 @@ msgstr "Disco"
 msgid "Network"
 msgstr "Network"
 
-#: plugin.py:146 plugin.py:738
+#: ⁨plugin - Copia - Copia.py⁩:147 ⁨plugin - Copia - Copia.py⁩:745 ⁨plugin - Copia.py⁩:146
+#: ⁨plugin - Copia.py⁩:744 ⁨plugin -no tv error.py⁩:148 ⁨plugin -no tv error.py⁩:748
+#: ⁨plugin -ok forse.py⁩:148 ⁨plugin -ok forse.py⁩:779 plugin.py:149 plugin.py:750
 msgid "Top"
 msgstr "Su"
 
-#: plugin.py:146 plugin.py:738
+#: ⁨plugin - Copia - Copia.py⁩:147 ⁨plugin - Copia - Copia.py⁩:745 ⁨plugin - Copia.py⁩:146
+#: ⁨plugin - Copia.py⁩:744 ⁨plugin -no tv error.py⁩:148 ⁨plugin -no tv error.py⁩:748
+#: ⁨plugin -ok forse.py⁩:148 ⁨plugin -ok forse.py⁩:779 plugin.py:149 plugin.py:750
 msgid "Bottom"
 msgstr "Giu"
 
-#: plugin.py:218
+#: ⁨plugin - Copia - Copia.py⁩:219 ⁨plugin - Copia.py⁩:218 ⁨plugin -no tv error.py⁩:220
+#: ⁨plugin -ok forse.py⁩:251 plugin.py:224
 #, python-format
 msgid "Stalker Portal to M3U Converter v.%s"
 msgstr ""
 
-#: plugin.py:219
+#: ⁨plugin - Copia - Copia.py⁩:220 ⁨plugin - Copia.py⁩:219 ⁨plugin -no tv error.py⁩:221
+#: ⁨plugin -ok forse.py⁩:252 plugin.py:225
 msgid "Portal URL:"
 msgstr "URL del portale:"
 
-#: plugin.py:221
+#: ⁨plugin - Copia - Copia.py⁩:222 ⁨plugin - Copia.py⁩:221 ⁨plugin -no tv error.py⁩:223
+#: ⁨plugin -ok forse.py⁩:254 plugin.py:227
 msgid "MAC Address:"
 msgstr "Indirizzo MAC:"
 
-#: plugin.py:223
+#: ⁨plugin - Copia - Copia.py⁩:224 ⁨plugin - Copia.py⁩:223 ⁨plugin -no tv error.py⁩:225
+#: ⁨plugin -ok forse.py⁩:256 plugin.py:229
 msgid "Output File:"
 msgstr "File di output:"
 
-#: plugin.py:225
+#: ⁨plugin - Copia - Copia.py⁩:226 ⁨plugin - Copia.py⁩:225 ⁨plugin -no tv error.py⁩:227
+#: ⁨plugin -ok forse.py⁩:258 plugin.py:231
 msgid "Valid Portals from Selected File:"
 msgstr "Portali validi dal file selezionato:"
 
-#: plugin.py:229
+#: ⁨plugin - Copia - Copia.py⁩:230 ⁨plugin - Copia.py⁩:229 ⁨plugin -no tv error.py⁩:231
+#: ⁨plugin -ok forse.py⁩:262 plugin.py:235
 msgid "User:"
 msgstr ""
 
-#: plugin.py:231
+#: ⁨plugin - Copia - Copia.py⁩:232 ⁨plugin - Copia.py⁩:231 ⁨plugin -no tv error.py⁩:233
+#: ⁨plugin -ok forse.py⁩:264 plugin.py:237
 msgid "Password:"
 msgstr ""
 
-#: plugin.py:233
+#: ⁨plugin - Copia - Copia.py⁩:234 ⁨plugin - Copia.py⁩:233 ⁨plugin -no tv error.py⁩:235
+#: ⁨plugin -ok forse.py⁩:266 plugin.py:239
 msgid "Expiry:"
 msgstr "Scadenza:"
 
-#: plugin.py:235
+#: ⁨plugin - Copia - Copia.py⁩:236 ⁨plugin - Copia.py⁩:235 ⁨plugin -no tv error.py⁩:237
+#: ⁨plugin -ok forse.py⁩:268 plugin.py:241
 msgid "Status:"
 msgstr "Stato:"
 
-#: plugin.py:237
+#: ⁨plugin - Copia - Copia.py⁩:238 ⁨plugin - Copia.py⁩:237 ⁨plugin -no tv error.py⁩:239
+#: ⁨plugin -ok forse.py⁩:270 plugin.py:243
 msgid "Active:"
 msgstr "Attivo:"
 
-#: plugin.py:239
+#: ⁨plugin - Copia - Copia.py⁩:240 ⁨plugin - Copia.py⁩:239 ⁨plugin -no tv error.py⁩:241
+#: ⁨plugin -ok forse.py⁩:272 plugin.py:245
 msgid "Max: "
 msgstr ""
 
-#: plugin.py:243
+#: ⁨plugin - Copia - Copia.py⁩:244 ⁨plugin - Copia.py⁩:243 ⁨plugin -no tv error.py⁩:245
+#: ⁨plugin -ok forse.py⁩:276 plugin.py:249
 msgid "Ready - Select a file or enter URL/MAC"
 msgstr "Pronto - Seleziona un file o inserisci URL/MAC"
 
-#: plugin.py:244
+#: ⁨plugin - Copia - Copia.py⁩:245 ⁨plugin - Copia.py⁩:244 ⁨plugin -no tv error.py⁩:246
+#: ⁨plugin -ok forse.py⁩:277 plugin.py:250
 msgid "Clear"
 msgstr "Pulire"
 
-#: plugin.py:246
+#: ⁨plugin - Copia - Copia.py⁩:247 ⁨plugin - Copia.py⁩:246 ⁨plugin -no tv error.py⁩:248
+#: ⁨plugin -ok forse.py⁩:279 plugin.py:252
 msgid "Select Playlist"
 msgstr "Seleziona Playlist"
 
-#: plugin.py:247
+#: ⁨plugin - Copia - Copia.py⁩:248 ⁨plugin - Copia.py⁩:247 ⁨plugin -no tv error.py⁩:249
+#: ⁨plugin -ok forse.py⁩:280 plugin.py:253
 msgid "Edit"
 msgstr "Modifica"
 
-#: plugin.py:298
+#: ⁨plugin - Copia - Copia.py⁩:299 ⁨plugin - Copia.py⁩:298 ⁨plugin -no tv error.py⁩:300
+#: ⁨plugin -ok forse.py⁩:331 plugin.py:304
 msgid "Selected: "
 msgstr "Seleziona: "
 
-#: plugin.py:309
+#: ⁨plugin - Copia - Copia.py⁩:310 ⁨plugin - Copia.py⁩:309 ⁨plugin -no tv error.py⁩:311
+#: ⁨plugin -ok forse.py⁩:342 plugin.py:315
 msgid "Loading account info in background..."
 msgstr "Caricamento delle informazioni dell'account in background..."
 
-#: plugin.py:330
+#: ⁨plugin - Copia - Copia.py⁩:335 ⁨plugin - Copia.py⁩:334 ⁨plugin -no tv error.py⁩:340
+#: ⁨plugin -ok forse.py⁩:371 plugin.py:340
 msgid "Account info loaded"
 msgstr "Informazioni sull'account caricate"
 
-#: plugin.py:332
+#: ⁨plugin - Copia - Copia.py⁩:337 ⁨plugin - Copia.py⁩:336 ⁨plugin -no tv error.py⁩:342
+#: ⁨plugin -ok forse.py⁩:373 plugin.py:342
 msgid "Failed to load account info"
 msgstr "Impossibile caricare le informazioni dell'account"
 
-#: plugin.py:342
+#: ⁨plugin - Copia - Copia.py⁩:348 ⁨plugin - Copia.py⁩:347 ⁨plugin -no tv error.py⁩:352
+#: ⁨plugin -ok forse.py⁩:383 plugin.py:353
 msgid "Error accessing configuration values: "
 msgstr "Errore durante l'accesso ai valori di configurazione: "
 
-#: plugin.py:346
+#: ⁨plugin - Copia - Copia.py⁩:352 ⁨plugin - Copia.py⁩:351 ⁨plugin -no tv error.py⁩:356
+#: ⁨plugin -ok forse.py⁩:387 plugin.py:357
 msgid "Error: Portal and MAC are required"
 msgstr "Errore: sono richiesti il ​​portale e il MAC"
 
-#: plugin.py:474
+#: ⁨plugin - Copia - Copia.py⁩:480 ⁨plugin - Copia.py⁩:479 ⁨plugin -no tv error.py⁩:484
+#: ⁨plugin -ok forse.py⁩:515 plugin.py:485
 msgid "Handshake failed: No token received"
 msgstr "Handshake fallito: nessun token ricevuto"
 
-#: plugin.py:574
+#: ⁨plugin - Copia - Copia.py⁩:579 ⁨plugin - Copia.py⁩:578 ⁨plugin -no tv error.py⁩:584
+#: ⁨plugin -ok forse.py⁩:615 plugin.py:584
 msgid "Error extracting account information"
 msgstr "Errore durante l'accesso ai valori di configurazione"
 
-#: plugin.py:648
-msgid "Edit Portal URL"
-msgstr "Modifica URL del portale"
-
-#: plugin.py:649
-msgid "Edit MAC Address"
-msgstr "Modifica Indirizzo MAC"
-
-#: plugin.py:650
-msgid "Select Playlist File"
-msgstr "Seleziona file playlist"
-
-#: plugin.py:651
-msgid "Delete Playlist File"
-msgstr "Elimina file playlist"
-
-#: plugin.py:652
+#: ⁨plugin - Copia - Copia.py⁩:656 ⁨plugin - Copia.py⁩:655 ⁨plugin -no tv error.py⁩:658
+#: ⁨plugin -ok forse.py⁩:693 plugin.py:661
 msgid "Set Type Conversion"
 msgstr "Conversione del tipo di set"
 
-#: plugin.py:653
+#: ⁨plugin - Copia - Copia.py⁩:657 ⁨plugin - Copia.py⁩:656 ⁨plugin -no tv error.py⁩:659
+#: ⁨plugin -ok forse.py⁩:689 plugin.py:662
+msgid "Edit Portal URL"
+msgstr "Modifica URL del portale"
+
+#: ⁨plugin - Copia - Copia.py⁩:658 ⁨plugin - Copia.py⁩:657 ⁨plugin -no tv error.py⁩:660
+#: ⁨plugin -ok forse.py⁩:690 plugin.py:663
+msgid "Edit MAC Address"
+msgstr "Modifica Indirizzo MAC"
+
+#: ⁨plugin - Copia - Copia.py⁩:659 ⁨plugin - Copia.py⁩:658 ⁨plugin -no tv error.py⁩:661
+#: ⁨plugin -ok forse.py⁩:691 plugin.py:664
+msgid "Select Playlist File"
+msgstr "Seleziona file playlist"
+
+#: ⁨plugin - Copia - Copia.py⁩:660 ⁨plugin - Copia.py⁩:659 ⁨plugin -no tv error.py⁩:662
+#: ⁨plugin -ok forse.py⁩:692 plugin.py:665
+msgid "Delete Playlist File"
+msgstr "Elimina file playlist"
+
+#: ⁨plugin - Copia - Copia.py⁩:661 ⁨plugin - Copia.py⁩:660 ⁨plugin -no tv error.py⁩:663
+#: ⁨plugin -ok forse.py⁩:694 plugin.py:666
 msgid "Change Output Directory"
 msgstr "Cambia directory di output"
 
-#: plugin.py:654
+#: ⁨plugin - Copia - Copia.py⁩:662 ⁨plugin - Copia.py⁩:661 ⁨plugin -no tv error.py⁩:664
+#: ⁨plugin -ok forse.py⁩:695 plugin.py:667
 msgid "Upgrade Stalker Converter"
 msgstr "Aggiornamento Convertitore Stalker"
 
-#: plugin.py:655
+#: ⁨plugin - Copia - Copia.py⁩:663 ⁨plugin - Copia.py⁩:662 ⁨plugin -no tv error.py⁩:665
+#: ⁨plugin -ok forse.py⁩:696 plugin.py:668
 msgid "Information"
 msgstr "Informazioni"
 
-#: plugin.py:660
+#: ⁨plugin - Copia - Copia.py⁩:666 ⁨plugin - Copia.py⁩:665 ⁨plugin -no tv error.py⁩:670
+#: ⁨plugin -ok forse.py⁩:701 plugin.py:671
 msgid "Set Bouquet Position"
 msgstr "Imposta la posizione del bouquet"
 
-#: plugin.py:680
-msgid ""
-"Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
-"URL del portale (esempio http://example.com/c/ o http://example.com:8088/c/)"
+#: ⁨plugin - Copia - Copia.py⁩:686 ⁨plugin - Copia.py⁩:685 ⁨plugin -no tv error.py⁩:690
+#: ⁨plugin -ok forse.py⁩:721 plugin.py:691
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr "URL del portale (esempio http://example.com/c/ o http://example.com:8088/c/)"
 
-#: plugin.py:700
+#: ⁨plugin - Copia - Copia.py⁩:706 ⁨plugin - Copia.py⁩:705 ⁨plugin -no tv error.py⁩:710
+#: ⁨plugin -ok forse.py⁩:741 plugin.py:711
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
 msgstr "Inserisci l'indirizzo MAC (ad esempio, 00:1A:79:XX:XX:XX)"
 
-#: plugin.py:733
+#: ⁨plugin - Copia - Copia.py⁩:739 ⁨plugin - Copia.py⁩:738 ⁨plugin -no tv error.py⁩:743
+#: ⁨plugin -ok forse.py⁩:774 plugin.py:744
 msgid "Select Type of Conversion"
 msgstr "Seleziona il tipo di conversione"
 
-#: plugin.py:745
+#: ⁨plugin - Copia - Copia.py⁩:752 ⁨plugin - Copia.py⁩:751 ⁨plugin -no tv error.py⁩:755
+#: ⁨plugin -ok forse.py⁩:786 plugin.py:757
 msgid "Bouquet position set to: {}"
 msgstr "Posizione del bouquet impostata su: {}"
 
-#: plugin.py:750
+#: ⁨plugin - Copia - Copia.py⁩:757 ⁨plugin - Copia.py⁩:756 ⁨plugin -no tv error.py⁩:760
+#: ⁨plugin -ok forse.py⁩:791 plugin.py:762
 msgid "Select Bouquet Position"
 msgstr "Seleziona la posizione del bouquet"
 
-#: plugin.py:765
+#: ⁨plugin - Copia - Copia.py⁩:772 ⁨plugin - Copia.py⁩:771 ⁨plugin -no tv error.py⁩:775
+#: ⁨plugin -ok forse.py⁩:806 plugin.py:777
 msgid "Get ALL portal/MAC from file"
 msgstr "Ottieni TUTTI i portali/MAC dal file"
 
-#: plugin.py:779
+#: ⁨plugin - Copia - Copia.py⁩:786 ⁨plugin - Copia.py⁩:785 ⁨plugin -no tv error.py⁩:789
+#: ⁨plugin -ok forse.py⁩:820 plugin.py:791
 msgid "Loaded {} valid portals from {}"
 msgstr "Caricati {} portali validi da {}"
 
-#: plugin.py:781
+#: ⁨plugin - Copia - Copia.py⁩:788 ⁨plugin - Copia.py⁩:787 ⁨plugin -no tv error.py⁩:791
+#: ⁨plugin -ok forse.py⁩:822 plugin.py:793
 msgid "No valid portals found in file"
 msgstr "Nessun portale valido trovato nel file"
 
-#: plugin.py:784 plugin.py:1245
+#: ⁨plugin - Copia - Copia.py⁩:791 ⁨plugin - Copia.py⁩:790 ⁨plugin -no tv error.py⁩:794
+#: ⁨plugin -no tv error.py⁩:1274 ⁨plugin -ok forse.py⁩:825 ⁨plugin -ok forse.py⁩:1300
+#: plugin.py:796
 msgid "Error: "
 msgstr "Errore: "
 
-#: plugin.py:806
+#: ⁨plugin - Copia - Copia.py⁩:814 ⁨plugin - Copia.py⁩:813 ⁨plugin -no tv error.py⁩:816
+#: ⁨plugin -ok forse.py⁩:847 plugin.py:819
 msgid "Scanning file... {}%"
 msgstr "Scansione del file... {}%"
 
-#: plugin.py:858
+#: ⁨plugin - Copia - Copia.py⁩:866 ⁨plugin - Copia.py⁩:865 ⁨plugin -no tv error.py⁩:868
+#: ⁨plugin -ok forse.py⁩:899 plugin.py:881
 msgid "Not enough space on {}!"
 msgstr "Spazio libero insufficiente in  {}!"
 
-#: plugin.py:868
+#: ⁨plugin - Copia - Copia.py⁩:878 ⁨plugin - Copia.py⁩:877 ⁨plugin -no tv error.py⁩:880
+#: ⁨plugin -ok forse.py⁩:909 plugin.py:894
 msgid "Error accessing configuration values"
 msgstr "Errore durante l'accesso ai valori di configurazione"
 
-#: plugin.py:869
+#: ⁨plugin - Copia - Copia.py⁩:879 ⁨plugin - Copia.py⁩:878 ⁨plugin -no tv error.py⁩:881
+#: ⁨plugin -ok forse.py⁩:910 plugin.py:895
 msgid "Failed to read portal or MAC configuration:\n"
 msgstr "Impossibile leggere il portale o la configurazione MAC:\n"
 
-#: plugin.py:875
+#: ⁨plugin - Copia - Copia.py⁩:885 ⁨plugin - Copia.py⁩:884 ⁨plugin -no tv error.py⁩:887
+#: ⁨plugin -ok forse.py⁩:916
 msgid "Please enter portal URL and MAC address"
 msgstr "Inserisci l'URL del portale e l'indirizzo MAC"
 
-#: plugin.py:879
+#: ⁨plugin - Copia - Copia.py⁩:889 ⁨plugin - Copia.py⁩:888 ⁨plugin -no tv error.py⁩:891
+#: ⁨plugin -ok forse.py⁩:920 plugin.py:904
 msgid "Error: Invalid portal URL"
 msgstr "Errore: URL del portale non valido"
 
-#: plugin.py:880
+#: ⁨plugin - Copia - Copia.py⁩:890 ⁨plugin - Copia.py⁩:889 ⁨plugin -no tv error.py⁩:892
+#: ⁨plugin -ok forse.py⁩:921
 msgid "Invalid portal URL format"
 msgstr "Formato URL del portale non valido"
 
-#: plugin.py:884
+#: ⁨plugin - Copia - Copia.py⁩:894 ⁨plugin - Copia.py⁩:893 ⁨plugin -no tv error.py⁩:896
+#: ⁨plugin -ok forse.py⁩:925 plugin.py:908
 msgid "Error: Invalid MAC address"
 msgstr "Errore: indirizzo MAC non valido"
 
-#: plugin.py:885
+#: ⁨plugin - Copia - Copia.py⁩:895 ⁨plugin - Copia.py⁩:894 ⁨plugin -no tv error.py⁩:897
+#: ⁨plugin -ok forse.py⁩:926
 msgid "Invalid MAC address format"
 msgstr "Formato indirizzo MAC non valido"
 
-#: plugin.py:894
+#: ⁨plugin - Copia - Copia.py⁩:904 ⁨plugin - Copia.py⁩:903 ⁨plugin -no tv error.py⁩:906
+#: ⁨plugin -ok forse.py⁩:935 plugin.py:917
 msgid "Cannot create directory: "
 msgstr "Impossibile creare la directory: "
 
-#: plugin.py:900
+#: ⁨plugin - Copia - Copia.py⁩:910 ⁨plugin - Copia.py⁩:909 ⁨plugin -no tv error.py⁩:912
+#: ⁨plugin -ok forse.py⁩:941 plugin.py:929
 msgid "Starting conversion process..."
 msgstr "Avvio del processo di conversione..."
 
-#: plugin.py:910
+#: ⁨plugin - Copia - Copia.py⁩:920 ⁨plugin - Copia.py⁩:919 ⁨plugin -no tv error.py⁩:922
+#: ⁨plugin -ok forse.py⁩:951 plugin.py:946
 msgid "Step 1/3: Connecting to portal..."
 msgstr "Fase 1/3: Connessione al portale..."
 
-#: plugin.py:914
+#: ⁨plugin - Copia - Copia.py⁩:924 ⁨plugin - Copia.py⁩:923 ⁨plugin -no tv error.py⁩:926
+#: ⁨plugin -ok forse.py⁩:955 plugin.py:956
 msgid "Failed to retrieve channel list"
 msgstr "Impossibile recuperare l'elenco dei canali"
 
-#: plugin.py:918
+#: ⁨plugin - Copia - Copia.py⁩:928 ⁨plugin - Copia.py⁩:927 ⁨plugin -no tv error.py⁩:930
+#: ⁨plugin -ok forse.py⁩:959 plugin.py:960
 msgid "Creating playlist file..."
 msgstr "Creazione del file della playlist..."
 
-#: plugin.py:940
+#: ⁨plugin - Copia - Copia.py⁩:954 ⁨plugin - Copia.py⁩:954 ⁨plugin -no tv error.py⁩:957
+#: ⁨plugin -ok forse.py⁩:986 plugin.py:982
 msgid "M3U created with {} channels"
 msgstr "M3U creato con {} canali"
 
-#: plugin.py:943
+#: ⁨plugin - Copia - Copia.py⁩:957 ⁨plugin - Copia.py⁩:957 ⁨plugin -no tv error.py⁩:960
+#: ⁨plugin -ok forse.py⁩:989
 msgid ""
 "M3U playlist successfully created with {} channels:\n"
 "{}"
@@ -279,117 +339,147 @@ msgstr ""
 "Playlist M3U creata correttamente con {} canali:\n"
 "{}"
 
-#: plugin.py:952
+#: ⁨plugin - Copia - Copia.py⁩:966 ⁨plugin - Copia.py⁩:965 ⁨plugin -no tv error.py⁩:968
+#: ⁨plugin -ok forse.py⁩:997 plugin.py:995
 msgid "Grouping: {}"
 msgstr "Raggruppamento: {}"
 
-#: plugin.py:959
+#: ⁨plugin - Copia - Copia.py⁩:973 ⁨plugin - Copia.py⁩:972 ⁨plugin -no tv error.py⁩:975
+#: ⁨plugin -ok forse.py⁩:1004 plugin.py:1011
 msgid "Bouquets created: {} groups with {} channels"
 msgstr "Bouquet creati: {} gruppi con {} canali"
 
-#: plugin.py:962
+#: ⁨plugin - Copia - Copia.py⁩:976 ⁨plugin - Copia.py⁩:975 ⁨plugin -no tv error.py⁩:978
+#: ⁨plugin -ok forse.py⁩:1007
 msgid "Bouquets successfully created in /etc/enigma2"
 msgstr "Bouquets successfully created in /etc/enigma2"
 
-#: plugin.py:967
+#: ⁨plugin - Copia - Copia.py⁩:981 ⁨plugin - Copia.py⁩:980 ⁨plugin -no tv error.py⁩:983
+#: ⁨plugin -ok forse.py⁩:1012 plugin.py:1014
 msgid "Error creating playlist: "
 msgstr "Errore durante la creazione della playlist: "
 
-#: plugin.py:972
+#: ⁨plugin - Copia - Copia.py⁩:986 ⁨plugin -no tv error.py⁩:988 ⁨plugin -ok forse.py⁩:1017
+#: plugin.py:1018
 msgid "Conversion error: "
 msgstr "Errore di conversione: "
 
-#: plugin.py:1087
+#: ⁨plugin - Copia - Copia.py⁩:1134 ⁨plugin - Copia.py⁩:1114 ⁨plugin -no tv error.py⁩:1113
+#: ⁨plugin -ok forse.py⁩:1140 plugin.py:1198
 msgid "Step 1/3: Handshake..."
 msgstr "Fase 1/3: Handshake..."
 
-#: plugin.py:1092
-msgid "Token not found!"
-msgstr "Token non trovato!"
+#: ⁨plugin - Copia - Copia.py⁩:1139 ⁨plugin -no tv error.py⁩:1118 plugin.py:1203
+msgid "Failed to obtain token!"
+msgstr "Impossibile ottenere il token!"
 
-#: plugin.py:1098
+#: ⁨plugin - Copia - Copia.py⁩:1145 ⁨plugin - Copia.py⁩:1121 ⁨plugin -no tv error.py⁩:1123
+#: ⁨plugin -ok forse.py⁩:1150 plugin.py:1209
 msgid "Step 2/3: Authentication..."
 msgstr "Fase 2/3: Autenticazione..."
 
-#: plugin.py:1104
+#: ⁨plugin - Copia - Copia.py⁩:1151 ⁨plugin - Copia.py⁩:1126 ⁨plugin -no tv error.py⁩:1129
+#: ⁨plugin -ok forse.py⁩:1156 plugin.py:1215
 msgid "Step 3/3: Getting channels..."
 msgstr "Fase 3/3: Recupero dell'elenco dei canali…"
 
-#: plugin.py:1112
+#: ⁨plugin - Copia - Copia.py⁩:1159 ⁨plugin - Copia.py⁩:1334 ⁨plugin -no tv error.py⁩:1137
+#: ⁨plugin -ok forse.py⁩:1164 plugin.py:1223
 msgid "No channels found in response"
 msgstr "Nessun canale trovato in risposta"
 
-#: plugin.py:1116
+#: ⁨plugin - Copia - Copia.py⁩:1163 ⁨plugin -no tv error.py⁩:1141
+#: ⁨plugin -ok forse.py⁩:1168 plugin.py:1227
 msgid "Preparing {} channels..."
 msgstr "Elaborazione %s canali..."
 
-#: plugin.py:1224
+#: ⁨plugin - Copia - Copia.py⁩:1274 ⁨plugin -no tv error.py⁩:1251
+#: ⁨plugin -ok forse.py⁩:1277 plugin.py:1272
 msgid "Processed {}/{} channels ({:.1f}/s)"
 msgstr "Canali elaborati {}/{} ({:.1f}/s)"
 
-#: plugin.py:1239
+#: ⁨plugin - Copia - Copia.py⁩:1291 ⁨plugin -no tv error.py⁩:1268
+#: ⁨plugin -ok forse.py⁩:1294 plugin.py:1279
 msgid "Processed {} of {} channels in {:.1f}s ({:.1f}/s)"
 msgstr "Processo {} di {} canali in {:.1f}x ({:.1f}/s)"
 
-#: plugin.py:1258
+#: ⁨plugin - Copia - Copia.py⁩:1312 ⁨plugin - Copia.py⁩:1413 ⁨plugin -no tv error.py⁩:1287
+#: ⁨plugin -ok forse.py⁩:1313
 msgid "Using fallback channel mode"
 msgstr "Utilizzo della modalità canale di fallback"
 
-#: plugin.py:1317
+#: ⁨plugin - Copia - Copia.py⁩:1370 ⁨plugin - Copia.py⁩:1391 ⁨plugin - Copia.py⁩:1471
+#: ⁨plugin -no tv error.py⁩:1345 ⁨plugin -ok forse.py⁩:1371
 msgid "Processed {}/{} channels"
 msgstr "Canali {}/{} elaborati"
 
-#: plugin.py:1329
+#: ⁨plugin - Copia - Copia.py⁩:1382 ⁨plugin - Copia.py⁩:1483 ⁨plugin -no tv error.py⁩:1357
+#: ⁨plugin -ok forse.py⁩:1383 plugin.py:1525
 msgid "No writable devices found!"
 msgstr "Nessun dispositivo scrivibile trovato!"
 
-#: plugin.py:1342
+#: ⁨plugin - Copia - Copia.py⁩:1395 ⁨plugin - Copia.py⁩:1496 ⁨plugin -no tv error.py⁩:1370
+#: ⁨plugin -ok forse.py⁩:1396 plugin.py:1538
 msgid "<< Cancel"
 msgstr "<< Annulla"
 
-#: plugin.py:1346
+#: ⁨plugin - Copia - Copia.py⁩:1399 ⁨plugin - Copia.py⁩:1500 ⁨plugin -no tv error.py⁩:1374
+#: ⁨plugin -ok forse.py⁩:1400 plugin.py:1542
 msgid "Select storage device"
 msgstr "Seleziona dispositivo di archiviazione"
 
-#: plugin.py:1355
+#: ⁨plugin - Copia - Copia.py⁩:1408 ⁨plugin - Copia.py⁩:1509 ⁨plugin -no tv error.py⁩:1383
+#: ⁨plugin -ok forse.py⁩:1409 plugin.py:1551
 msgid "Selected device: "
 msgstr "Dispositivo selezionato: "
 
-#: plugin.py:1393 plugin.py:1474
+#: ⁨plugin - Copia - Copia.py⁩:1446 ⁨plugin - Copia - Copia.py⁩:1521
+#: ⁨plugin - Copia.py⁩:1547 ⁨plugin - Copia.py⁩:1622 ⁨plugin -no tv error.py⁩:1421
+#: ⁨plugin -no tv error.py⁩:1502 ⁨plugin -ok forse.py⁩:1447 ⁨plugin -ok forse.py⁩:1528
+#: plugin.py:1589 plugin.py:1664
 msgid "Error accessing directory: "
 msgstr "Errore durante l'accesso alla directory: "
 
-#: plugin.py:1397 plugin.py:1481
+#: ⁨plugin - Copia - Copia.py⁩:1450 ⁨plugin - Copia - Copia.py⁩:1528
+#: ⁨plugin - Copia.py⁩:1551 ⁨plugin - Copia.py⁩:1629 ⁨plugin -no tv error.py⁩:1425
+#: ⁨plugin -no tv error.py⁩:1509 ⁨plugin -ok forse.py⁩:1451 ⁨plugin -ok forse.py⁩:1535
+#: plugin.py:1593 plugin.py:1671
 msgid "<< Back to main menu"
 msgstr "<< Torna al menu principale"
 
-#: plugin.py:1401
+#: ⁨plugin - Copia - Copia.py⁩:1454 ⁨plugin - Copia.py⁩:1555 ⁨plugin -no tv error.py⁩:1429
+#: ⁨plugin -ok forse.py⁩:1455 plugin.py:1597
 msgid "Select playlist file in: {}"
 msgstr "Seleziona il file della playlist in: {}"
 
-#: plugin.py:1405
+#: ⁨plugin - Copia - Copia.py⁩:1458 ⁨plugin - Copia.py⁩:1559 ⁨plugin -no tv error.py⁩:1433
+#: ⁨plugin -ok forse.py⁩:1459 plugin.py:1601
 msgid "No files found in: "
 msgstr "Nessun file  trovato in: "
 
-#: plugin.py:1426
+#: ⁨plugin - Copia - Copia.py⁩:1479 ⁨plugin - Copia.py⁩:1580 ⁨plugin -no tv error.py⁩:1454
+#: ⁨plugin -ok forse.py⁩:1480 plugin.py:1622
 #, python-format
 msgid "Loaded playlist: %s. Are you ready to convert? Press Green to proceed."
-msgstr ""
-"Playlist caricata: %s. Pronto per la conversione? Premi Verde per procedere."
+msgstr "Playlist caricata: %s. Pronto per la conversione? Premi Verde per procedere."
 
-#: plugin.py:1440
+#: ⁨plugin - Copia - Copia.py⁩:1487 ⁨plugin - Copia.py⁩:1588 ⁨plugin -no tv error.py⁩:1468
+#: ⁨plugin -ok forse.py⁩:1494 plugin.py:1630
 msgid "File not found: "
 msgstr "File non trovato: "
 
-#: plugin.py:1478
+#: ⁨plugin - Copia - Copia.py⁩:1525 ⁨plugin - Copia.py⁩:1626 ⁨plugin -no tv error.py⁩:1506
+#: ⁨plugin -ok forse.py⁩:1532 plugin.py:1668
 msgid "No files or directories found in: "
 msgstr "Nessun file di playlist trovato in: "
 
-#: plugin.py:1486
+#: ⁨plugin - Copia - Copia.py⁩:1533 ⁨plugin - Copia.py⁩:1634 ⁨plugin -no tv error.py⁩:1514
+#: ⁨plugin -ok forse.py⁩:1540 plugin.py:1676
 msgid "Select file to delete in: {}"
 msgstr "Seleziona il file da eliminare in: {}"
 
-#: plugin.py:1505
+#: ⁨plugin - Copia - Copia.py⁩:1552 ⁨plugin - Copia.py⁩:1653 ⁨plugin -no tv error.py⁩:1533
+#: ⁨plugin -ok forse.py⁩:1559 plugin.py:1695
 msgid ""
 "Are you sure you want to delete:\n"
 "{}?"
@@ -397,23 +487,33 @@ msgstr ""
 "Vuoi davvero eliminare:\n"
 "{}?"
 
-#: plugin.py:1520
+#: ⁨plugin - Copia - Copia.py⁩:1567 ⁨plugin - Copia.py⁩:1668 ⁨plugin -no tv error.py⁩:1548
+#: ⁨plugin -ok forse.py⁩:1574 plugin.py:1710
 msgid "Deleted: "
 msgstr "Eliminato: "
 
-#: plugin.py:1529
+#: ⁨plugin - Copia - Copia.py⁩:1576 ⁨plugin - Copia.py⁩:1677 ⁨plugin -no tv error.py⁩:1557
+#: ⁨plugin -ok forse.py⁩:1583 plugin.py:1719
 msgid "Delete failed: "
 msgstr "Eliminazione fallita: "
 
-#: plugin.py:1578
+#: ⁨plugin - Copia - Copia.py⁩:1615 ⁨plugin - Copia.py⁩:1716 plugin.py:1758
+msgid "Convert to M3U"
+msgstr "Converti in M3U"
+
+#: ⁨plugin - Copia - Copia.py⁩:1617 ⁨plugin - Copia.py⁩:1718 plugin.py:1760
+msgid "Convert to TV"
+msgstr "Converti in TV"
+
+#: ⁨plugin - Copia - Copia.py⁩:1634 ⁨plugin - Copia.py⁩:1735 ⁨plugin -no tv error.py⁩:1606
+#: ⁨plugin -ok forse.py⁩:1632 plugin.py:1777
 #, python-format
 msgid ""
 "Plugin: StalkerPortalConvert to M3U/TV\n"
 "Author: Lululla\n"
 "Version: %s\n"
 "Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet "
-"format.\n"
+"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet format.\n"
 "Support: linuxsat-support.com - corvoboys.org\n"
 "\n"
 msgstr ""
@@ -425,31 +525,37 @@ msgstr ""
 "bouquet.\n"
 "Supporto: linuxsat-support.com - corvoboys.org\n"
 
-#: plugin.py:1586
+#: ⁨plugin - Copia - Copia.py⁩:1642 ⁨plugin - Copia.py⁩:1743 ⁨plugin -no tv error.py⁩:1614
+#: ⁨plugin -ok forse.py⁩:1640 plugin.py:1785
 msgid "HELP:\n"
-msgstr ""
+msgstr "AIUTO:\n"
 
-#: plugin.py:1587
+#: ⁨plugin - Copia - Copia.py⁩:1643 ⁨plugin - Copia.py⁩:1744 ⁨plugin -no tv error.py⁩:1615
+#: ⁨plugin -ok forse.py⁩:1641 plugin.py:1786
 msgid ""
-"- Open a file with server URLs or press the BLUE button to edit the host and "
-"MAC address\n"
+"- Open a file with server URLs or press the BLUE button to edit the host and MAC "
+"address\n"
 msgstr ""
-"- Aprire un file con gli URL del server o premere il pulsante BLU per "
-"modificare l'host e l'indirizzo MAC\n"
+"- Aprire un file con gli URL del server o premere il pulsante BLU per modificare "
+"l'host e l'indirizzo MAC\n"
 
-#: plugin.py:1588
+#: ⁨plugin - Copia - Copia.py⁩:1644 ⁨plugin - Copia.py⁩:1745 ⁨plugin -no tv error.py⁩:1616
+#: ⁨plugin -ok forse.py⁩:1642 plugin.py:1787
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr "- Scegli il formato di output desiderato: M3U o TV bouquet\n"
 
-#: plugin.py:1589
+#: ⁨plugin - Copia - Copia.py⁩:1645 ⁨plugin - Copia.py⁩:1746 ⁨plugin -no tv error.py⁩:1617
+#: ⁨plugin -ok forse.py⁩:1643 plugin.py:1788
 msgid "- Press CONVERT to generate the playlist"
 msgstr "- Premere CONVERTI per generare la playlist"
 
-#: plugin.py:1600
+#: ⁨plugin - Copia - Copia.py⁩:1656 ⁨plugin - Copia.py⁩:1757 ⁨plugin -no tv error.py⁩:1628
+#: ⁨plugin -ok forse.py⁩:1654 plugin.py:1799
 msgid "Fields cleared"
 msgstr "Campi cancellati"
 
-#: plugin.py:1613
+#: ⁨plugin - Copia - Copia.py⁩:1669 ⁨plugin - Copia.py⁩:1770 ⁨plugin -no tv error.py⁩:1641
+#: ⁨plugin -ok forse.py⁩:1667 plugin.py:1812
 msgid ""
 "Unable to fetch version info:\n"
 "{}"
@@ -457,11 +563,13 @@ msgstr ""
 "Impossibile recuperare le informazioni sulla versione:\n"
 "{}"
 
-#: plugin.py:1631
+#: ⁨plugin - Copia - Copia.py⁩:1687 ⁨plugin - Copia.py⁩:1788 ⁨plugin -no tv error.py⁩:1659
+#: ⁨plugin -ok forse.py⁩:1685 plugin.py:1830
 msgid "You are already running the latest version: {}"
 msgstr "Stai già utilizzando l'ultima versione: {}"
 
-#: plugin.py:1647
+#: ⁨plugin - Copia - Copia.py⁩:1703 ⁨plugin - Copia.py⁩:1804 ⁨plugin -no tv error.py⁩:1675
+#: ⁨plugin -ok forse.py⁩:1701 plugin.py:1846
 #, python-format
 msgid ""
 "New version %s available\n"
@@ -476,18 +584,113 @@ msgstr ""
 "\n"
 "Vuoi installarla ora?"
 
-#: plugin.py:1660
+#: ⁨plugin - Copia - Copia.py⁩:1716 ⁨plugin - Copia.py⁩:1817 ⁨plugin -no tv error.py⁩:1688
+#: ⁨plugin -ok forse.py⁩:1714 plugin.py:1859
 #, python-format
 msgid "You are already running the latest version: %s"
 msgstr "Stai già utilizzando l'ultima versione: %s"
 
-#: plugin.py:1668
+#: ⁨plugin - Copia - Copia.py⁩:1724 ⁨plugin - Copia.py⁩:1825 ⁨plugin -no tv error.py⁩:1696
+#: ⁨plugin -ok forse.py⁩:1722 plugin.py:1867
 msgid "Update Aborted!"
 msgstr "Aggiornamento interrotto!"
 
-#: plugin.py:1715
+#: ⁨plugin - Copia - Copia.py⁩:1771 ⁨plugin - Copia.py⁩:1872 ⁨plugin -no tv error.py⁩:1743
+#: ⁨plugin -ok forse.py⁩:1769 plugin.py:1914
 msgid "Convert Stalker Portal to M3U playlist with actual channels"
 msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
+
+#: ⁨plugin - Copia.py⁩:1117
+msgid "Failed to obtain token"
+msgstr "Impossibile ottenere il token"
+
+#: ⁨plugin - Copia.py⁩:1123
+msgid "Authentication failed - continuing anyway"
+msgstr "Autenticazione fallita - continua comunque"
+
+#: ⁨plugin - Copia.py⁩:1134
+msgid "Trying alternative channel endpoint..."
+msgstr "Prova con un endpoint del canale alternativo..."
+
+#: ⁨plugin - Copia.py⁩:1139
+msgid "Trying XMLTV method..."
+msgstr "Sto provando il metodo XMLTV..."
+
+#: ⁨plugin - Copia.py⁩:1143
+msgid "All channel retrieval methods failed"
+msgstr "Tutti i metodi di recupero del canale sono falliti"
+
+#: ⁨plugin - Copia.py⁩:1150
+msgid "Critical error: "
+msgstr "Errore critico : "
+
+#: ⁨plugin - Copia.py⁩:1266
+msgid "Token endpoint failed: "
+msgstr "Errore nell'endpoint del token: "
+
+#: ⁨plugin - Copia.py⁩:1323
+msgid "Channel endpoint failed: "
+msgstr "Channel endpoint failed: "
+
+#: ⁨plugin - Copia.py⁩:1337
+msgid "Generating URLs for {} channels..."
+msgstr "Generazione di URL per {} canali..."
+
+#: ⁨plugin - Copia.py⁩:1395
+msgid "Generated {} channels in {:.1f} seconds"
+msgstr "Generati {} canali in {:.1f} secondi"
+
+#: ⁨plugin - Copia.py⁩:1400
+msgid "Channel processing error: "
+msgstr "Errore di elaborazione del canale: "
+
+#: ⁨plugin -ok forse.py⁩:1145
+msgid "Token not found!"
+msgstr "Token non trovato!"
+
+#: plugin.py:875
+msgid "Stopping conversion..."
+msgstr "Interruzione della conversione..."
+
+#: plugin.py:926
+msgid "Stop"
+msgstr ""
+
+#: plugin.py:939
+msgid "Conversion canceled before start"
+msgstr "Conversione annullata prima dell'inizio"
+
+#: plugin.py:952
+msgid "Conversion stopped during channel retrieval"
+msgstr "Conversione interrotta durante il recupero del canale"
+
+#: plugin.py:990
+msgid "Conversion stopped during grouping"
+msgstr "Conversion stopped during grouping"
+
+#: plugin.py:999
+msgid "Conversion stopped before bouquet creation"
+msgstr "Conversione interrotta prima della creazione del bouquet"
+
+#: plugin.py:1005
+msgid "Conversion stopped during bouquet creation"
+msgstr "Conversione interrotta durante la creazione del bouquet"
+
+#: plugin.py:1131
+msgid "Success! "
+msgstr "Successo! "
+
+#: plugin.py:1133
+msgid "Error! "
+msgstr "Errore! "
+
+#: plugin.py:1239
+msgid "Conversion stopped during channel processing"
+msgstr "Conversione interrotta durante l'elaborazione del canale"
+
+#: plugin.py:1256
+msgid "Conversion stopped during result processing"
+msgstr "Conversione interrotta durante l'elaborazione dei risultati"
 
 #~ msgid "Status: "
 #~ msgstr "Stato: "
@@ -510,5 +713,4 @@ msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
 
 #~ msgid "Could not retrieve channel list from portal. Check URL and MAC."
 #~ msgstr ""
-#~ "Impossibile recuperare l'elenco dei canali dal portale. Controllare URL e "
-#~ "MAC."
+#~ "Impossibile recuperare l'elenco dei canali dal portale. Controllare URL e MAC."
