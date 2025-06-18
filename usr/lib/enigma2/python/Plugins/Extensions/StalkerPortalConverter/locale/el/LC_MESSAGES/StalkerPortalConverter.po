@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-18 18:45+0200\n"
-"PO-Revision-Date: 2025-06-18 18:45+0200\n"
+"POT-Creation-Date: 2025-06-18 18:39+0200\n"
+"PO-Revision-Date: 2025-06-19 00:27+0300\n"
 "Last-Translator: \n"
 "Language-Team: giorbak\n"
 "Language: el\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 3.6\n"
-"X-Poedit-Basepath: ../../..\n"
+"X-Generator: Poedit 3.2\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
 #: plugin.py:147 plugin.py:862
@@ -87,11 +87,11 @@ msgstr "Επεξεργασία"
 
 #: plugin.py:336
 msgid "Initialization error"
-msgstr ""
+msgstr "Σφάλμα αρχικοποίησης"
 
 #: plugin.py:343
 msgid "Stopping current process to switch portal..."
-msgstr ""
+msgstr "Διακοπή τρέχουσας διαδικασίας για αλλαγή πύλης..."
 
 #: plugin.py:366
 msgid "Selected: "
@@ -162,11 +162,8 @@ msgid "Set Bouquet Position"
 msgstr "Ορισμός θέσης μπουκέτου"
 
 #: plugin.py:808
-msgid ""
-"Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
-"Εισάγετε το URL πύλης (π.χ. http://example.com/c/ ή http://example.com:8088/"
-"c/)"
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr "Εισάγετε το URL πύλης (π.χ. http://example.com/c/ ή http://example.com:8088/c/)"
 
 #: plugin.py:827
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
@@ -205,10 +202,8 @@ msgid "Scanning file... {}%"
 msgstr "Σάρωση αρχείου... {}%"
 
 #: plugin.py:985
-#, fuzzy
-#| msgid "Conversion stopped before bouquet creation"
 msgid "Conversion stopped by user"
-msgstr "Η μετατροπή σταμάτησε πριν τη δημιουργία του μπουκέτου"
+msgstr "Η μετατροπή διακόπηκε από τον χρήστη"
 
 #: plugin.py:1003 plugin.py:1286
 msgid "Success! "
@@ -271,20 +266,16 @@ msgid "Failed to retrieve channel list"
 msgstr "Αποτυχία ανάκτησης λίστας καναλιών"
 
 #: plugin.py:1107
-#, fuzzy
-#| msgid "Creating playlist file..."
 msgid "Step 2/3: Creating playlist file..."
-msgstr "Δημιουργία αρχείου λίστας αναπαραγωγής..."
+msgstr "Βήμα 2/3: Δημιουργία αρχείου λίστας αναπαραγωγής..."
 
 #: plugin.py:1114
 msgid "Step 3/3: Create M3U file..."
-msgstr ""
+msgstr "Βήμα 3/3: Δημιουργία αρχείου M3U..."
 
 #: plugin.py:1125
-#, fuzzy
-#| msgid "Conversion stopped during bouquet creation"
 msgid "Conversion stopped during M3U creation"
-msgstr "Η μετατροπή σταμάτησε κατά τη δημιουργία του μπουκέτου"
+msgstr "Η μετατροπή διακόπηκε κατά τη δημιουργία του M3U"
 
 #: plugin.py:1137
 msgid "M3U created with {} channels"
@@ -292,7 +283,7 @@ msgstr "Δημιουργήθηκε M3U με {} κανάλια"
 
 #: plugin.py:1141
 msgid "Step 3/3: Create Bouquet file..."
-msgstr ""
+msgstr "Βήμα 3/3: Δημιουργία αρχείου μπουκέτου..."
 
 #: plugin.py:1146
 msgid "Conversion stopped during grouping"
@@ -343,10 +334,9 @@ msgid "No channels found in response"
 msgstr "Δεν βρέθηκαν κανάλια στην απόκριση"
 
 #: plugin.py:1386
-#, fuzzy, python-format
-#| msgid "Preparing {} channels..."
+#, python-format
 msgid "Preparing %d channels..."
-msgstr "Προετοιμασία {} καναλιών..."
+msgstr "Προετοιμασία %d καναλιών..."
 
 #: plugin.py:1399
 msgid "Conversion stopped during channel processing"
@@ -357,21 +347,16 @@ msgid "Conversion stopped during result processing"
 msgstr "Η μετατροπή σταμάτησε κατά την επεξεργασία των αποτελεσμάτων"
 
 #: plugin.py:1445
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s "
-"| ETA: {:.1f}s"
-msgstr ""
+msgid "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s | ETA: {:.1f}s"
+msgstr "Επεξεργάστηκαν {}/{} κανάλια ({:.1f}%) | Χρόνος: {:.1f}s | Μέση ταχύτητα: {:.1f}/s | Εκτ. χρόνος: {:.1f}s"
 
 #: plugin.py:1461
-#, fuzzy
-#| msgid "Processed {} of {} channels in {:.1f}s ({:.1f}/s)"
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
-msgstr "Επεξεργάστηκαν {} από {} κανάλια σε {:.1f}s ({:.1f}/s)"
+msgid "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
+msgstr "Επεξεργάστηκαν {}/{} κανάλια ({:.1f}%) | Χρόνος: {:.1f}s | Μέση ταχύτητα: {:.1f}/s"
 
 #: plugin.py:1736
 msgid "Select this directory"
-msgstr ""
+msgstr "Επιλέξτε αυτόν τον κατάλογο"
 
 #: plugin.py:1756 plugin.py:1852
 msgid "Error accessing directory: "
@@ -382,31 +367,25 @@ msgid "<< Cancel"
 msgstr "<< Άκυρο"
 
 #: plugin.py:1764
-#, fuzzy
-#| msgid "Select Playlist File"
 msgid "Select playlist file"
-msgstr "Επιλογή αρχείου λίστας αναπαραγωγής"
+msgstr "Επιλέξτε αρχείο λίστας αναπαραγωγής"
 
 #: plugin.py:1764
-#, fuzzy
-#| msgid "Selected device: "
 msgid "Select directory"
-msgstr "Επιλεγμένη συσκευή: "
+msgstr "Επιλέξτε κατάλογο"
 
 #: plugin.py:1768
 msgid "No files found in: "
 msgstr "Δεν βρέθηκαν αρχεία στο: "
 
 #: plugin.py:1797
-#, fuzzy
-#| msgid "Selected device: "
 msgid "Selected directory: "
-msgstr "Επιλεγμένη συσκευή: "
+msgstr "Επιλεγμένος κατάλογος: "
 
 #: plugin.py:1807
 #, python-format
 msgid "Loaded playlist: %s"
-msgstr ""
+msgstr "Φορτώθηκε λίστα αναπαραγωγής: %s"
 
 #: plugin.py:1856
 msgid "No files or directories found in: "
@@ -451,8 +430,7 @@ msgid ""
 "Author: Lululla\n"
 "Version: %s\n"
 "Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet "
-"format.\n"
+"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet format.\n"
 "Support: linuxsat-support.com - corvoboys.org\n"
 "\n"
 msgstr ""
@@ -469,12 +447,10 @@ msgid "HELP:\n"
 msgstr "ΒΟΗΘΕΙΑ:\n"
 
 #: plugin.py:1975
-msgid ""
-"- Open a file with server URLs or press the BLUE button to edit the host and "
-"MAC address\n"
+msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
 msgstr ""
-"- Ανοίξτε ένα αρχείο με URL διακομιστών ή πατήστε το ΜΠΛΕ κουμπί για να "
-"επεξεργαστείτε τον host και τη διεύθυνση MAC\n"
+"- Ανοίξτε ένα αρχείο με URL διακομιστών ή πατήστε το ΜΠΛΕ κουμπί για να επεξεργαστείτε τον host και τη "
+"διεύθυνση MAC\n"
 
 #: plugin.py:1976
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
@@ -527,25 +503,3 @@ msgstr "Η ενημέρωση ακυρώθηκε!"
 #: plugin.py:2101
 msgid "Convert Stalker Portal to M3U playlist with actual channels"
 msgstr "Μετατροπή Stalker Portal σε M3U playlist με πραγματικά κανάλια"
-
-#~ msgid "Processed {}/{} channels ({:.1f}/s)"
-#~ msgstr "Επεξεργάστηκαν {}/{} κανάλια ({:.1f}/s)"
-
-#~ msgid "No writable devices found!"
-#~ msgstr "Δεν βρέθηκαν εγγράψιμες συσκευές!"
-
-#~ msgid "Select storage device"
-#~ msgstr "Επιλέξτε συσκευή αποθήκευσης"
-
-#~ msgid "Select playlist file in: {}"
-#~ msgstr "Επιλέξτε αρχείο λίστας στο: {}"
-
-#, python-format
-#~ msgid ""
-#~ "Loaded playlist: %s. Are you ready to convert? Press Green to proceed."
-#~ msgstr ""
-#~ "Φορτώθηκε playlist: %s. Είστε έτοιμοι για μετατροπή; Πατήστε το Πράσινο "
-#~ "για να συνεχίσετε."
-
-#~ msgid "File not found: "
-#~ msgstr "Δεν βρέθηκε το αρχείο: "
