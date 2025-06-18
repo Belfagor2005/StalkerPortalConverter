@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 22:12+0200\n"
+"POT-Creation-Date: 2025-06-18 14:48+0200\n"
 "PO-Revision-Date: 2024-08-31 20:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
@@ -16,391 +16,399 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
-#: plugin.py:149 plugin.py:750
+#: plugin.py:147 plugin.py:843
 msgid "Top"
 msgstr ""
 
-#: plugin.py:149 plugin.py:750
+#: plugin.py:147 plugin.py:843
 msgid "Bottom"
 msgstr ""
 
-#: plugin.py:224
+#: plugin.py:238
 #, python-format
 msgid "Stalker Portal to M3U Converter v.%s"
 msgstr ""
 
-#: plugin.py:225
+#: plugin.py:239
 msgid "Portal URL:"
 msgstr ""
 
-#: plugin.py:227
+#: plugin.py:241
 msgid "MAC Address:"
 msgstr ""
 
-#: plugin.py:229
+#: plugin.py:243
 msgid "Output File:"
 msgstr ""
 
-#: plugin.py:231
+#: plugin.py:245
 msgid "Valid Portals from Selected File:"
 msgstr ""
 
-#: plugin.py:235
+#: plugin.py:249
 msgid "User:"
 msgstr ""
 
-#: plugin.py:237
+#: plugin.py:251
 msgid "Password:"
 msgstr ""
 
-#: plugin.py:239
+#: plugin.py:253
 msgid "Expiry:"
 msgstr ""
 
-#: plugin.py:241
+#: plugin.py:255
 msgid "Status:"
 msgstr ""
 
-#: plugin.py:243
+#: plugin.py:257
 msgid "Active:"
 msgstr ""
 
-#: plugin.py:245
+#: plugin.py:259
 msgid "Max: "
 msgstr ""
 
-#: plugin.py:249
+#: plugin.py:263
 msgid "Ready - Select a file or enter URL/MAC"
 msgstr ""
 
-#: plugin.py:250
+#: plugin.py:264
 msgid "Clear"
 msgstr ""
 
-#: plugin.py:252
+#: plugin.py:266
 msgid "Select Playlist"
 msgstr ""
 
-#: plugin.py:253
+#: plugin.py:267
 msgid "Edit"
 msgstr ""
 
-#: plugin.py:304
+#: plugin.py:330
+msgid "Errore di inizializzazione"
+msgstr ""
+
+#: plugin.py:337
+msgid "Stopping current process to switch portal..."
+msgstr ""
+
+#: plugin.py:360
 msgid "Selected: "
 msgstr ""
 
-#: plugin.py:315
+#: plugin.py:371
 msgid "Loading account info in background..."
 msgstr ""
 
-#: plugin.py:340
+#: plugin.py:396
 msgid "Account info loaded"
 msgstr ""
 
-#: plugin.py:342
+#: plugin.py:398
 msgid "Failed to load account info"
 msgstr ""
 
-#: plugin.py:353
+#: plugin.py:409
 msgid "Error accessing configuration values: "
 msgstr ""
 
-#: plugin.py:357
+#: plugin.py:413 plugin.py:1029
 msgid "Error: Portal and MAC are required"
 msgstr ""
 
-#: plugin.py:485
+#: plugin.py:544
 msgid "Handshake failed: No token received"
 msgstr ""
 
-#: plugin.py:584
+#: plugin.py:657
 msgid "Error extracting account information"
 msgstr ""
 
-#: plugin.py:661
+#: plugin.py:742
 msgid "Set Type Conversion"
 msgstr ""
 
-#: plugin.py:662
+#: plugin.py:743
 msgid "Edit Portal URL"
 msgstr ""
 
-#: plugin.py:663
+#: plugin.py:744
 msgid "Edit MAC Address"
 msgstr ""
 
-#: plugin.py:664
+#: plugin.py:745
 msgid "Select Playlist File"
 msgstr ""
 
-#: plugin.py:665
+#: plugin.py:746
 msgid "Delete Playlist File"
 msgstr ""
 
-#: plugin.py:666
+#: plugin.py:747
 msgid "Change Output Directory"
 msgstr ""
 
-#: plugin.py:667
+#: plugin.py:748
 msgid "Upgrade Stalker Converter"
 msgstr ""
 
-#: plugin.py:668
+#: plugin.py:749
 msgid "Information"
 msgstr ""
 
-#: plugin.py:671
+#: plugin.py:750
 msgid "Set Bouquet Position"
 msgstr ""
 
-#: plugin.py:691
+#: plugin.py:789
 msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
 msgstr ""
 
-#: plugin.py:711
+#: plugin.py:808
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
 msgstr ""
 
-#: plugin.py:744
+#: plugin.py:837
 msgid "Select Type of Conversion"
 msgstr ""
 
-#: plugin.py:757
+#: plugin.py:850
 msgid "Bouquet position set to: {}"
 msgstr ""
 
-#: plugin.py:762
+#: plugin.py:856
 msgid "Select Bouquet Position"
 msgstr ""
 
-#: plugin.py:777
+#: plugin.py:871
 msgid "Get ALL portal/MAC from file"
 msgstr ""
 
-#: plugin.py:791
+#: plugin.py:885
 msgid "Loaded {} valid portals from {}"
 msgstr ""
 
-#: plugin.py:793
+#: plugin.py:887
 msgid "No valid portals found in file"
 msgstr ""
 
-#: plugin.py:796
+#: plugin.py:890
 msgid "Error: "
 msgstr ""
 
-#: plugin.py:819
+#: plugin.py:913
 msgid "Scanning file... {}%"
 msgstr ""
 
-#: plugin.py:875
-msgid "Stopping conversion..."
+#: plugin.py:966
+msgid "Conversion stopped by user"
 msgstr ""
 
-#: plugin.py:881
-msgid "Not enough space on {}!"
-msgstr ""
-
-#: plugin.py:894
-msgid "Error accessing configuration values"
-msgstr ""
-
-#: plugin.py:895
-msgid "Failed to read portal or MAC configuration:\n"
-msgstr ""
-
-#: plugin.py:904
-msgid "Error: Invalid portal URL"
-msgstr ""
-
-#: plugin.py:908
-msgid "Error: Invalid MAC address"
-msgstr ""
-
-#: plugin.py:917
-msgid "Cannot create directory: "
-msgstr ""
-
-#: plugin.py:926
-msgid "Stop"
-msgstr ""
-
-#: plugin.py:929
-msgid "Starting conversion process..."
-msgstr ""
-
-#: plugin.py:939
-msgid "Conversion canceled before start"
-msgstr ""
-
-#: plugin.py:946
-msgid "Step 1/3: Connecting to portal..."
-msgstr ""
-
-#: plugin.py:952
-msgid "Conversion stopped during channel retrieval"
-msgstr ""
-
-#: plugin.py:956
-msgid "Failed to retrieve channel list"
-msgstr ""
-
-#: plugin.py:960
-msgid "Creating playlist file..."
-msgstr ""
-
-#: plugin.py:982
-msgid "M3U created with {} channels"
-msgstr ""
-
-#: plugin.py:990
-msgid "Conversion stopped during grouping"
-msgstr ""
-
-#: plugin.py:995
-msgid "Grouping: {}"
-msgstr ""
-
-#: plugin.py:999
-msgid "Conversion stopped before bouquet creation"
-msgstr ""
-
-#: plugin.py:1005
-msgid "Conversion stopped during bouquet creation"
-msgstr ""
-
-#: plugin.py:1011
-msgid "Bouquets created: {} groups with {} channels"
-msgstr ""
-
-#: plugin.py:1014
-msgid "Error creating playlist: "
-msgstr ""
-
-#: plugin.py:1018
-msgid "Conversion error: "
-msgstr ""
-
-#: plugin.py:1131
+#: plugin.py:984 plugin.py:1255
 msgid "Success! "
 msgstr ""
 
-#: plugin.py:1133
+#: plugin.py:986 plugin.py:1257
 msgid "Error! "
 msgstr ""
 
-#: plugin.py:1198
+#: plugin.py:1001
+msgid "Stopping conversion..."
+msgstr ""
+
+#: plugin.py:1010
+msgid "Not enough space on {}!"
+msgstr ""
+
+#: plugin.py:1023
+msgid "Error accessing configuration values"
+msgstr ""
+
+#: plugin.py:1024
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr ""
+
+#: plugin.py:1033
+msgid "Error: Invalid portal URL"
+msgstr ""
+
+#: plugin.py:1037
+msgid "Error: Invalid MAC address"
+msgstr ""
+
+#: plugin.py:1046
+msgid "Cannot create directory: "
+msgstr ""
+
+#: plugin.py:1055
+msgid "Stop"
+msgstr ""
+
+#: plugin.py:1058
+msgid "Starting conversion process..."
+msgstr ""
+
+#: plugin.py:1069
+msgid "Conversion canceled before start"
+msgstr ""
+
+#: plugin.py:1076
+msgid "Step 1/3: Connecting to portal..."
+msgstr ""
+
+#: plugin.py:1081
+msgid "Conversion stopped during channel retrieval"
+msgstr ""
+
+#: plugin.py:1085
+msgid "Failed to retrieve channel list"
+msgstr ""
+
+#: plugin.py:1089
+msgid "Creating playlist file..."
+msgstr ""
+
+#: plugin.py:1112
+msgid "M3U created with {} channels"
+msgstr ""
+
+#: plugin.py:1119
+msgid "Conversion stopped during grouping"
+msgstr ""
+
+#: plugin.py:1124
+msgid "Grouping: {}"
+msgstr ""
+
+#: plugin.py:1127
+msgid "Conversion stopped before bouquet creation"
+msgstr ""
+
+#: plugin.py:1132
+msgid "Conversion stopped during bouquet creation"
+msgstr ""
+
+#: plugin.py:1138
+msgid "Bouquets created: {} groups with {} channels"
+msgstr ""
+
+#: plugin.py:1144
+msgid "Error creating playlist: "
+msgstr ""
+
+#: plugin.py:1148
+msgid "Conversion error: "
+msgstr ""
+
+#: plugin.py:1326
 msgid "Step 1/3: Handshake..."
 msgstr ""
 
-#: plugin.py:1203
+#: plugin.py:1331
 msgid "Failed to obtain token!"
 msgstr ""
 
-#: plugin.py:1209
+#: plugin.py:1337
 msgid "Step 2/3: Authentication..."
 msgstr ""
 
-#: plugin.py:1215
+#: plugin.py:1343
 msgid "Step 3/3: Getting channels..."
 msgstr ""
 
-#: plugin.py:1223
+#: plugin.py:1351
 msgid "No channels found in response"
 msgstr ""
 
-#: plugin.py:1227
+#: plugin.py:1355
 msgid "Preparing {} channels..."
 msgstr ""
 
-#: plugin.py:1239
+#: plugin.py:1368
 msgid "Conversion stopped during channel processing"
 msgstr ""
 
-#: plugin.py:1256
+#: plugin.py:1386
 msgid "Conversion stopped during result processing"
 msgstr ""
 
-#: plugin.py:1272
+#: plugin.py:1403
 msgid "Processed {}/{} channels ({:.1f}/s)"
 msgstr ""
 
-#: plugin.py:1279
+#: plugin.py:1413
 msgid "Processed {} of {} channels in {:.1f}s ({:.1f}/s)"
 msgstr ""
 
-#: plugin.py:1525
-msgid "No writable devices found!"
+#: plugin.py:1682
+msgid "Select this directory"
 msgstr ""
 
-#: plugin.py:1538
-msgid "<< Cancel"
-msgstr ""
-
-#: plugin.py:1542
-msgid "Select storage device"
-msgstr ""
-
-#: plugin.py:1551
-msgid "Selected device: "
-msgstr ""
-
-#: plugin.py:1589 plugin.py:1664
+#: plugin.py:1702 plugin.py:1790
 msgid "Error accessing directory: "
 msgstr ""
 
-#: plugin.py:1593 plugin.py:1671
-msgid "<< Back to main menu"
+#: plugin.py:1706
+msgid "<< Cancel"
 msgstr ""
 
-#: plugin.py:1597
-msgid "Select playlist file in: {}"
+#: plugin.py:1710
+msgid "Select playlist file"
 msgstr ""
 
-#: plugin.py:1601
+#: plugin.py:1710
+msgid "Select directory"
+msgstr ""
+
+#: plugin.py:1714
 msgid "No files found in: "
 msgstr ""
 
-#: plugin.py:1622
+#: plugin.py:1735
+msgid "Selected directory: "
+msgstr ""
+
+#: plugin.py:1744
 #, python-format
-msgid "Loaded playlist: %s. Are you ready to convert? Press Green to proceed."
+msgid "Loaded playlist: %s"
 msgstr ""
 
-#: plugin.py:1630
-msgid "File not found: "
-msgstr ""
-
-#: plugin.py:1668
+#: plugin.py:1794
 msgid "No files or directories found in: "
 msgstr ""
 
-#: plugin.py:1676
+#: plugin.py:1797
+msgid "<< Back to main menu"
+msgstr ""
+
+#: plugin.py:1802
 msgid "Select file to delete in: {}"
 msgstr ""
 
-#: plugin.py:1695
+#: plugin.py:1821
 msgid ""
 "Are you sure you want to delete:\n"
 "{}?"
 msgstr ""
 
-#: plugin.py:1710
+#: plugin.py:1836
 msgid "Deleted: "
 msgstr ""
 
-#: plugin.py:1719
+#: plugin.py:1845
 msgid "Delete failed: "
 msgstr ""
 
-#: plugin.py:1758
+#: plugin.py:1884
 msgid "Convert to M3U"
 msgstr ""
 
-#: plugin.py:1760
+#: plugin.py:1886
 msgid "Convert to TV"
 msgstr ""
 
-#: plugin.py:1777
+#: plugin.py:1904
 #, python-format
 msgid ""
 "Plugin: StalkerPortalConvert to M3U/TV\n"
@@ -412,37 +420,37 @@ msgid ""
 "\n"
 msgstr ""
 
-#: plugin.py:1785
+#: plugin.py:1912
 msgid "HELP:\n"
 msgstr ""
 
-#: plugin.py:1786
+#: plugin.py:1913
 msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
 msgstr ""
 
-#: plugin.py:1787
+#: plugin.py:1914
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr ""
 
-#: plugin.py:1788
+#: plugin.py:1915
 msgid "- Press CONVERT to generate the playlist"
 msgstr ""
 
-#: plugin.py:1799
+#: plugin.py:1923
 msgid "Fields cleared"
 msgstr ""
 
-#: plugin.py:1812
+#: plugin.py:1937
 msgid ""
 "Unable to fetch version info:\n"
 "{}"
 msgstr ""
 
-#: plugin.py:1830
+#: plugin.py:1955
 msgid "You are already running the latest version: {}"
 msgstr ""
 
-#: plugin.py:1846
+#: plugin.py:1971
 #, python-format
 msgid ""
 "New version %s available\n"
@@ -452,15 +460,15 @@ msgid ""
 "Do you want to install it now?"
 msgstr ""
 
-#: plugin.py:1859
+#: plugin.py:1984
 #, python-format
 msgid "You are already running the latest version: %s"
 msgstr ""
 
-#: plugin.py:1867
+#: plugin.py:1992
 msgid "Update Aborted!"
 msgstr ""
 
-#: plugin.py:1914
+#: plugin.py:2039
 msgid "Convert Stalker Portal to M3U playlist with actual channels"
 msgstr ""

@@ -1,0 +1,523 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: StalkerPortalConverter\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-18 15:25+0200\n"
+"PO-Revision-Date: 2025-06-18 15:25+0200\n"
+"Last-Translator: \n"
+"Language-Team: <ekekaz@gmail.com>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: __init__.py:206
+msgid "Hard Disk"
+msgstr ""
+
+#: __init__.py:207
+msgid "USB Drive"
+msgstr ""
+
+#: __init__.py:210
+msgid "Temporary Storage"
+msgstr ""
+
+#: __init__.py:214
+msgid "Disk"
+msgstr ""
+
+#: __init__.py:221
+msgid "Network"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:149 ⁨plugin - Copia.py⁩:809 plugin.py:203 plugin.py:899
+msgid "Top"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:149 ⁨plugin - Copia.py⁩:809 plugin.py:203 plugin.py:899
+msgid "Bottom"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:240 plugin.py:294
+#, python-format
+msgid "Stalker Portal to M3U Converter v.%s"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:241 plugin.py:295
+msgid "Portal URL:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:243 plugin.py:297
+msgid "MAC Address:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:245 plugin.py:299
+msgid "Output File:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:247 plugin.py:301
+msgid "Valid Portals from Selected File:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:251 plugin.py:305
+msgid "User:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:253 plugin.py:307
+msgid "Password:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:255 plugin.py:309
+msgid "Expiry:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:257 plugin.py:311
+msgid "Status:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:259 plugin.py:313
+msgid "Active:"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:261 plugin.py:315
+msgid "Max: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:265 plugin.py:319
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:266 plugin.py:320
+msgid "Clear"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:268 plugin.py:322
+msgid "Select Playlist"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:269 plugin.py:323
+msgid "Edit"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:319 plugin.py:393
+msgid "Stopping current process to switch portal..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:345 plugin.py:416
+msgid "Selected: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:356 plugin.py:427
+msgid "Loading account info in background..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:382 plugin.py:452
+msgid "Account info loaded"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:384 plugin.py:454
+msgid "Failed to load account info"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:395 plugin.py:465
+msgid "Error accessing configuration values: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:399 ⁨plugin - Copia.py⁩:993 plugin.py:469 plugin.py:1085
+msgid "Error: Portal and MAC are required"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:530 plugin.py:600
+msgid "Handshake failed: No token received"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:643 plugin.py:713
+msgid "Error extracting account information"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:720 plugin.py:798
+msgid "Set Type Conversion"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:721 plugin.py:799
+msgid "Edit Portal URL"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:722 plugin.py:800
+msgid "Edit MAC Address"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:723 plugin.py:801
+msgid "Select Playlist File"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:724 plugin.py:802
+msgid "Delete Playlist File"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:725 plugin.py:803
+msgid "Change Output Directory"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:726 plugin.py:804
+msgid "Upgrade Stalker Converter"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:727 plugin.py:805
+msgid "Information"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:730 plugin.py:806
+msgid "Set Bouquet Position"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:750 plugin.py:845
+msgid ""
+"Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:770 plugin.py:864
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:803 plugin.py:893
+msgid "Select Type of Conversion"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:816 plugin.py:906
+msgid "Bouquet position set to: {}"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:821 plugin.py:912
+msgid "Select Bouquet Position"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:836 plugin.py:927
+msgid "Get ALL portal/MAC from file"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:850 plugin.py:941
+msgid "Loaded {} valid portals from {}"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:852 plugin.py:943
+msgid "No valid portals found in file"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:855 plugin.py:946
+msgid "Error: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:878 plugin.py:969
+msgid "Scanning file... {}%"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:931 plugin.py:1022
+msgid "Conversion stopped by user"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:949 ⁨plugin - Copia.py⁩:1219 plugin.py:1040 plugin.py:1311
+msgid "Success! "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:951 ⁨plugin - Copia.py⁩:1221 plugin.py:1042 plugin.py:1313
+msgid "Error! "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:965 plugin.py:1057
+msgid "Stopping conversion..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:974 plugin.py:1066
+msgid "Not enough space on {}!"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:987 plugin.py:1079
+msgid "Error accessing configuration values"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:988 plugin.py:1080
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:997 plugin.py:1089
+msgid "Error: Invalid portal URL"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1001 plugin.py:1093
+msgid "Error: Invalid MAC address"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1010 plugin.py:1102
+msgid "Cannot create directory: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1019 plugin.py:1111
+msgid "Stop"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1022 plugin.py:1114
+msgid "Starting conversion process..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1033 plugin.py:1125
+msgid "Conversion canceled before start"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1040 plugin.py:1132
+msgid "Step 1/3: Connecting to portal..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1045 plugin.py:1137
+msgid "Conversion stopped during channel retrieval"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1049 plugin.py:1141
+msgid "Failed to retrieve channel list"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1053 plugin.py:1145
+msgid "Creating playlist file..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1076 plugin.py:1168
+msgid "M3U created with {} channels"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1083 plugin.py:1175
+msgid "Conversion stopped during grouping"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1088 plugin.py:1180
+msgid "Grouping: {}"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1091 plugin.py:1183
+msgid "Conversion stopped before bouquet creation"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1096 plugin.py:1188
+msgid "Conversion stopped during bouquet creation"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1102 plugin.py:1194
+msgid "Bouquets created: {} groups with {} channels"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1108 plugin.py:1200
+msgid "Error creating playlist: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1112 plugin.py:1204
+msgid "Conversion error: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1290 plugin.py:1382
+msgid "Step 1/3: Handshake..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1295 plugin.py:1387
+msgid "Failed to obtain token!"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1301 plugin.py:1393
+msgid "Step 2/3: Authentication..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1307 plugin.py:1399
+msgid "Step 3/3: Getting channels..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1315 plugin.py:1407
+msgid "No channels found in response"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1319 plugin.py:1411
+msgid "Preparing {} channels..."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1332 plugin.py:1424
+msgid "Conversion stopped during channel processing"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1350 plugin.py:1442
+msgid "Conversion stopped during result processing"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1367 plugin.py:1459
+msgid "Processed {}/{} channels ({:.1f}/s)"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1377 plugin.py:1469
+msgid "Processed {} of {} channels in {:.1f}s ({:.1f}/s)"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1623
+msgid "No writable devices found!"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1636 plugin.py:1762
+msgid "<< Cancel"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1640
+msgid "Select storage device"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1649
+msgid "Selected device: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1687 ⁨plugin - Copia.py⁩:1762 plugin.py:1758 plugin.py:1846
+msgid "Error accessing directory: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1691 ⁨plugin - Copia.py⁩:1769 plugin.py:1853
+msgid "<< Back to main menu"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1695
+msgid "Select playlist file in: {}"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1699 plugin.py:1770
+msgid "No files found in: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1720
+#, python-format
+msgid "Loaded playlist: %s. Are you ready to convert? Press Green to proceed."
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1728
+msgid "File not found: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1766 plugin.py:1850
+msgid "No files or directories found in: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1774 plugin.py:1858
+msgid "Select file to delete in: {}"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1793 plugin.py:1877
+msgid ""
+"Are you sure you want to delete:\n"
+"{}?"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1808 plugin.py:1892
+msgid "Deleted: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1817 plugin.py:1901
+msgid "Delete failed: "
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1856 plugin.py:1940
+msgid "Convert to M3U"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1858 plugin.py:1942
+msgid "Convert to TV"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1876 plugin.py:1960
+#, python-format
+msgid ""
+"Plugin: StalkerPortalConvert to M3U/TV\n"
+"Author: Lululla\n"
+"Version: %s\n"
+"Date: June 2025\n"
+"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet "
+"format.\n"
+"Support: linuxsat-support.com - corvoboys.org\n"
+"\n"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1884 plugin.py:1968
+msgid "HELP:\n"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1885 plugin.py:1969
+msgid ""
+"- Open a file with server URLs or press the BLUE button to edit the host and "
+"MAC address\n"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1886 plugin.py:1970
+msgid "- Choose the desired output format: M3U or TV bouquet\n"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1887 plugin.py:1971
+msgid "- Press CONVERT to generate the playlist"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1898 plugin.py:1979
+msgid "Fields cleared"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1911 plugin.py:1993
+msgid ""
+"Unable to fetch version info:\n"
+"{}"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1929 plugin.py:2011
+msgid "You are already running the latest version: {}"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1945 plugin.py:2027
+#, python-format
+msgid ""
+"New version %s available\n"
+"\n"
+"Changelog: %s\n"
+"\n"
+"Do you want to install it now?"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1958 plugin.py:2040
+#, python-format
+msgid "You are already running the latest version: %s"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:1966 plugin.py:2048
+msgid "Update Aborted!"
+msgstr ""
+
+#: ⁨plugin - Copia.py⁩:2013 plugin.py:2095
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr ""
+
+#: plugin.py:386
+msgid "Initialization error"
+msgstr ""
+
+#: plugin.py:1738
+msgid "Select this directory"
+msgstr ""
+
+#: plugin.py:1766
+msgid "Select playlist file"
+msgstr ""
+
+#: plugin.py:1766
+msgid "Select directory"
+msgstr ""
+
+#: plugin.py:1791
+msgid "Selected directory: "
+msgstr ""
+
+#: plugin.py:1800
+#, python-format
+msgid "Loaded playlist: %s"
+msgstr ""

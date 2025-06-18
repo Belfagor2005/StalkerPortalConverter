@@ -7,7 +7,6 @@
         <key id="KEY_GREEN"    mapto="green"        flags="m" />
         <key id="KEY_YELLOW"   mapto="yellow"       flags="m" />    
         <key id="KEY_BLUE"     mapto="blue"         flags="m" />
-
         <key id="KEY_LEFT"     mapto="left"         flags="m" />
         <key id="KEY_LEFT"     mapto="left_repeat"  flags="r" />
         <key id="KEY_RIGHT"    mapto="rigth"        flags="m" />

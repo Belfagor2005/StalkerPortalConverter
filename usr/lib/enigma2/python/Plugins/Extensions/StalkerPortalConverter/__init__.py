@@ -82,17 +82,17 @@ def localeInit():
 		gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
 
 
-if isDreambox:
-	def _(txt):
+def _(txt):
+	if isDreambox:
 		return gettext.dgettext(PluginLanguageDomain, txt) if txt else ""
-else:
-	def _(txt):
+	else:
 		translated = gettext.dgettext(PluginLanguageDomain, txt)
 		if translated:
 			return translated
 		else:
 			print("[%s] fallback to default translation for %s" % (PluginLanguageDomain, txt))
 			return gettext.gettext(txt)
+
 
 localeInit()
 language.addCallback(localeInit)
@@ -248,26 +248,15 @@ def get_cpu_count():
 
 
 def write_debug_line(label, value=None, filename="/tmp/stalker_convert.log"):
-    try:
-        with open(filename, "a") as f:
-            if value is not None:
-                f.write(label + ": " + str(value) + "\n")
-            else:
-                f.write(label + "\n")
-    except Exception:
-        pass
+	try:
+		with open(filename, "a") as f:
+			if value is not None:
+				f.write(label + ": " + str(value) + "\n")
+			else:
+				f.write(label + "\n")
+	except Exception:
+		pass
 
-
-# def cleanName(name):
-	# import unicodedata
-	# non_allowed_characters = "/.\\:*?<>|\""
-	# name = unicodedata.normalize("NFKD", name).encode("ASCII", "ignore").decode("ASCII")
-	# name = name.replace('\xc2\x86', '').replace('\xc2\x87', '')
-	# name = name.replace(' ', '-').replace("'", '').replace('&', 'e')
-	# name = name.replace('(', '').replace(')', '')
-	# name = name.strip()
-	# name = ''.join(['_' if c in non_allowed_characters or ord(c) < 32 else c for c in name])
-	# return name
 
 def cleanName(name):
 	import unicodedata
