@@ -1,6 +1,7 @@
 ## 📺 Stalker Portal Playlist Converter
   
-![](https://komarev.com/ghpvc/?username=Belfagor2005)
+![](https://komarev.com/ghpvc/?username=Belfagor2005) [![Python package](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml)
+
 
 <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true" width="600"/> 
 
