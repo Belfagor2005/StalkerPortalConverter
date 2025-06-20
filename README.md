@@ -123,19 +123,19 @@ This plugin includes a built-in web server that allows access to a full manageme
 In the main screen:
 
 * You see **"Access Code: 12••34"** (yellow text).
-* Green button: **"Show Code"**
-* Red button: **"New Code"**
-* Below the buttons, you see hints: **"0-SHOW"**, **"1-NEW"**
+* Green Label: **"Show Code"**
+* Red Label: **"New Code"**
+* Below the buttons, you see hints: **"1-SHOW"**, **"0-NEW"**
 
 #### To reveal the full code:
 
-* Press **"0"** on the remote control.
+* Press **"1"** on the remote control.
 * The full code is shown (e.g., **"Access Code: 123456"**).
 * After 10 seconds, it returns to the masked view (e.g., **"12••34"**).
 
 #### To generate a new code:
 
-* Press **"1"** on the remote control.
+* Press **"0"** on the remote control.
 * A new 6-digit code is generated (e.g., `987654`).
 * You see **"New Access Code: 987654"** for 15 seconds.
 * Then it returns to masked view (e.g., **"98••54"**).
