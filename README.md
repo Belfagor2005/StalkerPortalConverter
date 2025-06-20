@@ -9,9 +9,9 @@
 
 <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/main.jpeg?raw=true" width="600"/>
 
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management?raw=true" width="600"/>
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management.jpeg?raw=true" width="600"/>
 
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management2?raw=true" width="600"/>
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management2.jpeg?raw=true" width="600"/>
 
 
 ---
