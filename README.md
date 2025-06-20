@@ -5,7 +5,15 @@
 
 <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true" width="600"/> 
 
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/screen.png?raw=true" width="600"/>
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/screen.jpeg?raw=true" width="600"/>
+
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/main.jpeg?raw=true" width="600"/>
+
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management?raw=true" width="600"/>
+
+<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management2?raw=true" width="600"/>
+
+
 ---
 
 This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addresses from a `playlist.txt` file into usable M3U playlists.
@@ -27,13 +35,13 @@ This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addr
 ---
 ## 🎮 How to Use
 
-| Button       | Action               | Description                                   |
+| *Button      | Action               | Description                                   |
 | ------------ | -------------------- | --------------------------------------------- |
-| 🔴 RED       | Clear Field          | Clears current portal and MAC input fields    |
-| 🟢 GREEN     | Convert to M3U/TV E2 | Generates the M3U playlist and saves to file  |
-| 🟡 YELLOW    | Select Output Folder | Opens folder selector and sets playlist path  |
-| 🔵 BLUE      | Edit Config          | Opens configuration page for advanced options |
-| ℹ️ INFO      | Show Help            | Displays help and usage instructions          |
+| 🔴 **RED**   | Clear Field          | Clears current portal and MAC input fields    |
+| 🟢 **GREEN** | Convert to M3U/TV E2 | Generates the M3U playlist and saves to file  |
+| 🟡 **YELLOW**| Select Output Folder | Opens folder selector and sets playlist path  |
+| 🔵 **BLUE**  | Edit Config          | Opens configuration page for advanced options |
+| ℹ️ **INFO**  | Show Help            | Displays help and usage instructions          |
 | 🔢 **Key 1** | Show Code            | Displays the current access code/token        |
 | 🔢 **Key 0** | New Code             | Generates a new access code for web interface |
 | ⌨️ **TXT**   | Start Web Server     | Launches the integrated web control interface |
@@ -45,7 +53,7 @@ This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addr
 
 Use the **Settings** menu to configure the following options:
 
-| Key 🔢 / Button ⌨️             | Option                           | Description                             |
+| *Key 🔢 / Button ⌨️            | Option                           | Description                             |
 | ------------------------------ | -------------------------------- | --------------------------------------- |
 | 🖥️ **Edit Portal URL**         | Change the portal URL            | Modify the portal used for IPTV         |
 | 🖥️ **Edit MAC Address**        | Modify the MAC address           | Update your MAC address                 |
@@ -57,7 +65,7 @@ Use the **Settings** menu to configure the following options:
 
 ### 📄 Input Format (`playlist.txt`)
 
-Case-sensitive. The following formats are supported:
+*Case-sensitive. The following formats are supported:
 
 #### ✅ Standard Format
 
@@ -232,4 +240,4 @@ In the main screen:
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
-by Lululla
+*** by Lululla
