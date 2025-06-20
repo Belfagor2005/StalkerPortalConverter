@@ -1,9 +1,23 @@
 #!/bin/sh
 
-echo "Checking for an older version in the system..."
-if [ -d /usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter ]
-    rm -rf /usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter > /dev/null 2>&1
-echo "An older version was found and removed"
-echo "Proceeding to installation..."
+# <!-- **************************************  -->
+# <!-- Don't Remove this Disclaimer            -->
+# <!-- **************************************  -->
+echo "****************************************"
+echo "*Please .. Restart Enigma2 *"
+echo "****************************************"
+echo "* Enjoy our plugin *"
+echo "****************************************"
+echo "* All Rights Reserved *"
+echo "* © 2024 - Lululla *"
+echo "****************************************"
+echo "Checking for an older version of StalkerPortalConverter in the system..."
+EXTDIR="/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/"
+if [ -d "$EXTDIR" ]; then
+   rm -rf "$EXTDIR" > /dev/null 2>&1
 fi
+echo "***********************************"
+echo "* Proceeding to installation...   *"
+echo "***********************************"
 exit 0
+

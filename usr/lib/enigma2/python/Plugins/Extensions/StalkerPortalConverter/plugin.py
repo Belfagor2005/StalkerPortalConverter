@@ -5,7 +5,7 @@ from __future__ import absolute_import, print_function
 #########################################################
 #                                                       #
 #  Stalker Portal Converter Plugin                      #
-#  Version: 1.3                                         #
+#  Version: 1.4                                         #
 #  Created by Lululla (https://github.com/Belfagor2005) #
 #  License: CC BY-NC-SA 4.0                             #
 #  https://creativecommons.org/licenses/by-nc-sa/4.0    #
@@ -33,8 +33,8 @@ from os import (
 	listdir,
 	makedirs,
 	remove,
-	# statvfs,
-	replace
+	replace,
+	urandom
 )
 from os.path import (
 	basename,
@@ -52,7 +52,10 @@ from urllib.parse import urlencode, urlparse  # , quote
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 from requests.exceptions import RequestException, SSLError
+from twisted.web import server, resource
+from twisted.internet import reactor
 import ssl
+import socket
 
 from Components.ActionMap import ActionMap
 from Components.Label import Label
@@ -81,6 +84,8 @@ from . import (
 	cleanName,
 	# write_debug_line,
 )
+
+
 currversion = '1.4'
 
 """Use mode:
@@ -135,6 +140,7 @@ def update_mounts():
 config.plugins.stalkerportal = ConfigSubsection()
 default_dir = config.movielist.last_videodir.value if isdir(config.movielist.last_videodir.value) else defaultMoviePath()
 config.plugins.stalkerportal.output_dir = ConfigSelection(default=default_dir, choices=[])
+config.plugins.stalkerportal.input_filelist = ConfigText(default="/etc/enigma2")
 config.plugins.stalkerportal.type_convert = ConfigSelection(
 	default="0",
 	choices=[
@@ -148,6 +154,8 @@ config.plugins.stalkerportal.bouquet_position = ConfigSelection(
 )
 config.plugins.stalkerportal.portal_url = ConfigText(default="http://my.server.xyz:8080/c/", fixed_size=False)
 config.plugins.stalkerportal.mac_address = ConfigText(default="00:1A:79:00:00:00", fixed_size=False)
+config.plugins.stalkerportal.web_access_code = ConfigText(default="", fixed_size=False)
+
 AgentRequest = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.3'
 update_mounts()
 
@@ -171,55 +179,67 @@ for path in ["/tmp/account_debug.log", "/tmp/stalker_convert_info.log", "/tmp/st
 			print("[DEBUG] Failed to remove {}: {}".format(path, e))
 
 
-# issue on this version: Max retries exceeded with url
+# issue on this version: Max retries exceeded with url: fixed
 
 
 class StalkerPortalConverter(Screen):
 	skin = """
 		<screen name="StalkerPortalConverter" position="center,center" size="1280,720" title="Stalker Portal Converter" backgroundColor="#16000000">
-			<widget name="title" position="10,10" size="1260,40" font="Regular;30" halign="center" foregroundColor="#00ffff" />
+			<widget name="title" position="10,5" size="1260,40" font="Regular;30" halign="center" foregroundColor="#00ffff" />
 
 			<!-- Label -->
-			<widget name="portal_label" position="10,60" size="300,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
-			<widget name="portal_input" position="320,60" size="950,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
-			<widget name="mac_label" position="10,100" size="300,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
-			<widget name="mac_input" position="320,100" size="950,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
+			<widget name="portal_label" position="10,50" size="300,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
+			<widget name="portal_input" position="320,50" size="950,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
+			<widget name="mac_label" position="10,80" size="300,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
+			<widget name="mac_input" position="320,80" size="950,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 			<widget name="file_label" position="10,140" size="300,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
 			<widget name="file_input" position="320,140" size="950,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
+			<widget name="file_path_label" position="10,110" size="300,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
+			<widget name="file_path_input" position="320,110" size="950,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 
 			<!-- Label Extended -->
 			<widget name="user_label" position="10,505" size="200,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
 			<widget name="user_value" position="220,505" size="300,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 			<widget name="pass_label" position="540,505" size="200,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
-			<widget name="pass_value" position="750,505" size="300,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
+			<widget name="pass_value" position="750,505" size="240,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 			<widget name="expiry_label" position="10,535" size="200,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
 			<widget name="expiry_value" position="220,535" size="300,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 			<widget name="status_label" position="540,535" size="200,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
-			<widget name="status_value" position="750,535" size="300,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
+			<widget name="status_value" position="750,535" size="240,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 			<widget name="active_label" position="10,565" size="200,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
 			<widget name="active_value" position="220,565" size="300,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 			<widget name="max_label" position="540,565" size="200,30" font="Regular;24" foregroundColor="#ffffff" zPosition="2" />
-			<widget name="max_value" position="750,565" size="300,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
-			<widget name="status" position="9,602" size="1260,59" font="Regular;26" foregroundColor="#00ff00" halign="center" zPosition="2" />
-			<widget name="account_info" position="0,744" size="1260,59" font="Regular;26" foregroundColor="#00ff00" halign="center" zPosition="2" />
-			<widget name="portal_list_label" position="8,176" size="1260,30" font="Regular;24" foregroundColor="#ffff00" zPosition="2" />
+			<widget name="max_value" position="750,565" size="240,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
+			<widget name="status" position="9,602" size="985,59" font="Regular;24" foregroundColor="#00ff00" halign="center" zPosition="2" />
+			<widget name="account_info" position="3,769" size="1260,59" font="Regular;26" foregroundColor="#00ff00" halign="center" zPosition="2" />
+			<widget name="portal_list_label" position="8,176" size="1260,30" font="Regular;24" foregroundColor="#ffff00" zPosition="2" scrollbarMode="showNever" />
+
 			<!-- List -->
-			<widget name="file_list" position="10,220" size="1260,276" scrollbarMode="showOnDemand" itemHeight="40" font="Regular;28" backgroundColor="#252525" zPosition="2" />
+			<widget name="file_list" position="10,220" size="1260,276" scrollbarMode="showOnDemand" itemHeight="40" font="Regular;28" backgroundColor="#252525" />
 
 			<!-- Buttons -->
 			<ePixmap position="10,670" pixmap="skin_default/buttons/red.png" size="30,30" alphatest="blend" zPosition="2" />
-			<widget name="key_red" font="Regular;28" position="50,670" size="200,30" halign="left" backgroundColor="black" zPosition="1" transparent="1" />
-			<ePixmap position="270,670" pixmap="skin_default/buttons/green.png" size="30,30" alphatest="blend" zPosition="2" />
-			<widget name="key_green" font="Regular;28" position="310,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
-			<ePixmap position="540,670" pixmap="skin_default/buttons/yellow.png" size="30,30" alphatest="blend" zPosition="2" />
-			<widget name="key_yellow" font="Regular;28" position="580,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
-			<ePixmap position="810,670" pixmap="skin_default/buttons/blue.png" size="30,30" alphatest="blend" zPosition="2" />
-			<widget name="key_blue" font="Regular;28" position="850,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
-			<eLabel name="" position="1067,660" size="52,52" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="OK" />
-			<eLabel name="" position="1130,660" size="52,52" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="INFO" />
-			<eLabel name="" position="1200,660" size="52,52" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="26" font="Regular; 17" zPosition="1" text="EXIT" />
+			<widget name="key_red" font="Regular;28" position="40,670" size="200,30" halign="left" backgroundColor="black" zPosition="1" transparent="1" />
+			<ePixmap position="245,670" pixmap="skin_default/buttons/green.png" size="30,30" alphatest="blend" zPosition="2" />
+			<widget name="key_green" font="Regular;28" position="280,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
+			<ePixmap position="490,670" pixmap="skin_default/buttons/yellow.png" size="30,30" alphatest="blend" zPosition="2" />
+			<widget name="key_yellow" font="Regular;28" position="525,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
+			<ePixmap position="730,670" pixmap="skin_default/buttons/blue.png" size="30,30" alphatest="blend" zPosition="2" />
+			<widget name="key_blue" font="Regular;28" position="765,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" />
+			<eLabel name="" position="1000,670" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="OK" />
+			<eLabel name="" position="1065,670" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="INFO" />
+			<eLabel name="" position="1125,670" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="EXIT" />
 
-		</screen>"""
+			<!-- server web -->
+			<widget name="key_web" position="1000,635" size="260,30" font="Regular;28" halign="center" backgroundColor="#ffff00" transparent="1" zPosition="2" />
+			<eLabel name="" position="1205,670" size="52,40" backgroundColor="#ffff00" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="TXT WEB" />
+			<widget name="access_code_label" position="1000,598" size="260,35" font="Regular;22" halign="center" foregroundColor="#ffff00" zPosition="2" />
+			<widget name="regen_code_btn" position="1056,558" size="200,30" font="Regular;24" backgroundColor="#ff0000" />
+			<eLabel name="" position="1000,555" size="52,40" backgroundColor="#ff0000" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="0" />
+			<eLabel name="" position="1000,510" size="52,40" backgroundColor="#00ff00" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="1" />
+			<widget name="show_code_btn" position="1057,515" size="200,30" font="Regular;24" backgroundColor="#00ff00" />
+		</screen>
+		"""
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -235,6 +255,21 @@ class StalkerPortalConverter(Screen):
 		self.conversion_running = False
 		self.conversion_stopped = False
 
+		# Generate a random passcode if none exists
+		if not config.plugins.stalkerportal.web_access_code.value:
+			self.generate_access_code()
+
+		# Timer to hide the code
+		self.access_code_timer = eTimer()
+		self.access_code_timer.callback.append(self.hide_access_code)
+		self.access_code_visible = False
+
+		self.update_timer = eTimer()
+		self.update_timer.callback.append(self.check_for_updates)
+		self.update_timer.start(2000)
+
+		self.update_flag_file = "/tmp/stalker_update_flag"
+
 		self["title"] = Label(_("Stalker Portal to M3U Converter v.%s") % currversion)
 		self["portal_label"] = Label(_("Portal URL:"))
 		self["portal_input"] = Label(config.plugins.stalkerportal.portal_url.value)
@@ -242,9 +277,10 @@ class StalkerPortalConverter(Screen):
 		self["mac_input"] = Label(config.plugins.stalkerportal.mac_address.value)
 		self["file_label"] = Label(_("Output File:"))
 		self["file_input"] = Label("")
+		self["file_path_label"] = Label(_("Playlist File:"))
+		self["file_path_input"] = Label("")
 		self["portal_list_label"] = Label(_("Valid Portals from Selected File:"))
 
-		# Add new info labels
 		self["account_info"] = Label("")
 		self["user_label"] = Label(_("User:"))
 		self["user_value"] = Label("")
@@ -266,6 +302,12 @@ class StalkerPortalConverter(Screen):
 		self["key_yellow"] = Label(_("Select Playlist"))
 		self["key_blue"] = Label(_("Edit"))
 
+		self["key_web"] = Label(_("Web Portal Server Off"))
+		self["hint_label"] = Label(_("Press 0: Show Access Code | Press 1: New Code"))
+		self["access_code_label"] = Label(_("Access Code: ") + self.get_masked_access_code())
+		self["regen_code_btn"] = Label(_("New Code"))
+		self["show_code_btn"] = Label(_("Show Code"))
+
 		self["actions"] = ActionMap(
 			["StalkerPortalConverter"],
 			{
@@ -281,7 +323,9 @@ class StalkerPortalConverter(Screen):
 				"left": self.keyLeft,
 				"right": self.keyRight,
 				"ok": self.select_portal,
-				# "showVK": self.edit_settings,
+				"web": self.start_web_server,
+				"regenCode": self.regenerate_access_code,  # 0
+				"showCode": self.toggle_access_code_visibility,  # 1
 			}, -1
 		)
 
@@ -295,6 +339,9 @@ class StalkerPortalConverter(Screen):
 			self["file_list"].setList(display_list)
 		except Exception as e:
 			print(e)
+
+		self.web_server = None
+		self.listening_port = None
 
 		# timer stopping conversion
 		# Create timers
@@ -314,21 +361,33 @@ class StalkerPortalConverter(Screen):
 	def update_all_widgets(self):
 		"""Update all widgets with current values"""
 		try:
-			print(f"[DEBUG] Updating widgets - portal: {config.plugins.stalkerportal.portal_url.value}")
-			print(f"[DEBUG] Updating widgets - mac: {config.plugins.stalkerportal.mac_address.value}")
-
-			output_file = self.get_output_filename()
-			print(f"[DEBUG] Updating widgets - output_file: {output_file}")
-
+			# print(f"[DEBUG] Updating widgets - portal: {config.plugins.stalkerportal.portal_url.value}")
+			# print(f"[DEBUG] Updating widgets - mac: {config.plugins.stalkerportal.mac_address.value}")
 			self["portal_input"].setText(config.plugins.stalkerportal.portal_url.value)
 			self["mac_input"].setText(config.plugins.stalkerportal.mac_address.value)
+
+			# Update playlist file display
+			output_file = self.get_output_filename()
+			# print(f"[DEBUG] Updating widgets - output_file: {output_file}")
 			self["file_input"].setText(output_file)
+
+			playlist_file = self.get_playlist_file_path()
+			if hasattr(self, 'playlist_file') and self.playlist_file:
+				playlist_file = self.playlist_file
+			self["file_path_input"].setText(playlist_file)
+			# print(f"[DEBUG] Updating widgets - playlist_file: {playlist_file}")
+
 			self["key_green"].setText(self.get_convert_label())
 
+			# Force GUI refresh
+			self["portal_input"].instance.invalidate()
+			self["mac_input"].instance.invalidate()
+			self["file_input"].instance.invalidate()
+			self["key_green"].instance.invalidate()
 			portal = config.plugins.stalkerportal.portal_url.value
 			mac = config.plugins.stalkerportal.mac_address.value
 			if portal and mac:
-				print("[DEBUG] Triggering account info update")
+				# print("[DEBUG] Triggering account info update")
 				self.extract_account_info_async()
 
 		except Exception as e:
@@ -717,8 +776,20 @@ class StalkerPortalConverter(Screen):
 		# Ensure trailing slash
 		if not base_dir.endswith('/'):
 			base_dir += '/'
+		# For M3U conversion - use base directory directly
+		return f"{base_dir.rstrip('/')}/stalker_{mac}.m3u"
 
-		return f"{base_dir}stalker_{mac}.m3u"
+	def get_playlist_file_path(self):
+		"""Get the full path to the playlist file"""
+		input_filelist = config.plugins.stalkerportal.input_filelist.value
+		if not input_filelist:
+			input_filelist = '/etc/enigma2'  # defaultMoviePath()
+
+		# Create directory if it doesn't exist
+		if not exists(input_filelist):
+			makedirs(input_filelist)
+
+		return join(input_filelist, "stalker_playlist.txt")
 
 	def validate_and_add_entry(self, portal, mac):
 		"""Validate and add entry to the list if valid"""
@@ -736,6 +807,7 @@ class StalkerPortalConverter(Screen):
 		return None
 
 	def validate_mac_address(self, mac):
+		"""Validate MAC address format"""
 		pattern = compile(r'^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$')
 		return bool(pattern.match(mac))
 
@@ -876,24 +948,51 @@ class StalkerPortalConverter(Screen):
 			list=[(key, _(val)) for key, val in options]
 		)
 
-	def load_playlist(self, file_path):
-		"""Load playlist from selected file"""
+	def load_playlist(self, file_path=None):
+		"""Load playlist from selected file with robust parsing"""
+		if not file_path:
+			file_path = self.get_playlist_file_path()
+
+		self.playlist_file = file_path
 		self.portal_list = []
 		valid_count = 0
 
 		try:
+			# Create file if it doesn't exist
+			if not exists(file_path):
+				with open(file_path, 'w') as f:
+					f.write("")
+
 			with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
 				lines = [line.strip() for line in f.readlines()]
 
-			index = 0
-			while index < len(lines):
-				self["status"].setText(_("Get ALL portal/MAC from file"))
-				portals_macs, index = self.parse_playlist_entry(lines, index)
+			current_portal = None
+			for line in lines:
+				if not line:
+					continue
 
-				for portal, mac in portals_macs:
-					entry = self.validate_and_add_entry(portal, mac)
-					if entry:
-						self.portal_list.append(entry)
+				# Portal line detection - handle various formats
+				if any(keyword in line.lower() for keyword in ['panel', 'portal']) or line.startswith('http'):
+					# Extract URL using more robust method
+					url_match = search(r'(https?://[^\s]+)', line)
+					if url_match:
+						portal = url_match.group(0)
+						# Normalize URL
+						if not portal.startswith('http'):
+							portal = 'http://' + portal
+						if not portal.endswith('/c/'):
+							portal = portal.rstrip('/') + '/c/'
+
+						current_portal = portal
+
+				# MAC line detection - handle various formats
+				elif any(keyword in line.lower() for keyword in ['mac', 'mac_address']) or ':' in line:
+					mac_match = search(r'([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})', line, IGNORECASE)
+					if mac_match and current_portal:
+						mac = mac_match.group(0)
+						# Create entry for each portal-MAC combination
+						display = f"{current_portal} - {mac}"
+						self.portal_list.append((display, current_portal, mac))
 						valid_count += 1
 
 			# Update list display
@@ -901,9 +1000,9 @@ class StalkerPortalConverter(Screen):
 			self["file_list"].setList(display_list)
 
 			if valid_count > 0:
-				self["status"].setText(_("Loaded {} valid portals from {}").format(valid_count, basename(file_path)))
+				self["status"].setText(_("Loaded {} valid entries from {}").format(valid_count, basename(file_path)))
 			else:
-				self["status"].setText(_("No valid portals found in file"))
+				self["status"].setText(_("No valid entries found in file"))
 
 		except Exception as e:
 			self["status"].setText(_("Error: ") + str(e))
@@ -1087,6 +1186,10 @@ class StalkerPortalConverter(Screen):
 			if self.conversion_stopped:
 				self.finish_conversion(False, _("Conversion canceled before start"))
 				return
+
+			# Add fallback if output_file is empty
+			if not output_file:
+				output_file = f"/tmp/stalker_{mac}.m3u"
 
 			with open("/tmp/stalker_convert_info.log", "a") as f_debug:
 				f_debug.write("=== convert_thread phase ===\n")
@@ -1293,13 +1396,13 @@ class StalkerPortalConverter(Screen):
 
 	def update_account_info(self, text):
 		"""Thread-safe account info update with debug"""
-		print(f"[DEBUG] Updating account info with text: {text}")
+		# print(f"[DEBUG] Updating account info with text: {text}")
 		from twisted.internet import reactor
 		reactor.callFromThread(self._update_account_info_safe, text)
 
 	def _update_account_info_safe(self, text):
 		"""Update account info in main thread with debug"""
-		print(f"[DEBUG] Setting account_info widget to: {text}")
+		# print(f"[DEBUG] Setting account_info widget to: {text}")
 		self["account_info"].setText(text)
 		self["account_info"].instance.invalidate()
 
@@ -1428,14 +1531,6 @@ class StalkerPortalConverter(Screen):
 					# Update progress every 10 channels or every 5 seconds
 					current_time = time.time()
 					if processed % 100 == 0 or current_time - last_update > 5:
-						"""
-						elapsed = current_time - start_time
-						speed = processed / elapsed if elapsed > 0 else 0
-						self.update_status(
-							_("Processed {}/{} channels ({:.1f}/s)").format(processed, total_channels, speed)
-						)
-						last_update = current_time
-						"""
 						elapsed = current_time - start_time
 						speed = processed / elapsed if elapsed > 0 else 0
 						eta = (total_channels - processed) / speed if speed > 0 else 0
@@ -1790,7 +1885,7 @@ class StalkerPortalConverter(Screen):
 				config.plugins.stalkerportal.output_dir.save()
 				configfile.save()
 				configfile.load()
-				print(f"[DEBUG] Config saved: {config.plugins.stalkerportal.output_dir.value}")
+				# print(f"[DEBUG] Config saved: {config.plugins.stalkerportal.output_dir.value}")
 
 				# Update UI immediately
 				self.update_all_widgets()
@@ -1801,8 +1896,8 @@ class StalkerPortalConverter(Screen):
 			print(f"[DEBUG] Selected playlist: {selected_path}")
 			self.playlist_file = selected_path
 			self.load_playlist(selected_path)
-			config.plugins.stalkerportal.output_dir.value = dirname(selected_path)
-			config.plugins.stalkerportal.output_dir.save()
+			config.plugins.stalkerportal.input_filelist.value = dirname(selected_path)
+			config.plugins.stalkerportal.input_filelist.save()
 			configfile.save()
 			self["status"].setText(_("Loaded playlist: %s") % basename(selected_path))
 			self.select_portal()
@@ -1813,14 +1908,14 @@ class StalkerPortalConverter(Screen):
 	def select_playlist_file(self):
 		"""Select a playlist file - new function for yellow button"""
 		self.browse_directory(
-			config.plugins.stalkerportal.output_dir.value,
+			config.plugins.stalkerportal.input_filelist.value,
 			mode="playlist"
 		)
 
 	def delete_playlist(self, path=None):
 		"""Browse files and directories to select for deletion"""
 		if path is None:
-			path = config.plugins.stalkerportal.output_dir.value
+			path = config.plugins.stalkerportal.input_filelist.value
 			if not exists(path):
 				path = defaultMoviePath()
 
@@ -2062,6 +2157,1609 @@ class StalkerPortalConverter(Screen):
 		self._defer_timer = eTimer()
 		self._defer_timer.callback.append(lambda: self.session.open(MessageBox, text, type=mtype))
 		self._defer_timer.start(100, True)
+
+	""" web portal server """
+
+	def start_web_server(self):
+		"""Start the web server with authentication"""
+		if hasattr(self, 'web_server') and self.web_server:
+			self.stop_web_server()
+			self["key_web"].setText(_("Web Portal Server Off"))
+			return
+
+		try:
+			port = 8080
+			self.web_server = WebControlResource(self)
+			self.site = server.Site(self.web_server)
+			self.listening_port = reactor.listenTCP(port, self.site, interface="")
+			ip_address = self.get_ip_address()
+			self["key_web"].setText(_("Web Portal Server On"))
+			self["status"].setText(_("Web server: http://%s:%d") % (ip_address, port))
+		except Exception as e:
+			self["status"].setText(_("Web server error: ") + str(e))
+
+	def stop_web_server(self):
+		"""Stop the web server"""
+		if self.listening_port:
+			self.listening_port.stopListening()
+			self.listening_port = None
+		self.web_server = None
+		self["key_web"].setText(_("Web Portal Server Off"))
+		self["status"].setText(_("Web server stopped"))
+
+	def get_ip_address(self):
+		"""Get device IP address"""
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+			s.connect(("8.8.8.8", 80))
+			ip = s.getsockname()[0]
+			s.close()
+			return ip
+		except:
+			return "localhost"
+
+	def update_config(self, portal, mac):
+		config.plugins.stalkerportal.portal_url.value = portal
+		config.plugins.stalkerportal.mac_address.value = mac
+		configfile.save()
+		configfile.load()
+		self.update_all_widgets()
+		self.extract_account_info_async()
+
+	def close(self):
+		self.stop_web_server()
+		super().close()
+
+	def check_for_updates(self):
+		"""Check for updates from the web interface"""
+		if exists(self.update_flag_file):
+			try:
+				# Read the type of update
+				with open(self.update_flag_file, "r") as f:
+					update_type = f.read().strip()
+
+				# Remove the flag file
+				remove(self.update_flag_file)
+
+				# Perform the appropriate update
+				if update_type == "full_reload":
+					self.load_playlist(self.get_playlist_file_path())
+				elif update_type == "config_update":
+					self.update_all_widgets()
+					self.extract_account_info_async()
+
+			except Exception as e:
+				print(f"Error processing update: {str(e)}")
+
+	def generate_access_code(self):
+		"""Generate a random 6-digit access code"""
+		import random
+		access_code = ''.join(str(random.randint(0, 9)) for _ in range(6))
+		config.plugins.stalkerportal.web_access_code.value = access_code
+		config.plugins.stalkerportal.web_access_code.save()
+		configfile.save()
+		return access_code
+
+	def get_access_code(self):
+		"""Returns the current access code"""
+		if config.plugins.stalkerportal.web_access_code.value:
+			return config.plugins.stalkerportal.web_access_code.value
+		return self.generate_access_code()
+
+	def get_masked_access_code(self):
+		"""Returns the access code with a masked part"""
+		code = self.get_access_code()
+		if len(code) > 4:
+			return code[:2] + "••" + code[-2:]
+		return code
+
+	def toggle_access_code_visibility(self):
+		"""Show/hide full passcode"""
+		if self.web_server:
+			if self.access_code_visible:
+				self.hide_access_code()
+			else:
+				self.show_access_code()
+		else:
+			self.session.open(
+				MessageBox,
+				_("You need to start the Web Server first!"),
+				MessageBox.TYPE_INFO
+			)
+
+	def show_access_code(self):
+		"""Show full code for 10 seconds"""
+		self.access_code_visible = True
+		self["access_code_label"].setText(_("Access Code: ") + self.get_access_code())
+		self["show_code_btn"].setText(_("Hide Code"))
+
+		# Start timer to auto hide after 10 seconds
+		self.access_code_timer.start(10000, True)
+
+	def hide_access_code(self):
+		"""Hide full code"""
+		self.access_code_visible = False
+		self["access_code_label"].setText(_("Access Code: ") + self.get_masked_access_code())
+		self["show_code_btn"].setText(_("Show Code"))
+		self.access_code_timer.stop()
+
+	def regenerate_access_code(self):
+		"""Regenerate access code"""
+		if self.web_server:
+			new_code = self.generate_access_code()
+			self.hide_access_code()
+
+			# Show new code for 15 seconds
+			self.access_code_visible = True
+			self["access_code_label"].setText(_("New Access Code: ") + new_code)
+			self.access_code_timer.start(15000, True)
+
+			self.session.open(
+				MessageBox,
+				_("New access code generated!"),
+				MessageBox.TYPE_INFO
+			)
+		else:
+			self.session.open(
+				MessageBox,
+				_("You need to start the Web Server first!"),
+				MessageBox.TYPE_INFO
+			)
+
+	def reset_access_code(self):
+		"""Regenerate access code"""
+		new_code = self.generate_access_code()
+		self["access_code_label"].setText(_("Access Code: ") + self.get_masked_access_code())
+		return new_code
+
+	def get_current_portal(self):
+		"""Returns the current portal URL from the configuration"""
+		return config.plugins.stalkerportal.portal_url.value
+
+	def get_current_mac(self):
+		"""Returns the current MAC from the configuration"""
+		return config.plugins.stalkerportal.mac_address.value
+
+	def get_all_macs(self):
+		"""Return a set of all MAC addresses currently in the playlist file."""
+		macs = set()
+		try:
+			with open(self.get_playlist_file_path(), "r", encoding="utf-8") as f:
+				lines = f.readlines()
+			for line in lines:
+				line = line.strip()
+				if self.validate_mac_address(line):
+					macs.add(line.upper())
+		except FileNotFoundError:
+			pass
+		return macs
+
+	def add_to_playlist(self, portal, macs):
+		"""Add a new entry to the playlist, with duplicate MAC check"""
+		mac_list = [m.strip() for m in macs.split(",") if m.strip()]
+
+		if not portal or not mac_list:
+			return "error", None
+
+		# Get all existing MACs
+		existing_macs = self.get_all_macs()
+
+		# Check for duplicates
+		for mac in mac_list:
+			if mac.upper() in existing_macs:
+				return "duplicate", mac
+
+		try:
+			with open(self.get_playlist_file_path(), "a", encoding="utf-8") as f:
+				f.write("\n" + portal + "\n")
+				for mac in mac_list:
+					if self.validate_mac_address(mac):
+						f.write(mac + "\n")
+
+			# Aggiorna configurazione corrente
+			config.plugins.stalkerportal.portal_url.value = portal
+			config.plugins.stalkerportal.mac_address.value = mac_list[0]
+			configfile.save()
+
+			return "ok", None
+
+		except Exception as e:
+			print("Error adding to playlist:", str(e))
+			return "error", None
+
+	def get_full_playlist(self):
+		"""Return the full playlist structure"""
+		playlist = []
+		if not hasattr(self, 'playlist_file') or not self.playlist_file:
+			return playlist
+
+		try:
+			with open(self.playlist_file, 'r', encoding='utf-8') as f:
+				lines = f.readlines()
+
+			current_portal = None
+			for line in lines:
+				line = line.strip()
+				if not line:
+					continue
+
+				# Portal line
+				if line.startswith("http"):
+					if current_portal:
+						playlist.append(current_portal)
+					current_portal = {'portal': line, 'macs': []}
+
+				# MAC line
+				elif self.validate_mac_address(line):
+					if current_portal:
+						current_portal['macs'].append(line)
+
+			# Add last portal
+			if current_portal:
+				playlist.append(current_portal)
+
+		except Exception as e:
+			print(f"Error reading playlist: {str(e)}")
+
+		return playlist
+
+	def save_full_playlist(self, playlist):
+		"""Save the entire playlist to the file"""
+		try:
+			with open(self.get_playlist_file_path(), 'w') as f:
+				for entry in playlist:
+					f.write(entry['portal'] + "\n")
+					for mac in entry['macs']:
+						f.write(mac + "\n")
+					f.write("\n")
+
+			self.playlist_file = self.get_playlist_file_path()
+			self.load_playlist(self.playlist_file)
+			return True
+		except Exception as e:
+			print(f"Error saving playlist: {str(e)}")
+			return False
+
+	def remove_entry(self, portal_index, mac_index=None):
+		"""Remove an entry from the playlist"""
+		playlist = self.get_full_playlist()
+
+		if portal_index < 0 or portal_index >= len(playlist):
+			return False
+
+		if mac_index is not None:
+			# Remove specific MAC
+			if 0 <= mac_index < len(playlist[portal_index]['macs']):
+				del playlist[portal_index]['macs'][mac_index]
+
+				# Remove portal if no MACs left
+				if not playlist[portal_index]['macs']:
+					del playlist[portal_index]
+		else:
+			# Remove entire portal
+			del playlist[portal_index]
+
+		# Save updated playlist
+		return self.save_playlist(playlist)
+
+	def notify_plugin(self, update_type="full_reload"):
+		"""Notify the plugin to reload"""
+		try:
+			# Directly use self.plugin (which is the StalkerPortalConverter instance)
+			flag_file = self.update_flag_file
+			with open(flag_file, "w") as f:
+				f.write(update_type)
+		except Exception as e:
+			print(f"Error notifying plugin: {str(e)}")
+
+	def update_entry(self, portal_index, new_portal, new_macs):
+		"""Update an existing playlist entry"""
+		playlist = self.get_full_playlist()
+
+		if portal_index < 0 or portal_index >= len(playlist):
+			return False
+
+		playlist[portal_index]['portal'] = new_portal
+		playlist[portal_index]['macs'] = [
+			m.strip() for m in new_macs.split(',')
+			if m.strip() and self.validate_mac_address(m.strip())
+		]
+
+		return self.save_playlist(playlist)
+
+	def save_playlist(self, playlist):
+		"""Save the playlist to file"""
+		try:
+			with open(self.playlist_file, 'w', encoding='utf-8') as f:
+				for entry in playlist:
+					f.write(f"{entry['portal']}\n")
+					for mac in entry['macs']:
+						f.write(f"{mac}\n")
+					f.write("\n")
+
+			# Reload playlist
+			self.load_playlist(self.playlist_file)
+			return True
+		except Exception as e:
+			print(f"Error saving playlist: {str(e)}")
+			return False
+
+
+class WebControlResource(resource.Resource):
+	"""
+	---
+	**Web Interface Access and Management Help**
+
+	This plugin includes a built-in web server that allows access to a full management interface.
+
+	### How It Works
+
+	* When the plugin starts, a **masked access code** is displayed (e.g., **"Access Code: 12••34"**).
+	* Open the displayed web address in your browser (e.g., `http://192.168.1.100:8080`).
+	* Enter the **full access code** shown in the plugin (e.g., `123456`).
+	* If the entered code is correct, you gain access to the management interface.
+
+	---
+
+	### Authentication System Features
+
+	* **Automatic code generation**:
+	  A random 6-digit code is generated on plugin start (if not already present).
+	  The code is stored in the plugin configuration.
+
+	---
+
+	### On-Screen Controls
+
+	In the main screen:
+
+	* You see **"Access Code: 12••34"** (yellow text).
+	* Green button: **"Show Code"**
+	* Red button: **"New Code"**
+	* Below the buttons, you see hints: **"0-SHOW"**, **"1-NEW"**
+
+	#### To reveal the full code:
+
+	* Press **"0"** on the remote control.
+	* The full code is shown (e.g., **"Access Code: 123456"**).
+	* After 10 seconds, it returns to the masked view (e.g., **"12••34"**).
+
+	#### To generate a new code:
+
+	* Press **"1"** on the remote control.
+	* A new 6-digit code is generated (e.g., `987654`).
+	* You see **"New Access Code: 987654"** for 15 seconds.
+	* Then it returns to masked view (e.g., **"98••54"**).
+
+	---
+
+	### Advanced Security
+
+	* Access is **temporarily blocked after 3 failed attempts**.
+	* **No hints** about the correct code are shown in error messages.
+	* Code check is **case-insensitive**.
+
+	---
+
+	### Playlist Management Interface
+
+	* View all saved portals and associated MAC addresses.
+	* Displayed in a structured, tabular format with logical grouping.
+
+	#### Available Actions:
+
+	* ✏️ **Edit** a portal (URL and MAC list)
+	* 🗑️ **Delete** an entire portal
+	* 🗑️ **Delete** a single MAC address
+
+	#### Confirmation & Feedback:
+
+	* Confirmation popup for all delete operations
+	* Visual feedback after each action
+
+	---
+
+	### Workflow
+
+	* Full management access from the main menu
+	* Inline editing with dedicated forms
+	* Automatic return to main view after operations
+
+	---
+
+	### Real-Time Updates
+
+	* Changes are saved directly to the playlist file
+	* Plugin reloads automatically
+	* Interface always reflects the current state
+
+	---
+
+	### How to Use
+
+	#### Access Advanced Management:
+
+	* From the homepage, click **"Full Management"**
+	* Or go directly to `/manage` in the browser
+
+	#### Edit an Entry:
+
+	* Click the ✏️ icon next to a portal
+	* Edit the URL and/or MAC list (comma-separated)
+	* Click **"Save Changes"**
+
+	#### Delete Items:
+
+	* 🗑️ Next to a portal: deletes the entire portal
+	* 🗑️ Next to a MAC: deletes only that MAC address
+
+	#### Add New Entries:
+
+	* Return to the homepage using the dedicated button
+	* Use the main form to add new entries
+
+	---
+
+	### Security Notes
+
+	* All operations require authentication
+	* Input validation before saving:
+
+	  * Correct URL format
+	  * MAC address validation
+	* Confirmation required for destructive actions
+	* Clear error messages for invalid operations
+
+	---
+	"""
+
+	isLeaf = True
+	attempts = {}
+
+	def __init__(self, plugin):
+		resource.Resource.__init__(self)
+		self.plugin = plugin
+		self.playlist_path = self.plugin.get_playlist_file_path()
+		self.sessions = {}
+
+	def check_authentication(self, request):
+		token = request.getCookie(b'session_token')
+		# print("Session token from cookie:", token)
+		if token:
+			token = token.decode('utf-8')
+			if token in self.sessions and self.sessions[token]['expires'] > time.time():
+				print("Session valid.")
+				return True
+			else:
+				print("Invalid or expired session.")
+		return False
+
+	def create_session(self, request):
+		"""Create a new session for authenticated user"""
+		token = urandom(16).hex()
+		expires = time.time() + 3600  # 1 hour expiration
+		self.sessions[token] = {
+			'ip': request.getClientIP(),
+			'expires': expires
+		}
+		request.setHeader(b'Set-Cookie', f"session_token={token}; Path=/; Max-Age=3600".encode('utf-8'))
+		return token
+
+	def is_ip_blocked(self, ip):
+		"""Check if IP is temporarily blocked"""
+		if ip in self.attempts:
+			entry = self.attempts[ip]
+
+			# If it's a block entry
+			if 'blocked_until' in entry:
+				if time.time() < entry['blocked_until']:
+					return True
+				else:
+					del self.attempts[ip]  # Remove expired block
+					return False
+
+			# If it's just an attempt count entry
+			return False
+		return False
+
+	def block_ip(self, ip):
+		"""Block IP temporarily after too many failed attempts"""
+		self.attempts[ip] = {
+			'blocked_until': time.time() + 300,  # 5 minutes
+			'type': 'block'
+		}
+
+	def render(self, request):
+		"""Override render to add authentication check"""
+		try:
+			# Cleanup expired sessions first
+			self.cleanup_sessions()
+
+			path = request.path.decode("utf-8")
+			client_ip = request.getClientIP()
+
+			# Handle blocked IPs
+			if self.is_ip_blocked(client_ip):
+				return self.get_blocked_page()
+
+			# Allow access to auth page without authentication
+			if path == "/auth":
+				return self.get_auth_page(request)
+			elif path == "/":
+				return self.get_index(request)
+
+			# Check authentication for all other pages
+			if not self.check_authentication(request):
+				request.redirect(b"/auth")
+				return b""
+
+			if request.method == b"POST" and path == "/submit":
+				return self.render_POST(request)
+
+			# Handle authenticated requests
+			try:
+				if path == "/":
+					return self.get_index(request)
+				elif path == "/manage":
+					return self.get_manage_page()
+				elif path.startswith("/edit/"):
+					parts = path.split("/")
+					portal_index = int(parts[2])
+					return self.get_edit_page(portal_index)
+				elif path.startswith("/delete/"):
+					parts = path.split("/")
+					portal_index = int(parts[2])
+					mac_index = int(parts[3]) if len(parts) > 3 else None
+					return self.delete_entry(portal_index, mac_index, request)
+				elif path == "/upload":
+					return self.get_upload_page()
+				elif path == "/upload_file":
+					return self.handle_file_upload(request)
+				elif path.startswith("/save_edit/"):
+					parts = path.split("/")
+					portal_index = int(parts[2])
+					return self.save_edit(portal_index, request)
+				return self.get_404_page()
+			except Exception as e:
+				return self.get_error_page(str(e))
+		except Exception as e:
+			return self.get_error_page(f"Internal server error: {str(e)}")
+
+	def get_auth_page(self, request):
+		"""Authentication page"""
+		message = ""
+		client_ip = request.getClientIP()
+
+		# Check if IP is blocked
+		if self.is_ip_blocked(client_ip):
+			return self.get_blocked_page()
+
+		if request.method == b'POST':
+
+			submitted_code = request.args.get(b'access_code', [b''])[0].decode('utf-8').strip()
+			correct_code = self.plugin.get_access_code().strip()
+			# print("Submitted:", submitted_code)
+			# print("Correct  :", correct_code)
+			if submitted_code == correct_code:
+				self.create_session(request)
+				html = """
+				<html>
+					<head>
+						<meta http-equiv="refresh" content="0; url=/" />
+					</head>
+					<body>
+						<p>Redirecting...</p>
+					</body>
+				</html>
+				"""
+				return html.encode("utf-8")
+			else:
+				# Track failed attempts
+				if client_ip not in self.attempts:
+					self.attempts[client_ip] = {'count': 1}
+				else:
+					self.attempts[client_ip]['count'] += 1
+
+					# Block after 3 failed attempts
+					if self.attempts[client_ip]['count'] >= 3:
+						self.block_ip(client_ip)
+						return self.get_blocked_page()
+
+				message = "<div class='error-message'>Invalid access code! Attempts left: {}</div>".format(
+					3 - self.attempts[client_ip]['count']
+				)
+
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Authentication Required</title>
+			{self.get_css()}
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Authentication Required</h1>
+					<p class="subtitle">Enter access code from your device</p>
+				</header>
+
+				<div class="card">
+					<h2 class="card-title">Access Control</h2>
+
+					{message}
+
+					<form method="POST">
+						<div class="form-group">
+							<label for="access_code">Access Code:</label>
+							<input type="password" id="access_code" name="access_code"
+								   placeholder="Enter 6-digit code" required autofocus>
+						</div>
+						<button type="submit">Authenticate</button>
+					</form>
+
+					<div class="instructions">
+						<h3>How to get the code:</h3>
+						<ul>
+							<li>On your device, go to the Stalker Portal Converter plugin</li>
+							<li>Look for the <strong>Access Code</strong> in the interface</li>
+							<li>If needed, press <strong>0</strong> to reveal the full code</li>
+							<li>Enter the code above to gain access</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.encode('utf-8')
+
+	def get_blocked_page(self):
+		"""IP blocked page"""
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Access Temporarily Blocked</title>
+			{self.get_css()}
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Access Temporarily Blocked</h1>
+				</header>
+
+				<div class="card">
+					<div class="error-message">
+						⚠️ Too many failed authentication attempts
+					</div>
+
+					<p>Your IP address has been temporarily blocked for security reasons.</p>
+					<p>Please try again in 5 minutes or restart your router to get a new IP address.</p>
+
+					<div class="instructions">
+						<h3>Security Notice:</h3>
+						<ul>
+							<li>This system automatically blocks IP addresses after 3 failed attempts</li>
+							<li>The block will be automatically removed after 5 minutes</li>
+							<li>For assistance, please contact your system administrator</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.format(self.get_css()).encode('utf-8')
+
+	def get_css(self):
+		"""Return the dark theme CSS compatible with Enigma2"""
+		return """
+		<style>
+			:root {
+				--primary: #00a8ff;
+				--secondary: #2c3e50;
+				--success: #27ae60;
+				--danger: #e74c3c;
+				--warning: #f39c12;
+				--dark: #1a1d21;
+				--darker: #15181c;
+				--light: #ecf0f1;
+				--text: #e0e0e0;
+			}
+
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				color: var(--text);
+				background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+				padding: 20px;
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 900px;
+				margin: 0 auto;
+				background: rgba(30, 33, 38, 0.85);
+				padding: 25px;
+				border-radius: 12px;
+				box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+				border: 1px solid rgba(80, 85, 90, 0.3);
+			}
+
+			header {
+				text-align: center;
+				margin-bottom: 25px;
+				padding-bottom: 20px;
+				border-bottom: 1px solid rgba(80, 85, 90, 0.3);
+			}
+
+			h1 {
+				color: var(--primary);
+				margin-bottom: 10px;
+				font-size: 2.2rem;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+			}
+
+			.subtitle {
+				color: #aaa;
+				font-size: 1.1rem;
+			}
+
+			.card {
+				background: rgba(40, 44, 50, 0.8);
+				border-radius: 10px;
+				padding: 25px;
+				margin-bottom: 25px;
+				border: 1px solid rgba(70, 75, 80, 0.3);
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			}
+
+			.card-title {
+				font-size: 1.4rem;
+				color: var(--primary);
+				margin-bottom: 20px;
+				display: flex;
+				align-items: center;
+				padding-bottom: 10px;
+				border-bottom: 1px solid rgba(70, 75, 80, 0.3);
+			}
+
+			.card-title i {
+				margin-right: 10px;
+			}
+
+			.form-group {
+				margin-bottom: 20px;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 8px;
+				font-weight: 600;
+				color: #ccc;
+			}
+
+			input[type="text"], textarea, input[type="file"] {
+				width: 100%;
+				padding: 12px 15px;
+				background: rgba(30, 33, 38, 0.8);
+				border: 1px solid #444;
+				border-radius: 6px;
+				font-size: 16px;
+				transition: all 0.3s;
+				color: var(--text);
+			}
+
+			input[type="text"]:focus, textarea:focus {
+				border-color: var(--primary);
+				outline: none;
+				box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.2);
+			}
+
+			button, .btn {
+				display: inline-block;
+				padding: 12px 25px;
+				background: var(--primary);
+				color: white;
+				border: none;
+				border-radius: 6px;
+				cursor: pointer;
+				font-size: 16px;
+				font-weight: 600;
+				transition: all 0.3s;
+				text-decoration: none;
+				text-align: center;
+			}
+
+			.btn-save {
+				background-color: #28a745; /* verde */
+				color: white;
+				border: none;
+				padding: 10px 20px;
+				border-radius: 4px;
+				transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.btn-save:hover {
+				background-color: #0090e0; /* blu, come definito nel tuo hover */
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+				color: white;
+			}
+
+			button:hover, .btn:hover {
+				background: #0090e0;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+			}
+
+			.btn-secondary {
+				background: var(--secondary);
+			}
+
+			.btn-secondary:hover {
+				background: #233140;
+			}
+
+			.btn-success {
+				background: var(--success);
+			}
+
+			.btn-success:hover {
+				background: #219653;
+			}
+
+			.btn-danger {
+				background: var(--danger);
+			}
+
+			.btn-danger:hover {
+				background: #c0392b;
+			}
+
+			.btn-warning {
+				background: var(--warning);
+			}
+
+			.btn-warning:hover {
+				background: #d35400;
+			}
+
+			.actions {
+				display: flex;
+				gap: 15px;
+				margin-top: 20px;
+			}
+
+			.actions a {
+				flex: 1;
+				text-align: center;
+			}
+
+			.current-values {
+				background: rgba(30, 33, 38, 0.6);
+				padding: 20px;
+				border-radius: 8px;
+				margin-bottom: 25px;
+				border-left: 4px solid var(--primary);
+			}
+
+			.current-values p {
+				margin-bottom: 8px;
+			}
+
+			.current-values strong {
+				color: var(--primary);
+			}
+
+			.message-box {
+				padding: 15px;
+				border-radius: 6px;
+				margin: 15px 0;
+				text-align: center;
+			}
+
+			.success-message {
+				background: rgba(39, 174, 96, 0.2);
+				border: 1px solid var(--success);
+				color: #d4ffd4;
+			}
+
+			.error-message {
+				background: rgba(231, 76, 60, 0.2);
+				border: 1px solid var(--danger);
+				color: #ffd4d4;
+			}
+
+			.warning-message {
+				background: rgba(243, 156, 18, 0.2);
+				border: 1px solid var(--warning);
+				color: #fff8d4;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 25px 0;
+				background: rgba(30, 33, 38, 0.6);
+				border-radius: 8px;
+				overflow: hidden;
+			}
+
+			th, td {
+				padding: 15px;
+				text-align: left;
+				border-bottom: 1px solid rgba(70, 75, 80, 0.3);
+			}
+
+			th {
+				background-color: var(--secondary);
+				color: white;
+				font-weight: 600;
+			}
+
+			tr:hover {
+				background-color: rgba(50, 55, 60, 0.5);
+			}
+
+			.actions-cell {
+				text-align: center;
+				width: 200px;
+			}
+
+			.action-btn {
+				display: inline-block;
+				padding: 8px 16px;
+				border-radius: 4px;
+				color: white;
+				text-decoration: none;
+				margin: 0 5px;
+				font-size: 14px;
+				font-weight: 600;
+				transition: all 0.3s;
+			}
+
+			.edit-btn {
+				background: var(--primary);
+			}
+
+			.edit-btn:hover {
+				background: #0090e0;
+			}
+
+			.delete-btn {
+				background: var(--danger);
+			}
+
+			.delete-btn:hover {
+				background: #c0392b;
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 20px;
+				text-decoration: none;
+				color: var(--primary);
+				font-weight: 600;
+				padding: 8px 15px;
+				border-radius: 4px;
+				background: rgba(0, 168, 255, 0.1);
+				transition: all 0.3s;
+			}
+
+			.back-link:hover {
+				background: rgba(0, 168, 255, 0.2);
+				text-decoration: none;
+			}
+
+			.mac-list {
+				list-style-type: none;
+				padding: 0;
+			}
+
+			.mac-list li {
+				padding: 10px 0;
+				border-bottom: 1px solid rgba(70, 75, 80, 0.3);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.mac-list li:last-child {
+				border-bottom: none;
+			}
+
+			.instructions {
+				background: rgba(40, 44, 50, 0.6);
+				padding: 20px;
+				border-radius: 8px;
+				margin: 25px 0;
+				border-left: 4px solid var(--warning);
+			}
+
+			.instructions h3 {
+				margin-bottom: 15px;
+				color: var(--warning);
+			}
+
+			.instructions ul {
+				padding-left: 20px;
+			}
+
+			.instructions li {
+				margin-bottom: 10px;
+				color: #ccc;
+			}
+
+			.file-input-wrapper {
+				position: relative;
+				overflow: hidden;
+				display: inline-block;
+				width: 100%;
+			}
+
+			.file-input-wrapper input[type="file"] {
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+			}
+
+			.file-input-label {
+				display: block;
+				padding: 12px;
+				background: rgba(30, 33, 38, 0.8);
+				border: 1px dashed #555;
+				border-radius: 6px;
+				text-align: center;
+				color: #aaa;
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+
+			.file-input-label:hover {
+				border-color: var(--primary);
+				color: var(--primary);
+				background: rgba(0, 168, 255, 0.1);
+			}
+
+			.upload-icon {
+				font-size: 24px;
+				margin-bottom: 10px;
+				display: block;
+				color: var(--primary);
+			}
+		</style>
+		"""
+
+	def get_index(self, request):
+		"""Main page with portal and MAC form"""
+		current_portal = self.plugin.get_current_portal()
+		current_mac = self.plugin.get_current_mac()
+		saved_message = ""
+
+		if b"saved" in request.args:
+			saved_message = """
+			<div class="message-box success-message">
+				✓ Playlist entry saved successfully
+			</div>
+			"""
+
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Stalker Portal Converter</title>
+			{self.get_css()}
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Stalker Portal Converter</h1>
+					<h1>by Lululla</h1>
+					<p class="subtitle">Manage your IPTV portals and MAC addresses</p>
+				</header>
+				{saved_message}
+				<div class="card">
+					<h2 class="card-title">Current Configuration</h2>
+					<div class="current-values">
+						<p><strong>Portal URL:</strong> {current_portal}</p>
+						<p><strong>MAC Address:</strong> {current_mac}</p>
+					</div>
+					<h2 class="card-title">Add New Entry</h2>
+					<form method="POST" action="/submit">
+						<div class="form-group">
+							<label for="portal">Portal URL:</label>
+							<input type="text" id="portal" name="portal"
+								   value="{current_portal}"
+								   placeholder="http://example.com:80/c/" required>
+						</div>
+						<div class="form-group">
+							<label for="mac">MAC Addresses (comma separated):</label>
+							<textarea id="mac" name="mac" rows="3"
+									  placeholder="00:1A:79:XX:XX:XX, 00:1B:78:YY:YY:YY"
+									  required>{current_mac}</textarea>
+							<small>Enter multiple MAC addresses separated by commas</small>
+						</div>
+						<button type="submit" class="btn-save">Save Configuration</button>
+					</form>
+					<div class="actions">
+						<a href="/manage" class="btn btn-secondary">Full Management</a>
+						<a href="/upload" class="btn btn-warning">Upload Playlist</a>
+						<a href="/manage" class="btn btn-primary">View Playlist</a>
+					</div>
+				</div>
+				<div class="instructions">
+					<h3>How to Use:</h3>
+					<ul>
+						<li><strong>Add New Entry</strong>: Enter portal URL and MAC addresses</li>
+						<li><strong>Full Management</strong>: View, edit, or delete all entries</li>
+						<li><strong>Upload Playlist</strong>: Load playlist from your computer</li>
+						<li><strong>Edit</strong>: Click the [Edit] button next to a portal</li>
+						<li><strong>Delete</strong>: Click the [Delete] button to remove items</li>
+					</ul>
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.encode("utf-8")
+
+	def get_manage_page(self):
+		"""Full playlist management page"""
+		playlist = self.plugin.get_full_playlist()
+		if not playlist:
+			try:
+				self.plugin.load_playlist(self.playlist_path)
+				playlist = self.plugin.get_full_playlist()
+			except Exception as e:
+				print("[ERROR] Failed to load playlist: " + str(e))
+
+		file_info = "Playlist: " + basename(self.playlist_path)
+		# Generate table rows
+		rows = ""
+		for idx, entry in enumerate(playlist):
+			portal = entry['portal']
+			macs = entry.get('macs', [])
+
+			# Create a row for each MAC
+			for mac_idx, mac in enumerate(macs):
+				rows += f"""
+				<tr>
+					<td class="actions-cell">
+						<a href="/edit/{idx}/{mac_idx}" class="action-btn edit-btn">Edit</a>
+						<a href="/delete/{idx}/{mac_idx}" class="action-btn delete-btn"
+						   onclick="return confirm('Delete this entry?')">Delete</a>
+					</td>
+					<td>{portal}</td>
+					<td>{mac}</td>
+				</tr>
+				"""
+
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Playlist Management - Stalker Portal Converter</title>
+			{self.get_css()}
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Playlist Management</h1>
+					<p class="subtitle">{file_info}</p>
+				</header>
+
+				<a href="/" class="back-link">← Back to Main</a>
+
+				<!-- DEBUG: Show playlist content -->
+				<div class="debug-info" style="display: none; background: rgba(255,0,0,0.1); padding: 10px; margin: 10px 0;">
+					<strong>Debug Info:</strong>
+					<pre>{dumps(playlist, indent=2)}</pre>
+				</div>
+				<div class="card">
+					<h2 class="card-title">All Entries</h2>
+
+					{"<p class='message-box warning-message'>No entries found in playlist</p>" if not playlist else ""}
+
+					<table>
+						<thead>
+							<tr>
+								<th width="220">Actions</th>
+								<th>Portal URL</th>
+								<th>MAC Address</th>
+							</tr>
+						</thead>
+						<tbody>
+							{rows if playlist else "<tr><td colspan='3' style='text-align: center;'>No entries found</td></tr>"}
+						</tbody>
+					</table>
+
+					<div class="actions">
+						<a href="/" class="btn btn-secondary">Add New Entry</a>
+						<a href="/upload" class="btn btn-warning">Upload Playlist</a>
+					</div>
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.encode('utf-8')
+
+	def get_edit_page(self, portal_index):
+		"""Edit page for a portal entry"""
+		playlist = self.plugin.get_full_playlist()
+		if portal_index < 0 or portal_index >= len(playlist):
+			return self.get_404_page("Invalid portal index")
+		entry = playlist[portal_index]
+		portal = entry['portal']
+		macs = ", ".join(entry['macs'])
+
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Edit Portal - Stalker Portal Converter</title>
+			{self.get_css()}
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Edit Portal</h1>
+					<p class="subtitle">Modify portal URL and MAC addresses</p>
+				</header>
+				<a href="/manage" class="back-link">← Back to Management</a>
+				<div class="card">
+					<form method="POST" action="/save_edit/{portal_index}">
+						<div class="form-group">
+							<label for="portal">Portal URL:</label>
+							<input type="text" id="portal" name="portal"
+								   value="{portal}"
+								   placeholder="http://example.com:80/c/" required>
+						</div>
+						<div class="form-group">
+							<label for="mac">MAC Addresses (comma separated):</label>
+							<textarea id="mac" name="mac" rows="5"
+									  placeholder="00:1A:79:XX:XX:XX, 00:1B:78:YY:YY:YY"
+									  required>{macs}</textarea>
+							<small>Enter multiple MAC addresses separated by commas</small>
+						</div>
+						<div class="actions">
+							<a href="/manage" class="btn btn-secondary">Cancel</a>
+							<button type="submit" class="btn btn-success">Save Changes</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.encode('utf-8')
+
+	def delete_entry(self, portal_index, mac_index, request):
+		"""Delete a portal or MAC entry"""
+		if self.plugin.remove_entry(portal_index, mac_index):
+			self.plugin.notify_plugin("full_reload")
+			request.redirect(b"/manage")
+			return b""
+		else:
+			return self.get_error_page("Failed to delete entry")
+
+	def save_edit(self, portal_index, request):
+		"""Save changes to a portal entry"""
+		portal = request.args.get(b'portal', [b''])[0].decode('utf-8')
+		macs = request.args.get(b'mac', [b''])[0].decode('utf-8')
+
+		if self.plugin.update_entry(portal_index, portal, macs):
+			self.plugin.notify_plugin("full_reload")
+			request.redirect(b"/manage")
+			return b""
+		else:
+			return self.get_error_page("Failed to save changes")
+
+	def get_upload_page(self):
+		"""Playlist upload page"""
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Upload Playlist - Stalker Portal Converter</title>
+			{self.get_css()}
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Upload Playlist</h1>
+					<p class="subtitle">Load playlist from your computer</p>
+				</header>
+				<a href="/" class="back-link">← Back to Main</a>
+				<div class="card">
+					<h2 class="card-title">Upload Playlist File</h2>
+					<form method="POST" action="/upload_file" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Select playlist file (TXT):</label>
+							<div class="file-input-wrapper">
+								<input type="file" id="playlist_file" name="playlist_file" accept=".txt" required>
+								<label for="playlist_file" class="file-input-label">
+									<span class="upload-icon">📁</span>
+									<span>Click to select playlist file</span>
+								</label>
+							</div>
+							<p class="current-values" style="margin-top: 10px;">
+								<strong>Current playlist:</strong> {basename(self.playlist_path)}
+							</p>
+						</div>
+
+						<div class="instructions">
+							<h3>Instructions:</h3>
+							<ul>
+								<li>Playlist file should contain portal URLs and MAC addresses</li>
+								<li>Supported format: TXT files</li>
+								<li>Example format:
+									<pre>http://portal1.com:80/c/
+00:1A:79:AA:BB:CC
+http://portal2.com:8080/c/
+00:1B:78:DD:EE:FF</pre>
+								</li>
+							</ul>
+						</div>
+						<button type="submit">Upload Playlist</button>
+					</form>
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.encode('utf-8')
+
+	def handle_file_upload(self, request):
+		"""Handle playlist file upload"""
+		try:
+			# Reload playlist in plugin
+			self.plugin.load_playlist(self.playlist_path)
+			# Notify plugin to reload
+			self.plugin.notify_plugin("full_reload")
+
+			html = f"""
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Upload Successful - Stalker Portal Converter</title>
+				{self.get_css()}
+			</head>
+			<body>
+				<div class="container">
+					<header>
+						<h1>Playlist Uploaded</h1>
+					</header>
+
+					<a href="/" class="back-link">← Back to Main</a>
+
+					<div class="card">
+						<div class="message-box success-message">
+							✓ Playlist file uploaded successfully
+						</div>
+						<div class="actions">
+							<a href="/" class="btn btn-secondary">Go to Main</a>
+							<a href="/manage" class="btn btn-primary">View Playlist</a>
+						</div>
+					</div>
+				</div>
+				{self.get_footer()}
+			</body>
+			</html>
+			"""
+			return html.encode('utf-8')
+
+		except Exception as e:
+			return self.get_error_page(f"Error uploading file: {str(e)}")
+
+	def get_404_page(self, message="Page not found"):
+		"""404 error page"""
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Page Not Found - Stalker Portal Converter</title>
+			<style>
+				/* All styles from index page */
+			</style>
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Page Not Found</h1>
+				</header>
+
+				<div class="card">
+					<div class="error-message">
+						{message}
+					</div>
+
+					<p>The page you requested could not be found.</p>
+
+					<div class="actions">
+						<a href="/" class="btn btn-primary">Return to Main</a>
+					</div>
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.encode('utf-8')
+
+	def get_error_page(self, error):
+		"""Error page"""
+		html = f"""
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Error - Stalker Portal Converter</title>
+			<style>
+				/* All styles from index page */
+			</style>
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>An Error Occurred</h1>
+				</header>
+
+				<div class="card">
+					<div class="error-message">
+						{error}
+					</div>
+
+					<p>Please try again or contact support if the problem persists.</p>
+
+					<div class="actions">
+						<a href="/" class="btn btn-primary">Return to Main</a>
+						<a href="/manage" class="btn btn-secondary">Back to Management</a>
+					</div>
+				</div>
+			</div>
+			{self.get_footer()}
+		</body>
+		</html>
+		"""
+		return html.encode('utf-8')
+
+	def cleanup_sessions(self):
+		"""Remove expired sessions"""
+		now = time.time()
+		expired_tokens = [token for token, data in self.sessions.items() if data['expires'] < now]
+		for token in expired_tokens:
+			del self.sessions[token]
+
+	def render_GET(self, request):
+		path = request.path.decode("utf-8")
+		parts = path.strip("/").split("/")
+
+		try:
+			if path == "/":
+				return self.get_index(request)
+
+			elif path == "/manage":
+				return self.get_manage_page()
+
+			elif parts[0] == "edit" and len(parts) == 2:
+				portal_index = int(parts[1])
+				return self.get_edit_page(portal_index)
+
+			elif parts[0] == "delete" and len(parts) >= 3:
+				portal_index = int(parts[1])
+				mac_index = int(parts[2])
+				return self.delete_entry(portal_index, mac_index, request)
+
+			elif path == "/upload":
+				return self.get_upload_page()
+
+			elif path == "/upload_file":
+				return self.handle_file_upload(request)
+
+			elif parts[0] == "save_edit" and len(parts) == 2:
+				portal_index = int(parts[1])
+				return self.save_edit(portal_index, request)
+
+			else:
+				return self.get_404_page()
+		except Exception as e:
+			return self.get_error_page(str(e))
+
+	def render_POST(self, request):
+		path = request.path.decode("utf-8")
+
+		if path == "/submit":
+			portal = request.args.get(b"portal", [b""])[0].decode("utf-8").strip()
+			macs = request.args.get(b"mac", [b""])[0].decode("utf-8").strip()
+
+			if not portal or not macs:
+				return self.get_error_page("Portal URL and MAC addresses are required.")
+
+			success, message = self.plugin.add_to_playlist(portal, macs)
+
+			if not success:
+				return self.get_error_page(message)
+
+			self.plugin.notify_plugin("config_update")
+			request.redirect(b"/?saved=1")
+			return b""
+
+		elif path == "/save_playlist_entry":
+			# Handle JSON API save request
+			content = request.content.read().decode("utf-8")
+			try:
+				data = loads(content)
+				portal = data.get("portal", "").strip()
+				macs = data.get("macs", "").strip()
+				confirm = data.get("confirm", False)
+			except Exception:
+				request.setResponseCode(400)
+				return b"Invalid JSON data"
+
+			if not confirm:
+				response = {
+					"message": "Confirm saving playlist entry?",
+					"portal": portal,
+					"macs": macs
+				}
+				request.setHeader("Content-Type", "application/json")
+				return dumps(response).encode("utf-8")
+
+			if self.plugin.add_to_playlist(portal, macs):
+				self.plugin.load_playlist(self.playlist_path)  # Load updated playlist into memory
+				self.plugin.notify_plugin("config_update")
+				request.setHeader("Content-Type", "text/plain")
+				return b"Playlist saved successfully"
+			else:
+				request.setResponseCode(500)
+				return b"Failed to save playlist entry"
+
+		else:
+			request.setResponseCode(404)
+			return b"Not found"
+
+	def get_footer(self):
+		return """
+		<footer style="text-align:center; margin:20px 0; color:#888; font-size:0.9em;">
+			powered by Lululla
+		</footer>
+		"""
 
 
 class MenuDialog(Screen):

@@ -3,7 +3,7 @@
 
 ## Only This 2 lines to edit with new version ######
 version='1.4'
-changelog='\nFix Security Retry\nFix New features'
+changelog='\nMajor fix\nADD WEb Server'
 ##############################################################
 TMPPATH=/tmp/StalkerPortalConverter-main
 FILEPATH=/tmp/main.tar.gz

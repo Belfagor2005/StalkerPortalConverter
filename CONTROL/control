@@ -4,5 +4,6 @@ Section: misc
 Priority: optional
 Architecture: all
 Maintainer: lululla
-Description: StalkerPortal Converter to m3u files
+Description: StalkerPortal Converter to m3u and bouquet files
 Source: enigma2-plugin-extensions-stalkerportalconverter
+Homepage: www.corvoboys.org
