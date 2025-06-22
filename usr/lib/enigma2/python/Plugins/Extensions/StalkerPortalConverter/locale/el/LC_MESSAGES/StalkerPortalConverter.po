@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-20 15:48+0200\n"
-"PO-Revision-Date: 2025-06-20 23:28+0300\n"
+"PO-Revision-Date: 2025-06-22 21:23+0200\n"
 "Last-Translator: \n"
 "Language-Team: giorbak\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
@@ -468,8 +468,7 @@ msgstr "ΒΟΗΘΕΙΑ:\n"
 
 #: plugin.py:2070
 msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
-msgstr ""
-"- Ανοίξτε ένα αρχείο με URL διακομιστών ή πατήστε το ΜΠΛΕ κουμπί για να επεξεργαστείτε τον host και τη διεύθυνση MAC\n"
+msgstr "- Ανοίξτε ένα αρχείο με URL διακομιστών ή πατήστε το ΜΠΛΕ κουμπί για να επεξεργαστείτε τον host και τη διεύθυνση MAC\n"
 
 #: plugin.py:2071
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
