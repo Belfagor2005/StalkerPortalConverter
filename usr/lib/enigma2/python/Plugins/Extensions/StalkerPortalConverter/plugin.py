@@ -217,7 +217,7 @@ class StalkerPortalConverter(Screen):
             <widget name="portal_list_label" position="8,221" size="1260,30" font="Regular;24" foregroundColor="#ffff00" zPosition="2" scrollbarMode="showNever" />
 
             <!-- List -->
-            <widget name="file_list" position="10,253" size="1260,243" scrollbarMode="showOnDemand" itemHeight="40" font="Regular;28" backgroundColor="#252525" />
+            <widget name="file_list" position="10,253" size="1260,239" scrollbarMode="showOnDemand" itemHeight="40" font="Regular;28" backgroundColor="#252525" />
 
             <!-- Buttons -->
             <ePixmap position="10,670" pixmap="skin_default/buttons/red.png" size="30,30" alphatest="blend" zPosition="2" />
@@ -233,13 +233,13 @@ class StalkerPortalConverter(Screen):
             <eLabel name="" position="1140,670" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="EXIT" />
 
             <!-- server web -->
-            <widget name="key_web" position="1000,635" size="260,30" font="Regular;28" halign="center" backgroundColor="#ffff00" transparent="1" zPosition="2" cornerRadius="10" />
+            <widget name="key_web" position="1000,630" size="260,35" font="Regular;24" halign="center" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
             <eLabel name="" position="1210,670" size="52,40" backgroundColor="#ffff00" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="TXT WEB" />
-            <widget name="access_code_label" position="1000,600" size="260,35" font="Regular;22" halign="center" foregroundColor="#ffff00" zPosition="2" cornerRadius="10" />
-            <widget name="regen_code_btn" position="1056,555" size="200,40" font="Regular;24" backgroundColor="#ff0000" foregroundColor="#ffff00" cornerRadius="10" />
-            <widget name="show_code_btn" position="1057,510" size="200,40" font="Regular;24" backgroundColor="#00ff00" foregroundColor="#ffff00" cornerRadius="10" />
-            <eLabel name="" position="1000,555" size="52,40" backgroundColor="#ff0000" foregroundColor="#ffff00" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="0" />
-            <eLabel name="" position="1000,510" size="52,40" backgroundColor="#00ff00" foregroundColor="#ffff00" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="1" />
+            <widget name="access_code_label" position="1000,590" size="260,35" font="Regular;22" halign="center" backgroundColor="#00ffff" foregroundColor="#000000" zPosition="2" cornerRadius="10" />
+            <widget name="regen_code_btn" position="1056,545" size="200,40" font="Regular;24" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
+            <widget name="show_code_btn" position="1057,500" size="200,40" font="Regular;24" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
+            <eLabel name="" position="1000,545" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="0" />
+            <eLabel name="" position="1000,500" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="1" />
         </screen>
         """
 
