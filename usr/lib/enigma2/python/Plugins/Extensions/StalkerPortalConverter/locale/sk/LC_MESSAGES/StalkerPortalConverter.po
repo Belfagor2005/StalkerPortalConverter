@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-22 21:24+0200\n"
-"PO-Revision-Date: 2025-06-22 21:24+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2025-06-18 18:39+0200\n"
+"PO-Revision-Date: 2025-06-23 16:16+0200\n"
+"Last-Translator: Warder <ciksa@seznam.cz>\n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -13,462 +13,427 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.6\n"
-"X-Poedit-Basepath: ../../..\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: plugin.py\n"
 
-#: __init__.py:184
-msgid "Hard Disk"
-msgstr ""
-
-#: __init__.py:185
-msgid "USB Drive"
-msgstr ""
-
-#: __init__.py:188
-msgid "Temporary Storage"
-msgstr ""
-
-#: __init__.py:192
-msgid "Disk"
-msgstr ""
-
-#: __init__.py:199
-msgid "Network"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:153 ⁨plugin - Copia.py⁩:934 plugin.py:155 plugin.py:957
+#: plugin.py:147 plugin.py:862
 msgid "Top"
-msgstr ""
+msgstr "Hore"
 
-#: ⁨plugin - Copia.py⁩:153 ⁨plugin - Copia.py⁩:934 plugin.py:155 plugin.py:957
+#: plugin.py:147 plugin.py:862
 msgid "Bottom"
-msgstr ""
+msgstr "Dole"
 
-#: ⁨plugin - Copia.py⁩:273 plugin.py:275
+#: plugin.py:238
 #, python-format
 msgid "Stalker Portal to M3U Converter v.%s"
-msgstr ""
+msgstr "Prevodník Stalker Portal do M3U verzie %s"
 
-#: ⁨plugin - Copia.py⁩:274 plugin.py:276
+#: plugin.py:239
 msgid "Portal URL:"
-msgstr ""
+msgstr "URL adresa portálu:"
 
-#: ⁨plugin - Copia.py⁩:276 plugin.py:278
+#: plugin.py:241
 msgid "MAC Address:"
-msgstr ""
+msgstr "MAC adresa:"
 
-#: ⁨plugin - Copia.py⁩:278 plugin.py:280
+#: plugin.py:243
 msgid "Output File:"
-msgstr ""
+msgstr "Výstupný súbor:"
 
-#: ⁨plugin - Copia.py⁩:280 plugin.py:282
-msgid "Playlist File:"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:282 plugin.py:284
+#: plugin.py:245
 msgid "Valid Portals from Selected File:"
-msgstr ""
+msgstr "Platné portály z vybraného súboru:"
 
-#: ⁨plugin - Copia.py⁩:285 plugin.py:287
+#: plugin.py:249
 msgid "User:"
-msgstr ""
+msgstr "Používateľ:"
 
-#: ⁨plugin - Copia.py⁩:287 plugin.py:289
+#: plugin.py:251
 msgid "Password:"
-msgstr ""
+msgstr "Heslo:"
 
-#: ⁨plugin - Copia.py⁩:289 plugin.py:291
+#: plugin.py:253
 msgid "Expiry:"
-msgstr ""
+msgstr "Platnosť do:"
 
-#: ⁨plugin - Copia.py⁩:291 plugin.py:293
+#: plugin.py:255
 msgid "Status:"
-msgstr ""
+msgstr "Stav:"
 
-#: ⁨plugin - Copia.py⁩:293 plugin.py:295
+#: plugin.py:257
 msgid "Active:"
-msgstr ""
+msgstr "Aktívne:"
 
-#: ⁨plugin - Copia.py⁩:295 plugin.py:297
+#: plugin.py:259
 msgid "Max: "
-msgstr ""
+msgstr "Max: "
 
-#: ⁨plugin - Copia.py⁩:299 plugin.py:301
+#: plugin.py:263
 msgid "Ready - Select a file or enter URL/MAC"
-msgstr ""
+msgstr "Pripravené – Vyberte súbor alebo zadajte URL/MAC"
 
-#: ⁨plugin - Copia.py⁩:300 plugin.py:302
+#: plugin.py:264
 msgid "Clear"
-msgstr ""
+msgstr "Vyčistiť"
 
-#: ⁨plugin - Copia.py⁩:302 plugin.py:304
+#: plugin.py:266
 msgid "Select Playlist"
-msgstr ""
+msgstr "Vyberte Playlist"
 
-#: ⁨plugin - Copia.py⁩:303 plugin.py:305
+#: plugin.py:267
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
-#: ⁨plugin - Copia.py⁩:305 ⁨plugin - Copia.py⁩:2167 ⁨plugin - Copia.py⁩:2187
-#: plugin.py:307 plugin.py:2422 plugin.py:2442
-msgid "Web Portal Server Off"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:306 plugin.py:308
-msgid "Press 0: Show Access Code | Press 1: New Code"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:307 ⁨plugin - Copia.py⁩:2273 ⁨plugin - Copia.py⁩:2282
-#: ⁨plugin - Copia.py⁩:2312 plugin.py:309 plugin.py:2528 plugin.py:2537
-#: plugin.py:2567
-msgid "Access Code: "
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:308 plugin.py:310
-msgid "New Code"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:309 ⁨plugin - Copia.py⁩:2283 plugin.py:311 plugin.py:2538
-msgid "Show Code"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:395 plugin.py:403
+#: plugin.py:336
 msgid "Initialization error"
-msgstr ""
+msgstr "Chyba inicializácie"
 
-#: ⁨plugin - Copia.py⁩:402 plugin.py:410
+#: plugin.py:343
 msgid "Stopping current process to switch portal..."
-msgstr ""
+msgstr "Zastavuje sa aktuálny proces prepnutia portálu..."
 
-#: ⁨plugin - Copia.py⁩:425 plugin.py:433
+#: plugin.py:366
 msgid "Selected: "
-msgstr ""
+msgstr "Vybrané: "
 
-#: ⁨plugin - Copia.py⁩:436 plugin.py:444
+#: plugin.py:377
 msgid "Loading account info in background..."
-msgstr ""
+msgstr "Načítavajú sa informácie o účte na pozadí..."
 
-#: ⁨plugin - Copia.py⁩:461 plugin.py:469
+#: plugin.py:402
 msgid "Account info loaded"
-msgstr ""
+msgstr "Informácie o účte boli načítané"
 
-#: ⁨plugin - Copia.py⁩:463 plugin.py:471
+#: plugin.py:404
 msgid "Failed to load account info"
-msgstr ""
+msgstr "Nepodarilo sa načítať informácie o účte"
 
-#: ⁨plugin - Copia.py⁩:474 plugin.py:482
+#: plugin.py:415
 msgid "Error accessing configuration values: "
-msgstr ""
+msgstr "Chyba pri prístupe k konfiguračným hodnotám: "
 
-#: ⁨plugin - Copia.py⁩:478 ⁨plugin - Copia.py⁩:1147 plugin.py:486 plugin.py:1170
+#: plugin.py:419 plugin.py:1048
 msgid "Error: Portal and MAC are required"
-msgstr ""
+msgstr "Chyba: Vyžaduje sa Portál a MAC"
 
-#: ⁨plugin - Copia.py⁩:609 plugin.py:617
+#: plugin.py:550
 msgid "Handshake failed: No token received"
-msgstr ""
+msgstr "Podanie ruky zlyhalo: Neprijatý nebol žiadny token"
 
-#: ⁨plugin - Copia.py⁩:722 plugin.py:730
+#: plugin.py:663
 msgid "Error extracting account information"
-msgstr ""
+msgstr "Chyba pri extrakcii informácií o účte"
 
-#: ⁨plugin - Copia.py⁩:832 plugin.py:840
+#: plugin.py:760
 msgid "Set Type Conversion"
-msgstr ""
+msgstr "Konverzia typu sady"
 
-#: ⁨plugin - Copia.py⁩:833 plugin.py:841
+#: plugin.py:761
 msgid "Edit Portal URL"
-msgstr ""
+msgstr "Upraviť URL adresu portálu"
 
-#: ⁨plugin - Copia.py⁩:834 plugin.py:842
+#: plugin.py:762
 msgid "Edit MAC Address"
-msgstr ""
+msgstr "Upraviť MAC adresu"
 
-#: ⁨plugin - Copia.py⁩:835 plugin.py:843
+#: plugin.py:763
 msgid "Select Playlist File"
-msgstr ""
+msgstr "Vyberte súbor zoznamu skladieb"
 
-#: ⁨plugin - Copia.py⁩:836 plugin.py:844
+#: plugin.py:764
 msgid "Delete Playlist File"
-msgstr ""
+msgstr "Odstrániť súbor zoznamu skladieb"
 
-#: ⁨plugin - Copia.py⁩:837 plugin.py:845
+#: plugin.py:765
 msgid "Change Output Directory"
-msgstr ""
+msgstr "Zmeniť výstupný adresár"
 
-#: ⁨plugin - Copia.py⁩:838 plugin.py:846
+#: plugin.py:766
 msgid "Upgrade Stalker Converter"
-msgstr ""
+msgstr "Vylepšiť Stalker Converter"
 
-#: ⁨plugin - Copia.py⁩:839 plugin.py:847
+#: plugin.py:767
 msgid "Information"
-msgstr ""
+msgstr "Informácie"
 
-#: ⁨plugin - Copia.py⁩:840 plugin.py:848
+#: plugin.py:768
 msgid "Set Bouquet Position"
-msgstr ""
+msgstr "Nastavenie polohy kytice"
 
-#: ⁨plugin - Copia.py⁩:880 plugin.py:890
+#: plugin.py:808
 msgid ""
 "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
 msgstr ""
+"Zadajte URL adresu portálu (napr. http://example.com/c/ alebo http://"
+"example.com:8088/c/)"
 
-#: ⁨plugin - Copia.py⁩:899 plugin.py:909
+#: plugin.py:827
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
-msgstr ""
+msgstr "Zadajte MAC adresu (napr. 00:1A:79:XX:XX:XX)"
 
-#: ⁨plugin - Copia.py⁩:928 plugin.py:951
+#: plugin.py:856
 msgid "Select Type of Conversion"
-msgstr ""
+msgstr "Vyberte typ konverzie"
 
-#: ⁨plugin - Copia.py⁩:941 plugin.py:964
+#: plugin.py:869
 msgid "Bouquet position set to: {}"
-msgstr ""
+msgstr "Pozícia kytice nastavená na: {}"
 
-#: ⁨plugin - Copia.py⁩:947 plugin.py:970
+#: plugin.py:875
 msgid "Select Bouquet Position"
-msgstr ""
+msgstr "Vyberte pozíciu kytice"
 
-#: ⁨plugin - Copia.py⁩:1003 plugin.py:1026
-msgid "Loaded {} valid entries from {}"
-msgstr ""
+#: plugin.py:890
+msgid "Get ALL portal/MAC from file"
+msgstr "Získať VŠETKY portály/MAC adresy zo súboru"
 
-#: ⁨plugin - Copia.py⁩:1005 plugin.py:1028
-msgid "No valid entries found in file"
-msgstr ""
+#: plugin.py:904
+msgid "Loaded {} valid portals from {}"
+msgstr "Načítaných {} platných portálov z {}"
 
-#: ⁨plugin - Copia.py⁩:1008 plugin.py:1031
+#: plugin.py:906
+msgid "No valid portals found in file"
+msgstr "V súbore sa nenašli žiadne platné portály"
+
+#: plugin.py:909
 msgid "Error: "
-msgstr ""
+msgstr "Chyba: "
 
-#: ⁨plugin - Copia.py⁩:1031 plugin.py:1054
+#: plugin.py:932
 msgid "Scanning file... {}%"
-msgstr ""
+msgstr "Skenovanie súboru... {}%"
 
-#: ⁨plugin - Copia.py⁩:1084 plugin.py:1107
+#: plugin.py:985
 msgid "Conversion stopped by user"
-msgstr ""
+msgstr "Konverziu zastavil používateľ"
 
-#: ⁨plugin - Copia.py⁩:1102 ⁨plugin - Copia.py⁩:1389 plugin.py:1125 plugin.py:1488
+#: plugin.py:1003 plugin.py:1286
 msgid "Success! "
-msgstr ""
+msgstr "Hotovo! "
 
-#: ⁨plugin - Copia.py⁩:1104 ⁨plugin - Copia.py⁩:1391 plugin.py:1127 plugin.py:1490
+#: plugin.py:1005 plugin.py:1288
 msgid "Error! "
-msgstr ""
+msgstr "Chyba! "
 
-#: ⁨plugin - Copia.py⁩:1119 plugin.py:1142
+#: plugin.py:1020
 msgid "Stopping conversion..."
-msgstr ""
+msgstr "Zastavenie konverzie..."
 
-#: ⁨plugin - Copia.py⁩:1128 plugin.py:1151
+#: plugin.py:1029
 msgid "Not enough space on {}!"
-msgstr ""
+msgstr "Nie je dostatok miesta na {}!"
 
-#: ⁨plugin - Copia.py⁩:1141 plugin.py:1164
+#: plugin.py:1042
 msgid "Error accessing configuration values"
-msgstr ""
+msgstr "Chyba pri prístupe k konfiguračným hodnotám"
 
-#: ⁨plugin - Copia.py⁩:1142 plugin.py:1165
+#: plugin.py:1043
 msgid "Failed to read portal or MAC configuration:\n"
-msgstr ""
+msgstr "Nepodarilo sa načítať konfiguráciu portálu alebo MAC adresy:\n"
 
-#: ⁨plugin - Copia.py⁩:1151 plugin.py:1174
+#: plugin.py:1052
 msgid "Error: Invalid portal URL"
-msgstr ""
+msgstr "Chyba: Neplatná URL adresa portálu"
 
-#: ⁨plugin - Copia.py⁩:1155 plugin.py:1178
+#: plugin.py:1056
 msgid "Error: Invalid MAC address"
-msgstr ""
+msgstr "Chyba: Neplatná MAC adresa"
 
-#: ⁨plugin - Copia.py⁩:1164 plugin.py:1187
+#: plugin.py:1065
 msgid "Cannot create directory: "
-msgstr ""
+msgstr "Nedá sa vytvoriť adresár: "
 
-#: ⁨plugin - Copia.py⁩:1173 plugin.py:1196
+#: plugin.py:1074
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
-#: ⁨plugin - Copia.py⁩:1176 plugin.py:1199
+#: plugin.py:1077
 msgid "Starting conversion process..."
-msgstr ""
+msgstr "Spúšťa sa proces konverzie..."
 
-#: ⁨plugin - Copia.py⁩:1187 plugin.py:1210
+#: plugin.py:1088
 msgid "Conversion canceled before start"
-msgstr ""
+msgstr "Konverzia zrušená pred začiatkom"
 
-#: ⁨plugin - Copia.py⁩:1198
+#: plugin.py:1095
 msgid "Step 1/3: Connecting to portal..."
-msgstr ""
+msgstr "Krok 1/3: Pripájanie k portálu..."
 
-#: ⁨plugin - Copia.py⁩:1202 plugin.py:1225
+#: plugin.py:1099
 msgid "Conversion stopped during channel retrieval"
-msgstr ""
+msgstr "Konverzia sa zastavila počas načítania kanála"
 
-#: ⁨plugin - Copia.py⁩:1206 plugin.py:1229
+#: plugin.py:1103
 msgid "Failed to retrieve channel list"
-msgstr ""
+msgstr "Nepodarilo sa načítať zoznam kanálov"
 
-#: ⁨plugin - Copia.py⁩:1210
+#: plugin.py:1107
 msgid "Step 2/3: Creating playlist file..."
-msgstr ""
+msgstr "Krok 2/3: Vytvorenie súboru so zoznamom skladieb..."
 
-#: ⁨plugin - Copia.py⁩:1217
+#: plugin.py:1114
 msgid "Step 3/3: Create M3U file..."
-msgstr ""
+msgstr "Krok 3/3: Vytvorenie súboru M3U..."
 
-#: ⁨plugin - Copia.py⁩:1228 plugin.py:1251
+#: plugin.py:1125
 msgid "Conversion stopped during M3U creation"
-msgstr ""
+msgstr "Konverzia sa zastavila počas vytvárania M3U"
 
-#: ⁨plugin - Copia.py⁩:1240 plugin.py:1299
+#: plugin.py:1137
 msgid "M3U created with {} channels"
-msgstr ""
+msgstr "M3U vytvorené s {} kanálmi"
 
-#: ⁨plugin - Copia.py⁩:1244
+#: plugin.py:1141
 msgid "Step 3/3: Create Bouquet file..."
-msgstr ""
+msgstr "Krok 3/3: Vytvorenie súboru Kytica..."
 
-#: ⁨plugin - Copia.py⁩:1249 plugin.py:1308
+#: plugin.py:1146
 msgid "Conversion stopped during grouping"
-msgstr ""
+msgstr "Konverzia sa zastavila počas zoskupovania"
 
-#: ⁨plugin - Copia.py⁩:1254 plugin.py:1313
+#: plugin.py:1151
 msgid "Grouping: {}"
-msgstr ""
+msgstr "Zoskupenie: {}"
 
-#: ⁨plugin - Copia.py⁩:1257 plugin.py:1316
+#: plugin.py:1154
 msgid "Conversion stopped before bouquet creation"
-msgstr ""
+msgstr "Konverzia bola zastavená pred vytvorením kytice"
 
-#: ⁨plugin - Copia.py⁩:1262 plugin.py:1321
+#: plugin.py:1159
 msgid "Conversion stopped during bouquet creation"
-msgstr ""
+msgstr "Konverzia sa zastavila počas vytvárania kytice"
 
-#: ⁨plugin - Copia.py⁩:1268 plugin.py:1345
+#: plugin.py:1165
 msgid "Bouquets created: {} groups with {} channels"
-msgstr ""
+msgstr "Vytvorené kytice: {} skupín s {} kanálmi"
 
-#: ⁨plugin - Copia.py⁩:1274 plugin.py:1350
+#: plugin.py:1171
 msgid "Error creating playlist: "
-msgstr ""
+msgstr "Chyba pri vytváraní zoznamu skladieb: "
 
-#: ⁨plugin - Copia.py⁩:1278 plugin.py:1354
+#: plugin.py:1175
 msgid "Conversion error: "
-msgstr ""
+msgstr "Chyba konverzie: "
 
-#: ⁨plugin - Copia.py⁩:1460 plugin.py:1559
+#: plugin.py:1357
 msgid "Step 1/3: Handshake..."
-msgstr ""
+msgstr "Krok 1/3: Podanie ruky..."
 
-#: ⁨plugin - Copia.py⁩:1465 plugin.py:1564
+#: plugin.py:1362
 msgid "Failed to obtain token!"
-msgstr ""
+msgstr "Nepodarilo sa získať token!"
 
-#: ⁨plugin - Copia.py⁩:1471 plugin.py:1570
+#: plugin.py:1368
 msgid "Step 2/3: Authentication..."
-msgstr ""
+msgstr "Krok 2/3: Autentifikácia..."
 
-#: ⁨plugin - Copia.py⁩:1477 plugin.py:1576
+#: plugin.py:1374
 msgid "Step 3/3: Getting channels..."
-msgstr ""
+msgstr "Krok 3/3: Získanie kanálov..."
 
-#: ⁨plugin - Copia.py⁩:1485 plugin.py:1584
+#: plugin.py:1382
 msgid "No channels found in response"
-msgstr ""
+msgstr "V odpovedi sa nenašli žiadne kanály"
 
-#: ⁨plugin - Copia.py⁩:1489 plugin.py:1588
+#: plugin.py:1386
 #, python-format
 msgid "Preparing %d channels..."
-msgstr ""
+msgstr "Príprava %d kanálov..."
 
-#: ⁨plugin - Copia.py⁩:1502 plugin.py:1601
+#: plugin.py:1399
 msgid "Conversion stopped during channel processing"
-msgstr ""
+msgstr "Konverzia bola zastavená počas spracovania kanála"
 
-#: ⁨plugin - Copia.py⁩:1520 plugin.py:1619
+#: plugin.py:1417
 msgid "Conversion stopped during result processing"
-msgstr ""
+msgstr "Konverzia sa zastavila počas spracovania výsledku"
 
-#: ⁨plugin - Copia.py⁩:1540
+#: plugin.py:1445
 msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s | "
-"ETA: {:.1f}s"
+"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s "
+"| ETA: {:.1f}s"
 msgstr ""
+"Spracované kanály: {}/{} ({:.1f} %) | Uplynutý čas: {:.1f} s | Priemerná "
+"rýchlosť: {:.1f}/s | Predpokladaný čas príchodu: {:.1f} s"
 
-#: ⁨plugin - Copia.py⁩:1556 plugin.py:1655
+#: plugin.py:1461
 msgid ""
 "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
 msgstr ""
+"Spracované kanály: {}/{} ({:.1f} %) | Uplynutý čas: {:.1f} s | Priemerná "
+"rýchlosť: {:.1f}/s"
 
-#: ⁨plugin - Copia.py⁩:1831 plugin.py:2086
+#: plugin.py:1736
 msgid "Select this directory"
-msgstr ""
+msgstr "Vyberte tento adresár"
 
-#: ⁨plugin - Copia.py⁩:1851 ⁨plugin - Copia.py⁩:1947 plugin.py:2106 plugin.py:2202
+#: plugin.py:1756 plugin.py:1852
 msgid "Error accessing directory: "
-msgstr ""
+msgstr "Chyba pri prístupe k adresáru: "
 
-#: ⁨plugin - Copia.py⁩:1855 plugin.py:2110
+#: plugin.py:1760
 msgid "<< Cancel"
-msgstr ""
+msgstr "<< Zrušiť"
 
-#: ⁨plugin - Copia.py⁩:1859 plugin.py:2114
+#: plugin.py:1764
 msgid "Select playlist file"
-msgstr ""
+msgstr "Vyberte súbor so zoznamom skladieb"
 
-#: ⁨plugin - Copia.py⁩:1859 plugin.py:2114
+#: plugin.py:1764
 msgid "Select directory"
-msgstr ""
+msgstr "Vyberte adresár"
 
-#: ⁨plugin - Copia.py⁩:1863 plugin.py:2118
+#: plugin.py:1768
 msgid "No files found in: "
-msgstr ""
+msgstr "Nenašli sa žiadne súbory v: "
 
-#: ⁨plugin - Copia.py⁩:1892 plugin.py:2147
+#: plugin.py:1797
 msgid "Selected directory: "
-msgstr ""
+msgstr "Vybraný adresár: "
 
-#: ⁨plugin - Copia.py⁩:1902 plugin.py:2157
+#: plugin.py:1807
 #, python-format
 msgid "Loaded playlist: %s"
-msgstr ""
+msgstr "Načítaný zoznam skladieb: %s"
 
-#: ⁨plugin - Copia.py⁩:1951 plugin.py:2206
+#: plugin.py:1856
 msgid "No files or directories found in: "
-msgstr ""
+msgstr "Nenašli sa žiadne súbory ani adresáre v: "
 
-#: ⁨plugin - Copia.py⁩:1954 plugin.py:2209
+#: plugin.py:1859
 msgid "<< Back to main menu"
-msgstr ""
+msgstr "<< Späť do hlavnej ponuky"
 
-#: ⁨plugin - Copia.py⁩:1959 plugin.py:2214
+#: plugin.py:1864
 msgid "Select file to delete in: {}"
-msgstr ""
+msgstr "Vyberte súbor, ktorý chcete odstrániť v: {}"
 
-#: ⁨plugin - Copia.py⁩:1978 plugin.py:2233
+#: plugin.py:1883
 msgid ""
 "Are you sure you want to delete:\n"
 "{}?"
 msgstr ""
+"Naozaj chcete odstrániť:\n"
+"{}?"
 
-#: ⁨plugin - Copia.py⁩:1993 plugin.py:2248
+#: plugin.py:1898
 msgid "Deleted: "
-msgstr ""
+msgstr "Odstránené: "
 
-#: ⁨plugin - Copia.py⁩:2002 plugin.py:2257
+#: plugin.py:1907
 msgid "Delete failed: "
-msgstr ""
+msgstr "Odstránenie zlyhalo: "
 
-#: ⁨plugin - Copia.py⁩:2041 plugin.py:2296
+#: plugin.py:1946
 msgid "Convert to M3U"
-msgstr ""
+msgstr "Konvertovať do M3U"
 
-#: ⁨plugin - Copia.py⁩:2043 plugin.py:2298
+#: plugin.py:1948
 msgid "Convert to TV"
-msgstr ""
+msgstr "Previesť na televízor"
 
-#: ⁨plugin - Copia.py⁩:2061 plugin.py:2316
+#: plugin.py:1966
 #, python-format
 msgid ""
 "Plugin: StalkerPortalConvert to M3U/TV\n"
@@ -480,40 +445,52 @@ msgid ""
 "Support: linuxsat-support.com - corvoboys.org\n"
 "\n"
 msgstr ""
+"Plugin: StalkerPortalConvert to M3U/TV\n"
+"Autor: Lululla\n"
+"Verzia: %s\n"
+"Dátum: jún 2025\n"
+"Popis: Konvertuje playlisty Stalker Portal do formátu M3U alebo Enigma2 "
+"bouquet.\n"
+"Podpora: linuxsat-support.com - corvoboys.org\n"
+"\n"
 
-#: ⁨plugin - Copia.py⁩:2069 plugin.py:2324
+#: plugin.py:1974
 msgid "HELP:\n"
-msgstr ""
+msgstr "POMOC:\n"
 
-#: ⁨plugin - Copia.py⁩:2070 plugin.py:2325
+#: plugin.py:1975
 msgid ""
 "- Open a file with server URLs or press the BLUE button to edit the host and "
 "MAC address\n"
 msgstr ""
+"- Otvorte súbor s URL adresami serverov alebo stlačte MODRÉ tlačidlo pre "
+"úpravu hostiteľa a MAC adresy.\n"
 
-#: ⁨plugin - Copia.py⁩:2071 plugin.py:2326
+#: plugin.py:1976
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
-msgstr ""
+msgstr "- Vyberte požadovaný výstupný formát: M3U alebo TV bouquet\n"
 
-#: ⁨plugin - Copia.py⁩:2072 plugin.py:2327
+#: plugin.py:1977
 msgid "- Press CONVERT to generate the playlist"
-msgstr ""
+msgstr "- Stlačením tlačidla KONVERTOVAŤ vygenerujete zoznam skladieb"
 
-#: ⁨plugin - Copia.py⁩:2080 plugin.py:2335
+#: plugin.py:1985
 msgid "Fields cleared"
-msgstr ""
+msgstr "Polia vymazané"
 
-#: ⁨plugin - Copia.py⁩:2094 plugin.py:2349
+#: plugin.py:1999
 msgid ""
 "Unable to fetch version info:\n"
 "{}"
 msgstr ""
+"Nepodarilo sa načítať informácie o verzii:\n"
+"0}"
 
-#: ⁨plugin - Copia.py⁩:2112 plugin.py:2367
+#: plugin.py:2017
 msgid "You are already running the latest version: {}"
-msgstr ""
+msgstr "Už používate najnovšiu verziu: {}"
 
-#: ⁨plugin - Copia.py⁩:2128 plugin.py:2383
+#: plugin.py:2033
 #, python-format
 msgid ""
 "New version %s available\n"
@@ -522,111 +499,21 @@ msgid ""
 "\n"
 "Do you want to install it now?"
 msgstr ""
+"Nová verzia %s je k dispozícii\n"
+"\n"
+"Zoznam zmien: %s\n"
+"\n"
+"Chcete ju teraz nainštalovať?"
 
-#: ⁨plugin - Copia.py⁩:2141 plugin.py:2396
+#: plugin.py:2046
 #, python-format
 msgid "You are already running the latest version: %s"
-msgstr ""
+msgstr "Už používate najnovšiu verziu: %s"
 
-#: ⁨plugin - Copia.py⁩:2149 plugin.py:2404
+#: plugin.py:2054
 msgid "Update Aborted!"
-msgstr ""
+msgstr "Aktualizácia prerušená!"
 
-#: ⁨plugin - Copia.py⁩:2176 plugin.py:2431
-msgid "Web Portal Server On"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:2177 plugin.py:2432
-#, python-format
-msgid "Web server: http://%s:%d"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:2179 plugin.py:2434
-msgid "Web server error: "
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:2188 plugin.py:2443
-msgid "Web server stopped"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:2266 ⁨plugin - Copia.py⁩:2305 plugin.py:2521 plugin.py:2560
-msgid "You need to start the Web Server first!"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:2274 plugin.py:2529
-msgid "Hide Code"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:2294 plugin.py:2549
-msgid "New Access Code: "
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:2299 plugin.py:2554
-msgid "New access code generated!"
-msgstr ""
-
-#: ⁨plugin - Copia.py⁩:3799 plugin.py:4054
+#: plugin.py:2101
 msgid "Convert Stalker Portal to M3U playlist with actual channels"
-msgstr ""
-
-#: plugin.py:360 plugin.py:386 plugin.py:921
-msgid "Enabled"
-msgstr ""
-
-#: plugin.py:360 plugin.py:386 plugin.py:921
-msgid "Disabled"
-msgstr ""
-
-#: plugin.py:361 plugin.py:922
-msgid "VOD inclusion: {}"
-msgstr ""
-
-#: plugin.py:386
-msgid "VOD: "
-msgstr ""
-
-#: plugin.py:849
-msgid "Include VOD in Playlist"
-msgstr ""
-
-#: plugin.py:1221
-msgid "Step 1/4: Connecting to portal..."
-msgstr ""
-
-#: plugin.py:1233
-msgid "Step 2/4: Creating playlist file..."
-msgstr ""
-
-#: plugin.py:1240
-msgid "Step 3/4: Create M3U file..."
-msgstr ""
-
-#: plugin.py:1265 plugin.py:1328
-msgid "Step 4/4: Getting VOD content..."
-msgstr ""
-
-#: plugin.py:1296 plugin.py:1341
-msgid "Added {} VOD items"
-msgstr ""
-
-#: plugin.py:1303
-msgid "Step 3/4: Create Bouquet file..."
-msgstr ""
-
-#: plugin.py:1639
-msgid ""
-"Processed {}/{} channels ({:.1f}%)\n"
-"Elapsed: {:.1f}s | Avg speed: {:.1f}/s | ETA: {:.1f}s"
-msgstr ""
-
-#: plugin.py:1708
-msgid "Step 1/2: Getting VOD categories..."
-msgstr ""
-
-#: plugin.py:1752
-msgid "Step 3/3: Return VOD categories..."
-msgstr ""
-
-#: plugin.py:1814
-msgid "Step 2/3: Return VOD json_data..."
-msgstr ""
+msgstr "Prevod Stalker Portal do playlistu M3U so skutočnými kanálmi"

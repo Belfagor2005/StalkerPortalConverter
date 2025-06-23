@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-22 21:22+0200\n"
-"PO-Revision-Date: 2025-06-22 21:22+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2025-06-23 08:36+0300\n"
+"Last-Translator: Shabah Net\n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -18,472 +18,477 @@ msgstr ""
 
 #: plugin.py:155 plugin.py:957
 msgid "Top"
-msgstr ""
+msgstr "أعلى"
 
 #: plugin.py:155 plugin.py:957
 msgid "Bottom"
-msgstr ""
+msgstr "أسفل"
 
 #: plugin.py:275
 #, python-format
 msgid "Stalker Portal to M3U Converter v.%s"
-msgstr ""
+msgstr "محول Stalker Portal إلى M3U الإصدار %s"
 
 #: plugin.py:276
 msgid "Portal URL:"
-msgstr ""
+msgstr "رابط البوابة:"
 
 #: plugin.py:278
 msgid "MAC Address:"
-msgstr ""
+msgstr "عنوان MAC:"
 
 #: plugin.py:280
 msgid "Output File:"
-msgstr ""
+msgstr "ملف الإخراج:"
 
 #: plugin.py:282
 msgid "Playlist File:"
-msgstr ""
+msgstr "ملف القائمة:"
 
 #: plugin.py:284
 msgid "Valid Portals from Selected File:"
-msgstr ""
+msgstr "البوابات الصالحة من الملف المحدد:"
 
 #: plugin.py:287
 msgid "User:"
-msgstr ""
+msgstr "المستخدم:"
 
 #: plugin.py:289
 msgid "Password:"
-msgstr ""
+msgstr "كلمة المرور:"
 
 #: plugin.py:291
 msgid "Expiry:"
-msgstr ""
+msgstr "تاريخ الانتهاء:"
 
 #: plugin.py:293
 msgid "Status:"
-msgstr ""
+msgstr "الحالة:"
 
 #: plugin.py:295
 msgid "Active:"
-msgstr ""
+msgstr "نشط:"
 
 #: plugin.py:297
 msgid "Max: "
-msgstr ""
+msgstr "الحد الأقصى: "
 
 #: plugin.py:301
 msgid "Ready - Select a file or enter URL/MAC"
-msgstr ""
+msgstr "جاهز - اختر ملفًا أو أدخل رابط/عنوان MAC"
 
 #: plugin.py:302
 msgid "Clear"
-msgstr ""
+msgstr "مسح"
 
 #: plugin.py:304
 msgid "Select Playlist"
-msgstr ""
+msgstr "اختر قائمة التشغيل"
 
 #: plugin.py:305
 msgid "Edit"
-msgstr ""
+msgstr "تعديل"
 
 #: plugin.py:307 plugin.py:2422 plugin.py:2442
 msgid "Web Portal Server Off"
-msgstr ""
+msgstr "خادم البوابة متوقف"
 
 #: plugin.py:308
 msgid "Press 0: Show Access Code | Press 1: New Code"
-msgstr ""
+msgstr "اضغط 0: إظهار كود الدخول | اضغط 1: كود جديد"
 
 #: plugin.py:309 plugin.py:2528 plugin.py:2537 plugin.py:2567
 msgid "Access Code: "
-msgstr ""
+msgstr "كود الدخول: "
 
 #: plugin.py:310
 msgid "New Code"
-msgstr ""
+msgstr "كود جديد"
 
 #: plugin.py:311 plugin.py:2538
 msgid "Show Code"
-msgstr ""
+msgstr "إظهار الكود"
 
 #: plugin.py:360 plugin.py:386 plugin.py:921
 msgid "Enabled"
-msgstr ""
+msgstr "مفعل"
 
 #: plugin.py:360 plugin.py:386 plugin.py:921
 msgid "Disabled"
-msgstr ""
+msgstr "معطل"
 
 #: plugin.py:361 plugin.py:922
 msgid "VOD inclusion: {}"
-msgstr ""
+msgstr "تضمين الفيديو عند الطلب: {}"
 
 #: plugin.py:386
 msgid "VOD: "
-msgstr ""
+msgstr "فيديو عند الطلب: "
 
 #: plugin.py:403
 msgid "Initialization error"
-msgstr ""
+msgstr "خطأ في التهيئة"
 
 #: plugin.py:410
 msgid "Stopping current process to switch portal..."
-msgstr ""
+msgstr "جارٍ إيقاف العملية الحالية لتغيير البوابة..."
 
 #: plugin.py:433
 msgid "Selected: "
-msgstr ""
+msgstr "تم الاختيار: "
 
 #: plugin.py:444
 msgid "Loading account info in background..."
-msgstr ""
+msgstr "جارٍ تحميل معلومات الحساب في الخلفية..."
 
 #: plugin.py:469
 msgid "Account info loaded"
-msgstr ""
+msgstr "تم تحميل معلومات الحساب"
 
 #: plugin.py:471
 msgid "Failed to load account info"
-msgstr ""
+msgstr "فشل في تحميل معلومات الحساب"
 
 #: plugin.py:482
 msgid "Error accessing configuration values: "
-msgstr ""
+msgstr "خطأ في الوصول إلى قيم الإعدادات: "
 
 #: plugin.py:486 plugin.py:1170
 msgid "Error: Portal and MAC are required"
-msgstr ""
+msgstr "خطأ: الرابط ورقم MAC مطلوبان"
 
 #: plugin.py:617
 msgid "Handshake failed: No token received"
-msgstr ""
+msgstr "فشل الاتصال: لم يتم استلام الرمز (Token)"
 
 #: plugin.py:730
 msgid "Error extracting account information"
-msgstr ""
+msgstr "خطأ في استخراج معلومات الحساب"
 
 #: plugin.py:840
 msgid "Set Type Conversion"
-msgstr ""
+msgstr "تعيين نوع التحويل"
 
 #: plugin.py:841
 msgid "Edit Portal URL"
-msgstr ""
+msgstr "تحرير رابط البوابة"
 
 #: plugin.py:842
 msgid "Edit MAC Address"
-msgstr ""
+msgstr "تحرير عنوان MAC"
 
 #: plugin.py:843
 msgid "Select Playlist File"
-msgstr ""
+msgstr "اختيار ملف قائمة التشغيل"
 
 #: plugin.py:844
 msgid "Delete Playlist File"
-msgstr ""
+msgstr "حذف ملف قائمة التشغيل"
 
 #: plugin.py:845
 msgid "Change Output Directory"
-msgstr ""
+msgstr "تغيير مجلد الإخراج"
 
 #: plugin.py:846
 msgid "Upgrade Stalker Converter"
-msgstr ""
+msgstr "تحديث محول Stalker"
 
 #: plugin.py:847
 msgid "Information"
-msgstr ""
+msgstr "معلومات"
 
 #: plugin.py:848
 msgid "Set Bouquet Position"
-msgstr ""
+msgstr "تعيين موقع القائمة"
 
 #: plugin.py:849
 msgid "Include VOD in Playlist"
-msgstr ""
+msgstr "تضمين الفيديو عند الطلب في قائمة التشغيل"
 
 #: plugin.py:890
 msgid ""
 "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
+msgstr "أدخل رابط البوابة (مثال: http://example.com/c/ أو http://example.com:8088/c/)"
 
 #: plugin.py:909
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
-msgstr ""
+msgstr "أدخل عنوان MAC (مثال: 00:1A:79:XX:XX:XX)"
 
 #: plugin.py:951
 msgid "Select Type of Conversion"
-msgstr ""
+msgstr "اختر نوع التحويل"
 
 #: plugin.py:964
 msgid "Bouquet position set to: {}"
-msgstr ""
+msgstr "تم تعيين موقع القائمة إلى: {}"
 
 #: plugin.py:970
 msgid "Select Bouquet Position"
-msgstr ""
+msgstr "اختر موقع القائمة"
 
 #: plugin.py:1026
 msgid "Loaded {} valid entries from {}"
-msgstr ""
+msgstr "تم تحميل {} إدخال صالح من {}"
 
 #: plugin.py:1028
 msgid "No valid entries found in file"
-msgstr ""
+msgstr "لم يتم العثور على إدخالات صالحة في الملف"
 
 #: plugin.py:1031
 msgid "Error: "
-msgstr ""
+msgstr "خطأ: "
 
 #: plugin.py:1054
 msgid "Scanning file... {}%"
-msgstr ""
+msgstr "جارٍ مسح الملف... {}%"
 
 #: plugin.py:1107
 msgid "Conversion stopped by user"
-msgstr ""
+msgstr "تم إيقاف التحويل بواسطة المستخدم"
 
 #: plugin.py:1125 plugin.py:1488
 msgid "Success! "
-msgstr ""
+msgstr "نجاح! "
 
 #: plugin.py:1127 plugin.py:1490
 msgid "Error! "
-msgstr ""
+msgstr "خطأ! "
 
 #: plugin.py:1142
 msgid "Stopping conversion..."
-msgstr ""
+msgstr "جارٍ إيقاف التحويل..."
 
 #: plugin.py:1151
 msgid "Not enough space on {}!"
-msgstr ""
+msgstr "لا يوجد مساحة كافية على {}!"
 
 #: plugin.py:1164
 msgid "Error accessing configuration values"
-msgstr ""
+msgstr "خطأ في الوصول إلى قيم الإعدادات"
 
 #: plugin.py:1165
 msgid "Failed to read portal or MAC configuration:\n"
-msgstr ""
+msgstr "فشل في قراءة إعدادات الرابط أو العنوان MAC:\n"
 
 #: plugin.py:1174
 msgid "Error: Invalid portal URL"
-msgstr ""
+msgstr "خطأ: الرابط غير صحيح"
 
 #: plugin.py:1178
 msgid "Error: Invalid MAC address"
-msgstr ""
+msgstr "خطأ: عنوان MAC غير صحيح"
 
 #: plugin.py:1187
 msgid "Cannot create directory: "
-msgstr ""
+msgstr "لا يمكن إنشاء المجلد: "
 
 #: plugin.py:1196
 msgid "Stop"
-msgstr ""
+msgstr "إيقاف"
 
 #: plugin.py:1199
 msgid "Starting conversion process..."
-msgstr ""
+msgstr "جارٍ بدء عملية التحويل..."
 
 #: plugin.py:1210
 msgid "Conversion canceled before start"
-msgstr ""
+msgstr "تم إلغاء التحويل قبل البدء"
 
 #: plugin.py:1221
 msgid "Step 1/4: Connecting to portal..."
-msgstr ""
+msgstr "الخطوة 1/4: الاتصال بالبوابة..."
 
 #: plugin.py:1225
 msgid "Conversion stopped during channel retrieval"
-msgstr ""
+msgstr "تم إيقاف التحويل أثناء استرجاع القنوات"
 
 #: plugin.py:1229
 msgid "Failed to retrieve channel list"
-msgstr ""
+msgstr "فشل في استرجاع قائمة القنوات"
 
 #: plugin.py:1233
 msgid "Step 2/4: Creating playlist file..."
-msgstr ""
+msgstr "الخطوة 2/4: إنشاء ملف القائمة..."
 
 #: plugin.py:1240
 msgid "Step 3/4: Create M3U file..."
-msgstr ""
+msgstr "الخطوة 3/4: إنشاء ملف M3U..."
 
 #: plugin.py:1251
 msgid "Conversion stopped during M3U creation"
-msgstr ""
+msgstr "تم إيقاف التحويل أثناء إنشاء ملف M3U"
 
 #: plugin.py:1265 plugin.py:1328
 msgid "Step 4/4: Getting VOD content..."
-msgstr ""
+msgstr "الخطوة 4/4: جلب محتوى الفيديو عند الطلب..."
 
 #: plugin.py:1296 plugin.py:1341
 msgid "Added {} VOD items"
-msgstr ""
+msgstr "تمت إضافة {} عنصر فيديو عند الطلب"
 
 #: plugin.py:1299
 msgid "M3U created with {} channels"
-msgstr ""
+msgstr "تم إنشاء ملف M3U يحتوي على {} قناة"
 
 #: plugin.py:1303
 msgid "Step 3/4: Create Bouquet file..."
-msgstr ""
+msgstr "الخطوة 3/4: إنشاء ملف القائمة..."
 
 #: plugin.py:1308
 msgid "Conversion stopped during grouping"
-msgstr ""
+msgstr "تم إيقاف التحويل أثناء التجميع"
 
 #: plugin.py:1313
 msgid "Grouping: {}"
-msgstr ""
+msgstr "التجميع: {}"
 
 #: plugin.py:1316
 msgid "Conversion stopped before bouquet creation"
-msgstr ""
+msgstr "تم إيقاف التحويل قبل إنشاء القائمة"
 
 #: plugin.py:1321
 msgid "Conversion stopped during bouquet creation"
-msgstr ""
+msgstr "تم إيقاف التحويل أثناء إنشاء القائمة"
 
 #: plugin.py:1345
 msgid "Bouquets created: {} groups with {} channels"
-msgstr ""
+msgstr "تم إنشاء {} مجموعة تحتوي على {} قناة"
 
 #: plugin.py:1350
 msgid "Error creating playlist: "
-msgstr ""
+msgstr "خطأ في إنشاء قائمة التشغيل: "
 
 #: plugin.py:1354
 msgid "Conversion error: "
-msgstr ""
+msgstr "خطأ في التحويل: "
 
 #: plugin.py:1559
 msgid "Step 1/3: Handshake..."
-msgstr ""
+msgstr "الخطوة 1/3: الاتصال الأولي..."
 
 #: plugin.py:1564
 msgid "Failed to obtain token!"
-msgstr ""
+msgstr "فشل في الحصول على الرمز (Token)!"
 
 #: plugin.py:1570
 msgid "Step 2/3: Authentication..."
-msgstr ""
+msgstr "الخطوة 2/3: المصادقة..."
 
 #: plugin.py:1576
 msgid "Step 3/3: Getting channels..."
-msgstr ""
+msgstr "الخطوة 3/3: جلب القنوات..."
 
 #: plugin.py:1584
 msgid "No channels found in response"
-msgstr ""
+msgstr "لم يتم العثور على قنوات في الاستجابة"
 
 #: plugin.py:1588
 #, python-format
 msgid "Preparing %d channels..."
-msgstr ""
+msgstr "جارٍ إعداد %d قناة..."
 
 #: plugin.py:1601
 msgid "Conversion stopped during channel processing"
-msgstr ""
+msgstr "تم إيقاف التحويل أثناء معالجة القنوات"
 
 #: plugin.py:1619
 msgid "Conversion stopped during result processing"
-msgstr ""
+msgstr "تم إيقاف التحويل أثناء معالجة النتائج"
 
 #: plugin.py:1639
 msgid ""
 "Processed {}/{} channels ({:.1f}%)\n"
 "Elapsed: {:.1f}s | Avg speed: {:.1f}/s | ETA: {:.1f}s"
 msgstr ""
+"تم معالجة {}/{} قناة ({}%.1f%)\n"
+"الزمن المنقضي: {}%.1f ثانية | السرعة المتوسطة: {}%.1f قناة/ثانية | الوقت المتبقي المتوقع: {}%.1f ثانية"
 
 #: plugin.py:1655
 msgid ""
 "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
 msgstr ""
+"تم معالجة {}/{} قناة ({}%.1f%) | الزمن المنقضي: {}%.1f ثانية | السرعة المتوسطة: {}%.1f قناة/ثانية"
 
 #: plugin.py:1708
 msgid "Step 1/2: Getting VOD categories..."
-msgstr ""
+msgstr "الخطوة 1/2: جلب فئات الفيديو عند الطلب..."
 
 #: plugin.py:1752
 msgid "Step 3/3: Return VOD categories..."
-msgstr ""
+msgstr "الخطوة 3/3: إعادة فئات الفيديو عند الطلب..."
 
 #: plugin.py:1814
 msgid "Step 2/3: Return VOD json_data..."
-msgstr ""
+msgstr "الخطوة 2/3: إعادة بيانات الفيديو عند الطلب بصيغة JSON..."
 
 #: plugin.py:2086
 msgid "Select this directory"
-msgstr ""
+msgstr "اختر هذا المجلد"
 
 #: plugin.py:2106 plugin.py:2202
 msgid "Error accessing directory: "
-msgstr ""
+msgstr "خطأ في الوصول إلى المجلد: "
 
 #: plugin.py:2110
 msgid "<< Cancel"
-msgstr ""
+msgstr "<< إلغاء"
 
 #: plugin.py:2114
 msgid "Select playlist file"
-msgstr ""
+msgstr "اختيار ملف قائمة التشغيل"
 
 #: plugin.py:2114
 msgid "Select directory"
-msgstr ""
+msgstr "اختيار مجلد"
 
 #: plugin.py:2118
 msgid "No files found in: "
-msgstr ""
+msgstr "لا توجد ملفات في: "
 
 #: plugin.py:2147
 msgid "Selected directory: "
-msgstr ""
+msgstr "المجلد المحدد: "
 
 #: plugin.py:2157
 #, python-format
 msgid "Loaded playlist: %s"
-msgstr ""
+msgstr "تم تحميل قائمة التشغيل: %s"
 
 #: plugin.py:2206
 msgid "No files or directories found in: "
-msgstr ""
+msgstr "لا توجد ملفات أو مجلدات في: "
 
 #: plugin.py:2209
 msgid "<< Back to main menu"
-msgstr ""
+msgstr "<< العودة إلى القائمة الرئيسية"
 
 #: plugin.py:2214
 msgid "Select file to delete in: {}"
-msgstr ""
+msgstr "اختر ملفًا للحذف من: {}"
 
 #: plugin.py:2233
 msgid ""
 "Are you sure you want to delete:\n"
 "{}?"
 msgstr ""
+"هل أنت متأكد من رغبتك في حذف:\n"
+"{}؟"
 
 #: plugin.py:2248
 msgid "Deleted: "
-msgstr ""
+msgstr "تم الحذف: "
 
 #: plugin.py:2257
 msgid "Delete failed: "
-msgstr ""
+msgstr "فشل الحذف: "
 
 #: plugin.py:2296
 msgid "Convert to M3U"
-msgstr ""
+msgstr "تحويل إلى M3U"
 
 #: plugin.py:2298
 msgid "Convert to TV"
-msgstr ""
+msgstr "تحويل إلى TV"
 
 #: plugin.py:2316
 #, python-format
@@ -497,38 +502,47 @@ msgid ""
 "Support: linuxsat-support.com - corvoboys.org\n"
 "\n"
 msgstr ""
+"البرنامج المساعد: تحويل بوابة Stalker إلى M3U/TV\n"
+"المؤلف: Lululla\n"
+"الإصدار: %s\n"
+"التاريخ: يونيو 2025\n"
+"الوصف: تحويل قوائم تشغيل بوابة Stalker إلى صيغة M3U أو صيغة القوائم في Enigma2.\n"
+"الدعم: linuxsat-support.com - corvoboys.org\n"
+"\n"
 
 #: plugin.py:2324
 msgid "HELP:\n"
-msgstr ""
+msgstr "مساعدة:\n"
 
 #: plugin.py:2325
 msgid ""
 "- Open a file with server URLs or press the BLUE button to edit the host and "
 "MAC address\n"
-msgstr ""
+msgstr "- افتح ملف يحتوي على روابط الخوادم أو اضغط الزر الأزرق لتحرير اسم المضيف وعنوان MAC\n"
 
 #: plugin.py:2326
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
-msgstr ""
+msgstr "- اختر الصيغة المرغوبة للإخراج: M3U أو قائمة TV\n"
 
 #: plugin.py:2327
 msgid "- Press CONVERT to generate the playlist"
-msgstr ""
+msgstr "- اضغط على زر التحويل لإنشاء قائمة التشغيل"
 
 #: plugin.py:2335
 msgid "Fields cleared"
-msgstr ""
+msgstr "تم مسح الحقول"
 
 #: plugin.py:2349
 msgid ""
 "Unable to fetch version info:\n"
 "{}"
 msgstr ""
+"تعذر جلب معلومات الإصدار:\n"
+"{}"
 
 #: plugin.py:2367
 msgid "You are already running the latest version: {}"
-msgstr ""
+msgstr "أنت تستخدم آخر إصدار بالفعل: {}"
 
 #: plugin.py:2383
 #, python-format
@@ -539,49 +553,54 @@ msgid ""
 "\n"
 "Do you want to install it now?"
 msgstr ""
+"الإصدار الجديد %s متاح\n"
+"\n"
+"سجل التغييرات: %s\n"
+"\n"
+"هل ترغب بتثبيته الآن؟"
 
 #: plugin.py:2396
 #, python-format
 msgid "You are already running the latest version: %s"
-msgstr ""
+msgstr "أنت تستخدم آخر إصدار بالفعل: %s"
 
 #: plugin.py:2404
 msgid "Update Aborted!"
-msgstr ""
+msgstr "تم إلغاء التحديث!"
 
 #: plugin.py:2431
 msgid "Web Portal Server On"
-msgstr ""
+msgstr "خادم البوابة يعمل"
 
 #: plugin.py:2432
 #, python-format
 msgid "Web server: http://%s:%d"
-msgstr ""
+msgstr "خادم الويب: http://%s:%d"
 
 #: plugin.py:2434
 msgid "Web server error: "
-msgstr ""
+msgstr "خطأ في خادم الويب: "
 
 #: plugin.py:2443
 msgid "Web server stopped"
-msgstr ""
+msgstr "تم إيقاف خادم الويب"
 
 #: plugin.py:2521 plugin.py:2560
 msgid "You need to start the Web Server first!"
-msgstr ""
+msgstr "يجب عليك تشغيل خادم الويب أولًا!"
 
 #: plugin.py:2529
 msgid "Hide Code"
-msgstr ""
+msgstr "إخفاء الكود"
 
 #: plugin.py:2549
 msgid "New Access Code: "
-msgstr ""
+msgstr "كود دخول جديد: "
 
 #: plugin.py:2554
 msgid "New access code generated!"
-msgstr ""
+msgstr "تم إنشاء كود دخول جديد!"
 
 #: plugin.py:4054
 msgid "Convert Stalker Portal to M3U playlist with actual channels"
-msgstr ""
+msgstr "تحويل بوابة Stalker إلى قائمة M3U تحتوي على القنوات الفعلية"
