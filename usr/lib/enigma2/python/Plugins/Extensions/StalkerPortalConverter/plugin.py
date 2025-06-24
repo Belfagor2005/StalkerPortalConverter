@@ -86,7 +86,7 @@ from . import (
 )
 
 
-currversion = '1.4'
+currversion = '1.5'
 
 """Use mode:
 playlist.txt with case sensitive
@@ -228,17 +228,17 @@ class StalkerPortalConverter(Screen):
 			<widget name="key_yellow" font="Regular;28" position="525,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" cornerRadius="10" />
 			<ePixmap position="730,670" pixmap="skin_default/buttons/blue.png" size="30,30" alphatest="blend" zPosition="2" />
 			<widget name="key_blue" font="Regular;28" position="765,670" size="200,30" halign="left" backgroundColor="black" zPosition="2" transparent="1" cornerRadius="10" />
-			<eLabel name="" position="995,670" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="OK" />
-			<eLabel name="" position="1065,670" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="INFO" />
-			<eLabel name="" position="1135,670" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="EXIT" />
+			<eLabel name="" position="995,664" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="OK" />
+			<eLabel name="" position="1065,664" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="INFO" />
+			<eLabel name="" position="1135,664" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="EXIT" />
 
 			<!-- server web -->
-			<widget name="key_web" position="995,625" size="265,40" font="Regular;22" halign="center" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
-			<eLabel name="" position="1205,670" size="52,40" backgroundColor="#ffff00" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="TXT WEB" />
-			<widget name="access_code_label" position="995,590" size="265,35" font="Regular;22" halign="center" backgroundColor="#00ffff" foregroundColor="#000000" zPosition="2" cornerRadius="10" />
-			<widget name="regen_code_btn" position="1060,545" size="200,40" font="Regular;24" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
+			<widget name="key_web" position="995,620" size="265,44" font="Regular;22" halign="center" backgroundColor="#b3b3b3" foregroundColor="#000000" cornerRadius="10" />
+			<eLabel name="" position="1200,664" size="60,40" backgroundColor="#ffff00" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="TXT WEB" />
+			<widget name="access_code_label" position="995,580" size="265,40" font="Regular;22" halign="center" backgroundColor="#00ffff" foregroundColor="#000000" zPosition="2" cornerRadius="10" />
+			<widget name="regen_code_btn" position="1060,540" size="200,40" font="Regular;24" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
 			<widget name="show_code_btn" position="1060,500" size="200,40" font="Regular;24" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
-			<eLabel name="" position="995,545" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="0" />
+			<eLabel name="" position="995,540" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="0" />
 			<eLabel name="" position="995,500" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="1" />
 		</screen>
 		"""
@@ -760,32 +760,57 @@ class StalkerPortalConverter(Screen):
 		self["max_value"].setText("")
 
 	def get_output_filename(self):
-		"""Returns the full path of the file or a description for TV bouquets"""
 		convert_type = config.plugins.stalkerportal.type_convert.value
 		base_dir = config.plugins.stalkerportal.output_dir.value or defaultMoviePath()
 		mac = config.plugins.stalkerportal.mac_address.value.replace(":", "_")
 
-		# For TV bouquet conversion, show the base directory
-		if convert_type == "1":
-			return base_dir.rstrip('/') if base_dir != '/' else '/'
-
-		# For M3U conversion, ensure proper path with "movie" subdirectory
-		# Only append "movie" if we're not already in a movie directory
+		if convert_type == "1":  # Convert to TV bouquet
+			safe_name = self.get_safe_filename("Stalker Bouquet")  # Nome bouquet di default
+			return f"/etc/enigma2/userbouquet.{safe_name}.tv"  # Percorso completo del bouquet
+		
+		# Resto del codice per M3U...
+		# Solo append "movie" se non siamo già in una directory movie
 		if not base_dir.endswith('/movie') and not base_dir.endswith('/movie/'):
-			# Add "movie" subdirectory if it doesn't exist
 			movie_dir = join(base_dir, 'movie')
 			if not exists(movie_dir):
 				try:
 					makedirs(movie_dir, exist_ok=True)
 				except:
-					movie_dir = base_dir  # Fallback to base directory if creation fails
+					movie_dir = base_dir  # Fallback
 			base_dir = movie_dir
 
-		# Ensure trailing slash
+		# Assicura trailing slash
 		if not base_dir.endswith('/'):
 			base_dir += '/'
-		# For M3U conversion - use base directory directly
 		return f"{base_dir.rstrip('/')}/stalker_{mac}.m3u"
+
+	# def get_output_filename(self):
+		# """Returns the full path of the file or a description for TV bouquets"""
+		# convert_type = config.plugins.stalkerportal.type_convert.value
+		# base_dir = config.plugins.stalkerportal.output_dir.value or defaultMoviePath()
+		# mac = config.plugins.stalkerportal.mac_address.value.replace(":", "_")
+
+		# # For TV bouquet conversion, show the base directory
+		# if convert_type == "1":
+			# return base_dir.rstrip('/') if base_dir != '/' else '/'
+
+		# # For M3U conversion, ensure proper path with "movie" subdirectory
+		# # Only append "movie" if we're not already in a movie directory
+		# if not base_dir.endswith('/movie') and not base_dir.endswith('/movie/'):
+			# # Add "movie" subdirectory if it doesn't exist
+			# movie_dir = join(base_dir, 'movie')
+			# if not exists(movie_dir):
+				# try:
+					# makedirs(movie_dir, exist_ok=True)
+				# except:
+					# movie_dir = base_dir  # Fallback to base directory if creation fails
+			# base_dir = movie_dir
+
+		# # Ensure trailing slash
+		# if not base_dir.endswith('/'):
+			# base_dir += '/'
+		# # For M3U conversion - use base directory directly
+		# return f"{base_dir.rstrip('/')}/stalker_{mac}.m3u"
 
 	def get_playlist_file_path(self):
 		"""Get the full path to the playlist file"""
