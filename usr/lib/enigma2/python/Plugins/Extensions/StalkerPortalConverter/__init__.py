@@ -178,7 +178,7 @@ def check_version(currversion, installer_url, AgentRequest):
 def get_mounted_devices():
 	"""Recovers mounted devices with write permissions"""
 	from Components.Harddisk import harddiskmanager
-	from Tools.Directories import resolveFilename, SCOPE_MEDIA
+	from Tools.Directories import SCOPE_MEDIA
 
 	devices = [
 		(resolveFilename(SCOPE_MEDIA, "hdd"), _("Hard Disk")),
@@ -199,7 +199,7 @@ def get_mounted_devices():
 			devices += [(join(net_dir, d), _("Network")) for d in listdir(net_dir)]
 
 	except Exception as e:
-		print("ERROR Mount error: %s" % str(e))
+		print("ERROR", "Mount error: %s" % str(e))
 
 	unique_devices = {}
 	for p, d in devices:
