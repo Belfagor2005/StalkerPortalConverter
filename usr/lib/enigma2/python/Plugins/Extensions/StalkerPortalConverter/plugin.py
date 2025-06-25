@@ -236,8 +236,8 @@ class StalkerPortalConverter(Screen):
             <widget name="key_web" position="995,620" size="265,44" font="Regular;22" halign="center" backgroundColor="#b3b3b3" foregroundColor="#000000" cornerRadius="10" />
             <eLabel name="" position="1200,664" size="60,40" backgroundColor="#ffff00" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 17" zPosition="1" text="TXT WEB" />
             <widget name="access_code_label" position="995,580" size="265,40" font="Regular;22" halign="center" backgroundColor="#ff8080" foregroundColor="#000000" zPosition="2" cornerRadius="10" />
-            <widget name="regen_code_btn" position="1047,540" size="213,40" font="Regular;24" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
-            <widget name="show_code_btn" position="1047,500" size="213,40" font="Regular;24" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
+            <widget name="regen_code_btn" position="1047,540" size="213,40" font="Regular;24" halign="center" valign="center" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
+            <widget name="show_code_btn" position="1047,500" size="213,40" font="Regular;24" halign="center" valign="center" backgroundColor="#00ffff" foregroundColor="#000000" cornerRadius="10" />
             <eLabel name="" position="995,540" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="0" />
             <eLabel name="" position="995,500" size="52,40" backgroundColor="#00ffff" foregroundColor="#000000" halign="center" valign="center" transparent="0" cornerRadius="10" font="Regular; 24" zPosition="1" text="1" />
         </screen>
