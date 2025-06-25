@@ -2,8 +2,8 @@
 ## setup command=wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/StalkerPortalConverter/main/installer.sh -O - | /bin/sh
 
 ## Only This 2 lines to edit with new version ######
-version='1.5'
-changelog='\nFix outpout folder'
+version='1.6'
+changelog='\nFix BA - outpout folder'
 ##############################################################
 TMPPATH=/tmp/StalkerPortalConverter-main
 FILEPATH=/tmp/main.tar.gz

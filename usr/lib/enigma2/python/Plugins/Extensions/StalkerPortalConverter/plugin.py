@@ -88,7 +88,7 @@ from . import (
 )
 
 
-currversion = '1.5'
+currversion = '1.6'
 
 """Use mode:
 playlist.txt with case sensitive
@@ -1491,13 +1491,16 @@ class StalkerPortalConverter(Screen):
 
 	def get_channel_list(self, portal, mac):
 		"""Retrieve channel list with robust connection handling"""
+		# Check if stopped at the start
+		if self.conversion_stopped:
+			self.update_status(_("Conversion stopped during channel processing"))
+			return False, None  # Return tuple
+
 		self.channels = []
 		token = None
-
 		try:
 			# Create main session with connection pooling
 			session = requests.Session()
-
 			# Configure advanced retry strategy
 			retry_strategy = Retry(
 				total=1,  # Increased total retries
@@ -1539,7 +1542,7 @@ class StalkerPortalConverter(Screen):
 			token_match = search(r'"token"\s*:\s*"([^"]+)"', response.text)
 			if not token_match:
 				self.update_status(_("Failed to obtain token!"))
-				return False
+				return False, None
 
 			token = token_match.group(1)
 
@@ -1560,7 +1563,7 @@ class StalkerPortalConverter(Screen):
 
 			if not channels_data:
 				self.update_status(_("No channels found in response"))
-				return False
+				return False, None  # Return tuple
 
 			# Prepare for parallel processing
 			self.update_status(_("Preparing %d channels...") % total_channels)
@@ -1577,7 +1580,7 @@ class StalkerPortalConverter(Screen):
 					# Check if stopped
 					if self.conversion_stopped:
 						self.update_status(_("Conversion stopped during channel processing"))
-						return False
+						return False, None
 
 					future = executor.submit(
 						self.process_channel,
@@ -1595,7 +1598,7 @@ class StalkerPortalConverter(Screen):
 					# Check if stopped
 					if self.conversion_stopped:
 						self.update_status(_("Conversion stopped during result processing"))
-						return False
+						return False, None
 
 					try:
 						channel_data = future.result()
@@ -1640,7 +1643,7 @@ class StalkerPortalConverter(Screen):
 		except Exception as e:
 			print('error stalker : ', e)
 			# self.update_status(_("Channel processing error: ") + str(e))
-			return False
+			return False, None
 
 	def get_vod_list(self, portal, mac, token):
 		"""Retrieve VOD list with categories and movies - SIMPLIFIED VERSION"""
@@ -1993,8 +1996,8 @@ class StalkerPortalConverter(Screen):
 			return None
 
 		except Exception as e:
-			print('process_channel Exception error: ', e)
-			return None
+			print(f"Error processing channel: {channel.get('name', 'Unknown')} - {str(e)}")
+			return None  # Return None instead of failing
 
 	def process_fallback_response(self, response, channel_id, channel_name, channel, api_url, domain):
 		"""Process response from fallback SSL request"""
