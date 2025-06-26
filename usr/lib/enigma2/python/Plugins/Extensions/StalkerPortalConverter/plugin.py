@@ -25,6 +25,7 @@ import threading
 import time
 import random
 import unicodedata
+import concurrent.futures
 from enigma import eDVBDB, eTimer
 from hashlib import md5
 from json import JSONDecodeError, dumps, loads
@@ -161,7 +162,7 @@ config.plugins.stalkerportal.mac_address = ConfigText(default="00:1A:79:00:00:00
 config.plugins.stalkerportal.web_access_code = ConfigText(default="", fixed_size=False)
 
 AgentRequest = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.3'
-update_mounts()
+# update_mounts()
 
 
 def reload_services():
@@ -216,8 +217,7 @@ class StalkerPortalConverter(Screen):
 			<widget name="max_value" position="740,565" size="240,30" font="Regular;24" backgroundColor="#252525" zPosition="2" />
 			<widget name="status" position="9,602" size="985,59" font="Regular;24" foregroundColor="#00ff00" halign="center" zPosition="2" />
 			<widget name="account_info" position="6,173" size="1260,45" font="Regular;22" foregroundColor="#00ff00" halign="center" zPosition="2" cornerRadius="10" />
-			<widget name="portal_list_label" position="8,221" size="1260,30" font="Regular;24" foregroundColor="#ffff00" zPosition="2" scrollbarMode="showNever" />
-
+			<widget name="portal_list_label" position="8,221" size="1260,30" font="Regular;24" foregroundColor="#ffff00" zPosition="2" />
 			<!-- List -->
 			<widget name="file_list" position="10,253" size="1260,239" scrollbarMode="showOnDemand" itemHeight="40" font="Regular;28" backgroundColor="#252525" />
 
@@ -256,12 +256,25 @@ class StalkerPortalConverter(Screen):
 		self.account_info_timer = None
 		self.account_info_timeout = 15
 
-		self.conversion_running = False
 		self.conversion_stopped = False
+		self.conversion_running = False
+		self.conversion_timeout = 0
+		self.conversion_result = None
+		self.closed = False
+		# Initialize channel cache
+		self.channel_cache = {}
+		self.cache_expiration = 0
 
 		# Generate a random passcode if none exists
 		if not config.plugins.stalkerportal.web_access_code.value:
 			self.generate_access_code()
+
+		# timer stopping conversion
+		# Create timers
+		self.stop_timer = eTimer()
+		self.stop_timer.timeout.get().append(self.reset_conversion_state)
+		self.result_timer = eTimer()
+		self.result_timer.timeout.get().append(self.handle_conversion_result)
 
 		# Timer to hide the code
 		self.access_code_timer = eTimer()
@@ -271,6 +284,8 @@ class StalkerPortalConverter(Screen):
 		self.update_timer = eTimer()
 		self.update_timer.callback.append(self.check_for_updates)
 		self.update_timer.start(2000)
+
+		self.get_output_filename = self._get_output_filename
 
 		self.update_flag_file = "/tmp/stalker_update_flag"
 
@@ -347,58 +362,59 @@ class StalkerPortalConverter(Screen):
 		self.web_server = None
 		self.listening_port = None
 
-		# timer stopping conversion
-		# Create timers
-		self.stop_timer = eTimer()
-		self.stop_timer.timeout.get().append(self.reset_conversion_state)
-		self.result_timer = eTimer()
-		self.result_timer.timeout.get().append(self.handle_conversion_result)
 		self.onLayoutFinish.append(self.initialize_ui)
 
 	def initialize_ui(self):
 		"""Deferred user interface initialization"""
+		# Ensure widgets exist before updating
 		if "file_input" not in self:
 			self["file_input"] = Label("")
+
+		# Update the method reference
+		self.get_output_filename = self._get_output_filename
+
 		vod_status = _("Enabled") if config.plugins.stalkerportal.include_vod.value else _("Disabled")
 		self["status"].setText(_("VOD inclusion: {}").format(vod_status))
 		self.update_all_widgets()
 		self.extract_account_info_async()
 
 	def update_all_widgets(self):
-		"""Update all widgets with current values"""
+		"""Update all widgets with current values and force refresh"""
 		try:
-			# print(f"[DEBUG] Updating widgets - portal: {config.plugins.stalkerportal.portal_url.value}")
-			# print(f"[DEBUG] Updating widgets - mac: {config.plugins.stalkerportal.mac_address.value}")
+			# Force reload configuration
+			configfile.load()
+
+			# Update widgets with current values
 			self["portal_input"].setText(config.plugins.stalkerportal.portal_url.value)
 			self["mac_input"].setText(config.plugins.stalkerportal.mac_address.value)
 
-			# Update playlist file display
-			output_file = self.get_output_filename()
-			# print(f"[DEBUG] Updating widgets - output_file: {output_file}")
+			# Get validated output path
+			output_dir = config.plugins.stalkerportal.output_dir.value
+			if not output_dir or not isdir(output_dir):
+				output_dir = defaultMoviePath()
+				config.plugins.stalkerportal.output_dir.value = output_dir
+				configfile.save()
+
+			# Update output file display
+			output_file = self._get_output_filename()
 			self["file_input"].setText(output_file)
 
+			# Update playlist file display
 			playlist_file = self.get_playlist_file_path()
 			if hasattr(self, 'playlist_file') and self.playlist_file:
 				playlist_file = self.playlist_file
 			self["file_path_input"].setText(playlist_file)
-			# print(f"[DEBUG] Updating widgets - playlist_file: {playlist_file}")
 
+			# Update conversion button
 			self["key_green"].setText(self.get_convert_label())
 
-			vod_status = _("VOD: ") + (_("Enabled") if config.plugins.stalkerportal.include_vod.value else _("Disabled"))
-			self["account_info"].setText(vod_status)
-
 			# Force GUI refresh
-			self["portal_input"].instance.invalidate()
-			self["mac_input"].instance.invalidate()
-			self["file_input"].instance.invalidate()
-			self["key_green"].instance.invalidate()
-			portal = config.plugins.stalkerportal.portal_url.value
-			mac = config.plugins.stalkerportal.mac_address.value
+			for widget in ["portal_input", "mac_input", "file_input", "file_path_input", "key_green"]:
+				if widget in self:
+					self[widget].instance.invalidate()
 
-			if portal and mac:
-				# print("[DEBUG] Triggering account info update")
-				self.extract_account_info_async()
+			# Update account info in background
+			self.extract_account_info_async()
 
 		except Exception as e:
 			print(f"Error updating widgets: {str(e)}")
@@ -585,6 +601,7 @@ class StalkerPortalConverter(Screen):
 
 		try:
 			# Step 1: Handshake
+			self.update_status(_("Step 1/3: Handshake..."))
 			token = None
 			with open("/tmp/stalker_account_info.log", "w") as f_debug:
 				f_debug.write("=== Handshake phase ===\n")
@@ -617,6 +634,9 @@ class StalkerPortalConverter(Screen):
 
 			if not token:
 				self.update_status(_("Handshake failed: No token received"))
+				# Add detailed error info
+				error_msg = _("Possible causes:\n- Server not responding\n- Incorrect portal URL\n- Network issues")
+				self["account_info"].setText(error_msg)
 				return None
 
 			# Step 2: Authentication
@@ -730,6 +750,9 @@ class StalkerPortalConverter(Screen):
 			return info
 		except Exception as e:
 			self["status"].setText(_("Error extracting account information"))
+			# Add more detailed error information
+			error_details = _("Error details: {}").format(str(e))
+			self["account_info"].setText(error_details)
 			with open("/tmp/stalker_account_info.log", "a") as f_debug:
 				f_debug.write("Error: " + str(e) + "\n")
 			return None
@@ -1087,31 +1110,42 @@ class StalkerPortalConverter(Screen):
 		self.stop_timer.stop()
 
 	def finish_conversion(self, success, message):
-		"""Finalize conversion and schedule UI update"""
-		self.conversion_running = False
-		self.conversion_stopped = False
-		self.conversion_result = (success, message)
-		self.result_timer.start(10, True)
+		"""Finalize conversion safely"""
+		if self.closed:
+			return
+		try:
+			self.conversion_running = False
+			self.conversion_stopped = False
+			self.conversion_result = (success, message)
+			self.result_timer.start(10, True)
+		except Exception:
+			pass
 
 	def handle_conversion_result(self):
-		"""Handle conversion result in main thread"""
-		if hasattr(self, 'conversion_result'):
-			success, message = self.conversion_result
-			# Always reset button
-			self["key_green"].setText(self.get_convert_label())
-
-			if success:
-				self["status"].setText(_("Success! ") + message)
-			else:
-				self["status"].setText(_("Error! ") + message)
-
-			# Clean up
-			del self.conversion_result
-
-		self.result_timer.stop()
+		"""Handle conversion result safely"""
+		if self.closed or not hasattr(self, 'conversion_result'):
+			return
+			
+		try:
+			if hasattr(self, 'conversion_result'):
+				success, message = self.conversion_result
+				# Always reset button
+				self["key_green"].setText(self.get_convert_label())
+				if success:
+					self["status"].setText(_("Success! ") + message)
+				else:
+					self["status"].setText(_("Error! ") + message)
+				# Clean up
+				del self.conversion_result
+			self.result_timer.stop()
+		finally:
+			# Clean up to prevent reference cycles
+			if hasattr(self, 'conversion_result'):
+				del self.conversion_result
 
 	def convert(self):
 		"""Convert to M3U file with actual channel list"""
+		self.conversion_timeout = time.time() + 900  # 15 minutes
 		with open("/tmp/stalker_convert_info.log", "a") as f_debug:
 			f_debug.write("=== convert phase ===\n")
 
@@ -1125,7 +1159,7 @@ class StalkerPortalConverter(Screen):
 				return
 
 			# START NEW CONVERSION - THIS CODE SHOULD BE OUTSIDE THE 'IF' BLOCK
-			output_path = config.plugins.stalkerportal.output_dir.getValue()
+			output_path = config.plugins.stalkerportal.output_dir.value
 			if not has_enough_free_space(output_path, min_bytes_required=100 * 1024 * 1024):
 				self["status"].setText(_("Not enough space on {}!").format(output_path))
 				return
@@ -1133,7 +1167,7 @@ class StalkerPortalConverter(Screen):
 			try:
 				portal = config.plugins.stalkerportal.portal_url.value.strip()
 				mac = config.plugins.stalkerportal.mac_address.value.strip()
-				output_file = self.get_output_filename()
+				output_file = self._get_output_filename()
 				f_debug.write("Portal URL: {}\n".format(portal))
 				f_debug.write("MAC address: {}\n".format(mac))
 				convert_type = config.plugins.stalkerportal.type_convert.value
@@ -1184,7 +1218,18 @@ class StalkerPortalConverter(Screen):
 
 	def convert_thread(self, portal, mac, output_file):
 		"""Background thread for conversion process without error popups"""
+		output_dir = dirname(output_file)
+		if not exists(output_dir):
+			try:
+				makedirs(output_dir, exist_ok=True)
+			except Exception as e:
+				self.finish_conversion(False, _("Cannot create directory: ") + str(e))
+				return
 		try:
+			if self.closed or self.conversion_stopped:
+				return
+
+			self.conversion_timeout = time.time() + 900  # 15 minutes timeout
 			if self.conversion_stopped:
 				self.finish_conversion(False, _("Conversion canceled before start"))
 				return
@@ -1200,6 +1245,10 @@ class StalkerPortalConverter(Screen):
 				self.update_status(_("Step 1/3: Connecting to portal..."))
 				f_debug.write("=== Step 1/3: Connecting to portal... ===\n")
 				success, token = self.get_channel_list(portal, mac)
+				if time.time() > self.conversion_timeout:
+					self.finish_conversion(False, _("Conversion timeout exceeded"))
+					return
+
 				if self.conversion_stopped:
 					self.finish_conversion(False, _("Conversion stopped during channel retrieval"))
 					return
@@ -1338,7 +1387,6 @@ class StalkerPortalConverter(Screen):
 			self.finish_conversion(False, _("Conversion error: ") + str(e))
 			with open("/tmp/stalker_convert_info.log", "a") as f_debug:
 				f_debug.write("Global exception: " + str(e) + "\n")
-
 		finally:
 			self.conversion_running = False
 			self["key_green"].setText(self.get_convert_label())
@@ -1454,20 +1502,6 @@ class StalkerPortalConverter(Screen):
 
 		return safe_name + "_stalker"
 
-	def _finish_conversion_safe(self, success, message):
-		"""Update UI in main thread"""
-		# Always reset button first
-		self["key_green"].setText(self.get_convert_label())
-
-		if success:
-			self["status"].setText(_("Success! ") + message)
-		else:
-			self["status"].setText(_("Error! ") + message)
-
-		# Clear processing state
-		self.conversion_running = False
-		self.conversion_stopped = False
-
 	def update_account_info(self, text):
 		"""Thread-safe account info update with debug"""
 		# print(f"[DEBUG] Updating account info with text: {text}")
@@ -1486,40 +1520,51 @@ class StalkerPortalConverter(Screen):
 		reactor.callFromThread(self._update_status_safe, text)
 
 	def _update_status_safe(self, text):
-		"""Update status in main thread"""
-		self["status"].setText(text)
+		"""Thread-safe status update with closed check"""
+		if self.closed or "status" not in self:
+			return
+			
+		try:
+			self["status"].setText(text)
+		except Exception:
+			pass  # Ignore errors if widget doesn't exist
 
 	def get_channel_list(self, portal, mac):
-		"""Retrieve channel list with robust connection handling"""
+		"""Retrieve channel list with enhanced performance and security"""
+		# Check cache first
+		if self.closed or self.conversion_stopped:
+			return False, None
+
+		cache_key = f"{portal}_{mac}"
+		if cache_key in self.channel_cache and time.time() < self.cache_expiration:
+			self.channels = self.channel_cache[cache_key]["channels"]
+			token = self.channel_cache[cache_key]["token"]
+			return True, token
+
 		# Check if stopped at the start
-		if self.conversion_stopped:
-			self.update_status(_("Conversion stopped during channel processing"))
-			return False, None  # Return tuple
+		if self.closed or self.conversion_stopped:
+			return False, None
+
+		if time.time() > self.conversion_timeout:
+			self.update_status(_("Conversion timeout exceeded"))
+			return False, None
 
 		self.channels = []
 		token = None
 		try:
 			# Create main session with connection pooling
 			session = requests.Session()
-			# Configure advanced retry strategy
 			retry_strategy = Retry(
-				total=1,  # Increased total retries
-				backoff_factor=0.5,  # More aggressive backoff
+				total=3,
+				backoff_factor=0.5,
 				status_forcelist=[429, 500, 502, 503, 504],
 				allowed_methods=["GET"],
-				raise_on_status=False
 			)
-
-			# Configure adapter with larger connection pool
-			adapter = HTTPAdapter(
-				max_retries=retry_strategy,
-				pool_connections=50,
-				pool_maxsize=100,
-				pool_block=True
-			)
+			adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=20, pool_maxsize=100)
 			session.mount("http://", adapter)
 			session.mount("https://", adapter)
 
+			session.verify = False
 			portal = portal.rstrip("/")
 			link_api = portal + "/portal.php"
 			host = urlparse(portal).netloc
@@ -1538,152 +1583,171 @@ class StalkerPortalConverter(Screen):
 			# Step 1: Handshake
 			self.update_status(_("Step 1/3: Handshake..."))
 			params_handshake = {"type": "stb", "action": "handshake", "token": "", "JsHttpRequest": "1-xml"}
-			response = session.get(link_api, params=params_handshake, headers=headers, timeout=5)
+			request_timeout = (5.0, 25.0)
+			try:
+				response = session.get(link_api, params=params_handshake, headers=headers, timeout=request_timeout)
+				if response.status_code != 200:
+					self.update_status(_("Handshake failed: HTTP {}").format(response.status_code))
+					return False, None
+			except RequestException as e:
+				self.update_status(_("Connection error: ") + str(e))
+				return False, None
+
 			token_match = search(r'"token"\s*:\s*"([^"]+)"', response.text)
 			if not token_match:
 				self.update_status(_("Failed to obtain token!"))
 				return False, None
-
 			token = token_match.group(1)
 
 			# Step 2: Authentication
 			self.update_status(_("Step 2/3: Authentication..."))
-
 			headers["Authorization"] = f"Bearer {token}"
 			params_auth = {"type": "stb", "action": "do_auth", "mac": mac, "token": token, "JsHttpRequest": "1-xml"}
-			session.get(link_api, params=params_auth, headers=headers, timeout=5)
+			try:
+				session.get(link_api, params=params_auth, headers=headers, timeout=request_timeout)
+			except RequestException as e:
+				self.update_status(_("Authentication failed: ") + str(e))
+				return False, None
 
 			# Step 3: Get channel list
 			self.update_status(_("Step 3/3: Getting channels..."))
 			params_channels = {"type": "itv", "action": "get_all_channels", "JsHttpRequest": "1-xml"}
-			response = session.get(link_api, params=params_channels, headers=headers, timeout=10)
-			json_data = response.json()
+			try:
+				response = session.get(link_api, params=params_channels, headers=headers, timeout=request_timeout)
+				if response.status_code != 200:
+					self.update_status(_("Channel list failed: HTTP {}").format(response.status_code))
+					return False, None
+				
+				json_data = response.json()
+			except JSONDecodeError:
+				self.update_status(_("Invalid JSON response for channel list"))
+				return False, None
+			except RequestException as e:
+				self.update_status(_("Channel list error: ") + str(e))
+				return False, None
+
 			channels_data = json_data.get("js", {}).get("data", [])
 			total_channels = len(channels_data)
 
 			if not channels_data:
 				self.update_status(_("No channels found in response"))
-				return False, None  # Return tuple
+				return False, None
 
 			# Prepare for parallel processing
-			self.update_status(_("Preparing %d channels...") % total_channels)
+			self.update_status(_("Preparing {} channels...").format(total_channels))
 			start_time = time.time()
-			last_update = time.time()
+			last_update = start_time
 			processed = 0
-
-			# Use ThreadPoolExecutor for parallel processing
-			max_workers = min(10, total_channels)  # Max 10 workers
-			with ThreadPoolExecutor(max_workers=max_workers) as executor:
+			results = []
+			
+			max_workers = min(20, total_channels)
+			
+			# Helper function for detailed status updates
+			def update_detailed_status():
+				# nonlocal processed, total_channels, start_time, last_update
+				elapsed = time.time() - start_time
+				speed = processed / elapsed if elapsed > 0 else 0
+				percent = (processed / total_channels * 100) if total_channels > 0 else 0
+				eta = (total_channels - processed) / speed if speed > 0 else 0
+				
+				status_text = _(
+					"Processed {}/{} channels ({:.1f}%)\n"
+					"Elapsed: {:.1f}s | Speed: {:.1f}/s | ETA: {:.1f}s"
+				).format(
+					processed,
+					total_channels,
+					percent,
+					elapsed,
+					speed,
+					eta
+				)
+				self.update_status(status_text)
+				# last_update = time.time()
+			
+			with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
 				# Submit all channels for processing
-				future_to_channel = {}
-				for channel in channels_data:
-					# Check if stopped
-					if self.conversion_stopped:
-						self.update_status(_("Conversion stopped during channel processing"))
-						return False, None
-
-					future = executor.submit(
-						self.process_channel,
-						session,
-						portal,
-						headers,
-						channel,
-						mac,
-						token
-					)
-					future_to_channel[future] = channel
-
+				futures = {executor.submit(
+					self.process_channel,
+					session,
+					portal,
+					headers,
+					channel,
+					mac,
+					token
+				): channel for channel in channels_data}
+				
 				# Process results as they complete
-				for future in as_completed(future_to_channel):
-					# Check if stopped
+				for future in concurrent.futures.as_completed(futures):
 					if self.conversion_stopped:
-						self.update_status(_("Conversion stopped during result processing"))
+						self.update_status(_("Conversion stopped during processing"))
 						return False, None
-
+						
 					try:
-						channel_data = future.result()
+						channel_data = future.result(timeout=15.0)
 						if channel_data:
-							self.channels.append(channel_data)
+							results.append(channel_data)
 							processed += 1
+							
+							# Update progress every 10 channels or every 2 seconds
+							current_time = time.time()
+							if processed % 10 == 0 or current_time - last_update > 2:
+								update_detailed_status()
 					except Exception as e:
 						print(f"Error processing channel: {str(e)}")
-
-					# Update progress every 10 channels or every 5 seconds
-					current_time = time.time()
-					if processed % 100 == 0 or current_time - last_update > 5:
-						elapsed = current_time - start_time
-						speed = processed / elapsed if elapsed > 0 else 0
-						eta = (total_channels - processed) / speed if speed > 0 else 0
-						percent = (processed / total_channels * 100) if total_channels > 0 else 0
-
-						self.update_status(
-							_("Processed {}/{} channels ({:.1f}%)\nElapsed: {:.1f}s | Avg speed: {:.1f}/s | ETA: {:.1f}s").format(
-								processed, total_channels, percent, elapsed, speed, eta
-							)
-						)
-						last_update = current_time
-
-			if self.conversion_stopped:
-				return False
-
-			elapsed = time.time() - start_time
-			processed = len(self.channels)
-			speed = processed / elapsed if elapsed > 0 else 0
-			eta = (total_channels - processed) / speed if speed > 0 else 0
-			percent = (processed / total_channels * 100) if total_channels > 0 else 0
-
-			self.update_status(
-				_("Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s").format(
-					processed, total_channels, percent, elapsed, speed
-				)
-			)
-
+			
+			# Final update
+			update_detailed_status()
+			self.channels = results
+			
+			# Cache successful results (30 min)
+			self.cache_expiration = time.time() + 1800
+			self.channel_cache[cache_key] = {
+				"channels": self.channels.copy(),
+				"token": token
+			}
 			return True, token
 
 		except Exception as e:
-			print('error stalker : ', e)
-			# self.update_status(_("Channel processing error: ") + str(e))
+			print(f"Critical error in get_channel_list: {str(e)}")
+			import traceback
+			traceback.print_exc()
+			self.update_status(_("Critical channel processing error"))
 			return False, None
 
 	def get_vod_list(self, portal, mac, token):
-		"""Retrieve VOD list with categories and movies - SIMPLIFIED VERSION"""
+		"""Retrieve VOD list with parallel processing"""
 		vod_categories = []
 		try:
 			# 1. Get VOD categories
 			categories_url = f"{portal}?type=vod&action=get_categories&JsHttpRequest=1-xml"
-			categories_response = requests.get(categories_url, timeout=10)
+			with requests.Session() as session:
+				# Configurazione ottimizzata
+				session.verify = False
+				session.timeout = 8
+				categories_response = session.get(categories_url)
+
 			categories_data = categories_response.json().get("js", {}).get("data", [])
+			if not categories_data:
+				return []
 
-			# 2. Get movies for each category
-			for category in categories_data:
-				category_id = category.get("id")
-				category_name = category.get("title", "Unknown Category")
-
-				movies_url = f"{portal}?type=vod&action=get_ordered_list&genre={category_id}&JsHttpRequest=1-xml"
-				movies_response = requests.get(movies_url, timeout=15)
-				movies_data = movies_response.json().get("js", {}).get("data", [])
-
-				vod_entries = []
-				for movie in movies_data:
-					# 3. Get stream URL for this movie
-					cmd = movie.get("cmd")
-					stream_url = self.get_vod_stream_url(portal, cmd, mac, token)
-
-					vod_entries.append({
-						"id": movie.get("id"),
-						"name": movie.get("name", "Unknown Movie"),
-						"year": movie.get("year", ""),
-						"poster": movie.get("poster", ""),
-						"stream_url": stream_url,
-						"category": category_name
-					})
-
-				if vod_entries:
-					vod_categories.append({
-						"name": category_name,
-						"movies": vod_entries
-					})
-
+			# 2. Process categories in parallel
+			with ThreadPoolExecutor(max_workers=min(10, len(categories_data))) as executor:
+				futures = []
+				for category in categories_data:
+					futures.append(executor.submit(
+						self.process_vod_category,
+						category,
+						portal,
+						mac,
+						token
+					))
+				for future in as_completed(futures):
+					try:
+						category_data = future.result()
+						if category_data and category_data['movies']:
+							vod_categories.append(category_data)
+					except Exception as e:
+						print(f"Error processing VOD category: {str(e)}")
 			return vod_categories
 
 		except Exception as e:
@@ -1760,6 +1824,72 @@ class StalkerPortalConverter(Screen):
 			print(f'Error getting VOD stream URL: {str(e)}')
 			return ""
 
+	def process_vod_category(self, category, portal, mac, token):
+		"""Process a single VOD category with movies"""
+		try:
+			category_id = category.get("id")
+			category_name = category.get("title", "Unknown Category")
+
+			# Get movies for this category
+			movies_url = f"{portal}?type=vod&action=get_ordered_list&genre={category_id}&JsHttpRequest=1-xml"
+			with requests.Session() as session:
+				session.verify = False
+				session.timeout = 10
+				movies_response = session.get(movies_url)
+
+			movies_data = movies_response.json().get("js", {}).get("data", [])
+			if not movies_data:
+				return None
+
+			vod_entries = []
+			# Process movies in parallel
+			with ThreadPoolExecutor(max_workers=min(10, len(movies_data))) as executor:
+				futures = []
+				for movie in movies_data:
+					futures.append(executor.submit(
+						self.process_vod_movie,
+						movie,
+						portal,
+						mac,
+						token,
+						category_name
+					))
+
+				for future in as_completed(futures):
+					try:
+						movie_data = future.result()
+						if movie_data:
+							vod_entries.append(movie_data)
+					except Exception as e:
+						print(f"Error processing VOD movie: {str(e)}")
+
+			return {
+				"name": category_name,
+				"movies": vod_entries
+			}
+
+		except Exception as e:
+			print(f"Error processing VOD category {category_name}: {str(e)}")
+			return None
+
+	def process_vod_movie(self, movie, portal, mac, token, category_name):
+		"""Process a single VOD movie and get stream URL"""
+		try:
+			cmd = movie.get("cmd")
+			stream_url = self.get_vod_stream_url(portal, cmd, mac, token)
+
+			return {
+				"id": movie.get("id"),
+				"name": movie.get("name", "Unknown Movie"),
+				"year": movie.get("year", ""),
+				"poster": movie.get("poster", ""),
+				"stream_url": stream_url,
+				"category": category_name
+			}
+		except Exception as e:
+			print(f"Error processing VOD movie: {str(e)}")
+			return None
+
 	def get_vod_categories(self, portal, headers):
 		"""Retrieve VOD categories from portal"""
 		try:
@@ -1795,6 +1925,8 @@ class StalkerPortalConverter(Screen):
 			cmd = channel.get("cmd", "").strip()
 			channel_id = channel.get("id", "")
 			channel_name = channel.get("name", "Unknown")
+			max_retries = 2  # Reduce max retries to prevent long delays
+			retry_delay = 0.5  # Short delay between retries
 
 			# Build API URL
 			channel_params = {
@@ -1814,6 +1946,8 @@ class StalkerPortalConverter(Screen):
 			# Enhanced retry strategy
 			max_retries = 3
 			for attempt in range(max_retries + 1):
+				if self.conversion_stopped or time.time() > self.conversion_timeout:
+					return None
 				try:
 					# Create a new session for this channel
 					with requests.Session() as channel_session:
@@ -1967,32 +2101,33 @@ class StalkerPortalConverter(Screen):
 						pass
 
 					if attempt < max_retries:
-						time.sleep(1.0 * (2 ** attempt))
+						time.sleep(retry_delay * (attempt + 1))
 						continue
 					else:
+						print(f"Connection reset on channel '{channel_name}' after {max_retries} attempts, skipping")
 						return None
 
-				except RequestException as e:
-					if isinstance(e.__cause__, ConnectionResetError) or "Connection reset by peer" in str(e):
-						print(f"ConnectionResetError (errno 104) on channel '{channel_name}', skipping.")
-						return None
-					print("process_channel error attempt 1:", e)
-					if attempt < max_retries:
-						time.sleep(0.8 * (2 ** attempt))
-						continue
+				except RequestException as re:
+					if "Connection reset by peer" in str(re):
+						print(f"Connection reset by peer on channel '{channel_name}', attempt {attempt + 1}/{max_retries}")
+						if attempt < max_retries:
+							time.sleep(retry_delay * (attempt + 1))
+							continue
+						else:
+							print(f"Connection reset on channel '{channel_name}' after {max_retries} attempts, skipping")
+							return None
 					else:
+						print(f"Request exception on channel '{channel_name}': {str(re)}")
+						if attempt < max_retries:
+							time.sleep(retry_delay)
+							continue
 						return None
-
 				except Exception as e:
-					if isinstance(e, ConnectionResetError) or "Connection reset by peer" in str(e):
-						print(f"ConnectionResetError (errno 104) on channel '{channel_name}', skipping.")
-						return None
-					print("process_channel error attempt 2:", e)
+					print(f"Error processing channel {channel_name}: {str(e)}")
 					if attempt < max_retries:
-						time.sleep(0.5 * (2 ** attempt))
+						time.sleep(retry_delay)
 						continue
-					else:
-						return None
+					return None
 			return None
 
 		except Exception as e:
@@ -2034,31 +2169,14 @@ class StalkerPortalConverter(Screen):
 		"""Select output directory using directory browser"""
 		self.browse_directory(
 			config.plugins.stalkerportal.output_dir.value,
-			mode="directory",
-			is_mount_selection=True  # Nuovo flag
+			mode="directory"
 		)
-
-	def get_output_filename(self):
-		convert_type = config.plugins.stalkerportal.type_convert.value
-		base_dir = config.plugins.stalkerportal.output_dir.value or defaultMoviePath()
-		mac = config.plugins.stalkerportal.mac_address.value.replace(":", "_")
-
-		if convert_type == "1":  # Convert to TV bouquet
-			# safe_name = self.get_safe_filename("Stalker Bouquet")
-			return f"/etc/enigma2/userbouquet.{mac}.tv"
-
-		# MODIFICATO: Non creare più la sottocartella /movie
-		# Usa direttamente la directory selezionata dall'utente
-		if not base_dir.endswith('/'):
-			base_dir += '/'
-		return f"{base_dir}stalker_{mac}.m3u"
 
 	def browse_directory(self, path=None, mode="playlist"):
 		"""Browse files and directories with optional modes"""
 		if path is None:
 			path = config.plugins.stalkerportal.output_dir.value
 
-		# MODIFICATO: Gestione speciale per i mount point
 		is_mount_point = any([
 			'/barryhallen' in path,
 			'/hdd' in path,
@@ -2075,27 +2193,21 @@ class StalkerPortalConverter(Screen):
 		entries = []
 		parent_dir = dirname(path)
 
-		# Aggiungi navigazione alla directory parent
 		if parent_dir and parent_dir != path and exists(parent_dir):
 			entries.append(("[DIR] ..", parent_dir, "dir"))
 
-		# MODIFICATO: Aggiungi selezione root per i mount point
 		if is_mount_point:
 			entries.append(("[MOUNT ROOT] " + _("Select Mount Root"), path, "mount_root"))
 
-		# Aggiungi selezione directory corrente per la modalità directory
 		if mode == "directory":
 			entries.append(("[SELECT] " + _("Select this directory"), path, "select"))
-
 		try:
 			for item in sorted(listdir(path)):
 				full_path = join(path, item)
 
-				# Mostra sempre le directory
 				if isdir(full_path):
 					entries.append((f"[DIR] {item}", full_path, "dir"))
 
-				# Mostra solo file playlist nella modalità playlist
 				elif mode == "playlist" and item.lower().endswith(('.txt', '.list', '.m3u')):
 					try:
 						size = getsize(full_path)
@@ -2119,8 +2231,30 @@ class StalkerPortalConverter(Screen):
 		else:
 			self["status"].setText(_("No files found in: ") + path)
 
+	def _get_output_filename(self):
+		"""Return the output filename based on conversion type with validation"""
+		convert_type = config.plugins.stalkerportal.type_convert.value
+		mac = config.plugins.stalkerportal.mac_address.value.replace(":", "_")
+
+		if convert_type == "1":  # Convert to TV bouquet
+			return f"/etc/enigma2/userbouquet.{mac}.tv"
+
+		output_dir = config.plugins.stalkerportal.output_dir.value
+
+		if not output_dir or not isdir(output_dir):
+			output_dir = defaultMoviePath()
+			config.plugins.stalkerportal.output_dir.value = output_dir
+			config.plugins.stalkerportal.output_dir.save()
+			configfile.save()
+
+		# Ensure path ends with separator
+		if not output_dir.endswith('/'):
+			output_dir += '/'
+
+		return f"{output_dir}stalker_{mac}.m3u"
+
 	def handle_directory_selection(self, choice, mode):
-		"""Handle directory or file selection based on mode"""
+		"""Handle directory or file selection with improved validation"""
 		if not choice or not choice[1]:
 			return
 
@@ -2130,47 +2264,38 @@ class StalkerPortalConverter(Screen):
 			return
 
 		if entry_type == "dir":
-			# Continue browsing in the same mode
 			self.browse_directory(selected_path, mode)
 			return
 
-		# MODIFICATO: Gestione specifica per mount root
-		if entry_type == "mount_root":
+		if mode == "directory" and entry_type == "select":
+			# Normalize path
+			selected_path = selected_path.rstrip('/') + '/'
+
+			# Verify directory exists and writable
+			if not isdir(selected_path):
+				try:
+					makedirs(selected_path, exist_ok=True)
+				except Exception as e:
+					self["status"].setText(_("Cannot create directory: ") + str(e))
+					return
+
+			if not access(selected_path, W_OK):
+				self["status"].setText(_("Directory not writable: ") + selected_path)
+				return
+
 			config.plugins.stalkerportal.output_dir.value = selected_path
 			config.plugins.stalkerportal.output_dir.save()
 			configfile.save()
 			self.update_all_widgets()
-			self["status"].setText(_("Selected mount root: ") + selected_path)
-			return
+			self["status"].setText(_("Selected directory: ") + selected_path)
 
-		if mode == "directory":
-			if entry_type == "select" or entry_type == "mount_root":
-				# Verifica scrivibilità della directory
-				if not access(selected_path, W_OK):
-					self["status"].setText(_("Directory not writable: ") + selected_path)
-					return
-					
-				# Verifica spazio minimo
-				if not has_enough_free_space(selected_path, 100 * 1024 * 1024):
-					self["status"].setText(_("Low space warning: ") + selected_path)
-					# Chiedi conferma all'utente
-					self.session.openWithCallback(
-						lambda result: self.confirm_low_space(result, selected_path),
-						MessageBox,
-						_("Low disk space on {}!\nProceed anyway?").format(selected_path),
-						MessageBox.TYPE_YESNO
-					)
-					return
-					
 		elif mode == "playlist" and entry_type == "file":
-			print(f"[DEBUG] Selected playlist: {selected_path}")
 			self.playlist_file = selected_path
 			self.load_playlist(selected_path)
 			config.plugins.stalkerportal.input_filelist.value = dirname(selected_path)
 			config.plugins.stalkerportal.input_filelist.save()
 			configfile.save()
 			self["status"].setText(_("Loaded playlist: %s") % basename(selected_path))
-			self.select_portal()
 			self.update_all_widgets()
 
 	def confirm_low_space(self, result, path):
@@ -2483,7 +2608,26 @@ class StalkerPortalConverter(Screen):
 		self.extract_account_info_async()
 
 	def close(self):
+		"""Clean up all resources before closing"""
+		self.closed = True
+		
+		# Stop any ongoing conversion
+		self.conversion_stopped = True
+		self.conversion_running = False
+		
+		# Stop all timers
+		self.stop_timer.stop()
+		self.result_timer.stop()
+		self.access_code_timer.stop()
+		self.update_timer.stop()
+		
+		# Stop web server
 		self.stop_web_server()
+		
+		# Wait for threads to finish
+		if hasattr(self, 'worker_thread') and self.worker_thread.is_alive():
+			self.worker_thread.join(2.0)  # Wait max 2 seconds
+		
 		super().close()
 
 	def check_for_updates(self):

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StalkerPortalConverter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 11:46+0200\n"
-"PO-Revision-Date: 2025-06-25 11:47+0200\n"
+"POT-Creation-Date: 2025-06-26 16:27+0200\n"
+"PO-Revision-Date: 2025-06-26 16:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: it\n"
@@ -36,387 +36,412 @@ msgstr "Disco"
 msgid "Network"
 msgstr "Network"
 
-#: plugin.py:155 plugin.py:934
+#: ⁨plugin - Copia.py⁩:157 ⁨plugin - Copia.py⁩:961 plugin.py:158 plugin.py:959
 msgid "Top"
 msgstr "Su"
 
-#: plugin.py:155 plugin.py:934
+#: ⁨plugin - Copia.py⁩:157 ⁨plugin - Copia.py⁩:961 plugin.py:158 plugin.py:959
 msgid "Bottom"
 msgstr "Giu"
 
-#: plugin.py:275
+#: ⁨plugin - Copia.py⁩:282 plugin.py:292
 #, python-format
 msgid "Stalker Portal to M3U Converter v.%s"
 msgstr ""
 
-#: plugin.py:276
+#: ⁨plugin - Copia.py⁩:283 plugin.py:293
 msgid "Portal URL:"
 msgstr "URL del portale:"
 
-#: plugin.py:278
+#: ⁨plugin - Copia.py⁩:285 plugin.py:295
 msgid "MAC Address:"
 msgstr "Indirizzo MAC:"
 
-#: plugin.py:280
+#: ⁨plugin - Copia.py⁩:287 plugin.py:297
 msgid "Output File:"
 msgstr "File di output:"
 
-#: plugin.py:282
+#: ⁨plugin - Copia.py⁩:289 plugin.py:299
 msgid "Playlist File:"
 msgstr "File Playlist:"
 
-#: plugin.py:284
+#: ⁨plugin - Copia.py⁩:291 plugin.py:301
 msgid "Valid Portals from Selected File:"
 msgstr "Portali validi dal file selezionato:"
 
-#: plugin.py:287
+#: ⁨plugin - Copia.py⁩:294 plugin.py:304
 msgid "User:"
 msgstr "Utente:"
 
-#: plugin.py:289
+#: ⁨plugin - Copia.py⁩:296 plugin.py:306
 msgid "Password:"
 msgstr ""
 
-#: plugin.py:291
+#: ⁨plugin - Copia.py⁩:298 plugin.py:308
 msgid "Expiry:"
 msgstr "Scadenza:"
 
-#: plugin.py:293
+#: ⁨plugin - Copia.py⁩:300 plugin.py:310
 msgid "Status:"
 msgstr "Stato:"
 
-#: plugin.py:295
+#: ⁨plugin - Copia.py⁩:302 plugin.py:312
 msgid "Active:"
 msgstr "Attivo:"
 
-#: plugin.py:297
+#: ⁨plugin - Copia.py⁩:304 plugin.py:314
 msgid "Max: "
 msgstr ""
 
-#: plugin.py:301
+#: ⁨plugin - Copia.py⁩:308 plugin.py:318
 msgid "Ready - Select a file or enter URL/MAC"
 msgstr "Pronto - Seleziona un file o inserisci URL/MAC"
 
-#: plugin.py:302
+#: ⁨plugin - Copia.py⁩:309 plugin.py:319
 msgid "Clear"
 msgstr "Pulire"
 
-#: plugin.py:304
+#: ⁨plugin - Copia.py⁩:311 plugin.py:321
 msgid "Select Playlist"
 msgstr "Seleziona Playlist"
 
-#: plugin.py:305
+#: ⁨plugin - Copia.py⁩:312 plugin.py:322
 msgid "Edit"
 msgstr "Modifica"
 
-#: plugin.py:307 plugin.py:2420 plugin.py:2440
+#: ⁨plugin - Copia.py⁩:314 ⁨plugin - Copia.py⁩:2456 ⁨plugin - Copia.py⁩:2476
+#: plugin.py:324 plugin.py:2568 plugin.py:2588
 msgid "Web Portal Server Off"
 msgstr "Server del portale Web Spento"
 
-#: plugin.py:308
+#: ⁨plugin - Copia.py⁩:315 plugin.py:325
 msgid "Press 0: Show Access Code | Press 1: New Code"
 msgstr "Premi 0: Mostra codice di accesso | Premi 1: Nuovo codice"
 
-#: plugin.py:309 plugin.py:2526 plugin.py:2535 plugin.py:2565
+#: ⁨plugin - Copia.py⁩:316 ⁨plugin - Copia.py⁩:2562 ⁨plugin - Copia.py⁩:2571
+#: ⁨plugin - Copia.py⁩:2601 plugin.py:326 plugin.py:2693 plugin.py:2702
+#: plugin.py:2732
 msgid "Access Code: "
 msgstr "Codice di Accesso: "
 
-#: plugin.py:310
+#: ⁨plugin - Copia.py⁩:317 plugin.py:327
 msgid "New Code"
 msgstr "Nuovo Codice"
 
-#: plugin.py:311 plugin.py:2536
+#: ⁨plugin - Copia.py⁩:318 ⁨plugin - Copia.py⁩:2572 plugin.py:328 plugin.py:2703
 msgid "Show Code"
 msgstr "Mostra Codice"
 
-#: plugin.py:360 plugin.py:386 plugin.py:858
+#: ⁨plugin - Copia.py⁩:372 ⁨plugin - Copia.py⁩:406 ⁨plugin - Copia.py⁩:885 plugin.py:376
+#: plugin.py:883
 msgid "Enabled"
 msgstr "Abilitato"
 
-#: plugin.py:360 plugin.py:386 plugin.py:858
+#: ⁨plugin - Copia.py⁩:372 ⁨plugin - Copia.py⁩:406 ⁨plugin - Copia.py⁩:885 plugin.py:376
+#: plugin.py:883
 msgid "Disabled"
 msgstr "Disabilitato"
 
-#: plugin.py:361 plugin.py:859
+#: ⁨plugin - Copia.py⁩:373 ⁨plugin - Copia.py⁩:886 plugin.py:377 plugin.py:884
 msgid "VOD inclusion: {}"
 msgstr "Inclusione VOD: {}"
 
-#: plugin.py:386
+#: ⁨plugin - Copia.py⁩:406
 msgid "VOD: "
 msgstr ""
 
-#: plugin.py:403
+#: ⁨plugin - Copia.py⁩:423 plugin.py:421
 msgid "Initialization error"
 msgstr "Errore di inizializzazione"
 
-#: plugin.py:410
+#: ⁨plugin - Copia.py⁩:430 plugin.py:428
 msgid "Stopping current process to switch portal..."
 msgstr "Arresto del processo corrente per cambiare portale..."
 
-#: plugin.py:433
+#: ⁨plugin - Copia.py⁩:453 plugin.py:451
 msgid "Selected: "
 msgstr "Seleziona: "
 
-#: plugin.py:444
+#: ⁨plugin - Copia.py⁩:464 plugin.py:462
 msgid "Loading account info in background..."
 msgstr "Caricamento delle informazioni dell'account in background..."
 
-#: plugin.py:469
+#: ⁨plugin - Copia.py⁩:489 plugin.py:487
 msgid "Account info loaded"
 msgstr "Informazioni sull'account caricate"
 
-#: plugin.py:471
+#: ⁨plugin - Copia.py⁩:491 plugin.py:489
 msgid "Failed to load account info"
 msgstr "Impossibile caricare le informazioni dell'account"
 
-#: plugin.py:482
+#: ⁨plugin - Copia.py⁩:502 plugin.py:500
 msgid "Error accessing configuration values: "
 msgstr "Errore durante l'accesso ai valori di configurazione: "
 
-#: plugin.py:486 plugin.py:1147
+#: ⁨plugin - Copia.py⁩:506 ⁨plugin - Copia.py⁩:1175 plugin.py:504 plugin.py:1183
 msgid "Error: Portal and MAC are required"
 msgstr "Errore: sono richiesti il ​​portale e il MAC"
 
-#: plugin.py:617
+#: ⁨plugin - Copia.py⁩:606 ⁨plugin - Copia.py⁩:1567 plugin.py:604 plugin.py:1584
+msgid "Step 1/3: Handshake..."
+msgstr "Fase 1/3: Handshake..."
+
+#: ⁨plugin - Copia.py⁩:638 plugin.py:636
 msgid "Handshake failed: No token received"
 msgstr "Handshake fallito: nessun token ricevuto"
 
-#: plugin.py:730
+#: ⁨plugin - Copia.py⁩:640 plugin.py:638
+msgid ""
+"Possible causes:\n"
+"- Server not responding\n"
+"- Incorrect portal URL\n"
+"- Network issues"
+msgstr ""
+"Possibili cause:\n"
+"- Il server non risponde\n"
+"- URL del portale errato\n"
+"- Problemi di rete"
+
+#: ⁨plugin - Copia.py⁩:754 plugin.py:752
 msgid "Error extracting account information"
 msgstr "Errore durante l'accesso ai valori di configurazione"
 
-#: plugin.py:812
+#: ⁨plugin - Copia.py⁩:756 plugin.py:754
+msgid "Error details: {}"
+msgstr "Dettagli errore: {}"
+
+#: ⁨plugin - Copia.py⁩:839 plugin.py:837
 msgid "Set Type Conversion"
 msgstr "Conversione del tipo di set"
 
-#: plugin.py:813
+#: ⁨plugin - Copia.py⁩:840 plugin.py:838
 msgid "Edit Portal URL"
 msgstr "Modifica URL del portale"
 
-#: plugin.py:814
+#: ⁨plugin - Copia.py⁩:841 plugin.py:839
 msgid "Edit MAC Address"
 msgstr "Modifica Indirizzo MAC"
 
-#: plugin.py:815
+#: ⁨plugin - Copia.py⁩:842 plugin.py:840
 msgid "Select Playlist File"
 msgstr "Seleziona file playlist"
 
-#: plugin.py:816
+#: ⁨plugin - Copia.py⁩:843 plugin.py:841
 msgid "Delete Playlist File"
 msgstr "Elimina file playlist"
 
-#: plugin.py:817
+#: ⁨plugin - Copia.py⁩:844 plugin.py:842
 msgid "Change Output Directory"
 msgstr "Cambia directory di output"
 
-#: plugin.py:818
+#: ⁨plugin - Copia.py⁩:845 plugin.py:843
 msgid "Set Bouquet Position"
 msgstr "Imposta la posizione del bouquet"
 
-#: plugin.py:819
+#: ⁨plugin - Copia.py⁩:846 plugin.py:844
 msgid "Include VOD in Playlist"
 msgstr "Includi VOD nella playlist"
 
-#: plugin.py:820
+#: ⁨plugin - Copia.py⁩:847 plugin.py:845
 msgid "Upgrade Stalker Converter"
 msgstr "Aggiornamento Convertitore Stalker"
 
-#: plugin.py:821
+#: ⁨plugin - Copia.py⁩:848 plugin.py:846
 msgid "Information"
 msgstr "Informazioni"
 
-#: plugin.py:880
+#: ⁨plugin - Copia.py⁩:907 plugin.py:905
 msgid ""
 "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
 msgstr ""
 "URL del portale (esempio http://example.com/c/ o http://example.com:8088/c/)"
 
-#: plugin.py:899
+#: ⁨plugin - Copia.py⁩:926 plugin.py:924
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
 msgstr "Inserisci l'indirizzo MAC (ad esempio, 00:1A:79:XX:XX:XX)"
 
-#: plugin.py:928
+#: ⁨plugin - Copia.py⁩:955 plugin.py:953
 msgid "Select Type of Conversion"
 msgstr "Seleziona il tipo di conversione"
 
-#: plugin.py:941
+#: ⁨plugin - Copia.py⁩:968 plugin.py:966
 msgid "Bouquet position set to: {}"
 msgstr "Posizione del bouquet impostata su: {}"
 
-#: plugin.py:947
+#: ⁨plugin - Copia.py⁩:974 plugin.py:972
 msgid "Select Bouquet Position"
 msgstr "Seleziona la posizione del bouquet"
 
-#: plugin.py:1003
+#: ⁨plugin - Copia.py⁩:1030 plugin.py:1028
 msgid "Loaded {} valid entries from {}"
 msgstr "Caricate {} voci valide da {}"
 
-#: plugin.py:1005
+#: ⁨plugin - Copia.py⁩:1032 plugin.py:1030
 msgid "No valid entries found in file"
 msgstr "Nessun portale valido trovato nel file"
 
-#: plugin.py:1008
+#: ⁨plugin - Copia.py⁩:1035 plugin.py:1033
 msgid "Error: "
 msgstr "Errore: "
 
-#: plugin.py:1031
+#: ⁨plugin - Copia.py⁩:1058 plugin.py:1056
 msgid "Scanning file... {}%"
 msgstr "Scansione del file... {}%"
 
-#: plugin.py:1084
+#: ⁨plugin - Copia.py⁩:1111 plugin.py:1109
 msgid "Conversion stopped by user"
 msgstr "Conversione interrottadall'utente"
 
-#: plugin.py:1102 plugin.py:1461
+#: ⁨plugin - Copia.py⁩:1129 ⁨plugin - Copia.py⁩:1489 plugin.py:1135
 msgid "Success! "
 msgstr "Successo! "
 
-#: plugin.py:1104 plugin.py:1463
+#: ⁨plugin - Copia.py⁩:1131 ⁨plugin - Copia.py⁩:1491 plugin.py:1137
 msgid "Error! "
 msgstr "Errore! "
 
-#: plugin.py:1119
+#: ⁨plugin - Copia.py⁩:1147 plugin.py:1155
 msgid "Stopping conversion..."
 msgstr "Interruzione della conversione..."
 
-#: plugin.py:1128
+#: ⁨plugin - Copia.py⁩:1156 plugin.py:1164
 msgid "Not enough space on {}!"
 msgstr "Spazio libero insufficiente in  {}!"
 
-#: plugin.py:1141
+#: ⁨plugin - Copia.py⁩:1169 plugin.py:1177
 msgid "Error accessing configuration values"
 msgstr "Errore durante l'accesso ai valori di configurazione"
 
-#: plugin.py:1142
+#: ⁨plugin - Copia.py⁩:1170 plugin.py:1178
 msgid "Failed to read portal or MAC configuration:\n"
 msgstr "Impossibile leggere il portale o la configurazione MAC:\n"
 
-#: plugin.py:1151
+#: ⁨plugin - Copia.py⁩:1179 plugin.py:1187
 msgid "Error: Invalid portal URL"
 msgstr "Errore: URL del portale non valido"
 
-#: plugin.py:1155
+#: ⁨plugin - Copia.py⁩:1183 plugin.py:1191
 msgid "Error: Invalid MAC address"
 msgstr "Errore: indirizzo MAC non valido"
 
-#: plugin.py:1164
+#: ⁨plugin - Copia.py⁩:1192 plugin.py:1200 plugin.py:1226 plugin.py:2279
 msgid "Cannot create directory: "
 msgstr "Impossibile creare la directory: "
 
-#: plugin.py:1173
+#: ⁨plugin - Copia.py⁩:1201 plugin.py:1209
 msgid "Stop"
 msgstr ""
 
-#: plugin.py:1176
+#: ⁨plugin - Copia.py⁩:1204 plugin.py:1212
 msgid "Starting conversion process..."
 msgstr "Avvio del processo di conversione..."
 
-#: plugin.py:1187
+#: ⁨plugin - Copia.py⁩:1215 plugin.py:1234
 msgid "Conversion canceled before start"
 msgstr "Conversione annullata prima dell'inizio"
 
-#: plugin.py:1198
+#: ⁨plugin - Copia.py⁩:1226 plugin.py:1245
 msgid "Step 1/3: Connecting to portal..."
 msgstr "Fase 1/3: Connessione al portale..."
 
-#: plugin.py:1202
+#: ⁨plugin - Copia.py⁩:1230 plugin.py:1253
 msgid "Conversion stopped during channel retrieval"
 msgstr "Conversione interrotta durante il recupero del canale"
 
-#: plugin.py:1206
+#: ⁨plugin - Copia.py⁩:1234 plugin.py:1257
 msgid "Failed to retrieve channel list"
 msgstr "Impossibile recuperare l'elenco dei canali"
 
-#: plugin.py:1210
+#: ⁨plugin - Copia.py⁩:1238 plugin.py:1261
 msgid "Step 2/3: Creating playlist file..."
 msgstr "Passaggio 2/3: Creazione del file della playlist..."
 
-#: plugin.py:1217
+#: ⁨plugin - Copia.py⁩:1245 plugin.py:1268
 msgid "Step 3/3: Create M3U file..."
 msgstr "Passaggio 3/3: Crea il file M3U..."
 
-#: plugin.py:1228
+#: ⁨plugin - Copia.py⁩:1256 plugin.py:1279
 msgid "Conversion stopped during M3U creation"
 msgstr "Conversione interrotta durante la creazione del M3U"
 
-#: plugin.py:1242 plugin.py:1305
+#: ⁨plugin - Copia.py⁩:1270 ⁨plugin - Copia.py⁩:1333 plugin.py:1293 plugin.py:1356
 msgid "Step 4/4: Getting VOD content..."
 msgstr "Fase 4/4: Ottenere contenuti VOD..."
 
-#: plugin.py:1274 plugin.py:1322
+#: ⁨plugin - Copia.py⁩:1302 ⁨plugin - Copia.py⁩:1350 plugin.py:1325 plugin.py:1373
 msgid "Added {} VOD items"
 msgstr "Aggiunti {} elementi VOD"
 
-#: plugin.py:1277
+#: ⁨plugin - Copia.py⁩:1305 plugin.py:1328
 msgid "M3U created with {} channels"
 msgstr "M3U creato con {} canali"
 
-#: plugin.py:1281
+#: ⁨plugin - Copia.py⁩:1309 plugin.py:1332
 msgid "Step 3/3: Create Bouquet file..."
 msgstr "Fase 3/3: Crea il file Bouquet..."
 
-#: plugin.py:1286
+#: ⁨plugin - Copia.py⁩:1314 plugin.py:1337
 msgid "Conversion stopped during grouping"
 msgstr "Conversion stopped during grouping"
 
-#: plugin.py:1291
+#: ⁨plugin - Copia.py⁩:1319 plugin.py:1342
 msgid "Grouping: {}"
 msgstr "Raggruppamento: {}"
 
-#: plugin.py:1294
+#: ⁨plugin - Copia.py⁩:1322 plugin.py:1345
 msgid "Conversion stopped before bouquet creation"
 msgstr "Conversione interrotta prima della creazione del bouquet"
 
-#: plugin.py:1299
+#: ⁨plugin - Copia.py⁩:1327 plugin.py:1350
 msgid "Conversion stopped during bouquet creation"
 msgstr "Conversione interrotta durante la creazione del bouquet"
 
-#: plugin.py:1326
+#: ⁨plugin - Copia.py⁩:1354 plugin.py:1377
 msgid "Bouquets created: {} groups with {} channels"
 msgstr "Bouquet creati: {} gruppi con {} canali"
 
-#: plugin.py:1332
+#: ⁨plugin - Copia.py⁩:1360 plugin.py:1383
 msgid "Error creating playlist: "
 msgstr "Errore durante la creazione della playlist: "
 
-#: plugin.py:1336
+#: ⁨plugin - Copia.py⁩:1364 plugin.py:1387
 msgid "Conversion error: "
 msgstr "Errore di conversione: "
 
-#: plugin.py:1534
-msgid "Step 1/3: Handshake..."
-msgstr "Fase 1/3: Handshake..."
+#: ⁨plugin - Copia.py⁩:1529
+msgid "Conversion stopped during channel processing"
+msgstr "Conversione interrotta durante l'elaborazione del canale"
 
-#: plugin.py:1539
+#: ⁨plugin - Copia.py⁩:1533 plugin.py:1249 plugin.py:1549
+msgid "Conversion timeout exceeded"
+msgstr "Timeout di conversione superato"
+
+#: ⁨plugin - Copia.py⁩:1572 plugin.py:1598
 msgid "Failed to obtain token!"
 msgstr "Impossibile ottenere il token!"
 
-#: plugin.py:1545
+#: ⁨plugin - Copia.py⁩:1577 plugin.py:1603
 msgid "Step 2/3: Authentication..."
 msgstr "Fase 2/3: Autenticazione..."
 
-#: plugin.py:1552
+#: ⁨plugin - Copia.py⁩:1583 plugin.py:1613
 msgid "Step 3/3: Getting channels..."
 msgstr "Fase 3/3: Recupero dell'elenco dei canali…"
 
-#: plugin.py:1560
+#: ⁨plugin - Copia.py⁩:1591 plugin.py:1633
 msgid "No channels found in response"
 msgstr "Nessun canale trovato in risposta"
 
-#: plugin.py:1564
+#: ⁨plugin - Copia.py⁩:1595
 #, python-format
 msgid "Preparing %d channels..."
 msgstr "Preparazione di %d canali..."
 
-#: plugin.py:1577
-msgid "Conversion stopped during channel processing"
-msgstr "Conversione interrotta durante l'elaborazione del canale"
-
-#: plugin.py:1595
+#: ⁨plugin - Copia.py⁩:1623
 msgid "Conversion stopped during result processing"
 msgstr "Conversione interrotta durante l'elaborazione dei risultati"
 
-#: plugin.py:1615
+#: ⁨plugin - Copia.py⁩:1643
 msgid ""
 "Processed {}/{} channels ({:.1f}%)\n"
 "Elapsed: {:.1f}s | Avg speed: {:.1f}/s | ETA: {:.1f}s"
@@ -424,67 +449,74 @@ msgstr ""
 "Canali elaborati {}/{} ({:.1f}%)\n"
 "Tempo trascorso: {:.1f}s | Velocità media: {:.1f}/s | Tempo stimato: {:.1f}s"
 
-#: plugin.py:1631
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
-msgstr ""
-"Canali elaborati {}/{} ({:.1f}%) | Tempo trascorso: {:.1f}s | Velocità "
-"media: {:.1f}/s"
+#: ⁨plugin - Copia.py⁩:1660
+msgid "Channel processing error"
+msgstr "Errore di elaborazione dei canali"
 
-#: plugin.py:2079
+#: ⁨plugin - Copia.py⁩:2087 plugin.py:2200
 msgid "Select Mount Root"
 msgstr "Seleziona Mount Root"
 
-#: plugin.py:2083
+#: ⁨plugin - Copia.py⁩:2090 plugin.py:2203
 msgid "Select this directory"
 msgstr "Seleziona questa direttory"
 
-#: plugin.py:2103 plugin.py:2200
+#: ⁨plugin - Copia.py⁩:2107 ⁨plugin - Copia.py⁩:2236 plugin.py:2220 plugin.py:2348
 msgid "Error accessing directory: "
 msgstr "Errore durante l'accesso alla directory: "
 
-#: plugin.py:2107
+#: ⁨plugin - Copia.py⁩:2111 plugin.py:2224
 msgid "<< Cancel"
 msgstr "<< Annulla"
 
-#: plugin.py:2111
+#: ⁨plugin - Copia.py⁩:2115 plugin.py:2228
 msgid "Select playlist file"
 msgstr "Selezionare il file della playlist"
 
-#: plugin.py:2111
+#: ⁨plugin - Copia.py⁩:2115 plugin.py:2228
 msgid "Select directory"
 msgstr "Selezionare cartella"
 
-#: plugin.py:2115
+#: ⁨plugin - Copia.py⁩:2119 plugin.py:2232
 msgid "No files found in: "
 msgstr "Nessun file  trovato in: "
 
-#: plugin.py:2138
+#: ⁨plugin - Copia.py⁩:2154
 msgid "Selected mount root: "
 msgstr "Root di mount selezionato: "
 
-#: plugin.py:2148
+#: ⁨plugin - Copia.py⁩:2161 plugin.py:2283
+msgid "Directory not writable: "
+msgstr "Directory non scrivibile: "
+
+#: ⁨plugin - Copia.py⁩:2168
+msgid ""
+"Low disk space on {}!\n"
+"Proceed anyway?"
+msgstr "Spazio su disco insufficiente su {}! Procedere comunque?"
+
+#: ⁨plugin - Copia.py⁩:2177 ⁨plugin - Copia.py⁩:2195 plugin.py:2290 plugin.py:2307
 msgid "Selected directory: "
 msgstr "Selezionare cartella : "
 
-#: plugin.py:2157
+#: ⁨plugin - Copia.py⁩:2185 plugin.py:2298
 #, python-format
 msgid "Loaded playlist: %s"
 msgstr "Playlist caricata: %s"
 
-#: plugin.py:2204
+#: ⁨plugin - Copia.py⁩:2240 plugin.py:2352
 msgid "No files or directories found in: "
 msgstr "Nessun file di playlist trovato in: "
 
-#: plugin.py:2207
+#: ⁨plugin - Copia.py⁩:2243 plugin.py:2355
 msgid "<< Back to main menu"
 msgstr "<< Torna al menu principale"
 
-#: plugin.py:2212
+#: ⁨plugin - Copia.py⁩:2248 plugin.py:2360
 msgid "Select file to delete in: {}"
 msgstr "Seleziona il file da eliminare in: {}"
 
-#: plugin.py:2231
+#: ⁨plugin - Copia.py⁩:2267 plugin.py:2379
 msgid ""
 "Are you sure you want to delete:\n"
 "{}?"
@@ -492,23 +524,23 @@ msgstr ""
 "Vuoi davvero eliminare:\n"
 "{}?"
 
-#: plugin.py:2246
+#: ⁨plugin - Copia.py⁩:2282 plugin.py:2394
 msgid "Deleted: "
 msgstr "Eliminato: "
 
-#: plugin.py:2255
+#: ⁨plugin - Copia.py⁩:2291 plugin.py:2403
 msgid "Delete failed: "
 msgstr "Eliminazione fallita: "
 
-#: plugin.py:2294
+#: ⁨plugin - Copia.py⁩:2330 plugin.py:2442
 msgid "Convert to M3U"
 msgstr "Converti in M3U"
 
-#: plugin.py:2296
+#: ⁨plugin - Copia.py⁩:2332 plugin.py:2444
 msgid "Convert to TV"
 msgstr "Converti in TV"
 
-#: plugin.py:2314
+#: ⁨plugin - Copia.py⁩:2350 plugin.py:2462
 #, python-format
 msgid ""
 "Plugin: StalkerPortalConvert to M3U/TV\n"
@@ -528,11 +560,11 @@ msgstr ""
 "bouquet.\n"
 "Supporto: linuxsat-support.com - corvoboys.org\n"
 
-#: plugin.py:2322
+#: ⁨plugin - Copia.py⁩:2358 plugin.py:2470
 msgid "HELP:\n"
 msgstr "AIUTO:\n"
 
-#: plugin.py:2323
+#: ⁨plugin - Copia.py⁩:2359 plugin.py:2471
 msgid ""
 "- Open a file with server URLs or press the BLUE button to edit the host and "
 "MAC address\n"
@@ -540,19 +572,19 @@ msgstr ""
 "- Aprire un file con gli URL del server o premere il pulsante BLU per "
 "modificare l'host e l'indirizzo MAC\n"
 
-#: plugin.py:2324
+#: ⁨plugin - Copia.py⁩:2360 plugin.py:2472
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr "- Scegli il formato di output desiderato: M3U o TV bouquet\n"
 
-#: plugin.py:2325
+#: ⁨plugin - Copia.py⁩:2361 plugin.py:2473
 msgid "- Press CONVERT to generate the playlist"
 msgstr "- Premere CONVERTI per generare la playlist"
 
-#: plugin.py:2333
+#: ⁨plugin - Copia.py⁩:2369 plugin.py:2481
 msgid "Fields cleared"
 msgstr "Campi cancellati"
 
-#: plugin.py:2347
+#: ⁨plugin - Copia.py⁩:2383 plugin.py:2495
 msgid ""
 "Unable to fetch version info:\n"
 "{}"
@@ -560,11 +592,11 @@ msgstr ""
 "Impossibile recuperare le informazioni sulla versione:\n"
 "{}"
 
-#: plugin.py:2365
+#: ⁨plugin - Copia.py⁩:2401 plugin.py:2513
 msgid "You are already running the latest version: {}"
 msgstr "Stai già utilizzando l'ultima versione: {}"
 
-#: plugin.py:2381
+#: ⁨plugin - Copia.py⁩:2417 plugin.py:2529
 #, python-format
 msgid ""
 "New version %s available\n"
@@ -579,51 +611,101 @@ msgstr ""
 "\n"
 "Vuoi installarla ora?"
 
-#: plugin.py:2394
+#: ⁨plugin - Copia.py⁩:2430 plugin.py:2542
 #, python-format
 msgid "You are already running the latest version: %s"
 msgstr "Stai già utilizzando l'ultima versione: %s"
 
-#: plugin.py:2402
+#: ⁨plugin - Copia.py⁩:2438 plugin.py:2550
 msgid "Update Aborted!"
 msgstr "Aggiornamento interrotto!"
 
-#: plugin.py:2429
+#: ⁨plugin - Copia.py⁩:2465 plugin.py:2577
 msgid "Web Portal Server On"
 msgstr "Server del portale Web Acceso"
 
-#: plugin.py:2430
+#: ⁨plugin - Copia.py⁩:2466 plugin.py:2578
 #, python-format
 msgid "Web server: http://%s:%d"
 msgstr "Server web: http://%s:%d"
 
-#: plugin.py:2432
+#: ⁨plugin - Copia.py⁩:2468 plugin.py:2580
 msgid "Web server error: "
 msgstr "Errore del server web: "
 
-#: plugin.py:2441
+#: ⁨plugin - Copia.py⁩:2477 plugin.py:2589
 msgid "Web server stopped"
 msgstr "Server web arrestato"
 
-#: plugin.py:2519 plugin.py:2558
+#: ⁨plugin - Copia.py⁩:2555 ⁨plugin - Copia.py⁩:2594 plugin.py:2686 plugin.py:2725
 msgid "You need to start the Web Server first!"
 msgstr "Per prima cosa devi avviare il server Web!"
 
-#: plugin.py:2527
+#: ⁨plugin - Copia.py⁩:2563 plugin.py:2694
 msgid "Hide Code"
 msgstr "Nascondi Codice"
 
-#: plugin.py:2547
+#: ⁨plugin - Copia.py⁩:2583 plugin.py:2714
 msgid "New Access Code: "
 msgstr "Nuovo Codice di Accesso: "
 
-#: plugin.py:2552
+#: ⁨plugin - Copia.py⁩:2588 plugin.py:2719
 msgid "New access code generated!"
 msgstr "Nuovo codice di accesso generato!"
 
-#: plugin.py:4052
+#: ⁨plugin - Copia.py⁩:4088 plugin.py:4219
 msgid "Convert Stalker Portal to M3U playlist with actual channels"
 msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
+
+#: plugin.py:1590
+msgid "Handshake failed: HTTP {}"
+msgstr "Handshake fallito: HTTP {}"
+
+#: plugin.py:1593
+msgid "Connection error: "
+msgstr "Errore di connessione: "
+
+#: plugin.py:1609
+msgid "Authentication failed: "
+msgstr "Autenticazione fallita: "
+
+#: plugin.py:1618
+msgid "Channel list failed: HTTP {}"
+msgstr "Elenco canali non riuscito: HTTP {}"
+
+#: plugin.py:1623
+msgid "Invalid JSON response for channel list"
+msgstr "Risposta JSON non valida per l'elenco dei canali"
+
+#: plugin.py:1626
+msgid "Channel list error: "
+msgstr "Errore di elaborazione della lista canali: "
+
+#: plugin.py:1637
+msgid "Preparing {} channels..."
+msgstr "Elaborazione %s canali..."
+
+#: plugin.py:1654
+msgid ""
+"Processed {}/{} channels ({:.1f}%)\n"
+"Elapsed: {:.1f}s | Speed: {:.1f}/s | ETA: {:.1f}s"
+msgstr ""
+"Canali elaborati {}/{} ({:.1f}%)\n"
+"Tempo trascorso: {:.1f}s | Velocità: {:.1f}/s | Tempo stimato: {:.1f}s"
+
+#: plugin.py:1682
+msgid "Conversion stopped during processing"
+msgstr "Conversione interrotta durante l'elaborazione dei risultati"
+
+#: plugin.py:1714
+msgid "Critical channel processing error"
+msgstr "Errore critico di elaborazione del canale"
+
+#~ msgid ""
+#~ "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
+#~ msgstr ""
+#~ "Canali elaborati {}/{} ({:.1f}%) | Tempo trascorso: {:.1f}s | Velocità "
+#~ "media: {:.1f}/s"
 
 #~ msgid "Step 1/4: Connecting to portal..."
 #~ msgstr "Fase 1/4: Connessione al portale..."
@@ -647,8 +729,8 @@ msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
 #~ msgstr "Passaggio 2/3: Restituisci VOD json_data..."
 
 #~ msgid ""
-#~ "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/"
-#~ "s | ETA: {:.1f}s"
+#~ "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s "
+#~ "| ETA: {:.1f}s"
 #~ msgstr ""
 #~ "Canali elaborati {}/{} ({:.1f}%) | Tempo trascorso: {:.1f}s | Velocità "
 #~ "media: {:.1f}/s | Tempo stimato: {:.1f}s"
@@ -658,9 +740,6 @@ msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
 
 #~ msgid "Creating playlist file..."
 #~ msgstr "Creazione del file della playlist..."
-
-#~ msgid "Preparing {} channels..."
-#~ msgstr "Elaborazione %s canali..."
 
 #~ msgid "Processed {}/{} channels ({:.1f}/s)"
 #~ msgstr "Canali elaborati {}/{} ({:.1f}/s)"
@@ -681,11 +760,9 @@ msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
 #~ msgstr "Seleziona il file della playlist in: {}"
 
 #, python-format
-#~ msgid ""
-#~ "Loaded playlist: %s. Are you ready to convert? Press Green to proceed."
+#~ msgid "Loaded playlist: %s. Are you ready to convert? Press Green to proceed."
 #~ msgstr ""
-#~ "Playlist caricata: %s. Pronto per la conversione? Premi Verde per "
-#~ "procedere."
+#~ "Playlist caricata: %s. Pronto per la conversione? Premi Verde per procedere."
 
 #~ msgid "File not found: "
 #~ msgstr "File non trovato: "
@@ -718,9 +795,6 @@ msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
 #~ msgid "Failed to obtain token"
 #~ msgstr "Impossibile ottenere il token"
 
-#~ msgid "Authentication failed - continuing anyway"
-#~ msgstr "Autenticazione fallita - continua comunque"
-
 #~ msgid "Trying alternative channel endpoint..."
 #~ msgstr "Prova con un endpoint del canale alternativo..."
 
@@ -733,17 +807,11 @@ msgstr "Converti Stalker Portal in una playlist M3U con canali reali"
 #~ msgid "Token endpoint failed: "
 #~ msgstr "Errore nell'endpoint del token: "
 
-#~ msgid "Channel endpoint failed: "
-#~ msgstr "Channel endpoint failed: "
-
 #~ msgid "Generating URLs for {} channels..."
 #~ msgstr "Generazione di URL per {} canali..."
 
 #~ msgid "Generated {} channels in {:.1f} seconds"
 #~ msgstr "Generati {} canali in {:.1f} secondi"
-
-#~ msgid "Channel processing error: "
-#~ msgstr "Errore di elaborazione del canale: "
 
 #~ msgid "Token not found!"
 #~ msgstr "Token non trovato!"
