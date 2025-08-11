@@ -189,7 +189,7 @@ for path in ["/tmp/account_debug.log", "/tmp/stalker_convert_info.log", "/tmp/st
 
 class StalkerPortalConverter(Screen):
     skin = """
-        <screen name="StalkerPortalConverter" position="320,179" size="1280,720" title="Stalker Portal Converter" backgroundColor="#16000000">
+        <screen name="StalkerPortalConverter" position="center,center" size="1280,720" title="Stalker Portal Converter" backgroundColor="#16000000">
             <widget name="title" position="10,5" size="1260,40" font="Regular;30" halign="center" foregroundColor="#00ffff" />
 
             <!-- Label -->
