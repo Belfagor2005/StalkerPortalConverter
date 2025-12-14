@@ -1,24 +1,31 @@
 ## 📺 Stalker Portal Playlist Converter
-  
-![](https://komarev.com/ghpvc/?username=Belfagor2005) [![Python package](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml)
 
+![](https://komarev.com/ghpvc/?username=Belfagor2005) 
+[![Python package](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml)
 
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true" width="600"/> 
-
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/screen.jpeg?raw=true" width="600"/>
-
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/main.jpeg?raw=true" width="600"/>
-
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management.jpeg?raw=true" width="600"/>
-
-<img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management2.jpeg?raw=true" width="600"/>
-
+<p align="center">
+  <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/usr/lib/enigma2/python/Plugins/Extensions/StalkerPortalConverter/plugin.png?raw=true" height="140">
+</p>
 
 ---
 
-This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addresses from a `playlist.txt` file into usable M3U playlists.
+## 📺 Screenshots
+
+<p align="center">
+  <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/screen.jpeg?raw=true" height="220">
+  <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/main.jpeg?raw=true" height="220">
+</p>
+
+<p align="center">
+  <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management.jpeg?raw=true" height="220">
+  <img src="https://github.com/Belfagor2005/StalkerPortalConverter/blob/main/screen/playlist_management2.jpeg?raw=true" height="220">
+</p>
 
 ---
+
+## 🔧 Overview
+
+This plugin allows you to convert a list of **Stalker Portal** URLs and MAC addresses from a `playlist.txt` file into **usable M3U playlists**.
 
 ### 🚀 Features
 
