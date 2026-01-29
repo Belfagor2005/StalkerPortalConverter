@@ -6,7 +6,7 @@ LICENSE = "proprietary"
 
 require conf/license/license-gplv2.inc
 
-inherit gitpkgv
+inherit allarch gitpkgv
 
 SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
@@ -18,8 +18,8 @@ SRC_URI = "git://github.com/Belfagor2005/StalkerPortalConverter.git;protocol=htt
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "/usr/* /etc*"
+FILES:${PN} = "/usr/* /etc*"
 
 do_install() {
-    cp -rp ${S}/usr* ${D}/ 
+    cp -af --no-preserve=ownership ${S}/usr* ${D}/
 }
