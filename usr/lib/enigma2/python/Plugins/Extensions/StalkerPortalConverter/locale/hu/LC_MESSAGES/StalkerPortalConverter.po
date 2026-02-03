@@ -16,505 +16,460 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
-#: plugin.py:147 plugin.py:862
-msgid "Top"
-msgstr "Felső"
-
-#: plugin.py:147 plugin.py:862
-msgid "Bottom"
-msgstr "Alul"
-
-#: plugin.py:238
-#, python-format
-msgid "Stalker Portal to M3U Converter v.%s"
-msgstr "Stalker Portal M3U-vá alakító v.%s"
-
-#: plugin.py:239
-msgid "Portal URL:"
-msgstr "Portál URL-címe:"
-
-#: plugin.py:241
-msgid "MAC Address:"
-msgstr "MAC-cím:"
-
-#: plugin.py:243
-msgid "Output File:"
-msgstr "Kimeneti fájl:"
-
-#: plugin.py:245
-msgid "Valid Portals from Selected File:"
-msgstr "Érvényes portálok a kiválasztott fájlból:"
-
-#: plugin.py:249
-msgid "User:"
-msgstr "Felhasználó:"
-
-#: plugin.py:251
-msgid "Password:"
-msgstr "Jelszó:"
-
-#: plugin.py:253
-msgid "Expiry:"
-msgstr "Kiemelés lejárata:"
-
-#: plugin.py:255
-msgid "Status:"
-msgstr "Állapot:"
-
-#: plugin.py:257
-msgid "Active:"
-msgstr "Aktív:"
-
-#: plugin.py:259
-msgid "Max: "
-msgstr "Max:: "
-
-#: plugin.py:263
-msgid "Ready - Select a file or enter URL/MAC"
-msgstr "Kész - Válasszon ki egy fájlt, vagy adja meg az URL-t/MAC-címet"
-
-#: plugin.py:264
-msgid "Clear"
-msgstr "Törlés"
-
-#: plugin.py:266
-msgid "Select Playlist"
-msgstr "Lejátszási lista kiválasztása"
-
-#: plugin.py:267
-msgid "Edit"
-msgstr "Szerkesztés"
-
-#: plugin.py:336
-msgid "Initialization error"
-msgstr "Inicializálási hiba"
-
-#: plugin.py:343
-msgid "Stopping current process to switch portal..."
-msgstr "A portálváltáshoz szükséges folyamat leállítása..."
-
-#: plugin.py:366
-msgid "Selected: "
-msgstr "Kiválasztott:: "
-
-#: plugin.py:377
-msgid "Loading account info in background..."
-msgstr "Fiókadatok betöltése a háttérben..."
-
-#: plugin.py:402
-msgid "Account info loaded"
-msgstr "Fiókadatok betöltve"
-
-#: plugin.py:404
-msgid "Failed to load account info"
-msgstr "Nem sikerült betölteni a fiókadatokat"
-
-#: plugin.py:415
-msgid "Error accessing configuration values: "
-msgstr "Hiba a konfigurációs értékek elérésekor:: "
-
-#: plugin.py:419 plugin.py:1048
-msgid "Error: Portal and MAC are required"
-msgstr "Hiba: Portál és MAC cím szükséges"
-
-#: plugin.py:550
-msgid "Handshake failed: No token received"
-msgstr "Kézfogás sikertelen: Nem érkezett token"
-
-#: plugin.py:663
-msgid "Error extracting account information"
-msgstr "Hiba a fiókadatok kinyerésekor"
-
-#: plugin.py:760
-msgid "Set Type Conversion"
-msgstr "Típuskonverzió beállítása"
-
-#: plugin.py:761
-msgid "Edit Portal URL"
-msgstr "Portál URL-címének szerkesztése"
-
-#: plugin.py:762
-msgid "Edit MAC Address"
-msgstr "MAC-cím szerkesztése"
-
-#: plugin.py:763
-msgid "Select Playlist File"
-msgstr "Lejátszási listafájl kiválasztása"
-
-#: plugin.py:764
-msgid "Delete Playlist File"
-msgstr "Lejátszási listafájl törlése"
-
-#: plugin.py:765
-msgid "Change Output Directory"
-msgstr "Kimeneti könyvtár módosítása"
-
-#: plugin.py:766
-msgid "Upgrade Stalker Converter"
-msgstr "Stalker konverter frissítése"
-
-#: plugin.py:767
-msgid "Information"
-msgstr "Információ"
-
-#: plugin.py:768
-msgid "Set Bouquet Position"
-msgstr "Csokor pozíciójának beállítása"
-
-#: plugin.py:808
-msgid ""
-"Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
-"Adja meg a portál URL-címét (pl. http://example.com/c/ vagy http://"
-"example.com:8088/c/)"
-
-#: plugin.py:827
-msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
-msgstr "Írja be a MAC-címet (pl. 00:1A:79:XX:XX:XX)"
-
-#: plugin.py:856
-msgid "Select Type of Conversion"
-msgstr "Válassza ki a konverzió típusát"
-
-#: plugin.py:869
-msgid "Bouquet position set to: {}"
-msgstr "A csokor pozíciója beállítva erre: {}"
-
-#: plugin.py:875
-msgid "Select Bouquet Position"
-msgstr "Csokor pozíciójának kiválasztása"
-
-#: plugin.py:890
-msgid "Get ALL portal/MAC from file"
-msgstr "ÖSSZES portál/MAC cím lekérése fájlból"
-
-#: plugin.py:904
-msgid "Loaded {} valid portals from {}"
-msgstr "{} érvényes portál betöltve innen: {}"
-
-#: plugin.py:906
-msgid "No valid portals found in file"
-msgstr "Nem található érvényes portál a fájlban"
-
-#: plugin.py:909
-msgid "Error: "
-msgstr "Hiba: "
-
-#: plugin.py:932
-msgid "Scanning file... {}%"
-msgstr "Fájl beolvasása... {}%"
-
-#: plugin.py:985
-msgid "Conversion stopped by user"
-msgstr "A felhasználó leállította a konverziót"
-
-#: plugin.py:1003 plugin.py:1286
-msgid "Success! "
-msgstr "Siker!: "
-
-#: plugin.py:1005 plugin.py:1288
-msgid "Error! "
-msgstr "Hiba! "
-
-#: plugin.py:1020
-msgid "Stopping conversion..."
-msgstr "Konvertálás leállítása..."
-
-#: plugin.py:1029
-msgid "Not enough space on {}!"
-msgstr "Nincs elég hely a(z) {} címen!"
-
-#: plugin.py:1042
-msgid "Error accessing configuration values"
-msgstr "Hiba a konfigurációs értékek elérésekor"
-
-#: plugin.py:1043
-msgid "Failed to read portal or MAC configuration:\n"
-msgstr "Nem sikerült beolvasni a portál vagy a MAC konfigurációját:\n"
-
-#: plugin.py:1052
-msgid "Error: Invalid portal URL"
-msgstr "Hiba: Érvénytelen portál URL"
-
-#: plugin.py:1056
-msgid "Error: Invalid MAC address"
-msgstr "Hiba: Érvénytelen MAC-cím"
-
-#: plugin.py:1065
-msgid "Cannot create directory: "
-msgstr "Nem lehet létrehozni a következő könyvtárat: "
-
-#: plugin.py:1074
-msgid "Stop"
-msgstr "Megállítás"
-
-#: plugin.py:1077
-msgid "Starting conversion process..."
-msgstr "Konverziós folyamat indítása..."
-
-#: plugin.py:1088
-msgid "Conversion canceled before start"
-msgstr "Konverzió megszakítva a kezdés előtt"
-
-#: plugin.py:1095
-msgid "Step 1/3: Connecting to portal..."
-msgstr "1/3. lépés: Kapcsolódás a portálhoz..."
-
-#: plugin.py:1099
-msgid "Conversion stopped during channel retrieval"
-msgstr "A konverzió leállt a csatorna lekérése során"
-
-#: plugin.py:1103
-msgid "Failed to retrieve channel list"
-msgstr "Nem sikerült lekérni a csatornalistát"
-
-#: plugin.py:1107
-msgid "Step 2/3: Creating playlist file..."
-msgstr "2/3. lépés: Lejátszási listafájl létrehozása..."
-
-#: plugin.py:1114
-msgid "Step 3/3: Create M3U file..."
-msgstr "3/3. lépés: M3U fájl létrehozása..."
-
-#: plugin.py:1125
-msgid "Conversion stopped during M3U creation"
-msgstr "A konvertálás leállt az M3U létrehozása során"
-
-#: plugin.py:1137
-msgid "M3U created with {} channels"
-msgstr "M3U létrehozva {} csatornával"
-
-#: plugin.py:1141
-msgid "Step 3/3: Create Bouquet file..."
-msgstr "3/3. lépés: Csokorfájl létrehozása..."
-
-#: plugin.py:1146
-msgid "Conversion stopped during grouping"
-msgstr "A konverzió leállt a csoportosítás során"
-
-#: plugin.py:1151
-msgid "Grouping: {}"
-msgstr "Csoportosítás: {}"
-
-#: plugin.py:1154
-msgid "Conversion stopped before bouquet creation"
-msgstr "A konverzió leállt a csokor létrehozása előtt"
-
-#: plugin.py:1159
-msgid "Conversion stopped during bouquet creation"
-msgstr "A konverzió leállt a csokor létrehozása közben"
-
-#: plugin.py:1165
-msgid "Bouquets created: {} groups with {} channels"
-msgstr "Csokrok létrehozva: {} csoport {} csatornával"
-
-#: plugin.py:1171
-msgid "Error creating playlist: "
-msgstr "Hiba a lejátszási lista létrehozásakor: "
-
-#: plugin.py:1175
-msgid "Conversion error: "
-msgstr "Konverziós hiba: "
-
-#: plugin.py:1357
-msgid "Step 1/3: Handshake..."
-msgstr "1/3. lépés: Kézfogás..."
-
-#: plugin.py:1362
-msgid "Failed to obtain token!"
-msgstr "Nem sikerült tokent beszerezni!"
-
-#: plugin.py:1368
-msgid "Step 2/3: Authentication..."
-msgstr "2/3. lépés: Hitelesítés..."
-
-#: plugin.py:1374
-msgid "Step 3/3: Getting channels..."
-msgstr "3/3. lépés: Csatornák beszerzése..."
-
-#: plugin.py:1382
-msgid "No channels found in response"
-msgstr "Nem található csatorna a válaszban"
-
-#: plugin.py:1386
-#, python-format
-msgid "Preparing %d channels..."
-msgstr "%d csatorna előkészítése..."
-
-#: plugin.py:1399
-msgid "Conversion stopped during channel processing"
-msgstr "A konverzió leállt a csatornafeldolgozás során"
-
-#: plugin.py:1417
-msgid "Conversion stopped during result processing"
-msgstr "Az átalakítás leállt az eredményfeldolgozás során"
-
-#: plugin.py:1445
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s "
-"| ETA: {:.1f}s"
-msgstr ""
-"Feldolgozott {}/{} csatorna ({:.1f}%) | Eltelt idő: {:.1f} mp | Átlagos "
-"sebesség: {:.1f}/s | Várható érkezés: {:.1f} mp"
-
-#: plugin.py:1461
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
-msgstr ""
-"Feldolgozott {}/{} csatorna ({:.1f}%) | Eltelt idő: {:.1f} s | Átlagos "
-"sebesség: {:.1f}/s"
-
-#: plugin.py:1736
-msgid "Select this directory"
-msgstr "Válassza ki ezt a könyvtárat"
-
-#: plugin.py:1756 plugin.py:1852
-msgid "Error accessing directory: "
-msgstr "Hiba a könyvtár elérésekor: "
-
-#: plugin.py:1760
-msgid "<< Cancel"
-msgstr "<< Mégsem"
-
-#: plugin.py:1764
-msgid "Select playlist file"
-msgstr "Lejátszási lista fájljának kiválasztása"
-
-#: plugin.py:1764
-msgid "Select directory"
-msgstr "Katalógus választás"
-
-#: plugin.py:1768
-msgid "No files found in: "
-msgstr "Nem találhatók fájlok a következő helyen: "
-
-#: plugin.py:1797
-msgid "Selected directory: "
-msgstr "Kiválasztott könyvtár: "
-
-#: plugin.py:1807
-#, python-format
-msgid "Loaded playlist: %s"
-msgstr "Lejátszási lista betöltése: %s"
-
-#: plugin.py:1856
-msgid "No files or directories found in: "
-msgstr "Nem találhatók fájlok vagy könyvtárak itt: "
-
-#: plugin.py:1859
-msgid "<< Back to main menu"
-msgstr "<< Vissza a főmenübe"
-
-#: plugin.py:1864
-msgid "Select file to delete in: {}"
-msgstr "Válassza ki a törlendő fájlt a következőből: {}"
-
-#: plugin.py:1883
-msgid ""
-"Are you sure you want to delete:\n"
-"{}?"
-msgstr ""
-"Biztosan törölni szeretnéd ezt:\n"
-"{}?"
-
-#: plugin.py:1898
-msgid "Deleted: "
-msgstr "Törölt: "
-
-#: plugin.py:1907
-msgid "Delete failed: "
-msgstr "Törlés sikertelen: "
-
-#: plugin.py:1946
-msgid "Convert to M3U"
-msgstr "Konvertálás M3U-ra"
-
-#: plugin.py:1948
-msgid "Convert to TV"
-msgstr "Átalakítás TV-re"
-
-#: plugin.py:1966
-#, python-format
-msgid ""
-"Plugin: StalkerPortalConvert to M3U/TV\n"
-"Author: Lululla\n"
-"Version: %s\n"
-"Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet "
-"format.\n"
-"Support: linuxsat-support.com - corvoboys.org\n"
-"\n"
-msgstr ""
-"Bővítmény: StalkerPortalConvert to M3U/TV\n"
-"Szerző: Lululla\n"
-"Verzió: %s\n"
-"Dátum: 2025. június\n"
-"Leírás: Stalker Portal lejátszási listák konvertálása M3U vagy Enigma2 "
-"csokor formátumba.\n"
-"Támogatás: linuxsat-support.com - corvoboys.org\n"
-"\n"
-
-#: plugin.py:1974
-msgid "HELP:\n"
-msgstr "SEGÍTSÉG:\n"
-
-#: plugin.py:1975
-msgid ""
-"- Open a file with server URLs or press the BLUE button to edit the host and "
-"MAC address\n"
-msgstr ""
-"- Nyisson meg egy fájlt a szerver URL-címeivel, vagy nyomja meg a KÉK gombot "
-"a gazdagép és a MAC-cím szerkesztéséhez.\n"
-
-#: plugin.py:1976
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr "- Válassza ki a kívánt kimeneti formátumot: M3U vagy TV-csokor\n"
 
-#: plugin.py:1977
+msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
+msgstr ""
+
 msgid "- Press CONVERT to generate the playlist"
 msgstr "- Nyomja meg a KONVERTÁLÁS gombot a lejátszási lista létrehozásához"
 
-#: plugin.py:1985
+msgid "<< Back to main menu"
+msgstr "<< Vissza a főmenübe"
+
+msgid "<< Cancel"
+msgstr "<< Mégsem"
+
+msgid "Access Code:"
+msgstr ""
+
+msgid "Account info loaded"
+msgstr "Fiókadatok betöltve"
+
+msgid "Active:"
+msgstr "Aktív:"
+
+msgid "Added {} VOD items"
+msgstr ""
+
+msgid "Authentication failed:"
+msgstr ""
+
+msgid "Bottom"
+msgstr "Alul"
+
+msgid "Bouquet position set to: {}"
+msgstr "A csokor pozíciója beállítva erre: {}"
+
+msgid "Bouquets created: {} groups with {} channels"
+msgstr "Csokrok létrehozva: {} csoport {} csatornával"
+
+#, fuzzy
+msgid "Cannot create directory:"
+msgstr "Nem lehet létrehozni a következő könyvtárat: "
+
+msgid "Change Output Directory"
+msgstr "Kimeneti könyvtár módosítása"
+
+msgid "Channel list error:"
+msgstr ""
+
+msgid "Channel list failed: HTTP {}"
+msgstr ""
+
+msgid "Clear"
+msgstr "Törlés"
+
+#, fuzzy
+msgid "Connection error:"
+msgstr "Konverziós hiba: "
+
+msgid "Conversion canceled before start"
+msgstr "Konverzió megszakítva a kezdés előtt"
+
+#, fuzzy
+msgid "Conversion error:"
+msgstr "Konverziós hiba: "
+
+msgid "Conversion stopped before bouquet creation"
+msgstr "A konverzió leállt a csokor létrehozása előtt"
+
+msgid "Conversion stopped by user"
+msgstr "A felhasználó leállította a konverziót"
+
+msgid "Conversion stopped during M3U creation"
+msgstr "A konvertálás leállt az M3U létrehozása során"
+
+msgid "Conversion stopped during bouquet creation"
+msgstr "A konverzió leállt a csokor létrehozása közben"
+
+msgid "Conversion stopped during channel retrieval"
+msgstr "A konverzió leállt a csatorna lekérése során"
+
+msgid "Conversion stopped during grouping"
+msgstr "A konverzió leállt a csoportosítás során"
+
+#, fuzzy
+msgid "Conversion stopped during processing"
+msgstr "Az átalakítás leállt az eredményfeldolgozás során"
+
+#, fuzzy
+msgid "Conversion timeout exceeded"
+msgstr "Konverziós hiba: "
+
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr "A Stalker Portal konvertálása M3U lejátszási listává tényleges csatornákkal"
+
+msgid "Convert to M3U"
+msgstr "Konvertálás M3U-ra"
+
+msgid "Convert to TV"
+msgstr "Átalakítás TV-re"
+
+#, fuzzy
+msgid "Critical channel processing error"
+msgstr "A konverzió leállt a csatornafeldolgozás során"
+
+msgid "Delete Playlist File"
+msgstr "Lejátszási listafájl törlése"
+
+#, fuzzy
+msgid "Delete failed:"
+msgstr "Törlés sikertelen: "
+
+#, fuzzy
+msgid "Deleted:"
+msgstr "Törölt: "
+
+msgid "Directory not writable:"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Disk"
+msgstr ""
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Edit MAC Address"
+msgstr "MAC-cím szerkesztése"
+
+msgid "Edit Portal URL"
+msgstr "Portál URL-címének szerkesztése"
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr "Írja be a MAC-címet (pl. 00:1A:79:XX:XX:XX)"
+
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr ""
+
+msgid "Error accessing configuration values"
+msgstr "Hiba a konfigurációs értékek elérésekor"
+
+#, fuzzy
+msgid "Error accessing configuration values:"
+msgstr "Hiba a konfigurációs értékek elérésekor:: "
+
+#, fuzzy
+msgid "Error accessing directory:"
+msgstr "Hiba a könyvtár elérésekor: "
+
+#, fuzzy
+msgid "Error creating playlist:"
+msgstr "Hiba a lejátszási lista létrehozásakor: "
+
+#, fuzzy
+msgid "Error details: {}"
+msgstr "Hiba a lejátszási lista létrehozásakor: "
+
+msgid "Error extracting account information"
+msgstr "Hiba a fiókadatok kinyerésekor"
+
+#, fuzzy
+msgid "Error!"
+msgstr "Hiba! "
+
+#, fuzzy
+msgid "Error:"
+msgstr "Hiba: "
+
+msgid "Error: Invalid MAC address"
+msgstr "Hiba: Érvénytelen MAC-cím"
+
+msgid "Error: Invalid portal URL"
+msgstr "Hiba: Érvénytelen portál URL"
+
+msgid "Error: Portal and MAC are required"
+msgstr "Hiba: Portál és MAC cím szükséges"
+
+msgid "Expiry:"
+msgstr "Kiemelés lejárata:"
+
+msgid "Failed to load account info"
+msgstr "Nem sikerült betölteni a fiókadatokat"
+
+msgid "Failed to obtain token!"
+msgstr "Nem sikerült tokent beszerezni!"
+
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr "Nem sikerült beolvasni a portál vagy a MAC konfigurációját:\n"
+
+msgid "Failed to retrieve channel list"
+msgstr "Nem sikerült lekérni a csatornalistát"
+
 msgid "Fields cleared"
 msgstr "Mezők kiürítve"
 
-#: plugin.py:1999
-msgid ""
-"Unable to fetch version info:\n"
-"{}"
+msgid "Grouping: {}"
+msgstr "Csoportosítás: {}"
+
+msgid "HELP:\n"
+msgstr "SEGÍTSÉG:\n"
+
+#, fuzzy
+msgid "Handshake failed: HTTP {}"
+msgstr "Kézfogás sikertelen: Nem érkezett token"
+
+msgid "Handshake failed: No token received"
+msgstr "Kézfogás sikertelen: Nem érkezett token"
+
+msgid "Hard Disk"
 msgstr ""
-"Nem sikerült lekérni a verzióinformációkat:\n"
-"{}"
 
-#: plugin.py:2017
-msgid "You are already running the latest version: {}"
-msgstr "Már a legújabb verziót futtatod: {}"
-
-#: plugin.py:2033
-#, python-format
-msgid ""
-"New version %s available\n"
-"\n"
-"Changelog: %s\n"
-"\n"
-"Do you want to install it now?"
+msgid "Hide Code"
 msgstr ""
-"Új verzió (%s) elérhető\n"
-"\n"
-"Változásnapló: %s\n"
-"\n"
-"Telepíteni szeretnéd most?"
 
-#: plugin.py:2046
-#, python-format
-msgid "You are already running the latest version: %s"
-msgstr "Már a legújabb verziót futtatod: %s"
+msgid "Include VOD in Playlist"
+msgstr ""
 
-#: plugin.py:2054
+msgid "Information"
+msgstr "Információ"
+
+msgid "Initialization error"
+msgstr "Inicializálási hiba"
+
+#, fuzzy
+msgid "Invalid JSON response for channel list"
+msgstr "Nem sikerült lekérni a csatornalistát"
+
+msgid "Invalid MAC: {mac}"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid URL: {portal}"
+msgstr "Hiba: Érvénytelen portál URL"
+
+msgid "Loaded playlist: %s"
+msgstr "Lejátszási lista betöltése: %s"
+
+#, fuzzy
+msgid "Loaded {} valid entries from {}"
+msgstr "{} érvényes portál betöltve innen: {}"
+
+msgid "Loading account info in background..."
+msgstr "Fiókadatok betöltése a háttérben..."
+
+msgid "M3U created with {} channels"
+msgstr "M3U létrehozva {} csatornával"
+
+msgid "MAC Address:"
+msgstr "MAC-cím:"
+
+#, fuzzy
+msgid "Max:"
+msgstr "Max:: "
+
+msgid "Network"
+msgstr ""
+
+msgid "New Access Code:"
+msgstr ""
+
+msgid "New Code"
+msgstr ""
+
+msgid "New access code generated!"
+msgstr ""
+
+msgid "No channels found in response"
+msgstr "Nem található csatorna a válaszban"
+
+#, fuzzy
+msgid "No files found in:"
+msgstr "Nem találhatók fájlok a következő helyen: "
+
+#, fuzzy
+msgid "No files or directories found in:"
+msgstr "Nem találhatók fájlok vagy könyvtárak itt: "
+
+#, fuzzy
+msgid "No valid entries found in file"
+msgstr "Nem található érvényes portál a fájlban"
+
+msgid "Not enough space on {}!"
+msgstr "Nincs elég hely a(z) {} címen!"
+
+msgid "Output File:"
+msgstr "Kimeneti fájl:"
+
+msgid "Password:"
+msgstr "Jelszó:"
+
+#, fuzzy
+msgid "Playlist File:"
+msgstr "Lejátszási listafájl kiválasztása"
+
+msgid "Portal URL:"
+msgstr "Portál URL-címe:"
+
+#, fuzzy
+msgid "Preparing {} channels..."
+msgstr "%d csatorna előkészítése..."
+
+msgid "Press 0: Show Access Code | Press 1: New Code"
+msgstr ""
+
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr "Kész - Válasszon ki egy fájlt, vagy adja meg az URL-t/MAC-címet"
+
+msgid "Scanning file... {}%"
+msgstr "Fájl beolvasása... {}%"
+
+msgid "Select Bouquet Position"
+msgstr "Csokor pozíciójának kiválasztása"
+
+#, fuzzy
+msgid "Select Mount Root"
+msgstr "Csokor pozíciójának kiválasztása"
+
+msgid "Select Playlist"
+msgstr "Lejátszási lista kiválasztása"
+
+msgid "Select Playlist File"
+msgstr "Lejátszási listafájl kiválasztása"
+
+msgid "Select Type of Conversion"
+msgstr "Válassza ki a konverzió típusát"
+
+msgid "Select directory"
+msgstr "Katalógus választás"
+
+msgid "Select file to delete in: {}"
+msgstr "Válassza ki a törlendő fájlt a következőből: {}"
+
+msgid "Select playlist file"
+msgstr "Lejátszási lista fájljának kiválasztása"
+
+msgid "Select this directory"
+msgstr "Válassza ki ezt a könyvtárat"
+
+#, fuzzy
+msgid "Selected directory:"
+msgstr "Kiválasztott könyvtár: "
+
+#, fuzzy
+msgid "Selected:"
+msgstr "Kiválasztott:: "
+
+msgid "Set Bouquet Position"
+msgstr "Csokor pozíciójának beállítása"
+
+msgid "Set Type Conversion"
+msgstr "Típuskonverzió beállítása"
+
+msgid "Show Code"
+msgstr ""
+
+msgid "Stalker Portal to M3U Converter v.%s"
+msgstr "Stalker Portal M3U-vá alakító v.%s"
+
+msgid "Starting conversion process..."
+msgstr "Konverziós folyamat indítása..."
+
+msgid "Status:"
+msgstr "Állapot:"
+
+msgid "Step 1/3: Connecting to portal..."
+msgstr "1/3. lépés: Kapcsolódás a portálhoz..."
+
+msgid "Step 1/3: Handshake..."
+msgstr "1/3. lépés: Kézfogás..."
+
+msgid "Step 2/3: Authentication..."
+msgstr "2/3. lépés: Hitelesítés..."
+
+msgid "Step 2/3: Creating playlist file..."
+msgstr "2/3. lépés: Lejátszási listafájl létrehozása..."
+
+msgid "Step 3/3: Create Bouquet file..."
+msgstr "3/3. lépés: Csokorfájl létrehozása..."
+
+msgid "Step 3/3: Create M3U file..."
+msgstr "3/3. lépés: M3U fájl létrehozása..."
+
+msgid "Step 3/3: Getting channels..."
+msgstr "3/3. lépés: Csatornák beszerzése..."
+
+#, fuzzy
+msgid "Step 4/4: Getting VOD content..."
+msgstr "3/3. lépés: Csatornák beszerzése..."
+
+msgid "Stop"
+msgstr "Megállítás"
+
+msgid "Stopping conversion..."
+msgstr "Konvertálás leállítása..."
+
+msgid "Stopping current process to switch portal..."
+msgstr "A portálváltáshoz szükséges folyamat leállítása..."
+
+#, fuzzy
+msgid "Success!"
+msgstr "Siker!: "
+
+msgid "Temporary Storage"
+msgstr ""
+
+msgid "Top"
+msgstr "Felső"
+
+msgid "USB Drive"
+msgstr ""
+
 msgid "Update Aborted!"
 msgstr "Frissítés megszakítva!"
 
-#: plugin.py:2101
-msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgid "Upgrade Stalker Converter"
+msgstr "Stalker konverter frissítése"
+
+msgid "User:"
+msgstr "Felhasználó:"
+
+msgid "VOD inclusion: {}"
 msgstr ""
-"A Stalker Portal konvertálása M3U lejátszási listává tényleges csatornákkal"
+
+msgid "Valid Portals from Selected File:"
+msgstr "Érvényes portálok a kiválasztott fájlból:"
+
+msgid "Web Portal Server Off"
+msgstr ""
+
+msgid "Web Portal Server On"
+msgstr ""
+
+msgid "Web server error:"
+msgstr ""
+
+msgid "Web server stopped"
+msgstr ""
+
+msgid "Web server: http://%s:%d"
+msgstr ""
+
+msgid "You are already running the latest version: %s"
+msgstr "Már a legújabb verziót futtatod: %s"
+
+msgid "You are already running the latest version: {}"
+msgstr "Már a legújabb verziót futtatod: {}"
+
+msgid "You need to start the Web Server first!"
+msgstr ""
+
+#~ msgid "Get ALL portal/MAC from file"
+#~ msgstr "ÖSSZES portál/MAC cím lekérése fájlból"

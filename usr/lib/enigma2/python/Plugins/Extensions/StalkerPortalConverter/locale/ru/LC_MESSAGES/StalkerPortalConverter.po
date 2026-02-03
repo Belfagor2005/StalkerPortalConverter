@@ -16,504 +16,460 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
-#: plugin.py:147 plugin.py:862
-msgid "Top"
-msgstr "Сверху"
-
-#: plugin.py:147 plugin.py:862
-msgid "Bottom"
-msgstr "Низ"
-
-#: plugin.py:238
-#, python-format
-msgid "Stalker Portal to M3U Converter v.%s"
-msgstr "Конвертер Stalker Portal в M3U v.%s"
-
-#: plugin.py:239
-msgid "Portal URL:"
-msgstr "URL-адрес портала:"
-
-#: plugin.py:241
-msgid "MAC Address:"
-msgstr "MAC-адрес:"
-
-#: plugin.py:243
-msgid "Output File:"
-msgstr "Выходной файл:"
-
-#: plugin.py:245
-msgid "Valid Portals from Selected File:"
-msgstr "Действительные порталы из выбранного файла:"
-
-#: plugin.py:249
-msgid "User:"
-msgstr "Пользователь:"
-
-#: plugin.py:251
-msgid "Password:"
-msgstr "Пароль:"
-
-#: plugin.py:253
-msgid "Expiry:"
-msgstr "Срок действия:"
-
-#: plugin.py:255
-msgid "Status:"
-msgstr "Статус:"
-
-#: plugin.py:257
-msgid "Active:"
-msgstr "Активен:"
-
-#: plugin.py:259
-msgid "Max: "
-msgstr "Максимум: "
-
-#: plugin.py:263
-msgid "Ready - Select a file or enter URL/MAC"
-msgstr "Готово — выберите файл или введите URL/MAC"
-
-#: plugin.py:264
-msgid "Clear"
-msgstr "Очистить"
-
-#: plugin.py:266
-msgid "Select Playlist"
-msgstr "Выберите плейлист"
-
-#: plugin.py:267
-msgid "Edit"
-msgstr "Редактировать"
-
-#: plugin.py:336
-msgid "Initialization error"
-msgstr "Ошибка инициализации"
-
-#: plugin.py:343
-msgid "Stopping current process to switch portal..."
-msgstr "Остановка текущего процесса для переключения портала..."
-
-#: plugin.py:366
-msgid "Selected: "
-msgstr "Выбрано: "
-
-#: plugin.py:377
-msgid "Loading account info in background..."
-msgstr "Загрузка информации об аккаунте в фоновом режиме..."
-
-#: plugin.py:402
-msgid "Account info loaded"
-msgstr "Информация об аккаунте загружена"
-
-#: plugin.py:404
-msgid "Failed to load account info"
-msgstr "Не удалось загрузить информацию об аккаунте"
-
-#: plugin.py:415
-msgid "Error accessing configuration values: "
-msgstr "Ошибка доступа к значениям конфигурации: "
-
-#: plugin.py:419 plugin.py:1048
-msgid "Error: Portal and MAC are required"
-msgstr "Ошибка: требуются портал и MAC"
-
-#: plugin.py:550
-msgid "Handshake failed: No token received"
-msgstr "Рукопожатие не удалось: токен не получен"
-
-#: plugin.py:663
-msgid "Error extracting account information"
-msgstr "Ошибка извлечения информации об аккаунте"
-
-#: plugin.py:760
-msgid "Set Type Conversion"
-msgstr "Преобразование типа набора"
-
-#: plugin.py:761
-msgid "Edit Portal URL"
-msgstr "Изменить URL портала"
-
-#: plugin.py:762
-msgid "Edit MAC Address"
-msgstr "Изменить MAC-адрес"
-
-#: plugin.py:763
-msgid "Select Playlist File"
-msgstr "Выберите файл плейлиста"
-
-#: plugin.py:764
-msgid "Delete Playlist File"
-msgstr "Удалить файл плейлиста"
-
-#: plugin.py:765
-msgid "Change Output Directory"
-msgstr "Изменить выходной каталог"
-
-#: plugin.py:766
-msgid "Upgrade Stalker Converter"
-msgstr "Обновление Сталкера Конвертера"
-
-#: plugin.py:767
-msgid "Information"
-msgstr "Информация"
-
-#: plugin.py:768
-msgid "Set Bouquet Position"
-msgstr "Установить положение букета"
-
-#: plugin.py:808
-msgid ""
-"Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
-"Введите URL-адрес портала (например, http://example.com/c/ или http://"
-"example.com:8088/c/)"
-
-#: plugin.py:827
-msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
-msgstr "Введите MAC-адрес (например, 00:1A:79:XX:XX:XX)"
-
-#: plugin.py:856
-msgid "Select Type of Conversion"
-msgstr "Выберите тип преобразования"
-
-#: plugin.py:869
-msgid "Bouquet position set to: {}"
-msgstr "Положение букета установлено на: {}"
-
-#: plugin.py:875
-msgid "Select Bouquet Position"
-msgstr "Выберите позицию букета"
-
-#: plugin.py:890
-msgid "Get ALL portal/MAC from file"
-msgstr "Получить ВСЕ порталы/MAC из файла"
-
-#: plugin.py:904
-msgid "Loaded {} valid portals from {}"
-msgstr "Загружено {} действительных порталов из {}"
-
-#: plugin.py:906
-msgid "No valid portals found in file"
-msgstr "В файле не найдено ни одного допустимого портала"
-
-#: plugin.py:909
-msgid "Error: "
-msgstr "Ошибка: "
-
-#: plugin.py:932
-msgid "Scanning file... {}%"
-msgstr "Сканирование файла... {}%"
-
-#: plugin.py:985
-msgid "Conversion stopped by user"
-msgstr "Конверсия остановлена пользователем"
-
-#: plugin.py:1003 plugin.py:1286
-msgid "Success! "
-msgstr "Выполнено успешно! "
-
-#: plugin.py:1005 plugin.py:1288
-msgid "Error! "
-msgstr "Ошибка! "
-
-#: plugin.py:1020
-msgid "Stopping conversion..."
-msgstr "Остановка преобразования..."
-
-#: plugin.py:1029
-msgid "Not enough space on {}!"
-msgstr "Недостаточно места на {}!"
-
-#: plugin.py:1042
-msgid "Error accessing configuration values"
-msgstr "Ошибка доступа к значениям конфигурации"
-
-#: plugin.py:1043
-msgid "Failed to read portal or MAC configuration:\n"
-msgstr "Не удалось прочитать конфигурацию портала или MAC:\n"
-
-#: plugin.py:1052
-msgid "Error: Invalid portal URL"
-msgstr "Ошибка: неверный URL портала"
-
-#: plugin.py:1056
-msgid "Error: Invalid MAC address"
-msgstr "Ошибка: Неверный MAC-адрес"
-
-#: plugin.py:1065
-msgid "Cannot create directory: "
-msgstr "Не удалось создать папку: "
-
-#: plugin.py:1074
-msgid "Stop"
-msgstr "Стоп"
-
-#: plugin.py:1077
-msgid "Starting conversion process..."
-msgstr "Начинаем процесс конвертации..."
-
-#: plugin.py:1088
-msgid "Conversion canceled before start"
-msgstr "Конвертация отменена до начала"
-
-#: plugin.py:1095
-msgid "Step 1/3: Connecting to portal..."
-msgstr "Шаг 1/3: Подключение к порталу..."
-
-#: plugin.py:1099
-msgid "Conversion stopped during channel retrieval"
-msgstr "Конвертация остановлена во время поиска канала"
-
-#: plugin.py:1103
-msgid "Failed to retrieve channel list"
-msgstr "Не удалось получить список каналов."
-
-#: plugin.py:1107
-msgid "Step 2/3: Creating playlist file..."
-msgstr "Шаг 2/3: Создание файла плейлиста..."
-
-#: plugin.py:1114
-msgid "Step 3/3: Create M3U file..."
-msgstr "Шаг 3/3: Создайте файл M3U..."
-
-#: plugin.py:1125
-msgid "Conversion stopped during M3U creation"
-msgstr "Конвертация остановлена во время создания M3U"
-
-#: plugin.py:1137
-msgid "M3U created with {} channels"
-msgstr "M3U создан с {} каналами"
-
-#: plugin.py:1141
-msgid "Step 3/3: Create Bouquet file..."
-msgstr "Шаг 3/3: Создание файла «Букет»..."
-
-#: plugin.py:1146
-msgid "Conversion stopped during grouping"
-msgstr "Конвертация остановлена во время группировки"
-
-#: plugin.py:1151
-msgid "Grouping: {}"
-msgstr "Группировка: {}"
-
-#: plugin.py:1154
-msgid "Conversion stopped before bouquet creation"
-msgstr "Конвертация остановлена до создания букета"
-
-#: plugin.py:1159
-msgid "Conversion stopped during bouquet creation"
-msgstr "Конвертация остановлена во время создания букета"
-
-#: plugin.py:1165
-msgid "Bouquets created: {} groups with {} channels"
-msgstr "Создано букетов: {} групп с {} каналами"
-
-#: plugin.py:1171
-msgid "Error creating playlist: "
-msgstr "Ошибка создания плейлиста: "
-
-#: plugin.py:1175
-msgid "Conversion error: "
-msgstr "Ошибка преобразования: "
-
-#: plugin.py:1357
-msgid "Step 1/3: Handshake..."
-msgstr "Шаг 1/3: Рукопожатие..."
-
-#: plugin.py:1362
-msgid "Failed to obtain token!"
-msgstr "Не удалось получить токен!"
-
-#: plugin.py:1368
-msgid "Step 2/3: Authentication..."
-msgstr "Шаг 2/3: Аутентификация..."
-
-#: plugin.py:1374
-msgid "Step 3/3: Getting channels..."
-msgstr "Шаг 3/3: Получение каналов..."
-
-#: plugin.py:1382
-msgid "No channels found in response"
-msgstr "Каналов в ответе не найдено"
-
-#: plugin.py:1386
-#, python-format
-msgid "Preparing %d channels..."
-msgstr "Подготовка %d каналов..."
-
-#: plugin.py:1399
-msgid "Conversion stopped during channel processing"
-msgstr "Конвертация остановлена во время обработки канала"
-
-#: plugin.py:1417
-msgid "Conversion stopped during result processing"
-msgstr "Конвертация остановлена во время обработки результата"
-
-#: plugin.py:1445
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s "
-"| ETA: {:.1f}s"
-msgstr ""
-"Обработано {}/{} каналов ({:.1f}%) | Прошло: {:.1f} с | Средняя скорость: "
-"{:.1f}/с | ETA: {:.1f} с"
-
-#: plugin.py:1461
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
-msgstr ""
-"Обработано {}/{} каналов ({:.1f}%) | Прошло: {:.1f} с | Средняя скорость: "
-"{:.1f}/с"
-
-#: plugin.py:1736
-msgid "Select this directory"
-msgstr "Выберите этот каталог"
-
-#: plugin.py:1756 plugin.py:1852
-msgid "Error accessing directory: "
-msgstr "Ошибка доступа к каталогу: "
-
-#: plugin.py:1760
-msgid "<< Cancel"
-msgstr "<< Отменить"
-
-#: plugin.py:1764
-msgid "Select playlist file"
-msgstr "Выберите файл плейлиста"
-
-#: plugin.py:1764
-msgid "Select directory"
-msgstr "Выбрать каталог"
-
-#: plugin.py:1768
-msgid "No files found in: "
-msgstr "Файлы не найдены в: "
-
-#: plugin.py:1797
-msgid "Selected directory: "
-msgstr "Выбранный каталог: "
-
-#: plugin.py:1807
-#, python-format
-msgid "Loaded playlist: %s"
-msgstr "Загруженный плейлист: %s"
-
-#: plugin.py:1856
-msgid "No files or directories found in: "
-msgstr "Файлы или каталоги не найдены в: "
-
-#: plugin.py:1859
-msgid "<< Back to main menu"
-msgstr "<< Вернуться в главное меню"
-
-#: plugin.py:1864
-msgid "Select file to delete in: {}"
-msgstr "Выберите файл для удаления в: {}"
-
-#: plugin.py:1883
-msgid ""
-"Are you sure you want to delete:\n"
-"{}?"
-msgstr ""
-"Вы уверены, что хотите удалить:\n"
-"{}?"
-
-#: plugin.py:1898
-msgid "Deleted: "
-msgstr "Удалено: "
-
-#: plugin.py:1907
-msgid "Delete failed: "
-msgstr "Удаление не удалось: "
-
-#: plugin.py:1946
-msgid "Convert to M3U"
-msgstr "Конвертировать в M3U"
-
-#: plugin.py:1948
-msgid "Convert to TV"
-msgstr "Конвертировать в ТВ"
-
-#: plugin.py:1966
-#, python-format
-msgid ""
-"Plugin: StalkerPortalConvert to M3U/TV\n"
-"Author: Lululla\n"
-"Version: %s\n"
-"Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet "
-"format.\n"
-"Support: linuxsat-support.com - corvoboys.org\n"
-"\n"
-msgstr ""
-"Плагин: StalkerPortalConvert to M3U/TV\n"
-"Автор: Lululla\n"
-"Версия: %s\n"
-"Дата: июнь 2025 г.\n"
-"Описание: Конвертировать плейлисты Stalker Portal в формат M3U или Enigma2 "
-"Bouquet.\n"
-"Поддержка: linuxsat-support.com - corvoboys.org\n"
-"\n"
-
-#: plugin.py:1974
-msgid "HELP:\n"
-msgstr "ПОМОЩЬ:\n"
-
-#: plugin.py:1975
-msgid ""
-"- Open a file with server URLs or press the BLUE button to edit the host and "
-"MAC address\n"
-msgstr ""
-"- Откройте файл с URL-адресами серверов или нажмите СИНЮЮ кнопку, чтобы "
-"изменить хост и MAC-адрес\n"
-
-#: plugin.py:1976
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr "- Выберите желаемый выходной формат: M3U или TV-букет\n"
 
-#: plugin.py:1977
+msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
+msgstr ""
+
 msgid "- Press CONVERT to generate the playlist"
 msgstr "- Нажмите CONVERT, чтобы создать плейлист."
 
-#: plugin.py:1985
+msgid "<< Back to main menu"
+msgstr "<< Вернуться в главное меню"
+
+msgid "<< Cancel"
+msgstr "<< Отменить"
+
+msgid "Access Code:"
+msgstr ""
+
+msgid "Account info loaded"
+msgstr "Информация об аккаунте загружена"
+
+msgid "Active:"
+msgstr "Активен:"
+
+msgid "Added {} VOD items"
+msgstr ""
+
+msgid "Authentication failed:"
+msgstr ""
+
+msgid "Bottom"
+msgstr "Низ"
+
+msgid "Bouquet position set to: {}"
+msgstr "Положение букета установлено на: {}"
+
+msgid "Bouquets created: {} groups with {} channels"
+msgstr "Создано букетов: {} групп с {} каналами"
+
+#, fuzzy
+msgid "Cannot create directory:"
+msgstr "Не удалось создать папку: "
+
+msgid "Change Output Directory"
+msgstr "Изменить выходной каталог"
+
+msgid "Channel list error:"
+msgstr ""
+
+msgid "Channel list failed: HTTP {}"
+msgstr ""
+
+msgid "Clear"
+msgstr "Очистить"
+
+#, fuzzy
+msgid "Connection error:"
+msgstr "Ошибка преобразования: "
+
+msgid "Conversion canceled before start"
+msgstr "Конвертация отменена до начала"
+
+#, fuzzy
+msgid "Conversion error:"
+msgstr "Ошибка преобразования: "
+
+msgid "Conversion stopped before bouquet creation"
+msgstr "Конвертация остановлена до создания букета"
+
+msgid "Conversion stopped by user"
+msgstr "Конверсия остановлена пользователем"
+
+msgid "Conversion stopped during M3U creation"
+msgstr "Конвертация остановлена во время создания M3U"
+
+msgid "Conversion stopped during bouquet creation"
+msgstr "Конвертация остановлена во время создания букета"
+
+msgid "Conversion stopped during channel retrieval"
+msgstr "Конвертация остановлена во время поиска канала"
+
+msgid "Conversion stopped during grouping"
+msgstr "Конвертация остановлена во время группировки"
+
+#, fuzzy
+msgid "Conversion stopped during processing"
+msgstr "Конвертация остановлена во время обработки результата"
+
+#, fuzzy
+msgid "Conversion timeout exceeded"
+msgstr "Ошибка преобразования: "
+
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr "Конвертировать Stalker Portal в плейлист M3U с реальными каналами"
+
+msgid "Convert to M3U"
+msgstr "Конвертировать в M3U"
+
+msgid "Convert to TV"
+msgstr "Конвертировать в ТВ"
+
+#, fuzzy
+msgid "Critical channel processing error"
+msgstr "Конвертация остановлена во время обработки канала"
+
+msgid "Delete Playlist File"
+msgstr "Удалить файл плейлиста"
+
+#, fuzzy
+msgid "Delete failed:"
+msgstr "Удаление не удалось: "
+
+#, fuzzy
+msgid "Deleted:"
+msgstr "Удалено: "
+
+msgid "Directory not writable:"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Disk"
+msgstr ""
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Edit MAC Address"
+msgstr "Изменить MAC-адрес"
+
+msgid "Edit Portal URL"
+msgstr "Изменить URL портала"
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr "Введите MAC-адрес (например, 00:1A:79:XX:XX:XX)"
+
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr ""
+
+msgid "Error accessing configuration values"
+msgstr "Ошибка доступа к значениям конфигурации"
+
+#, fuzzy
+msgid "Error accessing configuration values:"
+msgstr "Ошибка доступа к значениям конфигурации: "
+
+#, fuzzy
+msgid "Error accessing directory:"
+msgstr "Ошибка доступа к каталогу: "
+
+#, fuzzy
+msgid "Error creating playlist:"
+msgstr "Ошибка создания плейлиста: "
+
+#, fuzzy
+msgid "Error details: {}"
+msgstr "Ошибка создания плейлиста: "
+
+msgid "Error extracting account information"
+msgstr "Ошибка извлечения информации об аккаунте"
+
+#, fuzzy
+msgid "Error!"
+msgstr "Ошибка! "
+
+#, fuzzy
+msgid "Error:"
+msgstr "Ошибка: "
+
+msgid "Error: Invalid MAC address"
+msgstr "Ошибка: Неверный MAC-адрес"
+
+msgid "Error: Invalid portal URL"
+msgstr "Ошибка: неверный URL портала"
+
+msgid "Error: Portal and MAC are required"
+msgstr "Ошибка: требуются портал и MAC"
+
+msgid "Expiry:"
+msgstr "Срок действия:"
+
+msgid "Failed to load account info"
+msgstr "Не удалось загрузить информацию об аккаунте"
+
+msgid "Failed to obtain token!"
+msgstr "Не удалось получить токен!"
+
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr "Не удалось прочитать конфигурацию портала или MAC:\n"
+
+msgid "Failed to retrieve channel list"
+msgstr "Не удалось получить список каналов."
+
 msgid "Fields cleared"
 msgstr "Поля очищены"
 
-#: plugin.py:1999
-msgid ""
-"Unable to fetch version info:\n"
-"{}"
+msgid "Grouping: {}"
+msgstr "Группировка: {}"
+
+msgid "HELP:\n"
+msgstr "ПОМОЩЬ:\n"
+
+#, fuzzy
+msgid "Handshake failed: HTTP {}"
+msgstr "Рукопожатие не удалось: токен не получен"
+
+msgid "Handshake failed: No token received"
+msgstr "Рукопожатие не удалось: токен не получен"
+
+msgid "Hard Disk"
 msgstr ""
-"Не удалось получить информацию о версии:\n"
-"{}"
 
-#: plugin.py:2017
-msgid "You are already running the latest version: {}"
-msgstr "Вы уже используете последнюю версию: {}"
-
-#: plugin.py:2033
-#, python-format
-msgid ""
-"New version %s available\n"
-"\n"
-"Changelog: %s\n"
-"\n"
-"Do you want to install it now?"
+msgid "Hide Code"
 msgstr ""
-"Доступна новая версия %s\n"
-"\n"
-"Журнал изменений: %s\n"
-"\n"
-"Вы хотите установить ее сейчас?"
 
-#: plugin.py:2046
-#, python-format
-msgid "You are already running the latest version: %s"
-msgstr "Вы уже используете последнюю версию: %s"
+msgid "Include VOD in Playlist"
+msgstr ""
 
-#: plugin.py:2054
+msgid "Information"
+msgstr "Информация"
+
+msgid "Initialization error"
+msgstr "Ошибка инициализации"
+
+#, fuzzy
+msgid "Invalid JSON response for channel list"
+msgstr "Не удалось получить список каналов."
+
+msgid "Invalid MAC: {mac}"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid URL: {portal}"
+msgstr "Ошибка: неверный URL портала"
+
+msgid "Loaded playlist: %s"
+msgstr "Загруженный плейлист: %s"
+
+#, fuzzy
+msgid "Loaded {} valid entries from {}"
+msgstr "Загружено {} действительных порталов из {}"
+
+msgid "Loading account info in background..."
+msgstr "Загрузка информации об аккаунте в фоновом режиме..."
+
+msgid "M3U created with {} channels"
+msgstr "M3U создан с {} каналами"
+
+msgid "MAC Address:"
+msgstr "MAC-адрес:"
+
+#, fuzzy
+msgid "Max:"
+msgstr "Максимум: "
+
+msgid "Network"
+msgstr ""
+
+msgid "New Access Code:"
+msgstr ""
+
+msgid "New Code"
+msgstr ""
+
+msgid "New access code generated!"
+msgstr ""
+
+msgid "No channels found in response"
+msgstr "Каналов в ответе не найдено"
+
+#, fuzzy
+msgid "No files found in:"
+msgstr "Файлы не найдены в: "
+
+#, fuzzy
+msgid "No files or directories found in:"
+msgstr "Файлы или каталоги не найдены в: "
+
+#, fuzzy
+msgid "No valid entries found in file"
+msgstr "В файле не найдено ни одного допустимого портала"
+
+msgid "Not enough space on {}!"
+msgstr "Недостаточно места на {}!"
+
+msgid "Output File:"
+msgstr "Выходной файл:"
+
+msgid "Password:"
+msgstr "Пароль:"
+
+#, fuzzy
+msgid "Playlist File:"
+msgstr "Выберите файл плейлиста"
+
+msgid "Portal URL:"
+msgstr "URL-адрес портала:"
+
+#, fuzzy
+msgid "Preparing {} channels..."
+msgstr "Подготовка %d каналов..."
+
+msgid "Press 0: Show Access Code | Press 1: New Code"
+msgstr ""
+
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr "Готово — выберите файл или введите URL/MAC"
+
+msgid "Scanning file... {}%"
+msgstr "Сканирование файла... {}%"
+
+msgid "Select Bouquet Position"
+msgstr "Выберите позицию букета"
+
+#, fuzzy
+msgid "Select Mount Root"
+msgstr "Выберите позицию букета"
+
+msgid "Select Playlist"
+msgstr "Выберите плейлист"
+
+msgid "Select Playlist File"
+msgstr "Выберите файл плейлиста"
+
+msgid "Select Type of Conversion"
+msgstr "Выберите тип преобразования"
+
+msgid "Select directory"
+msgstr "Выбрать каталог"
+
+msgid "Select file to delete in: {}"
+msgstr "Выберите файл для удаления в: {}"
+
+msgid "Select playlist file"
+msgstr "Выберите файл плейлиста"
+
+msgid "Select this directory"
+msgstr "Выберите этот каталог"
+
+#, fuzzy
+msgid "Selected directory:"
+msgstr "Выбранный каталог: "
+
+#, fuzzy
+msgid "Selected:"
+msgstr "Выбрано: "
+
+msgid "Set Bouquet Position"
+msgstr "Установить положение букета"
+
+msgid "Set Type Conversion"
+msgstr "Преобразование типа набора"
+
+msgid "Show Code"
+msgstr ""
+
+msgid "Stalker Portal to M3U Converter v.%s"
+msgstr "Конвертер Stalker Portal в M3U v.%s"
+
+msgid "Starting conversion process..."
+msgstr "Начинаем процесс конвертации..."
+
+msgid "Status:"
+msgstr "Статус:"
+
+msgid "Step 1/3: Connecting to portal..."
+msgstr "Шаг 1/3: Подключение к порталу..."
+
+msgid "Step 1/3: Handshake..."
+msgstr "Шаг 1/3: Рукопожатие..."
+
+msgid "Step 2/3: Authentication..."
+msgstr "Шаг 2/3: Аутентификация..."
+
+msgid "Step 2/3: Creating playlist file..."
+msgstr "Шаг 2/3: Создание файла плейлиста..."
+
+msgid "Step 3/3: Create Bouquet file..."
+msgstr "Шаг 3/3: Создание файла «Букет»..."
+
+msgid "Step 3/3: Create M3U file..."
+msgstr "Шаг 3/3: Создайте файл M3U..."
+
+msgid "Step 3/3: Getting channels..."
+msgstr "Шаг 3/3: Получение каналов..."
+
+#, fuzzy
+msgid "Step 4/4: Getting VOD content..."
+msgstr "Шаг 3/3: Получение каналов..."
+
+msgid "Stop"
+msgstr "Стоп"
+
+msgid "Stopping conversion..."
+msgstr "Остановка преобразования..."
+
+msgid "Stopping current process to switch portal..."
+msgstr "Остановка текущего процесса для переключения портала..."
+
+#, fuzzy
+msgid "Success!"
+msgstr "Выполнено успешно! "
+
+msgid "Temporary Storage"
+msgstr ""
+
+msgid "Top"
+msgstr "Сверху"
+
+msgid "USB Drive"
+msgstr ""
+
 msgid "Update Aborted!"
 msgstr "Обновление прервано!"
 
-#: plugin.py:2101
-msgid "Convert Stalker Portal to M3U playlist with actual channels"
-msgstr "Конвертировать Stalker Portal в плейлист M3U с реальными каналами"
+msgid "Upgrade Stalker Converter"
+msgstr "Обновление Сталкера Конвертера"
+
+msgid "User:"
+msgstr "Пользователь:"
+
+msgid "VOD inclusion: {}"
+msgstr ""
+
+msgid "Valid Portals from Selected File:"
+msgstr "Действительные порталы из выбранного файла:"
+
+msgid "Web Portal Server Off"
+msgstr ""
+
+msgid "Web Portal Server On"
+msgstr ""
+
+msgid "Web server error:"
+msgstr ""
+
+msgid "Web server stopped"
+msgstr ""
+
+msgid "Web server: http://%s:%d"
+msgstr ""
+
+msgid "You are already running the latest version: %s"
+msgstr "Вы уже используете последнюю версию: %s"
+
+msgid "You are already running the latest version: {}"
+msgstr "Вы уже используете последнюю версию: {}"
+
+msgid "You need to start the Web Server first!"
+msgstr ""
+
+#~ msgid "Get ALL portal/MAC from file"
+#~ msgstr "Получить ВСЕ порталы/MAC из файла"

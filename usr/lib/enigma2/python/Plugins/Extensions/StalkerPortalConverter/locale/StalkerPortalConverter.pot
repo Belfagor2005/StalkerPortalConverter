@@ -1,609 +1,427 @@
 #, fuzzy
-msgid ""
-msgstr ""
-"Project-Id-Version: StalkerPortalConverter\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 16:26+0200\n"
-"PO-Revision-Date: 2024-08-31 20:59+0200\n"
-"Last-Translator: \n"
-"Language-Team: <ekekaz@gmail.com>\n"
-"Language: en\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 3.6\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: plugin.py\n"
 
-#: plugin.py:158 plugin.py:959
-msgid "Top"
-msgstr ""
-
-#: plugin.py:158 plugin.py:959
-msgid "Bottom"
-msgstr ""
-
-#: plugin.py:292
-#, python-format
-msgid "Stalker Portal to M3U Converter v.%s"
-msgstr ""
-
-#: plugin.py:293
-msgid "Portal URL:"
-msgstr ""
-
-#: plugin.py:295
-msgid "MAC Address:"
-msgstr ""
-
-#: plugin.py:297
-msgid "Output File:"
-msgstr ""
-
-#: plugin.py:299
-msgid "Playlist File:"
-msgstr ""
-
-#: plugin.py:301
-msgid "Valid Portals from Selected File:"
-msgstr ""
-
-#: plugin.py:304
-msgid "User:"
-msgstr ""
-
-#: plugin.py:306
-msgid "Password:"
-msgstr ""
-
-#: plugin.py:308
-msgid "Expiry:"
-msgstr ""
-
-#: plugin.py:310
-msgid "Status:"
-msgstr ""
-
-#: plugin.py:312
-msgid "Active:"
-msgstr ""
-
-#: plugin.py:314
-msgid "Max: "
-msgstr ""
-
-#: plugin.py:318
-msgid "Ready - Select a file or enter URL/MAC"
-msgstr ""
-
-#: plugin.py:319
-msgid "Clear"
-msgstr ""
-
-#: plugin.py:321
-msgid "Select Playlist"
-msgstr ""
-
-#: plugin.py:322
-msgid "Edit"
-msgstr ""
-
-#: plugin.py:324 plugin.py:2568 plugin.py:2588
-msgid "Web Portal Server Off"
-msgstr ""
-
-#: plugin.py:325
-msgid "Press 0: Show Access Code | Press 1: New Code"
-msgstr ""
-
-#: plugin.py:326 plugin.py:2693 plugin.py:2702 plugin.py:2732
-msgid "Access Code: "
-msgstr ""
-
-#: plugin.py:327
-msgid "New Code"
-msgstr ""
-
-#: plugin.py:328 plugin.py:2703
-msgid "Show Code"
-msgstr ""
-
-#: plugin.py:376 plugin.py:883
-msgid "Enabled"
-msgstr ""
-
-#: plugin.py:376 plugin.py:883
-msgid "Disabled"
-msgstr ""
-
-#: plugin.py:377 plugin.py:884
-msgid "VOD inclusion: {}"
-msgstr ""
-
-#: plugin.py:421
-msgid "Initialization error"
-msgstr ""
-
-#: plugin.py:428
-msgid "Stopping current process to switch portal..."
-msgstr ""
-
-#: plugin.py:451
-msgid "Selected: "
-msgstr ""
-
-#: plugin.py:462
-msgid "Loading account info in background..."
-msgstr ""
-
-#: plugin.py:487
-msgid "Account info loaded"
-msgstr ""
-
-#: plugin.py:489
-msgid "Failed to load account info"
-msgstr ""
-
-#: plugin.py:500
-msgid "Error accessing configuration values: "
-msgstr ""
-
-#: plugin.py:504 plugin.py:1183
-msgid "Error: Portal and MAC are required"
-msgstr ""
-
-#: plugin.py:604 plugin.py:1584
-msgid "Step 1/3: Handshake..."
-msgstr ""
-
-#: plugin.py:636
-msgid "Handshake failed: No token received"
-msgstr ""
-
-#: plugin.py:638
-msgid ""
-"Possible causes:\n"
-"- Server not responding\n"
-"- Incorrect portal URL\n"
-"- Network issues"
-msgstr ""
-
-#: plugin.py:752
-msgid "Error extracting account information"
-msgstr ""
-
-#: plugin.py:754
-msgid "Error details: {}"
-msgstr ""
-
-#: plugin.py:837
-msgid "Set Type Conversion"
-msgstr ""
-
-#: plugin.py:838
-msgid "Edit Portal URL"
-msgstr ""
-
-#: plugin.py:839
-msgid "Edit MAC Address"
-msgstr ""
-
-#: plugin.py:840
-msgid "Select Playlist File"
-msgstr ""
-
-#: plugin.py:841
-msgid "Delete Playlist File"
-msgstr ""
-
-#: plugin.py:842
-msgid "Change Output Directory"
-msgstr ""
-
-#: plugin.py:843
-msgid "Set Bouquet Position"
-msgstr ""
-
-#: plugin.py:844
-msgid "Include VOD in Playlist"
-msgstr ""
-
-#: plugin.py:845
-msgid "Upgrade Stalker Converter"
-msgstr ""
-
-#: plugin.py:846
-msgid "Information"
-msgstr ""
-
-#: plugin.py:905
-msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
-
-#: plugin.py:924
-msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
-msgstr ""
-
-#: plugin.py:953
-msgid "Select Type of Conversion"
-msgstr ""
-
-#: plugin.py:966
-msgid "Bouquet position set to: {}"
-msgstr ""
-
-#: plugin.py:972
-msgid "Select Bouquet Position"
-msgstr ""
-
-#: plugin.py:1028
-msgid "Loaded {} valid entries from {}"
-msgstr ""
-
-#: plugin.py:1030
-msgid "No valid entries found in file"
-msgstr ""
-
-#: plugin.py:1033
-msgid "Error: "
-msgstr ""
-
-#: plugin.py:1056
-msgid "Scanning file... {}%"
-msgstr ""
-
-#: plugin.py:1109
-msgid "Conversion stopped by user"
-msgstr ""
-
-#: plugin.py:1135
-msgid "Success! "
-msgstr ""
-
-#: plugin.py:1137
-msgid "Error! "
-msgstr ""
-
-#: plugin.py:1155
-msgid "Stopping conversion..."
-msgstr ""
-
-#: plugin.py:1164
-msgid "Not enough space on {}!"
-msgstr ""
-
-#: plugin.py:1177
-msgid "Error accessing configuration values"
-msgstr ""
-
-#: plugin.py:1178
-msgid "Failed to read portal or MAC configuration:\n"
-msgstr ""
-
-#: plugin.py:1187
-msgid "Error: Invalid portal URL"
-msgstr ""
-
-#: plugin.py:1191
-msgid "Error: Invalid MAC address"
-msgstr ""
-
-#: plugin.py:1200 plugin.py:1226 plugin.py:2279
-msgid "Cannot create directory: "
-msgstr ""
-
-#: plugin.py:1209
-msgid "Stop"
-msgstr ""
-
-#: plugin.py:1212
-msgid "Starting conversion process..."
-msgstr ""
-
-#: plugin.py:1234
-msgid "Conversion canceled before start"
-msgstr ""
-
-#: plugin.py:1245
-msgid "Step 1/3: Connecting to portal..."
-msgstr ""
-
-#: plugin.py:1249 plugin.py:1549
-msgid "Conversion timeout exceeded"
-msgstr ""
-
-#: plugin.py:1253
-msgid "Conversion stopped during channel retrieval"
-msgstr ""
-
-#: plugin.py:1257
-msgid "Failed to retrieve channel list"
-msgstr ""
-
-#: plugin.py:1261
-msgid "Step 2/3: Creating playlist file..."
-msgstr ""
-
-#: plugin.py:1268
-msgid "Step 3/3: Create M3U file..."
-msgstr ""
-
-#: plugin.py:1279
-msgid "Conversion stopped during M3U creation"
-msgstr ""
-
-#: plugin.py:1293 plugin.py:1356
-msgid "Step 4/4: Getting VOD content..."
-msgstr ""
-
-#: plugin.py:1325 plugin.py:1373
-msgid "Added {} VOD items"
-msgstr ""
-
-#: plugin.py:1328
-msgid "M3U created with {} channels"
-msgstr ""
-
-#: plugin.py:1332
-msgid "Step 3/3: Create Bouquet file..."
-msgstr ""
-
-#: plugin.py:1337
-msgid "Conversion stopped during grouping"
-msgstr ""
-
-#: plugin.py:1342
-msgid "Grouping: {}"
-msgstr ""
-
-#: plugin.py:1345
-msgid "Conversion stopped before bouquet creation"
-msgstr ""
-
-#: plugin.py:1350
-msgid "Conversion stopped during bouquet creation"
-msgstr ""
-
-#: plugin.py:1377
-msgid "Bouquets created: {} groups with {} channels"
-msgstr ""
-
-#: plugin.py:1383
-msgid "Error creating playlist: "
-msgstr ""
-
-#: plugin.py:1387
-msgid "Conversion error: "
-msgstr ""
-
-#: plugin.py:1590
-msgid "Handshake failed: HTTP {}"
-msgstr ""
-
-#: plugin.py:1593
-msgid "Connection error: "
-msgstr ""
-
-#: plugin.py:1598
-msgid "Failed to obtain token!"
-msgstr ""
-
-#: plugin.py:1603
-msgid "Step 2/3: Authentication..."
-msgstr ""
-
-#: plugin.py:1609
-msgid "Authentication failed: "
-msgstr ""
-
-#: plugin.py:1613
-msgid "Step 3/3: Getting channels..."
-msgstr ""
-
-#: plugin.py:1618
-msgid "Channel list failed: HTTP {}"
-msgstr ""
-
-#: plugin.py:1623
-msgid "Invalid JSON response for channel list"
-msgstr ""
-
-#: plugin.py:1626
-msgid "Channel list error: "
-msgstr ""
-
-#: plugin.py:1633
-msgid "No channels found in response"
-msgstr ""
-
-#: plugin.py:1637
-msgid "Preparing {} channels..."
-msgstr ""
-
-#: plugin.py:1654
-msgid ""
-"Processed {}/{} channels ({:.1f}%)\n"
-"Elapsed: {:.1f}s | Speed: {:.1f}/s | ETA: {:.1f}s"
-msgstr ""
-
-#: plugin.py:1682
-msgid "Conversion stopped during processing"
-msgstr ""
-
-#: plugin.py:1714
-msgid "Critical channel processing error"
-msgstr ""
-
-#: plugin.py:2200
-msgid "Select Mount Root"
-msgstr ""
-
-#: plugin.py:2203
-msgid "Select this directory"
-msgstr ""
-
-#: plugin.py:2220 plugin.py:2348
-msgid "Error accessing directory: "
-msgstr ""
-
-#: plugin.py:2224
-msgid "<< Cancel"
-msgstr ""
-
-#: plugin.py:2228
-msgid "Select playlist file"
-msgstr ""
-
-#: plugin.py:2228
-msgid "Select directory"
-msgstr ""
-
-#: plugin.py:2232
-msgid "No files found in: "
-msgstr ""
-
-#: plugin.py:2283
-msgid "Directory not writable: "
-msgstr ""
-
-#: plugin.py:2290 plugin.py:2307
-msgid "Selected directory: "
-msgstr ""
-
-#: plugin.py:2298
-#, python-format
-msgid "Loaded playlist: %s"
-msgstr ""
-
-#: plugin.py:2352
-msgid "No files or directories found in: "
-msgstr ""
-
-#: plugin.py:2355
-msgid "<< Back to main menu"
-msgstr ""
-
-#: plugin.py:2360
-msgid "Select file to delete in: {}"
-msgstr ""
-
-#: plugin.py:2379
-msgid ""
-"Are you sure you want to delete:\n"
-"{}?"
-msgstr ""
-
-#: plugin.py:2394
-msgid "Deleted: "
-msgstr ""
-
-#: plugin.py:2403
-msgid "Delete failed: "
-msgstr ""
-
-#: plugin.py:2442
-msgid "Convert to M3U"
-msgstr ""
-
-#: plugin.py:2444
-msgid "Convert to TV"
-msgstr ""
-
-#: plugin.py:2462
-#, python-format
-msgid ""
-"Plugin: StalkerPortalConvert to M3U/TV\n"
-"Author: Lululla\n"
-"Version: %s\n"
-"Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet format.\n"
-"Support: linuxsat-support.com - corvoboys.org\n"
-"\n"
-msgstr ""
-
-#: plugin.py:2470
-msgid "HELP:\n"
-msgstr ""
-
-#: plugin.py:2471
-msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
-msgstr ""
-
-#: plugin.py:2472
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr ""
 
-#: plugin.py:2473
+msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
+msgstr ""
+
 msgid "- Press CONVERT to generate the playlist"
 msgstr ""
 
-#: plugin.py:2481
+msgid "<< Back to main menu"
+msgstr ""
+
+msgid "<< Cancel"
+msgstr ""
+
+msgid "Access Code:"
+msgstr ""
+
+msgid "Account info loaded"
+msgstr ""
+
+msgid "Active:"
+msgstr ""
+
+msgid "Added {} VOD items"
+msgstr ""
+
+msgid "Authentication failed:"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "Bouquet position set to: {}"
+msgstr ""
+
+msgid "Bouquets created: {} groups with {} channels"
+msgstr ""
+
+msgid "Cannot create directory:"
+msgstr ""
+
+msgid "Change Output Directory"
+msgstr ""
+
+msgid "Channel list error:"
+msgstr ""
+
+msgid "Channel list failed: HTTP {}"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Connection error:"
+msgstr ""
+
+msgid "Conversion canceled before start"
+msgstr ""
+
+msgid "Conversion error:"
+msgstr ""
+
+msgid "Conversion stopped before bouquet creation"
+msgstr ""
+
+msgid "Conversion stopped by user"
+msgstr ""
+
+msgid "Conversion stopped during M3U creation"
+msgstr ""
+
+msgid "Conversion stopped during bouquet creation"
+msgstr ""
+
+msgid "Conversion stopped during channel retrieval"
+msgstr ""
+
+msgid "Conversion stopped during grouping"
+msgstr ""
+
+msgid "Conversion stopped during processing"
+msgstr ""
+
+msgid "Conversion timeout exceeded"
+msgstr ""
+
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr ""
+
+msgid "Convert to M3U"
+msgstr ""
+
+msgid "Convert to TV"
+msgstr ""
+
+msgid "Critical channel processing error"
+msgstr ""
+
+msgid "Delete Playlist File"
+msgstr ""
+
+msgid "Delete failed:"
+msgstr ""
+
+msgid "Deleted:"
+msgstr ""
+
+msgid "Directory not writable:"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Disk"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit MAC Address"
+msgstr ""
+
+msgid "Edit Portal URL"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr ""
+
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr ""
+
+msgid "Error accessing configuration values"
+msgstr ""
+
+msgid "Error accessing configuration values:"
+msgstr ""
+
+msgid "Error accessing directory:"
+msgstr ""
+
+msgid "Error creating playlist:"
+msgstr ""
+
+msgid "Error details: {}"
+msgstr ""
+
+msgid "Error extracting account information"
+msgstr ""
+
+msgid "Error!"
+msgstr ""
+
+msgid "Error:"
+msgstr ""
+
+msgid "Error: Invalid MAC address"
+msgstr ""
+
+msgid "Error: Invalid portal URL"
+msgstr ""
+
+msgid "Error: Portal and MAC are required"
+msgstr ""
+
+msgid "Expiry:"
+msgstr ""
+
+msgid "Failed to load account info"
+msgstr ""
+
+msgid "Failed to obtain token!"
+msgstr ""
+
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr ""
+
+msgid "Failed to retrieve channel list"
+msgstr ""
+
 msgid "Fields cleared"
 msgstr ""
 
-#: plugin.py:2495
-msgid ""
-"Unable to fetch version info:\n"
-"{}"
+msgid "Grouping: {}"
 msgstr ""
 
-#: plugin.py:2513
-msgid "You are already running the latest version: {}"
+msgid "HELP:\n"
 msgstr ""
 
-#: plugin.py:2529
-#, python-format
-msgid ""
-"New version %s available\n"
-"\n"
-"Changelog: %s\n"
-"\n"
-"Do you want to install it now?"
+msgid "Handshake failed: HTTP {}"
 msgstr ""
 
-#: plugin.py:2542
-#, python-format
-msgid "You are already running the latest version: %s"
+msgid "Handshake failed: No token received"
 msgstr ""
 
-#: plugin.py:2550
-msgid "Update Aborted!"
+msgid "Hard Disk"
 msgstr ""
 
-#: plugin.py:2577
-msgid "Web Portal Server On"
-msgstr ""
-
-#: plugin.py:2578
-#, python-format
-msgid "Web server: http://%s:%d"
-msgstr ""
-
-#: plugin.py:2580
-msgid "Web server error: "
-msgstr ""
-
-#: plugin.py:2589
-msgid "Web server stopped"
-msgstr ""
-
-#: plugin.py:2686 plugin.py:2725
-msgid "You need to start the Web Server first!"
-msgstr ""
-
-#: plugin.py:2694
 msgid "Hide Code"
 msgstr ""
 
-#: plugin.py:2714
-msgid "New Access Code: "
+msgid "Include VOD in Playlist"
 msgstr ""
 
-#: plugin.py:2719
+msgid "Information"
+msgstr ""
+
+msgid "Initialization error"
+msgstr ""
+
+msgid "Invalid JSON response for channel list"
+msgstr ""
+
+msgid "Invalid MAC: {mac}"
+msgstr ""
+
+msgid "Invalid URL: {portal}"
+msgstr ""
+
+msgid "Loaded playlist: %s"
+msgstr ""
+
+msgid "Loaded {} valid entries from {}"
+msgstr ""
+
+msgid "Loading account info in background..."
+msgstr ""
+
+msgid "M3U created with {} channels"
+msgstr ""
+
+msgid "MAC Address:"
+msgstr ""
+
+msgid "Max:"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "New Access Code:"
+msgstr ""
+
+msgid "New Code"
+msgstr ""
+
 msgid "New access code generated!"
 msgstr ""
 
-#: plugin.py:4219
-msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgid "No channels found in response"
+msgstr ""
+
+msgid "No files found in:"
+msgstr ""
+
+msgid "No files or directories found in:"
+msgstr ""
+
+msgid "No valid entries found in file"
+msgstr ""
+
+msgid "Not enough space on {}!"
+msgstr ""
+
+msgid "Output File:"
+msgstr ""
+
+msgid "Password:"
+msgstr ""
+
+msgid "Playlist File:"
+msgstr ""
+
+msgid "Portal URL:"
+msgstr ""
+
+msgid "Preparing {} channels..."
+msgstr ""
+
+msgid "Press 0: Show Access Code | Press 1: New Code"
+msgstr ""
+
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr ""
+
+msgid "Scanning file... {}%"
+msgstr ""
+
+msgid "Select Bouquet Position"
+msgstr ""
+
+msgid "Select Mount Root"
+msgstr ""
+
+msgid "Select Playlist"
+msgstr ""
+
+msgid "Select Playlist File"
+msgstr ""
+
+msgid "Select Type of Conversion"
+msgstr ""
+
+msgid "Select directory"
+msgstr ""
+
+msgid "Select file to delete in: {}"
+msgstr ""
+
+msgid "Select playlist file"
+msgstr ""
+
+msgid "Select this directory"
+msgstr ""
+
+msgid "Selected directory:"
+msgstr ""
+
+msgid "Selected:"
+msgstr ""
+
+msgid "Set Bouquet Position"
+msgstr ""
+
+msgid "Set Type Conversion"
+msgstr ""
+
+msgid "Show Code"
+msgstr ""
+
+msgid "Stalker Portal to M3U Converter v.%s"
+msgstr ""
+
+msgid "Starting conversion process..."
+msgstr ""
+
+msgid "Status:"
+msgstr ""
+
+msgid "Step 1/3: Connecting to portal..."
+msgstr ""
+
+msgid "Step 1/3: Handshake..."
+msgstr ""
+
+msgid "Step 2/3: Authentication..."
+msgstr ""
+
+msgid "Step 2/3: Creating playlist file..."
+msgstr ""
+
+msgid "Step 3/3: Create Bouquet file..."
+msgstr ""
+
+msgid "Step 3/3: Create M3U file..."
+msgstr ""
+
+msgid "Step 3/3: Getting channels..."
+msgstr ""
+
+msgid "Step 4/4: Getting VOD content..."
+msgstr ""
+
+msgid "Stop"
+msgstr ""
+
+msgid "Stopping conversion..."
+msgstr ""
+
+msgid "Stopping current process to switch portal..."
+msgstr ""
+
+msgid "Success!"
+msgstr ""
+
+msgid "Temporary Storage"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
+msgid "USB Drive"
+msgstr ""
+
+msgid "Update Aborted!"
+msgstr ""
+
+msgid "Upgrade Stalker Converter"
+msgstr ""
+
+msgid "User:"
+msgstr ""
+
+msgid "VOD inclusion: {}"
+msgstr ""
+
+msgid "Valid Portals from Selected File:"
+msgstr ""
+
+msgid "Web Portal Server Off"
+msgstr ""
+
+msgid "Web Portal Server On"
+msgstr ""
+
+msgid "Web server error:"
+msgstr ""
+
+msgid "Web server stopped"
+msgstr ""
+
+msgid "Web server: http://%s:%d"
+msgstr ""
+
+msgid "You are already running the latest version: %s"
+msgstr ""
+
+msgid "You are already running the latest version: {}"
+msgstr ""
+
+msgid "You need to start the Web Server first!"
 msgstr ""

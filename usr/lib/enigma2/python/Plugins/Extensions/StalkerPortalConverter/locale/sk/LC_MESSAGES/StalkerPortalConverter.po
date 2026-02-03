@@ -16,504 +16,460 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
-#: plugin.py:147 plugin.py:862
-msgid "Top"
-msgstr "Hore"
-
-#: plugin.py:147 plugin.py:862
-msgid "Bottom"
-msgstr "Dole"
-
-#: plugin.py:238
-#, python-format
-msgid "Stalker Portal to M3U Converter v.%s"
-msgstr "Prevodník Stalker Portal do M3U verzie %s"
-
-#: plugin.py:239
-msgid "Portal URL:"
-msgstr "URL adresa portálu:"
-
-#: plugin.py:241
-msgid "MAC Address:"
-msgstr "MAC adresa:"
-
-#: plugin.py:243
-msgid "Output File:"
-msgstr "Výstupný súbor:"
-
-#: plugin.py:245
-msgid "Valid Portals from Selected File:"
-msgstr "Platné portály z vybraného súboru:"
-
-#: plugin.py:249
-msgid "User:"
-msgstr "Používateľ:"
-
-#: plugin.py:251
-msgid "Password:"
-msgstr "Heslo:"
-
-#: plugin.py:253
-msgid "Expiry:"
-msgstr "Platnosť do:"
-
-#: plugin.py:255
-msgid "Status:"
-msgstr "Stav:"
-
-#: plugin.py:257
-msgid "Active:"
-msgstr "Aktívne:"
-
-#: plugin.py:259
-msgid "Max: "
-msgstr "Max: "
-
-#: plugin.py:263
-msgid "Ready - Select a file or enter URL/MAC"
-msgstr "Pripravené – Vyberte súbor alebo zadajte URL/MAC"
-
-#: plugin.py:264
-msgid "Clear"
-msgstr "Vyčistiť"
-
-#: plugin.py:266
-msgid "Select Playlist"
-msgstr "Vyberte Playlist"
-
-#: plugin.py:267
-msgid "Edit"
-msgstr "Upraviť"
-
-#: plugin.py:336
-msgid "Initialization error"
-msgstr "Chyba inicializácie"
-
-#: plugin.py:343
-msgid "Stopping current process to switch portal..."
-msgstr "Zastavuje sa aktuálny proces prepnutia portálu..."
-
-#: plugin.py:366
-msgid "Selected: "
-msgstr "Vybrané: "
-
-#: plugin.py:377
-msgid "Loading account info in background..."
-msgstr "Načítavajú sa informácie o účte na pozadí..."
-
-#: plugin.py:402
-msgid "Account info loaded"
-msgstr "Informácie o účte boli načítané"
-
-#: plugin.py:404
-msgid "Failed to load account info"
-msgstr "Nepodarilo sa načítať informácie o účte"
-
-#: plugin.py:415
-msgid "Error accessing configuration values: "
-msgstr "Chyba pri prístupe k konfiguračným hodnotám: "
-
-#: plugin.py:419 plugin.py:1048
-msgid "Error: Portal and MAC are required"
-msgstr "Chyba: Vyžaduje sa Portál a MAC"
-
-#: plugin.py:550
-msgid "Handshake failed: No token received"
-msgstr "Podanie ruky zlyhalo: Neprijatý nebol žiadny token"
-
-#: plugin.py:663
-msgid "Error extracting account information"
-msgstr "Chyba pri extrakcii informácií o účte"
-
-#: plugin.py:760
-msgid "Set Type Conversion"
-msgstr "Konverzia typu sady"
-
-#: plugin.py:761
-msgid "Edit Portal URL"
-msgstr "Upraviť URL adresu portálu"
-
-#: plugin.py:762
-msgid "Edit MAC Address"
-msgstr "Upraviť MAC adresu"
-
-#: plugin.py:763
-msgid "Select Playlist File"
-msgstr "Vyberte súbor zoznamu skladieb"
-
-#: plugin.py:764
-msgid "Delete Playlist File"
-msgstr "Odstrániť súbor zoznamu skladieb"
-
-#: plugin.py:765
-msgid "Change Output Directory"
-msgstr "Zmeniť výstupný adresár"
-
-#: plugin.py:766
-msgid "Upgrade Stalker Converter"
-msgstr "Vylepšiť Stalker Converter"
-
-#: plugin.py:767
-msgid "Information"
-msgstr "Informácie"
-
-#: plugin.py:768
-msgid "Set Bouquet Position"
-msgstr "Nastavenie polohy kytice"
-
-#: plugin.py:808
-msgid ""
-"Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
-"Zadajte URL adresu portálu (napr. http://example.com/c/ alebo http://"
-"example.com:8088/c/)"
-
-#: plugin.py:827
-msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
-msgstr "Zadajte MAC adresu (napr. 00:1A:79:XX:XX:XX)"
-
-#: plugin.py:856
-msgid "Select Type of Conversion"
-msgstr "Vyberte typ konverzie"
-
-#: plugin.py:869
-msgid "Bouquet position set to: {}"
-msgstr "Pozícia kytice nastavená na: {}"
-
-#: plugin.py:875
-msgid "Select Bouquet Position"
-msgstr "Vyberte pozíciu kytice"
-
-#: plugin.py:890
-msgid "Get ALL portal/MAC from file"
-msgstr "Získať VŠETKY portály/MAC adresy zo súboru"
-
-#: plugin.py:904
-msgid "Loaded {} valid portals from {}"
-msgstr "Načítaných {} platných portálov z {}"
-
-#: plugin.py:906
-msgid "No valid portals found in file"
-msgstr "V súbore sa nenašli žiadne platné portály"
-
-#: plugin.py:909
-msgid "Error: "
-msgstr "Chyba: "
-
-#: plugin.py:932
-msgid "Scanning file... {}%"
-msgstr "Skenovanie súboru... {}%"
-
-#: plugin.py:985
-msgid "Conversion stopped by user"
-msgstr "Konverziu zastavil používateľ"
-
-#: plugin.py:1003 plugin.py:1286
-msgid "Success! "
-msgstr "Hotovo! "
-
-#: plugin.py:1005 plugin.py:1288
-msgid "Error! "
-msgstr "Chyba! "
-
-#: plugin.py:1020
-msgid "Stopping conversion..."
-msgstr "Zastavenie konverzie..."
-
-#: plugin.py:1029
-msgid "Not enough space on {}!"
-msgstr "Nie je dostatok miesta na {}!"
-
-#: plugin.py:1042
-msgid "Error accessing configuration values"
-msgstr "Chyba pri prístupe k konfiguračným hodnotám"
-
-#: plugin.py:1043
-msgid "Failed to read portal or MAC configuration:\n"
-msgstr "Nepodarilo sa načítať konfiguráciu portálu alebo MAC adresy:\n"
-
-#: plugin.py:1052
-msgid "Error: Invalid portal URL"
-msgstr "Chyba: Neplatná URL adresa portálu"
-
-#: plugin.py:1056
-msgid "Error: Invalid MAC address"
-msgstr "Chyba: Neplatná MAC adresa"
-
-#: plugin.py:1065
-msgid "Cannot create directory: "
-msgstr "Nedá sa vytvoriť adresár: "
-
-#: plugin.py:1074
-msgid "Stop"
-msgstr "Stop"
-
-#: plugin.py:1077
-msgid "Starting conversion process..."
-msgstr "Spúšťa sa proces konverzie..."
-
-#: plugin.py:1088
-msgid "Conversion canceled before start"
-msgstr "Konverzia zrušená pred začiatkom"
-
-#: plugin.py:1095
-msgid "Step 1/3: Connecting to portal..."
-msgstr "Krok 1/3: Pripájanie k portálu..."
-
-#: plugin.py:1099
-msgid "Conversion stopped during channel retrieval"
-msgstr "Konverzia sa zastavila počas načítania kanála"
-
-#: plugin.py:1103
-msgid "Failed to retrieve channel list"
-msgstr "Nepodarilo sa načítať zoznam kanálov"
-
-#: plugin.py:1107
-msgid "Step 2/3: Creating playlist file..."
-msgstr "Krok 2/3: Vytvorenie súboru so zoznamom skladieb..."
-
-#: plugin.py:1114
-msgid "Step 3/3: Create M3U file..."
-msgstr "Krok 3/3: Vytvorenie súboru M3U..."
-
-#: plugin.py:1125
-msgid "Conversion stopped during M3U creation"
-msgstr "Konverzia sa zastavila počas vytvárania M3U"
-
-#: plugin.py:1137
-msgid "M3U created with {} channels"
-msgstr "M3U vytvorené s {} kanálmi"
-
-#: plugin.py:1141
-msgid "Step 3/3: Create Bouquet file..."
-msgstr "Krok 3/3: Vytvorenie súboru Kytica..."
-
-#: plugin.py:1146
-msgid "Conversion stopped during grouping"
-msgstr "Konverzia sa zastavila počas zoskupovania"
-
-#: plugin.py:1151
-msgid "Grouping: {}"
-msgstr "Zoskupenie: {}"
-
-#: plugin.py:1154
-msgid "Conversion stopped before bouquet creation"
-msgstr "Konverzia bola zastavená pred vytvorením kytice"
-
-#: plugin.py:1159
-msgid "Conversion stopped during bouquet creation"
-msgstr "Konverzia sa zastavila počas vytvárania kytice"
-
-#: plugin.py:1165
-msgid "Bouquets created: {} groups with {} channels"
-msgstr "Vytvorené kytice: {} skupín s {} kanálmi"
-
-#: plugin.py:1171
-msgid "Error creating playlist: "
-msgstr "Chyba pri vytváraní zoznamu skladieb: "
-
-#: plugin.py:1175
-msgid "Conversion error: "
-msgstr "Chyba konverzie: "
-
-#: plugin.py:1357
-msgid "Step 1/3: Handshake..."
-msgstr "Krok 1/3: Podanie ruky..."
-
-#: plugin.py:1362
-msgid "Failed to obtain token!"
-msgstr "Nepodarilo sa získať token!"
-
-#: plugin.py:1368
-msgid "Step 2/3: Authentication..."
-msgstr "Krok 2/3: Autentifikácia..."
-
-#: plugin.py:1374
-msgid "Step 3/3: Getting channels..."
-msgstr "Krok 3/3: Získanie kanálov..."
-
-#: plugin.py:1382
-msgid "No channels found in response"
-msgstr "V odpovedi sa nenašli žiadne kanály"
-
-#: plugin.py:1386
-#, python-format
-msgid "Preparing %d channels..."
-msgstr "Príprava %d kanálov..."
-
-#: plugin.py:1399
-msgid "Conversion stopped during channel processing"
-msgstr "Konverzia bola zastavená počas spracovania kanála"
-
-#: plugin.py:1417
-msgid "Conversion stopped during result processing"
-msgstr "Konverzia sa zastavila počas spracovania výsledku"
-
-#: plugin.py:1445
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s "
-"| ETA: {:.1f}s"
-msgstr ""
-"Spracované kanály: {}/{} ({:.1f} %) | Uplynutý čas: {:.1f} s | Priemerná "
-"rýchlosť: {:.1f}/s | Predpokladaný čas príchodu: {:.1f} s"
-
-#: plugin.py:1461
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
-msgstr ""
-"Spracované kanály: {}/{} ({:.1f} %) | Uplynutý čas: {:.1f} s | Priemerná "
-"rýchlosť: {:.1f}/s"
-
-#: plugin.py:1736
-msgid "Select this directory"
-msgstr "Vyberte tento adresár"
-
-#: plugin.py:1756 plugin.py:1852
-msgid "Error accessing directory: "
-msgstr "Chyba pri prístupe k adresáru: "
-
-#: plugin.py:1760
-msgid "<< Cancel"
-msgstr "<< Zrušiť"
-
-#: plugin.py:1764
-msgid "Select playlist file"
-msgstr "Vyberte súbor so zoznamom skladieb"
-
-#: plugin.py:1764
-msgid "Select directory"
-msgstr "Vyberte adresár"
-
-#: plugin.py:1768
-msgid "No files found in: "
-msgstr "Nenašli sa žiadne súbory v: "
-
-#: plugin.py:1797
-msgid "Selected directory: "
-msgstr "Vybraný adresár: "
-
-#: plugin.py:1807
-#, python-format
-msgid "Loaded playlist: %s"
-msgstr "Načítaný zoznam skladieb: %s"
-
-#: plugin.py:1856
-msgid "No files or directories found in: "
-msgstr "Nenašli sa žiadne súbory ani adresáre v: "
-
-#: plugin.py:1859
-msgid "<< Back to main menu"
-msgstr "<< Späť do hlavnej ponuky"
-
-#: plugin.py:1864
-msgid "Select file to delete in: {}"
-msgstr "Vyberte súbor, ktorý chcete odstrániť v: {}"
-
-#: plugin.py:1883
-msgid ""
-"Are you sure you want to delete:\n"
-"{}?"
-msgstr ""
-"Naozaj chcete odstrániť:\n"
-"{}?"
-
-#: plugin.py:1898
-msgid "Deleted: "
-msgstr "Odstránené: "
-
-#: plugin.py:1907
-msgid "Delete failed: "
-msgstr "Odstránenie zlyhalo: "
-
-#: plugin.py:1946
-msgid "Convert to M3U"
-msgstr "Konvertovať do M3U"
-
-#: plugin.py:1948
-msgid "Convert to TV"
-msgstr "Previesť na televízor"
-
-#: plugin.py:1966
-#, python-format
-msgid ""
-"Plugin: StalkerPortalConvert to M3U/TV\n"
-"Author: Lululla\n"
-"Version: %s\n"
-"Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet "
-"format.\n"
-"Support: linuxsat-support.com - corvoboys.org\n"
-"\n"
-msgstr ""
-"Plugin: StalkerPortalConvert to M3U/TV\n"
-"Autor: Lululla\n"
-"Verzia: %s\n"
-"Dátum: jún 2025\n"
-"Popis: Konvertuje playlisty Stalker Portal do formátu M3U alebo Enigma2 "
-"bouquet.\n"
-"Podpora: linuxsat-support.com - corvoboys.org\n"
-"\n"
-
-#: plugin.py:1974
-msgid "HELP:\n"
-msgstr "POMOC:\n"
-
-#: plugin.py:1975
-msgid ""
-"- Open a file with server URLs or press the BLUE button to edit the host and "
-"MAC address\n"
-msgstr ""
-"- Otvorte súbor s URL adresami serverov alebo stlačte MODRÉ tlačidlo pre "
-"úpravu hostiteľa a MAC adresy.\n"
-
-#: plugin.py:1976
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr "- Vyberte požadovaný výstupný formát: M3U alebo TV bouquet\n"
 
-#: plugin.py:1977
+msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
+msgstr ""
+
 msgid "- Press CONVERT to generate the playlist"
 msgstr "- Stlačením tlačidla KONVERTOVAŤ vygenerujete zoznam skladieb"
 
-#: plugin.py:1985
+msgid "<< Back to main menu"
+msgstr "<< Späť do hlavnej ponuky"
+
+msgid "<< Cancel"
+msgstr "<< Zrušiť"
+
+msgid "Access Code:"
+msgstr ""
+
+msgid "Account info loaded"
+msgstr "Informácie o účte boli načítané"
+
+msgid "Active:"
+msgstr "Aktívne:"
+
+msgid "Added {} VOD items"
+msgstr ""
+
+msgid "Authentication failed:"
+msgstr ""
+
+msgid "Bottom"
+msgstr "Dole"
+
+msgid "Bouquet position set to: {}"
+msgstr "Pozícia kytice nastavená na: {}"
+
+msgid "Bouquets created: {} groups with {} channels"
+msgstr "Vytvorené kytice: {} skupín s {} kanálmi"
+
+#, fuzzy
+msgid "Cannot create directory:"
+msgstr "Nedá sa vytvoriť adresár: "
+
+msgid "Change Output Directory"
+msgstr "Zmeniť výstupný adresár"
+
+msgid "Channel list error:"
+msgstr ""
+
+msgid "Channel list failed: HTTP {}"
+msgstr ""
+
+msgid "Clear"
+msgstr "Vyčistiť"
+
+#, fuzzy
+msgid "Connection error:"
+msgstr "Chyba konverzie: "
+
+msgid "Conversion canceled before start"
+msgstr "Konverzia zrušená pred začiatkom"
+
+#, fuzzy
+msgid "Conversion error:"
+msgstr "Chyba konverzie: "
+
+msgid "Conversion stopped before bouquet creation"
+msgstr "Konverzia bola zastavená pred vytvorením kytice"
+
+msgid "Conversion stopped by user"
+msgstr "Konverziu zastavil používateľ"
+
+msgid "Conversion stopped during M3U creation"
+msgstr "Konverzia sa zastavila počas vytvárania M3U"
+
+msgid "Conversion stopped during bouquet creation"
+msgstr "Konverzia sa zastavila počas vytvárania kytice"
+
+msgid "Conversion stopped during channel retrieval"
+msgstr "Konverzia sa zastavila počas načítania kanála"
+
+msgid "Conversion stopped during grouping"
+msgstr "Konverzia sa zastavila počas zoskupovania"
+
+#, fuzzy
+msgid "Conversion stopped during processing"
+msgstr "Konverzia sa zastavila počas spracovania výsledku"
+
+#, fuzzy
+msgid "Conversion timeout exceeded"
+msgstr "Chyba konverzie: "
+
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr "Prevod Stalker Portal do playlistu M3U so skutočnými kanálmi"
+
+msgid "Convert to M3U"
+msgstr "Konvertovať do M3U"
+
+msgid "Convert to TV"
+msgstr "Previesť na televízor"
+
+#, fuzzy
+msgid "Critical channel processing error"
+msgstr "Konverzia bola zastavená počas spracovania kanála"
+
+msgid "Delete Playlist File"
+msgstr "Odstrániť súbor zoznamu skladieb"
+
+#, fuzzy
+msgid "Delete failed:"
+msgstr "Odstránenie zlyhalo: "
+
+#, fuzzy
+msgid "Deleted:"
+msgstr "Odstránené: "
+
+msgid "Directory not writable:"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Disk"
+msgstr ""
+
+msgid "Edit"
+msgstr "Upraviť"
+
+msgid "Edit MAC Address"
+msgstr "Upraviť MAC adresu"
+
+msgid "Edit Portal URL"
+msgstr "Upraviť URL adresu portálu"
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr "Zadajte MAC adresu (napr. 00:1A:79:XX:XX:XX)"
+
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr ""
+
+msgid "Error accessing configuration values"
+msgstr "Chyba pri prístupe k konfiguračným hodnotám"
+
+#, fuzzy
+msgid "Error accessing configuration values:"
+msgstr "Chyba pri prístupe k konfiguračným hodnotám: "
+
+#, fuzzy
+msgid "Error accessing directory:"
+msgstr "Chyba pri prístupe k adresáru: "
+
+#, fuzzy
+msgid "Error creating playlist:"
+msgstr "Chyba pri vytváraní zoznamu skladieb: "
+
+#, fuzzy
+msgid "Error details: {}"
+msgstr "Chyba pri vytváraní zoznamu skladieb: "
+
+msgid "Error extracting account information"
+msgstr "Chyba pri extrakcii informácií o účte"
+
+#, fuzzy
+msgid "Error!"
+msgstr "Chyba! "
+
+#, fuzzy
+msgid "Error:"
+msgstr "Chyba: "
+
+msgid "Error: Invalid MAC address"
+msgstr "Chyba: Neplatná MAC adresa"
+
+msgid "Error: Invalid portal URL"
+msgstr "Chyba: Neplatná URL adresa portálu"
+
+msgid "Error: Portal and MAC are required"
+msgstr "Chyba: Vyžaduje sa Portál a MAC"
+
+msgid "Expiry:"
+msgstr "Platnosť do:"
+
+msgid "Failed to load account info"
+msgstr "Nepodarilo sa načítať informácie o účte"
+
+msgid "Failed to obtain token!"
+msgstr "Nepodarilo sa získať token!"
+
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr "Nepodarilo sa načítať konfiguráciu portálu alebo MAC adresy:\n"
+
+msgid "Failed to retrieve channel list"
+msgstr "Nepodarilo sa načítať zoznam kanálov"
+
 msgid "Fields cleared"
 msgstr "Polia vymazané"
 
-#: plugin.py:1999
-msgid ""
-"Unable to fetch version info:\n"
-"{}"
+msgid "Grouping: {}"
+msgstr "Zoskupenie: {}"
+
+msgid "HELP:\n"
+msgstr "POMOC:\n"
+
+#, fuzzy
+msgid "Handshake failed: HTTP {}"
+msgstr "Podanie ruky zlyhalo: Neprijatý nebol žiadny token"
+
+msgid "Handshake failed: No token received"
+msgstr "Podanie ruky zlyhalo: Neprijatý nebol žiadny token"
+
+msgid "Hard Disk"
 msgstr ""
-"Nepodarilo sa načítať informácie o verzii:\n"
-"0}"
 
-#: plugin.py:2017
-msgid "You are already running the latest version: {}"
-msgstr "Už používate najnovšiu verziu: {}"
-
-#: plugin.py:2033
-#, python-format
-msgid ""
-"New version %s available\n"
-"\n"
-"Changelog: %s\n"
-"\n"
-"Do you want to install it now?"
+msgid "Hide Code"
 msgstr ""
-"Nová verzia %s je k dispozícii\n"
-"\n"
-"Zoznam zmien: %s\n"
-"\n"
-"Chcete ju teraz nainštalovať?"
 
-#: plugin.py:2046
-#, python-format
-msgid "You are already running the latest version: %s"
-msgstr "Už používate najnovšiu verziu: %s"
+msgid "Include VOD in Playlist"
+msgstr ""
 
-#: plugin.py:2054
+msgid "Information"
+msgstr "Informácie"
+
+msgid "Initialization error"
+msgstr "Chyba inicializácie"
+
+#, fuzzy
+msgid "Invalid JSON response for channel list"
+msgstr "Nepodarilo sa načítať zoznam kanálov"
+
+msgid "Invalid MAC: {mac}"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid URL: {portal}"
+msgstr "Chyba: Neplatná URL adresa portálu"
+
+msgid "Loaded playlist: %s"
+msgstr "Načítaný zoznam skladieb: %s"
+
+#, fuzzy
+msgid "Loaded {} valid entries from {}"
+msgstr "Načítaných {} platných portálov z {}"
+
+msgid "Loading account info in background..."
+msgstr "Načítavajú sa informácie o účte na pozadí..."
+
+msgid "M3U created with {} channels"
+msgstr "M3U vytvorené s {} kanálmi"
+
+msgid "MAC Address:"
+msgstr "MAC adresa:"
+
+#, fuzzy
+msgid "Max:"
+msgstr "Max: "
+
+msgid "Network"
+msgstr ""
+
+msgid "New Access Code:"
+msgstr ""
+
+msgid "New Code"
+msgstr ""
+
+msgid "New access code generated!"
+msgstr ""
+
+msgid "No channels found in response"
+msgstr "V odpovedi sa nenašli žiadne kanály"
+
+#, fuzzy
+msgid "No files found in:"
+msgstr "Nenašli sa žiadne súbory v: "
+
+#, fuzzy
+msgid "No files or directories found in:"
+msgstr "Nenašli sa žiadne súbory ani adresáre v: "
+
+#, fuzzy
+msgid "No valid entries found in file"
+msgstr "V súbore sa nenašli žiadne platné portály"
+
+msgid "Not enough space on {}!"
+msgstr "Nie je dostatok miesta na {}!"
+
+msgid "Output File:"
+msgstr "Výstupný súbor:"
+
+msgid "Password:"
+msgstr "Heslo:"
+
+#, fuzzy
+msgid "Playlist File:"
+msgstr "Vyberte súbor zoznamu skladieb"
+
+msgid "Portal URL:"
+msgstr "URL adresa portálu:"
+
+#, fuzzy
+msgid "Preparing {} channels..."
+msgstr "Príprava %d kanálov..."
+
+msgid "Press 0: Show Access Code | Press 1: New Code"
+msgstr ""
+
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr "Pripravené – Vyberte súbor alebo zadajte URL/MAC"
+
+msgid "Scanning file... {}%"
+msgstr "Skenovanie súboru... {}%"
+
+msgid "Select Bouquet Position"
+msgstr "Vyberte pozíciu kytice"
+
+#, fuzzy
+msgid "Select Mount Root"
+msgstr "Vyberte pozíciu kytice"
+
+msgid "Select Playlist"
+msgstr "Vyberte Playlist"
+
+msgid "Select Playlist File"
+msgstr "Vyberte súbor zoznamu skladieb"
+
+msgid "Select Type of Conversion"
+msgstr "Vyberte typ konverzie"
+
+msgid "Select directory"
+msgstr "Vyberte adresár"
+
+msgid "Select file to delete in: {}"
+msgstr "Vyberte súbor, ktorý chcete odstrániť v: {}"
+
+msgid "Select playlist file"
+msgstr "Vyberte súbor so zoznamom skladieb"
+
+msgid "Select this directory"
+msgstr "Vyberte tento adresár"
+
+#, fuzzy
+msgid "Selected directory:"
+msgstr "Vybraný adresár: "
+
+#, fuzzy
+msgid "Selected:"
+msgstr "Vybrané: "
+
+msgid "Set Bouquet Position"
+msgstr "Nastavenie polohy kytice"
+
+msgid "Set Type Conversion"
+msgstr "Konverzia typu sady"
+
+msgid "Show Code"
+msgstr ""
+
+msgid "Stalker Portal to M3U Converter v.%s"
+msgstr "Prevodník Stalker Portal do M3U verzie %s"
+
+msgid "Starting conversion process..."
+msgstr "Spúšťa sa proces konverzie..."
+
+msgid "Status:"
+msgstr "Stav:"
+
+msgid "Step 1/3: Connecting to portal..."
+msgstr "Krok 1/3: Pripájanie k portálu..."
+
+msgid "Step 1/3: Handshake..."
+msgstr "Krok 1/3: Podanie ruky..."
+
+msgid "Step 2/3: Authentication..."
+msgstr "Krok 2/3: Autentifikácia..."
+
+msgid "Step 2/3: Creating playlist file..."
+msgstr "Krok 2/3: Vytvorenie súboru so zoznamom skladieb..."
+
+msgid "Step 3/3: Create Bouquet file..."
+msgstr "Krok 3/3: Vytvorenie súboru Kytica..."
+
+msgid "Step 3/3: Create M3U file..."
+msgstr "Krok 3/3: Vytvorenie súboru M3U..."
+
+msgid "Step 3/3: Getting channels..."
+msgstr "Krok 3/3: Získanie kanálov..."
+
+#, fuzzy
+msgid "Step 4/4: Getting VOD content..."
+msgstr "Krok 3/3: Získanie kanálov..."
+
+msgid "Stop"
+msgstr "Stop"
+
+msgid "Stopping conversion..."
+msgstr "Zastavenie konverzie..."
+
+msgid "Stopping current process to switch portal..."
+msgstr "Zastavuje sa aktuálny proces prepnutia portálu..."
+
+#, fuzzy
+msgid "Success!"
+msgstr "Hotovo! "
+
+msgid "Temporary Storage"
+msgstr ""
+
+msgid "Top"
+msgstr "Hore"
+
+msgid "USB Drive"
+msgstr ""
+
 msgid "Update Aborted!"
 msgstr "Aktualizácia prerušená!"
 
-#: plugin.py:2101
-msgid "Convert Stalker Portal to M3U playlist with actual channels"
-msgstr "Prevod Stalker Portal do playlistu M3U so skutočnými kanálmi"
+msgid "Upgrade Stalker Converter"
+msgstr "Vylepšiť Stalker Converter"
+
+msgid "User:"
+msgstr "Používateľ:"
+
+msgid "VOD inclusion: {}"
+msgstr ""
+
+msgid "Valid Portals from Selected File:"
+msgstr "Platné portály z vybraného súboru:"
+
+msgid "Web Portal Server Off"
+msgstr ""
+
+msgid "Web Portal Server On"
+msgstr ""
+
+msgid "Web server error:"
+msgstr ""
+
+msgid "Web server stopped"
+msgstr ""
+
+msgid "Web server: http://%s:%d"
+msgstr ""
+
+msgid "You are already running the latest version: %s"
+msgstr "Už používate najnovšiu verziu: %s"
+
+msgid "You are already running the latest version: {}"
+msgstr "Už používate najnovšiu verziu: {}"
+
+msgid "You need to start the Web Server first!"
+msgstr ""
+
+#~ msgid "Get ALL portal/MAC from file"
+#~ msgstr "Získať VŠETKY portály/MAC adresy zo súboru"
