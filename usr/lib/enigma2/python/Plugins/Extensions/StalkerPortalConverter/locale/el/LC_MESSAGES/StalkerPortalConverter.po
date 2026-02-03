@@ -16,574 +16,462 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: plugin.py\n"
 
-#: plugin.py:155 plugin.py:962
-msgid "Top"
-msgstr "Πάνω"
-
-#: plugin.py:155 plugin.py:962
-msgid "Bottom"
-msgstr "Κάτω"
-
-#: plugin.py:275
-#, python-format
-msgid "Stalker Portal to M3U Converter v.%s"
-msgstr "Μετατροπή πυλών Stalker σε M3U v.%s"
-
-#: plugin.py:276
-msgid "Portal URL:"
-msgstr "URL πύλης:"
-
-#: plugin.py:278
-msgid "MAC Address:"
-msgstr "Διεύθυνση MAC:"
-
-#: plugin.py:280
-msgid "Output File:"
-msgstr "Αρχείο εξόδου:"
-
-#: plugin.py:282
-msgid "Playlist File:"
-msgstr "Αρχείο λίστας αναπαραγωγής:"
-
-#: plugin.py:284
-msgid "Valid Portals from Selected File:"
-msgstr "Έγκυρες πύλες από το επιλεγμένο αρχείο:"
-
-#: plugin.py:287
-msgid "User:"
-msgstr "Χρήστης:"
-
-#: plugin.py:289
-msgid "Password:"
-msgstr "Κωδικός:"
-
-#: plugin.py:291
-msgid "Expiry:"
-msgstr "Λήξη:"
-
-#: plugin.py:293
-msgid "Status:"
-msgstr "Κατάσταση:"
-
-#: plugin.py:295
-msgid "Active:"
-msgstr "Ενεργό:"
-
-#: plugin.py:297
-msgid "Max: "
-msgstr "Μέγιστοι: "
-
-#: plugin.py:301
-msgid "Ready - Select a file or enter URL/MAC"
-msgstr "Έτοιμο - Επιλέξτε αρχείο ή εισάγετε URL/MAC"
-
-#: plugin.py:302
-msgid "Clear"
-msgstr "Καθαρισμός"
-
-#: plugin.py:304
-msgid "Select Playlist"
-msgstr "Επιλογή Playlist"
-
-#: plugin.py:305
-msgid "Edit"
-msgstr "Επεξεργασία"
-
-#: plugin.py:307 plugin.py:2440 plugin.py:2460
-msgid "Web Portal Server Off"
-msgstr "Διακομιστής ιστού πυλών Ανενεργός"
-
-#: plugin.py:308
-msgid "Press 0: Show Access Code | Press 1: New Code"
-msgstr "Πατήστε 0: Εμφάνιση κωδικού πρόσβασης | Πατήστε 1: Νέος κωδικός"
-
-#: plugin.py:309 plugin.py:2546 plugin.py:2555 plugin.py:2585
-msgid "Access Code: "
-msgstr "Κωδικός πρόσβασης: "
-
-#: plugin.py:310
-msgid "New Code"
-msgstr "Νέος κωδικός"
-
-#: plugin.py:311 plugin.py:2556
-msgid "Show Code"
-msgstr "Εμφάνιση κωδικού"
-
-#: plugin.py:360 plugin.py:386 plugin.py:886
-msgid "Enabled"
-msgstr "Ενεργοποιημένο"
-
-#: plugin.py:360 plugin.py:386 plugin.py:886
-msgid "Disabled"
-msgstr "Απενεργοποιημένο"
-
-#: plugin.py:361 plugin.py:887
-msgid "VOD inclusion: {}"
-msgstr "Συμπερίληψη ταινιών: {}"
-
-#: plugin.py:386
-msgid "VOD: "
-msgstr "Ταινίες: "
-
-#: plugin.py:403
-msgid "Initialization error"
-msgstr "Σφάλμα αρχικοποίησης"
-
-#: plugin.py:410
-msgid "Stopping current process to switch portal..."
-msgstr "Διακοπή τρέχουσας διαδικασίας για αλλαγή πύλης..."
-
-#: plugin.py:433
-msgid "Selected: "
-msgstr "Επιλέχθηκαν: "
-
-#: plugin.py:444
-msgid "Loading account info in background..."
-msgstr "Φόρτωση πληροφοριών λογαριασμού στο παρασκήνιο..."
-
-#: plugin.py:469
-msgid "Account info loaded"
-msgstr "Οι πληροφορίες λογαριασμού φορτώθηκαν"
-
-#: plugin.py:471
-msgid "Failed to load account info"
-msgstr "Αποτυχία φόρτωσης πληροφοριών λογαριασμού"
-
-#: plugin.py:482
-msgid "Error accessing configuration values: "
-msgstr "Σφάλμα κατά την πρόσβαση στις τιμές ρυθμίσεων: "
-
-#: plugin.py:486 plugin.py:1175
-msgid "Error: Portal and MAC are required"
-msgstr "Σφάλμα: Απαιτούνται πύλη και MAC"
-
-#: plugin.py:617
-msgid "Handshake failed: No token received"
-msgstr "Η χειραψία απέτυχε: Δεν ελήφθη token"
-
-#: plugin.py:730
-msgid "Error extracting account information"
-msgstr "Σφάλμα κατά την εξαγωγή πληροφοριών λογαριασμού"
-
-#: plugin.py:840
-msgid "Set Type Conversion"
-msgstr "Ορισμός τύπου μετατροπής"
-
-#: plugin.py:841
-msgid "Edit Portal URL"
-msgstr "Επεξεργασία URL πύλης"
-
-#: plugin.py:842
-msgid "Edit MAC Address"
-msgstr "Επεξεργασία διεύθυνσης MAC"
-
-#: plugin.py:843
-msgid "Select Playlist File"
-msgstr "Επιλογή αρχείου λίστας αναπαραγωγής"
-
-#: plugin.py:844
-msgid "Delete Playlist File"
-msgstr "Διαγραφή αρχείου λίστας αναπαραγωγής"
-
-#: plugin.py:845
-msgid "Change Output Directory"
-msgstr "Αλλαγή καταλόγου εξόδου"
-
-#: plugin.py:846
-msgid "Set Bouquet Position"
-msgstr "Ορισμός θέσης μπουκέτου"
-
-#: plugin.py:847
-msgid "Include VOD in Playlist"
-msgstr "Συμπερίληψη ταινιών στη λίστα αναπαραγωγής"
-
-#: plugin.py:848
-msgid "Upgrade Stalker Converter"
-msgstr "Αναβάθμιση του Stalker Converter"
-
-#: plugin.py:849
-msgid "Information"
-msgstr "Πληροφορίες"
-
-#: plugin.py:908
-msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr "Εισάγετε το URL πύλης (π.χ. http://example.com/c/ ή http://example.com:8088/c/)"
-
-#: plugin.py:927
-msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
-msgstr "Εισάγετε τη διεύθυνση MAC (π.χ. 00:1A:79:XX:XX:XX)"
-
-#: plugin.py:956
-msgid "Select Type of Conversion"
-msgstr "Επιλέξτε τύπο μετατροπής"
-
-#: plugin.py:969
-msgid "Bouquet position set to: {}"
-msgstr "Η θέση του μπουκέτου ορίστηκε σε: {}"
-
-#: plugin.py:975
-msgid "Select Bouquet Position"
-msgstr "Επιλέξτε θέση μπουκέτου"
-
-#: plugin.py:1031
-msgid "Loaded {} valid entries from {}"
-msgstr "Φορτώθηκαν {} έγκυρες καταχωρήσεις από {}"
-
-#: plugin.py:1033
-msgid "No valid entries found in file"
-msgstr "Δεν βρέθηκαν έγκυρες καταχωρήσεις στο αρχείο"
-
-#: plugin.py:1036
-msgid "Error: "
-msgstr "Σφάλμα: "
-
-#: plugin.py:1059
-msgid "Scanning file... {}%"
-msgstr "Σάρωση αρχείου... {}%"
-
-#: plugin.py:1112
-msgid "Conversion stopped by user"
-msgstr "Η μετατροπή διακόπηκε από τον χρήστη"
-
-#: plugin.py:1130 plugin.py:1489
-msgid "Success! "
-msgstr "Επιτυχία! "
-
-#: plugin.py:1132 plugin.py:1491
-msgid "Error! "
-msgstr "Σφάλμα! "
-
-#: plugin.py:1147
-msgid "Stopping conversion..."
-msgstr "Διακοπή μετατροπής..."
-
-#: plugin.py:1156
-msgid "Not enough space on {}!"
-msgstr "Μη επαρκής χώρος στο {}!"
-
-#: plugin.py:1169
-msgid "Error accessing configuration values"
-msgstr "Σφάλμα πρόσβασης στις τιμές ρυθμίσεων"
-
-#: plugin.py:1170
-msgid "Failed to read portal or MAC configuration:\n"
-msgstr "Αποτυχία ανάγνωσης ρυθμίσεων πύλης ή MAC:\n"
-
-#: plugin.py:1179
-msgid "Error: Invalid portal URL"
-msgstr "Σφάλμα: Μη έγκυρο URL πύλης"
-
-#: plugin.py:1183
-msgid "Error: Invalid MAC address"
-msgstr "Σφάλμα: Μη έγκυρη διεύθυνση MAC"
-
-#: plugin.py:1192
-msgid "Cannot create directory: "
-msgstr "Αδυναμία δημιουργίας καταλόγου: "
-
-#: plugin.py:1201
-msgid "Stop"
-msgstr "Διακοπή"
-
-#: plugin.py:1204
-msgid "Starting conversion process..."
-msgstr "Έναρξη διαδικασίας μετατροπής..."
-
-#: plugin.py:1215
-msgid "Conversion canceled before start"
-msgstr "Η μετατροπή ακυρώθηκε πριν ξεκινήσει"
-
-#: plugin.py:1226
-msgid "Step 1/3: Connecting to portal..."
-msgstr "Βήμα 1/3: Σύνδεση με την πύλη..."
-
-#: plugin.py:1230
-msgid "Conversion stopped during channel retrieval"
-msgstr "Η μετατροπή σταμάτησε κατά την ανάκτηση των καναλιών"
-
-#: plugin.py:1234
-msgid "Failed to retrieve channel list"
-msgstr "Αποτυχία ανάκτησης λίστας καναλιών"
-
-#: plugin.py:1238
-msgid "Step 2/3: Creating playlist file..."
-msgstr "Βήμα 2/3: Δημιουργία αρχείου λίστας αναπαραγωγής..."
-
-#: plugin.py:1245
-msgid "Step 3/3: Create M3U file..."
-msgstr "Βήμα 3/3: Δημιουργία αρχείου M3U..."
-
-#: plugin.py:1256
-msgid "Conversion stopped during M3U creation"
-msgstr "Η μετατροπή διακόπηκε κατά τη δημιουργία του M3U"
-
-#: plugin.py:1270 plugin.py:1333
-msgid "Step 4/4: Getting VOD content..."
-msgstr "Βήμα 4/4: Λήψη περιεχομένου ταινιών..."
-
-#: plugin.py:1302 plugin.py:1350
-msgid "Added {} VOD items"
-msgstr "Προστέθηκαν {} στοιχεία ταινιών"
-
-#: plugin.py:1305
-msgid "M3U created with {} channels"
-msgstr "Δημιουργήθηκε M3U με {} κανάλια"
-
-#: plugin.py:1309
-msgid "Step 3/3: Create Bouquet file..."
-msgstr "Βήμα 3/3: Δημιουργία αρχείου μπουκέτου..."
-
-#: plugin.py:1314
-msgid "Conversion stopped during grouping"
-msgstr "Η μετατροπή σταμάτησε κατά την ομαδοποίηση"
-
-#: plugin.py:1319
-msgid "Grouping: {}"
-msgstr "Ομαδοποίηση: {}"
-
-#: plugin.py:1322
-msgid "Conversion stopped before bouquet creation"
-msgstr "Η μετατροπή σταμάτησε πριν τη δημιουργία του μπουκέτου"
-
-#: plugin.py:1327
-msgid "Conversion stopped during bouquet creation"
-msgstr "Η μετατροπή σταμάτησε κατά τη δημιουργία του μπουκέτου"
-
-#: plugin.py:1354
-msgid "Bouquets created: {} groups with {} channels"
-msgstr "Δημιουργήθηκαν μπουκέτα: {} ομάδες με {} κανάλια"
-
-#: plugin.py:1360
-msgid "Error creating playlist: "
-msgstr "Σφάλμα κατά τη δημιουργία playlist: "
-
-#: plugin.py:1364
-msgid "Conversion error: "
-msgstr "Σφάλμα μετατροπής: "
-
-#: plugin.py:1562
-msgid "Step 1/3: Handshake..."
-msgstr "Βήμα 1/3: Χειραψία..."
-
-#: plugin.py:1567
-msgid "Failed to obtain token!"
-msgstr "Αποτυχία λήψης token!"
-
-#: plugin.py:1573
-msgid "Step 2/3: Authentication..."
-msgstr "Βήμα 2/3: Ταυτοποίηση..."
-
-#: plugin.py:1580
-msgid "Step 3/3: Getting channels..."
-msgstr "Βήμα 3/3: Λήψη καναλιών..."
-
-#: plugin.py:1588
-msgid "No channels found in response"
-msgstr "Δεν βρέθηκαν κανάλια στην απόκριση"
-
-#: plugin.py:1592
-#, python-format
-msgid "Preparing %d channels..."
-msgstr "Προετοιμασία %d καναλιών..."
-
-#: plugin.py:1605
-msgid "Conversion stopped during channel processing"
-msgstr "Η μετατροπή σταμάτησε κατά την επεξεργασία των καναλιών"
-
-#: plugin.py:1623
-msgid "Conversion stopped during result processing"
-msgstr "Η μετατροπή σταμάτησε κατά την επεξεργασία των αποτελεσμάτων"
-
-#: plugin.py:1643
-msgid ""
-"Processed {}/{} channels ({:.1f}%)\n"
-"Elapsed: {:.1f}s | Avg speed: {:.1f}/s | ETA: {:.1f}s"
-msgstr ""
-"Επεξεργάστηκαν {}/{} κανάλια ({:.1f}%)\n"
-"Παρήλθαν: {:.1f}s | Μέση ταχύτητα: {:.1f}/s | Εκτιμώμενος χρόνος: {:.1f}s"
-
-#: plugin.py:1659
-msgid "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
-msgstr "Επεξεργάστηκαν {}/{} κανάλια ({:.1f}%) | Παρήλθαν: {:.1f}s | Μέση ταχύτητα: {:.1f}/s"
-
-#: plugin.py:2104
-msgid "Select this directory"
-msgstr "Επιλέξτε αυτόν τον κατάλογο"
-
-#: plugin.py:2124 plugin.py:2220
-msgid "Error accessing directory: "
-msgstr "Σφάλμα πρόσβασης στον κατάλογο: "
-
-#: plugin.py:2128
-msgid "<< Cancel"
-msgstr "<< Άκυρο"
-
-#: plugin.py:2132
-msgid "Select playlist file"
-msgstr "Επιλέξτε αρχείο λίστας αναπαραγωγής"
-
-#: plugin.py:2132
-msgid "Select directory"
-msgstr "Επιλέξτε κατάλογο"
-
-#: plugin.py:2136
-msgid "No files found in: "
-msgstr "Δεν βρέθηκαν αρχεία στο: "
-
-#: plugin.py:2165
-msgid "Selected directory: "
-msgstr "Επιλεγμένος κατάλογος: "
-
-#: plugin.py:2175
-#, python-format
-msgid "Loaded playlist: %s"
-msgstr "Φορτώθηκε λίστα αναπαραγωγής: %s"
-
-#: plugin.py:2224
-msgid "No files or directories found in: "
-msgstr "Δεν βρέθηκαν αρχεία ή κατάλογοι στο: "
-
-#: plugin.py:2227
-msgid "<< Back to main menu"
-msgstr "<< Επιστροφή στο κύριο μενού"
-
-#: plugin.py:2232
-msgid "Select file to delete in: {}"
-msgstr "Επιλέξτε αρχείο για διαγραφή στο: {}"
-
-#: plugin.py:2251
-msgid ""
-"Are you sure you want to delete:\n"
-"{}?"
-msgstr ""
-"Είστε σίγουροι ότι θέλετε να διαγράψετε το:\n"
-"{};"
-
-#: plugin.py:2266
-msgid "Deleted: "
-msgstr "Διαγράφηκε: "
-
-#: plugin.py:2275
-msgid "Delete failed: "
-msgstr "Η διαγραφή απέτυχε: "
-
-#: plugin.py:2314
-msgid "Convert to M3U"
-msgstr "Μετατροπή M3U"
-
-#: plugin.py:2316
-msgid "Convert to TV"
-msgstr "Μετατροπή TV"
-
-#: plugin.py:2334
-#, python-format
-msgid ""
-"Plugin: StalkerPortalConvert to M3U/TV\n"
-"Author: Lululla\n"
-"Version: %s\n"
-"Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet format.\n"
-"Support: linuxsat-support.com - corvoboys.org\n"
-"\n"
-msgstr ""
-"Πρόσθετο: StalkerPortalConvert σε M3U/TV\n"
-"Συγγραφέας: Lululla\n"
-"Έκδοση: %s\n"
-"Ημερομηνία: Ιούνιος 2025\n"
-"Περιγραφή: Μετατροπή λιστών πυλών Stalker σε μορφή M3U ή μπουκέτων Enigma2.\n"
-"Υποστήριξη: linuxsat-support.com - corvoboys.org\n"
-"\n"
-
-#: plugin.py:2342
-msgid "HELP:\n"
-msgstr "ΒΟΗΘΕΙΑ:\n"
-
-#: plugin.py:2343
-msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
-msgstr ""
-"- Ανοίξτε ένα αρχείο με URL διακομιστών ή πατήστε το ΜΠΛΕ κουμπί για να επεξεργαστείτε τον host και τη διεύθυνση MAC\n"
-
-#: plugin.py:2344
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
 msgstr "- Επιλέξτε την επιθυμητή μορφή εξόδου: M3U ή μπουκέτο TV\n"
 
-#: plugin.py:2345
+msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
+msgstr "- Ανοίξτε ένα αρχείο με URL διακομιστών ή πατήστε το ΜΠΛΕ κουμπί για να επεξεργαστείτε τον host και τη διεύθυνση MAC\n"
+
 msgid "- Press CONVERT to generate the playlist"
 msgstr "- Πατήστε ΜΕΤΑΤΡΟΠΗ για να δημιουργήσετε τη λίστα αναπαραγωγής"
 
-#: plugin.py:2353
+msgid "<< Back to main menu"
+msgstr "<< Επιστροφή στο κύριο μενού"
+
+msgid "<< Cancel"
+msgstr "<< Άκυρο"
+
+#, fuzzy
+msgid "Access Code:"
+msgstr "Κωδικός πρόσβασης: "
+
+msgid "Account info loaded"
+msgstr "Οι πληροφορίες λογαριασμού φορτώθηκαν"
+
+msgid "Active:"
+msgstr "Ενεργό:"
+
+msgid "Added {} VOD items"
+msgstr "Προστέθηκαν {} στοιχεία ταινιών"
+
+msgid "Authentication failed:"
+msgstr ""
+
+msgid "Bottom"
+msgstr "Κάτω"
+
+msgid "Bouquet position set to: {}"
+msgstr "Η θέση του μπουκέτου ορίστηκε σε: {}"
+
+msgid "Bouquets created: {} groups with {} channels"
+msgstr "Δημιουργήθηκαν μπουκέτα: {} ομάδες με {} κανάλια"
+
+#, fuzzy
+msgid "Cannot create directory:"
+msgstr "Αδυναμία δημιουργίας καταλόγου: "
+
+msgid "Change Output Directory"
+msgstr "Αλλαγή καταλόγου εξόδου"
+
+msgid "Channel list error:"
+msgstr ""
+
+msgid "Channel list failed: HTTP {}"
+msgstr ""
+
+msgid "Clear"
+msgstr "Καθαρισμός"
+
+#, fuzzy
+msgid "Connection error:"
+msgstr "Σφάλμα μετατροπής: "
+
+msgid "Conversion canceled before start"
+msgstr "Η μετατροπή ακυρώθηκε πριν ξεκινήσει"
+
+#, fuzzy
+msgid "Conversion error:"
+msgstr "Σφάλμα μετατροπής: "
+
+msgid "Conversion stopped before bouquet creation"
+msgstr "Η μετατροπή σταμάτησε πριν τη δημιουργία του μπουκέτου"
+
+msgid "Conversion stopped by user"
+msgstr "Η μετατροπή διακόπηκε από τον χρήστη"
+
+msgid "Conversion stopped during M3U creation"
+msgstr "Η μετατροπή διακόπηκε κατά τη δημιουργία του M3U"
+
+msgid "Conversion stopped during bouquet creation"
+msgstr "Η μετατροπή σταμάτησε κατά τη δημιουργία του μπουκέτου"
+
+msgid "Conversion stopped during channel retrieval"
+msgstr "Η μετατροπή σταμάτησε κατά την ανάκτηση των καναλιών"
+
+msgid "Conversion stopped during grouping"
+msgstr "Η μετατροπή σταμάτησε κατά την ομαδοποίηση"
+
+#, fuzzy
+msgid "Conversion stopped during processing"
+msgstr "Η μετατροπή σταμάτησε κατά την επεξεργασία των αποτελεσμάτων"
+
+#, fuzzy
+msgid "Conversion timeout exceeded"
+msgstr "Σφάλμα μετατροπής: "
+
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr "Μετατροπή Stalker Portal σε M3U playlist με πραγματικά κανάλια"
+
+msgid "Convert to M3U"
+msgstr "Μετατροπή M3U"
+
+msgid "Convert to TV"
+msgstr "Μετατροπή TV"
+
+#, fuzzy
+msgid "Critical channel processing error"
+msgstr "Η μετατροπή σταμάτησε κατά την επεξεργασία των καναλιών"
+
+msgid "Delete Playlist File"
+msgstr "Διαγραφή αρχείου λίστας αναπαραγωγής"
+
+#, fuzzy
+msgid "Delete failed:"
+msgstr "Η διαγραφή απέτυχε: "
+
+#, fuzzy
+msgid "Deleted:"
+msgstr "Διαγράφηκε: "
+
+msgid "Directory not writable:"
+msgstr ""
+
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+
+msgid "Disk"
+msgstr ""
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Edit MAC Address"
+msgstr "Επεξεργασία διεύθυνσης MAC"
+
+msgid "Edit Portal URL"
+msgstr "Επεξεργασία URL πύλης"
+
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr "Εισάγετε τη διεύθυνση MAC (π.χ. 00:1A:79:XX:XX:XX)"
+
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr "Εισάγετε το URL πύλης (π.χ. http://example.com/c/ ή http://example.com:8088/c/)"
+
+msgid "Error accessing configuration values"
+msgstr "Σφάλμα πρόσβασης στις τιμές ρυθμίσεων"
+
+#, fuzzy
+msgid "Error accessing configuration values:"
+msgstr "Σφάλμα κατά την πρόσβαση στις τιμές ρυθμίσεων: "
+
+#, fuzzy
+msgid "Error accessing directory:"
+msgstr "Σφάλμα πρόσβασης στον κατάλογο: "
+
+#, fuzzy
+msgid "Error creating playlist:"
+msgstr "Σφάλμα κατά τη δημιουργία playlist: "
+
+#, fuzzy
+msgid "Error details: {}"
+msgstr "Σφάλμα κατά τη δημιουργία playlist: "
+
+msgid "Error extracting account information"
+msgstr "Σφάλμα κατά την εξαγωγή πληροφοριών λογαριασμού"
+
+#, fuzzy
+msgid "Error!"
+msgstr "Σφάλμα! "
+
+#, fuzzy
+msgid "Error:"
+msgstr "Σφάλμα: "
+
+msgid "Error: Invalid MAC address"
+msgstr "Σφάλμα: Μη έγκυρη διεύθυνση MAC"
+
+msgid "Error: Invalid portal URL"
+msgstr "Σφάλμα: Μη έγκυρο URL πύλης"
+
+msgid "Error: Portal and MAC are required"
+msgstr "Σφάλμα: Απαιτούνται πύλη και MAC"
+
+msgid "Expiry:"
+msgstr "Λήξη:"
+
+msgid "Failed to load account info"
+msgstr "Αποτυχία φόρτωσης πληροφοριών λογαριασμού"
+
+msgid "Failed to obtain token!"
+msgstr "Αποτυχία λήψης token!"
+
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr "Αποτυχία ανάγνωσης ρυθμίσεων πύλης ή MAC:\n"
+
+msgid "Failed to retrieve channel list"
+msgstr "Αποτυχία ανάκτησης λίστας καναλιών"
+
 msgid "Fields cleared"
 msgstr "Τα πεδία καθαρίστηκαν"
 
-#: plugin.py:2367
-msgid ""
-"Unable to fetch version info:\n"
-"{}"
+msgid "Grouping: {}"
+msgstr "Ομαδοποίηση: {}"
+
+msgid "HELP:\n"
+msgstr "ΒΟΗΘΕΙΑ:\n"
+
+#, fuzzy
+msgid "Handshake failed: HTTP {}"
+msgstr "Η χειραψία απέτυχε: Δεν ελήφθη token"
+
+msgid "Handshake failed: No token received"
+msgstr "Η χειραψία απέτυχε: Δεν ελήφθη token"
+
+msgid "Hard Disk"
 msgstr ""
-"Αδυναμία λήψης πληροφοριών έκδοσης:\n"
-"{}"
 
-#: plugin.py:2385
-msgid "You are already running the latest version: {}"
-msgstr "Χρησιμοποιείτε ήδη την πιο πρόσφατη έκδοση: {}"
-
-#: plugin.py:2401
-#, python-format
-msgid ""
-"New version %s available\n"
-"\n"
-"Changelog: %s\n"
-"\n"
-"Do you want to install it now?"
-msgstr ""
-"Διαθέσιμη νέα έκδοση %s\n"
-"\n"
-"Καταγραφή αλλαγών: %s\n"
-"\n"
-"Θέλετε να την εγκαταστήσετε τώρα;"
-
-#: plugin.py:2414
-#, python-format
-msgid "You are already running the latest version: %s"
-msgstr "Χρησιμοποιείτε ήδη την πιο πρόσφατη έκδοση: %s"
-
-#: plugin.py:2422
-msgid "Update Aborted!"
-msgstr "Η ενημέρωση ακυρώθηκε!"
-
-#: plugin.py:2449
-msgid "Web Portal Server On"
-msgstr "Διακομιστής ιστού πυλών Ενεργός"
-
-#: plugin.py:2450
-#, python-format
-msgid "Web server: http://%s:%d"
-msgstr "Διακομιστής ιστού: http://%s:%d"
-
-#: plugin.py:2452
-msgid "Web server error: "
-msgstr "Σφάλμα διακομιστή ιστού: "
-
-#: plugin.py:2461
-msgid "Web server stopped"
-msgstr "Ο διακομιστής ιστού σταμάτησε"
-
-#: plugin.py:2539 plugin.py:2578
-msgid "You need to start the Web Server first!"
-msgstr "Πρέπει πρώτα να ξεκινήσετε τον διακομιστή ιστού!"
-
-#: plugin.py:2547
 msgid "Hide Code"
 msgstr "Απόκρυψη κωδικού"
 
-#: plugin.py:2567
-msgid "New Access Code: "
+msgid "Include VOD in Playlist"
+msgstr "Συμπερίληψη ταινιών στη λίστα αναπαραγωγής"
+
+msgid "Information"
+msgstr "Πληροφορίες"
+
+msgid "Initialization error"
+msgstr "Σφάλμα αρχικοποίησης"
+
+#, fuzzy
+msgid "Invalid JSON response for channel list"
+msgstr "Αποτυχία ανάκτησης λίστας καναλιών"
+
+msgid "Invalid MAC: {mac}"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid URL: {portal}"
+msgstr "Σφάλμα: Μη έγκυρο URL πύλης"
+
+msgid "Loaded playlist: %s"
+msgstr "Φορτώθηκε λίστα αναπαραγωγής: %s"
+
+msgid "Loaded {} valid entries from {}"
+msgstr "Φορτώθηκαν {} έγκυρες καταχωρήσεις από {}"
+
+msgid "Loading account info in background..."
+msgstr "Φόρτωση πληροφοριών λογαριασμού στο παρασκήνιο..."
+
+msgid "M3U created with {} channels"
+msgstr "Δημιουργήθηκε M3U με {} κανάλια"
+
+msgid "MAC Address:"
+msgstr "Διεύθυνση MAC:"
+
+#, fuzzy
+msgid "Max:"
+msgstr "Μέγιστοι: "
+
+msgid "Network"
+msgstr ""
+
+#, fuzzy
+msgid "New Access Code:"
 msgstr "Νέος κωδικός: "
 
-#: plugin.py:2572
+msgid "New Code"
+msgstr "Νέος κωδικός"
+
 msgid "New access code generated!"
 msgstr "Δημιουργήθηκε νέος κωδικός πρόσβασης!"
 
-#: plugin.py:4072
-msgid "Convert Stalker Portal to M3U playlist with actual channels"
-msgstr "Μετατροπή Stalker Portal σε M3U playlist με πραγματικά κανάλια"
+msgid "No channels found in response"
+msgstr "Δεν βρέθηκαν κανάλια στην απόκριση"
+
+#, fuzzy
+msgid "No files found in:"
+msgstr "Δεν βρέθηκαν αρχεία στο: "
+
+#, fuzzy
+msgid "No files or directories found in:"
+msgstr "Δεν βρέθηκαν αρχεία ή κατάλογοι στο: "
+
+msgid "No valid entries found in file"
+msgstr "Δεν βρέθηκαν έγκυρες καταχωρήσεις στο αρχείο"
+
+msgid "Not enough space on {}!"
+msgstr "Μη επαρκής χώρος στο {}!"
+
+msgid "Output File:"
+msgstr "Αρχείο εξόδου:"
+
+msgid "Password:"
+msgstr "Κωδικός:"
+
+msgid "Playlist File:"
+msgstr "Αρχείο λίστας αναπαραγωγής:"
+
+msgid "Portal URL:"
+msgstr "URL πύλης:"
+
+#, fuzzy
+msgid "Preparing {} channels..."
+msgstr "Προετοιμασία %d καναλιών..."
+
+msgid "Press 0: Show Access Code | Press 1: New Code"
+msgstr "Πατήστε 0: Εμφάνιση κωδικού πρόσβασης | Πατήστε 1: Νέος κωδικός"
+
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr "Έτοιμο - Επιλέξτε αρχείο ή εισάγετε URL/MAC"
+
+msgid "Scanning file... {}%"
+msgstr "Σάρωση αρχείου... {}%"
+
+msgid "Select Bouquet Position"
+msgstr "Επιλέξτε θέση μπουκέτου"
+
+#, fuzzy
+msgid "Select Mount Root"
+msgstr "Επιλέξτε θέση μπουκέτου"
+
+msgid "Select Playlist"
+msgstr "Επιλογή Playlist"
+
+msgid "Select Playlist File"
+msgstr "Επιλογή αρχείου λίστας αναπαραγωγής"
+
+msgid "Select Type of Conversion"
+msgstr "Επιλέξτε τύπο μετατροπής"
+
+msgid "Select directory"
+msgstr "Επιλέξτε κατάλογο"
+
+msgid "Select file to delete in: {}"
+msgstr "Επιλέξτε αρχείο για διαγραφή στο: {}"
+
+msgid "Select playlist file"
+msgstr "Επιλέξτε αρχείο λίστας αναπαραγωγής"
+
+msgid "Select this directory"
+msgstr "Επιλέξτε αυτόν τον κατάλογο"
+
+#, fuzzy
+msgid "Selected directory:"
+msgstr "Επιλεγμένος κατάλογος: "
+
+#, fuzzy
+msgid "Selected:"
+msgstr "Επιλέχθηκαν: "
+
+msgid "Set Bouquet Position"
+msgstr "Ορισμός θέσης μπουκέτου"
+
+msgid "Set Type Conversion"
+msgstr "Ορισμός τύπου μετατροπής"
+
+msgid "Show Code"
+msgstr "Εμφάνιση κωδικού"
+
+msgid "Stalker Portal to M3U Converter v.%s"
+msgstr "Μετατροπή πυλών Stalker σε M3U v.%s"
+
+msgid "Starting conversion process..."
+msgstr "Έναρξη διαδικασίας μετατροπής..."
+
+msgid "Status:"
+msgstr "Κατάσταση:"
+
+msgid "Step 1/3: Connecting to portal..."
+msgstr "Βήμα 1/3: Σύνδεση με την πύλη..."
+
+msgid "Step 1/3: Handshake..."
+msgstr "Βήμα 1/3: Χειραψία..."
+
+msgid "Step 2/3: Authentication..."
+msgstr "Βήμα 2/3: Ταυτοποίηση..."
+
+msgid "Step 2/3: Creating playlist file..."
+msgstr "Βήμα 2/3: Δημιουργία αρχείου λίστας αναπαραγωγής..."
+
+msgid "Step 3/3: Create Bouquet file..."
+msgstr "Βήμα 3/3: Δημιουργία αρχείου μπουκέτου..."
+
+msgid "Step 3/3: Create M3U file..."
+msgstr "Βήμα 3/3: Δημιουργία αρχείου M3U..."
+
+msgid "Step 3/3: Getting channels..."
+msgstr "Βήμα 3/3: Λήψη καναλιών..."
+
+msgid "Step 4/4: Getting VOD content..."
+msgstr "Βήμα 4/4: Λήψη περιεχομένου ταινιών..."
+
+msgid "Stop"
+msgstr "Διακοπή"
+
+msgid "Stopping conversion..."
+msgstr "Διακοπή μετατροπής..."
+
+msgid "Stopping current process to switch portal..."
+msgstr "Διακοπή τρέχουσας διαδικασίας για αλλαγή πύλης..."
+
+#, fuzzy
+msgid "Success!"
+msgstr "Επιτυχία! "
+
+msgid "Temporary Storage"
+msgstr ""
+
+msgid "Top"
+msgstr "Πάνω"
+
+msgid "USB Drive"
+msgstr ""
+
+msgid "Update Aborted!"
+msgstr "Η ενημέρωση ακυρώθηκε!"
+
+msgid "Upgrade Stalker Converter"
+msgstr "Αναβάθμιση του Stalker Converter"
+
+msgid "User:"
+msgstr "Χρήστης:"
+
+msgid "VOD inclusion: {}"
+msgstr "Συμπερίληψη ταινιών: {}"
+
+msgid "Valid Portals from Selected File:"
+msgstr "Έγκυρες πύλες από το επιλεγμένο αρχείο:"
+
+msgid "Web Portal Server Off"
+msgstr "Διακομιστής ιστού πυλών Ανενεργός"
+
+msgid "Web Portal Server On"
+msgstr "Διακομιστής ιστού πυλών Ενεργός"
+
+#, fuzzy
+msgid "Web server error:"
+msgstr "Σφάλμα διακομιστή ιστού: "
+
+msgid "Web server stopped"
+msgstr "Ο διακομιστής ιστού σταμάτησε"
+
+msgid "Web server: http://%s:%d"
+msgstr "Διακομιστής ιστού: http://%s:%d"
+
+msgid "You are already running the latest version: %s"
+msgstr "Χρησιμοποιείτε ήδη την πιο πρόσφατη έκδοση: %s"
+
+msgid "You are already running the latest version: {}"
+msgstr "Χρησιμοποιείτε ήδη την πιο πρόσφατη έκδοση: {}"
+
+msgid "You need to start the Web Server first!"
+msgstr "Πρέπει πρώτα να ξεκινήσετε τον διακομιστή ιστού!"
+
+#~ msgid "VOD: "
+#~ msgstr "Ταινίες: "
+
+#~ msgid "Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
+#~ msgstr "Επεξεργάστηκαν {}/{} κανάλια ({:.1f}%) | Παρήλθαν: {:.1f}s | Μέση ταχύτητα: {:.1f}/s"

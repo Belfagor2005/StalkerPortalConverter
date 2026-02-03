@@ -221,9 +221,6 @@ msgid "Include VOD in Playlist"
 msgstr ""
 
 #: plugin.py:890
-msgid ""
-"Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
-msgstr ""
 
 #: plugin.py:909
 msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
@@ -429,15 +426,8 @@ msgid "Conversion stopped during result processing"
 msgstr ""
 
 #: plugin.py:1639
-msgid ""
-"Processed {}/{} channels ({:.1f}%)\n"
-"Elapsed: {:.1f}s | Avg speed: {:.1f}/s | ETA: {:.1f}s"
-msgstr ""
 
 #: plugin.py:1655
-msgid ""
-"Processed {}/{} channels ({:.1f}%) | Elapsed: {:.1f}s | Avg speed: {:.1f}/s"
-msgstr ""
 
 #: plugin.py:1708
 #, fuzzy
@@ -509,10 +499,6 @@ msgstr "删除失败:"
 #: plugin.py:2233
 #, fuzzy
 #| msgid "Are you sure you want to delete this screenshot?"
-msgid ""
-"Are you sure you want to delete:\n"
-"{}?"
-msgstr "确定要删除这个?"
 
 #: plugin.py:2248
 #, fuzzy
@@ -536,26 +522,12 @@ msgstr ""
 
 #: plugin.py:2316
 #, python-format
-msgid ""
-"Plugin: StalkerPortalConvert to M3U/TV\n"
-"Author: Lululla\n"
-"Version: %s\n"
-"Date: June 2025\n"
-"Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet "
-"format.\n"
-"Support: linuxsat-support.com - corvoboys.org\n"
-"\n"
-msgstr ""
 
 #: plugin.py:2324
 msgid "HELP:\n"
 msgstr ""
 
 #: plugin.py:2325
-msgid ""
-"- Open a file with server URLs or press the BLUE button to edit the host and "
-"MAC address\n"
-msgstr ""
 
 #: plugin.py:2326
 msgid "- Choose the desired output format: M3U or TV bouquet\n"
@@ -570,10 +542,6 @@ msgid "Fields cleared"
 msgstr ""
 
 #: plugin.py:2349
-msgid ""
-"Unable to fetch version info:\n"
-"{}"
-msgstr ""
 
 #: plugin.py:2367
 msgid "You are already running the latest version: {}"
@@ -581,13 +549,6 @@ msgstr ""
 
 #: plugin.py:2383
 #, python-format
-msgid ""
-"New version %s available\n"
-"\n"
-"Changelog: %s\n"
-"\n"
-"Do you want to install it now?"
-msgstr ""
 
 #: plugin.py:2396
 #, python-format

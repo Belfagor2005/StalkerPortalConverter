@@ -1,0 +1,436 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: enigma 2\n"
+"PO-Revision-Date: 2026-02-03 16:18+0000\n"
+"Last-Translator:  <EMAIL@ADDRESS>\n"
+"Language-Team: Thai <(nothing)>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "- Choose the desired output format: M3U or TV bouquet\n"
+msgstr ""
+
+msgid "- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n"
+msgstr ""
+
+msgid "- Press CONVERT to generate the playlist"
+msgstr ""
+
+msgid "<< Back to main menu"
+msgstr ""
+
+msgid "<< Cancel"
+msgstr ""
+
+msgid "Access Code:"
+msgstr ""
+
+msgid "Account info loaded"
+msgstr ""
+
+msgid "Active:"
+msgstr ""
+
+msgid "Added {} VOD items"
+msgstr ""
+
+msgid "Authentication failed:"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "Bouquet position set to: {}"
+msgstr ""
+
+msgid "Bouquets created: {} groups with {} channels"
+msgstr ""
+
+msgid "Cannot create directory:"
+msgstr ""
+
+msgid "Change Output Directory"
+msgstr ""
+
+msgid "Channel list error:"
+msgstr ""
+
+msgid "Channel list failed: HTTP {}"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Connection error:"
+msgstr ""
+
+msgid "Conversion canceled before start"
+msgstr ""
+
+msgid "Conversion error:"
+msgstr ""
+
+msgid "Conversion stopped before bouquet creation"
+msgstr ""
+
+msgid "Conversion stopped by user"
+msgstr ""
+
+msgid "Conversion stopped during M3U creation"
+msgstr ""
+
+msgid "Conversion stopped during bouquet creation"
+msgstr ""
+
+msgid "Conversion stopped during channel retrieval"
+msgstr ""
+
+msgid "Conversion stopped during grouping"
+msgstr ""
+
+msgid "Conversion stopped during processing"
+msgstr ""
+
+msgid "Conversion timeout exceeded"
+msgstr ""
+
+msgid "Convert Stalker Portal to M3U playlist with actual channels"
+msgstr ""
+
+msgid "Convert to M3U"
+msgstr ""
+
+msgid "Convert to TV"
+msgstr ""
+
+msgid "Critical channel processing error"
+msgstr ""
+
+msgid "Delete Playlist File"
+msgstr ""
+
+msgid "Delete failed:"
+msgstr ""
+
+msgid "Deleted:"
+msgstr ""
+
+msgid "Directory not writable:"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Disk"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit MAC Address"
+msgstr ""
+
+msgid "Edit Portal URL"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Enter MAC Address (e.g., 00:1A:79:XX:XX:XX)"
+msgstr ""
+
+msgid "Enter Portal URL (e.g. http://example.com/c/ or http://example.com:8088/c/)"
+msgstr ""
+
+msgid "Error accessing configuration values"
+msgstr ""
+
+msgid "Error accessing configuration values:"
+msgstr ""
+
+msgid "Error accessing directory:"
+msgstr ""
+
+msgid "Error creating playlist:"
+msgstr ""
+
+msgid "Error details: {}"
+msgstr ""
+
+msgid "Error extracting account information"
+msgstr ""
+
+msgid "Error!"
+msgstr ""
+
+msgid "Error:"
+msgstr ""
+
+msgid "Error: Invalid MAC address"
+msgstr ""
+
+msgid "Error: Invalid portal URL"
+msgstr ""
+
+msgid "Error: Portal and MAC are required"
+msgstr ""
+
+msgid "Expiry:"
+msgstr ""
+
+msgid "Failed to load account info"
+msgstr ""
+
+msgid "Failed to obtain token!"
+msgstr ""
+
+msgid "Failed to read portal or MAC configuration:\n"
+msgstr ""
+
+msgid "Failed to retrieve channel list"
+msgstr ""
+
+msgid "Fields cleared"
+msgstr ""
+
+msgid "Grouping: {}"
+msgstr ""
+
+msgid "HELP:\n"
+msgstr ""
+
+msgid "Handshake failed: HTTP {}"
+msgstr ""
+
+msgid "Handshake failed: No token received"
+msgstr ""
+
+msgid "Hard Disk"
+msgstr ""
+
+msgid "Hide Code"
+msgstr ""
+
+msgid "Include VOD in Playlist"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Initialization error"
+msgstr ""
+
+msgid "Invalid JSON response for channel list"
+msgstr ""
+
+msgid "Invalid MAC: {mac}"
+msgstr ""
+
+msgid "Invalid URL: {portal}"
+msgstr ""
+
+msgid "Loaded playlist: %s"
+msgstr ""
+
+msgid "Loaded {} valid entries from {}"
+msgstr ""
+
+msgid "Loading account info in background..."
+msgstr ""
+
+msgid "M3U created with {} channels"
+msgstr ""
+
+msgid "MAC Address:"
+msgstr ""
+
+msgid "Max:"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "New Access Code:"
+msgstr ""
+
+msgid "New Code"
+msgstr ""
+
+msgid "New access code generated!"
+msgstr ""
+
+msgid "No channels found in response"
+msgstr ""
+
+msgid "No files found in:"
+msgstr ""
+
+msgid "No files or directories found in:"
+msgstr ""
+
+msgid "No valid entries found in file"
+msgstr ""
+
+msgid "Not enough space on {}!"
+msgstr ""
+
+msgid "Output File:"
+msgstr ""
+
+msgid "Password:"
+msgstr ""
+
+msgid "Playlist File:"
+msgstr ""
+
+msgid "Portal URL:"
+msgstr ""
+
+msgid "Preparing {} channels..."
+msgstr ""
+
+msgid "Press 0: Show Access Code | Press 1: New Code"
+msgstr ""
+
+msgid "Ready - Select a file or enter URL/MAC"
+msgstr ""
+
+msgid "Scanning file... {}%"
+msgstr ""
+
+msgid "Select Bouquet Position"
+msgstr ""
+
+msgid "Select Mount Root"
+msgstr ""
+
+msgid "Select Playlist"
+msgstr ""
+
+msgid "Select Playlist File"
+msgstr ""
+
+msgid "Select Type of Conversion"
+msgstr ""
+
+msgid "Select directory"
+msgstr ""
+
+msgid "Select file to delete in: {}"
+msgstr ""
+
+msgid "Select playlist file"
+msgstr ""
+
+msgid "Select this directory"
+msgstr ""
+
+msgid "Selected directory:"
+msgstr ""
+
+msgid "Selected:"
+msgstr ""
+
+msgid "Set Bouquet Position"
+msgstr ""
+
+msgid "Set Type Conversion"
+msgstr ""
+
+msgid "Show Code"
+msgstr ""
+
+msgid "Stalker Portal to M3U Converter v.%s"
+msgstr ""
+
+msgid "Starting conversion process..."
+msgstr ""
+
+msgid "Status:"
+msgstr ""
+
+msgid "Step 1/3: Connecting to portal..."
+msgstr ""
+
+msgid "Step 1/3: Handshake..."
+msgstr ""
+
+msgid "Step 2/3: Authentication..."
+msgstr ""
+
+msgid "Step 2/3: Creating playlist file..."
+msgstr ""
+
+msgid "Step 3/3: Create Bouquet file..."
+msgstr ""
+
+msgid "Step 3/3: Create M3U file..."
+msgstr ""
+
+msgid "Step 3/3: Getting channels..."
+msgstr ""
+
+msgid "Step 4/4: Getting VOD content..."
+msgstr ""
+
+msgid "Stop"
+msgstr ""
+
+msgid "Stopping conversion..."
+msgstr ""
+
+msgid "Stopping current process to switch portal..."
+msgstr ""
+
+msgid "Success!"
+msgstr ""
+
+msgid "Temporary Storage"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
+msgid "USB Drive"
+msgstr ""
+
+msgid "Update Aborted!"
+msgstr ""
+
+msgid "Upgrade Stalker Converter"
+msgstr ""
+
+msgid "User:"
+msgstr ""
+
+msgid "VOD inclusion: {}"
+msgstr ""
+
+msgid "Valid Portals from Selected File:"
+msgstr ""
+
+msgid "Web Portal Server Off"
+msgstr ""
+
+msgid "Web Portal Server On"
+msgstr ""
+
+msgid "Web server error:"
+msgstr ""
+
+msgid "Web server stopped"
+msgstr ""
+
+msgid "Web server: http://%s:%d"
+msgstr ""
+
+msgid "You are already running the latest version: %s"
+msgstr ""
+
+msgid "You are already running the latest version: {}"
+msgstr ""
+
+msgid "You need to start the Web Server first!"
+msgstr ""
