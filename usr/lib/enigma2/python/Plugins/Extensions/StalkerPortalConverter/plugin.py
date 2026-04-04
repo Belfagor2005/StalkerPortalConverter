@@ -75,6 +75,7 @@ from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Tools.Directories import defaultRecordingLocation
 from . import (
     _,
+    __version__,
     b64decoder,
     check_version,
     fetch_system_timezone,
@@ -88,8 +89,6 @@ from . import (
     # write_debug_line,
 )
 
-
-currversion = '1.6'
 
 """Use mode:
 playlist.txt with case sensitive
@@ -301,7 +300,7 @@ class StalkerPortalConverter(Screen):
 
         self["title"] = Label(
             _("Stalker Portal to M3U Converter v.%s") %
-            currversion)
+            __version__)
         self["portal_label"] = Label(_("Portal URL:"))
         self["portal_input"] = Label(
             config.plugins.stalkerportal.portal_url.value)
@@ -2682,7 +2681,7 @@ class StalkerPortalConverter(Screen):
             "Date: June 2025\n"
             "Description: Convert Stalker Portal playlists to M3U or Enigma2 bouquet format.\n"
             "Support: linuxsat-support.com - corvoboys.org\n\n"
-        ) % currversion
+        ) % __version__
 
         text += _("HELP:\n")
         text += _("- Open a file with server URLs or press the BLUE button to edit the host and MAC address\n")
@@ -2729,18 +2728,18 @@ class StalkerPortalConverter(Screen):
         self.new_version = str(remote_version)
         self.new_changelog = str(remote_changelog)
 
-        if currversion < self.new_version:
+        if __version__ < self.new_version:
             self.Update = True
             self.select_update()
         else:
             self.defer_message(
-                _("You are already running the latest version: {}").format(currversion),
+                _("You are already running the latest version: {}").format(__version__),
                 MessageBox.TYPE_INFO)
 
     def select_update(self):
         self.Update = False
         self.new_version, self.new_changelog, update_available = check_version(
-            currversion, installer_url, AgentRequest
+            __version__, installer_url, AgentRequest
         )
 
         if update_available:
@@ -2764,7 +2763,7 @@ class StalkerPortalConverter(Screen):
             print("No new version available.")
             self.defer_message(
                 _("You are already running the latest version: %s") %
-                currversion, MessageBox.TYPE_INFO)
+                __version__, MessageBox.TYPE_INFO)
 
     def install_update(self, answer=False):
         if answer:
