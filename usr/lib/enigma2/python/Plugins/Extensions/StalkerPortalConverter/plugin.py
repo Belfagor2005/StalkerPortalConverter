@@ -2293,15 +2293,22 @@ class StalkerPortalConverter(Screen):
 
                 except RequestException as re:
                     if "Connection reset by peer" in str(re):
-                        print("Connection reset by peer on channel '" + channel_name + "', attempt " + str(attempt + 1) + "/" + str(max_retries))
+                        print("Connection reset by peer on channel '" + channel_name +
+                              "', attempt " + str(attempt + 1) + "/" + str(max_retries))
                         if attempt < max_retries:
                             time.sleep(retry_delay * (attempt + 1))
                             continue
                         else:
-                            print("Connection reset on channel '" + channel_name + "' after " + str(max_retries) + " attempts, skipping")
+                            print(
+                                "Connection reset on channel '" +
+                                channel_name +
+                                "' after " +
+                                str(max_retries) +
+                                " attempts, skipping")
                             return None
                     else:
-                        print("Request exception on channel '" + channel_name + "': " + str(re))
+                        print("Request exception on channel '" +
+                              channel_name + "': " + str(re))
                         if attempt < max_retries:
                             time.sleep(retry_delay)
                             continue
