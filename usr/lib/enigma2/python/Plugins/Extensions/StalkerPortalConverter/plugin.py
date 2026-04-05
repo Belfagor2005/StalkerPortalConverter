@@ -2102,7 +2102,8 @@ class StalkerPortalConverter(Screen):
                 "token": token,
                 "JsHttpRequest": "1-xml"
             }
-            api_url = portal.rstrip('/') + "/portal.php?" + urlencode(channel_params)
+            api_url = portal.rstrip('/') + "/portal.php?" + \
+                urlencode(channel_params)
 
             # Extract domain for later use
             parsed_portal = urlparse(portal)
@@ -2282,7 +2283,12 @@ class StalkerPortalConverter(Screen):
                         time.sleep(retry_delay * (attempt + 1))
                         continue
                     else:
-                        print("Connection reset on channel '" + channel_name + "' after " + str(max_retries) + " attempts, skipping")
+                        print(
+                            "Connection reset on channel '" +
+                            channel_name +
+                            "' after " +
+                            str(max_retries) +
+                            " attempts, skipping")
                         return None
 
                 except RequestException as re:
@@ -2309,7 +2315,13 @@ class StalkerPortalConverter(Screen):
             return None
 
         except Exception as e:
-            print("Error processing channel: " + channel.get('name', 'Unknown') + " - " + str(e))
+            print(
+                "Error processing channel: " +
+                channel.get(
+                    'name',
+                    'Unknown') +
+                " - " +
+                str(e))
             return None  # Return None instead of failing
 
     def process_fallback_response(
