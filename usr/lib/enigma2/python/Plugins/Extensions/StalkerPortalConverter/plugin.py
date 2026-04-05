@@ -91,30 +91,30 @@ from . import (
 
 
 """Use mode:
-playlist.txt with case sensitive
-Examples of supported formats:
-Standard format:
+# playlist.txt with case sensitive
+# Examples of supported formats:
+# Standard format:
 
-Panel: http://example.com:80/c/
-MAC: 00:1A:79:XX:XX:XX
-Compact format:
+# Panel: http://example.com:80/c/
+# MAC: 00:1A:79:XX:XX:XX
+# Compact format:
 
-http://example.com/c/ # My Portal
-00:1A:79:XX:XX:XX
-Multiple MACs per portal:
+# http://example.com/c/ # My Portal
+# 00:1A:79:XX:XX:XX
+# Multiple MACs per portal:
 
-Portal: http://server.com:8080/c
-MAC1: 00:1A:79:AA:AA:AA
-MAC2: 00:1A:79:BB:BB:BB
-Unlabeled MAC:
+# Portal: http://server.com:8080/c
+# MAC1: 00:1A:79:AA:AA:AA
+# MAC2: 00:1A:79:BB:BB:BB
+# Unlabeled MAC:
 
-Panel http://example.com/c
-00:1A:79:XX:XX:XX
-Portal without explicit MAC:
+# Panel http://example.com/c
+# 00:1A:79:XX:XX:XX
+# Portal without explicit MAC:
 
-http://server1.com/c/
-http://server2.com/c/ # Uses same MAC as server1
-00:1A:79:XX:XX:XX
+# http://server1.com/c/
+# http://server2.com/c/ # Uses same MAC as server1
+# 00:1A:79:XX:XX:XX
 """
 
 
