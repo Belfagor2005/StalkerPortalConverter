@@ -1,6 +1,5 @@
 ## 📺 Stalker Portal Playlist Converter
 
-![](https://komarev.com/ghpvc/?username=Belfagor2005) 
 ![](https://komarev.com/ghpvc/?username=Belfagor2005&label=Repository%20Views&color=blueviolet)
 [![Python package](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/pylint.yml)
 [![Ruff Status](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/ruff.yml/badge.svg)](https://github.com/Belfagor2005/StalkerPortalConverter/actions/workflows/ruff.yml)
