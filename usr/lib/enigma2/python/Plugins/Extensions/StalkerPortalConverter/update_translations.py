@@ -1,5 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import os
+import re
+import subprocess
+from xml.etree import ElementTree as ET
+
 """
 ###########################################################
 StalkerPortalConverter for Enigma2
@@ -11,11 +16,6 @@ Homepage: www.corvoboys.org
           www.linuxsat-support.com
 ###########################################################
 """
-import os
-import re
-import subprocess
-from xml.etree import ElementTree as ET
-
 PLUGIN_NAME = "StalkerPortalConverter"
 PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
 LOCALE_DIR = os.path.join(PLUGIN_DIR, "locale")

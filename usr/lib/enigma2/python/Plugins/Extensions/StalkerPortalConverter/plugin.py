@@ -1,26 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function
 
-"""
-#########################################################
-#                                                       #
-#  Stalker Portal Converter Plugin                      #
-#  Version: 1.4                                         #
-#  Created by Lululla (https://github.com/Belfagor2005) #
-#  License: CC BY-NC-SA 4.0                             #
-#  https://creativecommons.org/licenses/by-nc-sa/4.0    #
-#  Last Modified: "21:50 - 20250606"                    #
-#                                                       #
-#  Credits:                                             #
-#  - Original concept by Lululla                        #
-#  Usage of this code without proper attribution        #
-#  is strictly prohibited.                              #
-#  For modifications and redistribution,                #
-#  please maintain this credit header.                  #
-#########################################################
-"""
-__author__ = "Lululla"
-
 import threading
 import time
 import random
@@ -88,6 +68,26 @@ from . import (
     cleanName,
     # write_debug_line,
 )
+
+"""
+#########################################################
+#                                                       #
+#  Stalker Portal Converter Plugin                      #
+#  Version: 1.4                                         #
+#  Created by Lululla (https://github.com/Belfagor2005) #
+#  License: CC BY-NC-SA 4.0                             #
+#  https://creativecommons.org/licenses/by-nc-sa/4.0    #
+#  Last Modified: "21:50 - 20250606"                    #
+#                                                       #
+#  Credits:                                             #
+#  - Original concept by Lululla                        #
+#  Usage of this code without proper attribution        #
+#  is strictly prohibited.                              #
+#  For modifications and redistribution,                #
+#  please maintain this credit header.                  #
+#########################################################
+"""
+__author__ = "Lululla"
 
 
 """Use mode:
